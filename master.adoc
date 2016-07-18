@@ -11,6 +11,8 @@
 :language: javadocript
 :icons: font
 
+include::definitions.txt[]
+
 == Undergraduate
 
 Materials used at {iutblagnac}.
