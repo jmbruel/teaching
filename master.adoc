@@ -17,7 +17,7 @@ include::definitions.txt[]
 
 Materials used at {iutblagnac}.
 
-== Contribute
+== icon:cogs[] Contribute
 
 If you want to contribute you can play first with the following (fake) materials.
 
