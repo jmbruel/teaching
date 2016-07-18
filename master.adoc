@@ -4,7 +4,8 @@
 :revnumber: 1.0
 :revdate:   {localdate}
 :doctype: book
-:toc:
+:toc-title: Table des matières
+:toc: left
 :icons:
 :data-uri:
 :lang: fr
