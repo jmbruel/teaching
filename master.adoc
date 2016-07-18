@@ -1,0 +1,28 @@
+= Teaching materials
+:author: Jean-Michel Bruel
+:email:  jbruel@gmail.com
+:revnumber: 1.0
+:revdate:   {localdate}
+:doctype: book
+:toc:
+:icons:
+:data-uri:
+:lang: fr
+:language: javadocript
+:icons: font
+
+== Undergraduate
+
+Materials used at {iutblagnac}.
+
+== Contribute
+
+If you want to contribute you can play first with the following (fake) materials.
+
+link:output/bac_a_sable.html[Bac à sable]
+
+ifdef::backend-docbook[]
+[index]
+Index
+-----
+endif::backend-docbook[]

@@ -1,0 +1,4 @@
+= Teaching materials
+image:https://travis-ci.org/jmbruel/teaching.svg?branch=master["Build Status", link="https://travis-ci.org/jmbruel/teaching"]
+
+This project aims at grouping my teaching materials in one place.
