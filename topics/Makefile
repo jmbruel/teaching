@@ -3,7 +3,7 @@ DZSLIDES=../../asciidoctor-backends/slim/dzslides
 #STYLE=../POO/COO/stylesheets/golo-jmb.css
 STYLE=../asciidoctor-stylesheet-factory/stylesheets/jmb.css
 #ASCIIDOCTOR=asciidoctor
-ASCIIDOCTOR=asciidoctor -a icons=font 
+ASCIIDOCTOR=asciidoctor -a icons=font
 EXT=asc
 OUTPUT=.
 SITE=../jmbruel.github.io/teaching
@@ -16,7 +16,6 @@ all: $(OUTPUT)/$(MAIN).html $(OUTPUT)/$(MAIN).slides.html
 $(OUTPUT)/%.html: %.$(EXT)
 	@echo '==> Compiling asciidoc files to generate HTML'
 	$(ASCIIDOCTOR) -b html5 \
-		-a stylesheet=jmb.css \
 		-a numbered \
 		-a source-highlighter=highlightjs \
 		-a data-uri \
