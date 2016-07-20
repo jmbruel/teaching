@@ -29,6 +29,8 @@ If you want to contribute you can play first with the following (fake) materials
 
 link:output/bac_a_sable.html[Bac à sable]
 
+image::git-flow-jmb.svg[]
+
 ifdef::backend-docbook[]
 [index]
 Index
