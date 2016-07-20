@@ -1,22 +1,27 @@
 = Teaching materials
-:author: Jean-Michel Bruel
-:email:  jbruel@gmail.com
-:revnumber: 1.0
-:revdate:   {localdate}
-:doctype: book
+J.-M. Bruel <jbruel@gmail.com>
+V0.8, {localdate}
+//:doctype: book
 :toc-title: Table des matières
 :toc: left
-:icons:
-:data-uri:
+//:data-uri:
 :lang: fr
-:language: javadocript
+:numbered:
 :icons: font
+//:iconsdir: images/icons
+:imagesdir: images
 
 include::definitions.txt[]
 
 == Undergraduate
 
-Materials used at {iutblagnac}.
+Materials used at {iut} :
+
+.Modules dependencies
+image::dut-modules.svg[]
+
+icon:cog[] link:mpa2016.html[MPA]
+
 
 == icon:cogs[] Contribute
 

@@ -5,7 +5,7 @@ task :default do
 end
 
 desc "Create different file outputs"
-task :ascii  do
+task :master  do
   system("asciidoctor -o output/master.html master.adoc")
   system("asciidoctor-epub3 -D output master.adoc")
 
