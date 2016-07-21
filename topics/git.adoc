@@ -174,19 +174,33 @@ Voici un extrait du mien :
         co = checkout
         st = status
 ----------------------------------------------------------------------
+
+Ce qui donne :
+[source]
+----------------------------------------------------------------------
+$ git co
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+$ git checkout
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+----------------------------------------------------------------------
 ====
 
+
 // ------
-[{topic}]
-== Scénario classique (et idéal)
+[{intro}]
+== Scénario *classique* (et idéal)
 
 ifndef::slides[:leveloffset: +1]
 
+// ------
+[{topic}]
 == Etape 1 : création du _repository_ local
 
 On démarre la gestion de version :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git init
 ----------------------------------------------------------------------
@@ -195,32 +209,52 @@ $ git init
 [TIP]
 ====
 Génération d'un répertoire `.git` dans le répertoire courant.
+
+[source]
+----------------------------------------------------------------------
+$ git init
+Initialized empty Git repository in /tmp/.git/
+
+$ ll
+total 0
+drwxr-xr-x   3 bruel  admin   102 21 jul 17:29 ./
+drwxr-xr-x  35 bruel  admin  1190 21 jul 17:29 ../
+drwxr-xr-x  10 bruel  admin   340 21 jul 17:29 .git/
+----------------------------------------------------------------------
+
 ====
 
+// ------
+[{topic}]
 == Etape 2 : ajout des fichiers
 
 On ajoute les fichiers courants au dépôt :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git add .
 ----------------------------------------------------------------------
 
 [NOTE]
 ====
-Ne pas forcément tout ajouter (`git add *.c` par exemple pour ne versionner que les sources).
+[{incremental}]
+- Ne pas forcément tout ajouter (`git add *.c` par exemple pour ne versionner que les sources).
 ====
 
 [TIP]
 ====
-Pensez à créer un fichier `.gitignore` pour éviter d'ajouter les fichiers indésirables (comme les fichiers de +log+).
+[{incremental}]
+- Pensez à créer un fichier `.gitignore` pour éviter d'ajouter les fichiers indésirables (comme les fichiers de `log`).
 ====
 
+// ------
+[{topic}]
 == Etape 2 (suite) : vérification
 
-On peut visualiser les actions en vérifiant l'état courant du dépôt :
+On peut visualiser les actions en vérifiant l'*état courant* du dépôt :
 
-[source,shell]
+[source]
+----------------------------------------------------------------------
 $ git status
 # On branch master
 # Your branch is ahead of 'origin/master' by 1 commit.
@@ -234,11 +268,13 @@ $ git status
 ...
 ----------------------------------------------------------------------
 
+// ------
+[{topic}]
 == Etape 3 : Commit
 
 Pour entériner les changements :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git commit -m "First draft"
 [master (root-commit) 4f40f5d] First draft
@@ -249,15 +285,18 @@ $ git commit -m "First draft"
 
 [NOTE]
 ====
-Retenez que le +commit+ est uniquement local! +
-Mais même en local, il est bien utile en cas de problème.
+[{incremental}]
+- Retenez que le `commit` est uniquement local!
+- Mais même en local, il est bien utile en cas de problème.
 ====
 
+// ------
+[{topic}]
 == Etape 3 (suite) : Gestion "locale"
 
-Exemple de scénario type (suppression exceptionnelle et "rattrapage") :
+Exemple de scénario type (suppression exceptionnelle et rattrapage) :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ rm titi.txt
 $ git status
@@ -269,11 +308,14 @@ $ git status
 #	deleted:    titi.txt
 #
 no changes added to commit (use "git add" and/or "git commit -a")
+
 $ git checkout -f
 $ ls titi.txt
 titi.txt
 ----------------------------------------------------------------------
 
+// ------
+[{topic}]
 == Etape 4 : Trouver un hébergement distant
 
 Il existe de nombreux endroits disponibles pour héberger du code libre.
@@ -281,12 +323,14 @@ Les plus connus sont {gitHub} et {gitlab}.
 
 image::github.png[width="70%"]
 
+// ------
+[{topic}]
 == Etape 4 (suite) : déclarer le dépôt distant
 
 Après avoir créé un dépôt distant, il n'y a plus qu'à associer ce
 dépôt distant avec le notre.
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git remote add origin git@github.com:jmbruel/first_app.git <1>
 $ git push -u origin master <2>
@@ -297,30 +341,32 @@ Writing objects: 100% (3/3), 225 bytes, done.
 Total 3 (delta 0), reused 0 (delta 0)
 To git@github.com:jmbruel/first_app.git
  * [new branch]      master -> master
-Branch master set up to track remote branch master from origin. <3>
+Branch master set up to track remote branch master from origin.
 ----------------------------------------------------------------------
 <1> Il est possible d'avoir plusieurs dépôts distants, celui-ci sera référencé par `origin`.
 <2> L'option `-u origin master` permet d'associer une fois pour toute les `git push` suivants au fait
 de "pousser" sur la branche `master` du dépôt `origin` (comme l'indique la dernière ligne).
 //''
 
+// ------
+[{topic}]
 == Etape 5 : branch, edit, commit, merge
 
 En cas d'édition et de commit local :
-//'
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git checkout
 Your branch is ahead of 'origin/master' by 1 commit.
-
 ----------------------------------------------------------------------
 
+// ------
+[{topic}]
 == Etape 5 (suite) : branching
 
 {git} est très bon pour créer des branches :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git checkout -b testModifTiti
 Switched to a new branch 'testModifTiti'
@@ -330,11 +376,13 @@ $ git branch
 ----------------------------------------------------------------------
 <1> La branche courante est repérée par un `*`.
 
+// ------
+[{topic}]
 == Etape 5 (suite) : edit
 
 Après modification :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git status
 # On branch testModifTiti
@@ -347,11 +395,13 @@ $ git status
 no changes added to commit (use "git add" and/or "git commit -a")
 ----------------------------------------------------------------------
 
+// ------
+[{topic}]
 == Etape 5 (suite) : commit
 
 On "sauvegarde" les changements :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git commit -am "modif de titi"
 [testModifTiti 4515b5d] modif de titi
@@ -360,14 +410,17 @@ $ git commit -am "modif de titi"
 
 [WARNING]
 ====
-On ne "sauvegarde" qu'en local!
+[{incremental}]
+- On ne "sauvegarde" qu'en local!
 ====
 
+// ------
+[{topic}]
 == Etape 5 (suite) : utilisation des branches
 
 On peut "zapper" d'une branche à l'autre à volonté :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ ll titi*
 -rw-rw-r--    1 bruel  staff   331 12 nov 12:39 titi.txt
@@ -380,12 +433,14 @@ $ ll titi*
 -rw-rw-r--    1 bruel  staff     0 12 nov 12:40 titi.txt
 ----------------------------------------------------------------------
 
+// ------
+[{topic}]
 == Etape 5 (suite) : merge
 
 Maintenant que la branche a été développée (testée, etc.) on peut
 l'intégrer à la branche principale :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git co master
 Switched to branch 'master'
@@ -398,16 +453,20 @@ Merge made by recursive.
 
 [NOTE]
 ====
-On peut ensuite détruire la branche devenue inutile `git branch -d testModifTiti`.
-C'est une bonne habitude à prendre.
-Notez que l'historique des modifications (ainsi que les messages de commits successifs ne sont pas perdus).
+[{incremental}]
+- On peut ensuite détruire la branche devenue inutile `git branch -d testModifTiti`.
+- C'est une bonne habitude à prendre.
+- Notez que l'historique des modifications (ainsi que les messages de commits successifs ne sont pas perdus).
 ====
 
+// ------
+[{topic}]
 == Etape 6 : push
 
 Maintenant que notre dépôt est satisfaisant, on peut le synchroniser avec le dépôt distant :
 
-[source,shell]
+[source]
+----------------------------------------------------------------------
 $ git push
 Counting objects: 11, done.
 Delta compression using up to 2 threads.
@@ -418,67 +477,77 @@ To git@github.com:jmbruel/first_app.git
    6103463..3aae48a  master -> master
 ----------------------------------------------------------------------
 
+// ------
+[{topic}]
 == Dépôts existants
 
 Si vous devez partir d'un dépôt existant :
-//'
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git clone git@github.com:jmbruel/first_app.git
 ----------------------------------------------------------------------
 
 [TIP]
 ====
-Pour obtenir le nom du dépôt distant : `git remote -v`.
-Vous avez aussi le nom du dépôt distant dans le fichier `.git/config`.
+[{incremental}]
+- Pour obtenir le nom du dépôt distant : `git remote -v`.
+- Vous avez aussi le nom du dépôt distant dans le fichier `.git/config`.
 ====
 
+// ------
+[{topic}]
 == Illustration des branches
 
 Voici une illustration de l'utilisation des branches (tirée de http://git-scm.com/book[git-scm]).
-//'
 
 On part d'une situation type :
-//'
 
-.Situation initiale
-image::branch1.png[width="90%",link="http://git-scm.com/book"]
+ifndef::slides[.Situation initiale]
+image::gf1.svg[width="50%"]
 
+// ------
+[{topic}]
 == Illustration des branches (suite)
 
 On crée une branche (appelée `iss53` ici pour indiquer qu'elle traite de l'_issue_ numéro 53) :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git checkout -b iss53
 ----------------------------------------------------------------------
 
-.Création d'une branche
-//'
-image::branch2.png[width="90%",link="http://git-scm.com/book"]
+ifndef::slides[.Création d'une branche]
+image::gf2.svg[width="50%"]
 
-NOTE: Notez que git n'a rien créé d'autre qu'un pointeur de plus => aucun espace mémoire perdu.
-//'
+[NOTE]
+====
+[{incremental}]
+- Notez que git n'a rien créé d'autre qu'un pointeur de plus => aucun espace mémoire perdu.
+====
 
+// ------
+[{topic}]
 == Illustration des branches (suite)
 
 On modifie et on commit :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ edit ...
 $ git commit -m " blabla iss53"
 ----------------------------------------------------------------------
 
-.On commence à diverger de `master`.
-image::branch3.png[width="90%",link="http://git-scm.com/book"]
+ifndef::slides[.On commence à diverger de `master`]
+image::gf3.svg[width="50%"]
 
+// ------
+[{topic}]
 == Illustration des branches (suite)
 
 On revient à la branche maître pour tester une autre solution :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git checkout master
 $ git checkout -b hotfix
@@ -486,29 +555,37 @@ $ edit ...
 $ git commit -m " blabla hotfix"
 ----------------------------------------------------------------------
 
-.Maintenant on a 2 branches parallèles (en plus de `master`)
-image::branch4.png[width="90%",link="http://git-scm.com/book"]
+ifndef::slides[.Maintenant on a 2 branches parallèles (en plus de `master`)]
+image::gf4.svg[width="50%"]
 
+// ------
+[{topic}]
 == Illustration des branches (suite)
 
 On intègre cette solution à la branche principale :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git checkout master
 $ git merge hotfix
 ----------------------------------------------------------------------
 
-.Merge de deux branches (en _fast-forward_)
-image::branch5.png[width="90%",link="http://git-scm.com/book"]
+ifndef::slides[.Merge de deux branches (en _fast-forward_)]
+image::gf5.svg[width="40%"]
 
-NOTE: On part du proincipe qu'il n'y a pas eu de <<conflits>>.
+[NOTE]
+====
+[{incremental}]
+- {git} utilise ici le *fast-forward*
+====
 
+// ------
+[{topic}]
 == Illustration des branches (suite)
 
 On continue à travailler sur la branche `iss53` :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git branch -d hotfix <1>
 $ git checkout iss53
@@ -517,57 +594,96 @@ $ git commit -m " blabla iss53"
 ----------------------------------------------------------------------
 <1> Destruction de la branche devenue redondante avec `master`.
 
-.On retravaille sur `iss53`
-image::branch6.png[width="90%",link="http://git-scm.com/book"]
+ifndef::slides[.On retravaille sur `iss53`]
+image::gf6.svg[width="50%"]
 
+// ------
+[{topic}]
 == Illustration des branches (suite)
 
 On intègre cette branche :
 
-[source,shell]
+[source]
 ----------------------------------------------------------------------
 $ git checkout master
 $ git merge iss53
 ----------------------------------------------------------------------
 
-.Explications du fonctionnement du merge sans _fast-forward_
-image::branch7.png[width="90%",link="http://git-scm.com/book"]
+ifndef::slides[.Explications du fonctionnement du merge sans _fast-forward_]
+image::gf7.svg[width="50%"]
 
-NOTE: Explications : {git} recherche la racine commune (ici `c2` pour intégrer
-les branches et vérifier les conflits par itérations à partir de cette racine.
+[NOTE]
+====
+[{incremental}]
+- Explications : {git} recherche la racine commune (ici `c3` pour intégrer
+les branches (les commits feuilles) une par une et vérifier les conflits par itérations à partir de cette racine.
+====
 
+// ------
+[{topic}]
 == Illustration des branches (suite)
 
-.Situation finale
-image::branch8.png[width="90%",link="http://git-scm.com/book"]
+ifndef::slides[.Situation finale]
+image::gf8.svg[width="50%"]
 
+[NOTE]
+====
+[{incremental}]
+- On part du principe qu'il n'y a pas eu de <<conflits>>.
+- On peut maintenant supprimer `iss53`.
+====
+
+// ------
+[{topic}]
 == Bonne utilisation
 
 Revenons sur l'exemple type :
 
-image::git-branching.png[width="100%"]
+ifndef::slides[.Usage classique de git (http://nvie.com/posts/a-successful-git-branching-model/)]
+image::git-branching.png[width="70%",link="http://nvie.com/posts/a-successful-git-branching-model/",window="_blank"]
 
 ifndef::slides[:leveloffset: -1]
 
+// ------
+[{intro}]
 == Gestion des branches
+
+ifdef::slides[== !]
 
 La principale difficulté de {git} vient de la liberté en termes de branches.
 
 [[conflits]]
+// ------
+[{intro}]
 == Gestion des conflits
+
+ifdef::slides[== !]
 
 La principale activité du programmeur qui utilise {git} en équipe vient de la gestion des conflits.
 
+// ------
+[{intro}]
 == Git avancé : Git-Flow
+
+ifdef::slides[== !]
 
 http://danielkummer.github.io/git-flow-cheatsheet/
 
+// ------
+[{intro}]
+== Wrap-up
+
+// ------
+[{topic}]
 == Résumé des commandes
 
 Voici un schéma pour résumer la philosophie (tiré de http://osteele.com) :
 
-image::git-resume.png[width="90%",link="http://osteele.com"]
+ifndef::slides[.Résumé des commandes {git} (http://osteele.com)]
+image::git-resume.png[width="50%",link="http://osteele.com"]
 
+// ------
+[{topic}]
 == Liens utiles
 
 Le site de référence::
@@ -577,6 +693,8 @@ GitHub::
 Un excellent livre en ligne sur {Git}::
   http://git-scm.com/book
 
+// ------
+[{topic}]
 == Glossaire
 
 _fast_forward_::
