@@ -11,6 +11,7 @@ V0.8, {localdate}
 //:iconsdir: images/icons
 :imagesdir: images
 :jmbtopic:
+:website: http://jmbruel.github.io/teaching
 
 include::definitions.txt[]
 
@@ -21,16 +22,14 @@ Materials used at {iut} :
 .Modules dependencies
 image::dut-modules.svg[]
 
-icon:cog[] link:mpa2016.html[MPA]
-
+- icon:cog[] link:mpa2016.html[MPA]
+- icon:cogs[] Cours sur {git} (link:{website}/topics/git.html[HTML], link:{website}/topics/git.dzslides.html[Slides])
 
 == icon:cogs[] Contribute
 
 If you want to contribute you can play first with the following (fake) materials.
 
 link:output/bac_a_sable.html[Bac à sable]
-
-image::git-flow-jmb.svg[]
 
 ifdef::backend-docbook[]
 [index]
