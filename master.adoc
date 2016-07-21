@@ -10,6 +10,7 @@ V0.8, {localdate}
 :icons: font
 //:iconsdir: images/icons
 :imagesdir: images
+:jmbtopic:
 
 include::definitions.txt[]
 

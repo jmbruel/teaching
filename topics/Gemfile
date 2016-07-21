@@ -3,4 +3,6 @@ gem 'asciidoctor', '1.5.4'
 gem 'asciidoctor-diagram', '~> 1.4.0'
 gem 'tilt'
 gem 'thread_safe'
-gem 'slim'
+gem 'slim'  # for dzslides Slides
+gem 'haml'  # for deckjs Slides
+gem 'pygments.rb'
