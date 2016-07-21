@@ -1,6 +1,6 @@
 = Teaching materials
 J.-M. Bruel <jbruel@gmail.com>
-V0.8, {localdate}
+V0.9, {localdate}
 //:doctype: book
 :toc-title: Table des matières
 :toc: left
