@@ -11,6 +11,7 @@ before_install:
 script:
   - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-html asciidoctor/docker-asciidoctor asciidoctor -D /documents/output master.adoc
 #  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-pdf asciidoctor/docker-asciidoctor asciidoctor-pdf -D /documents/output master.adoc
+  - docker run -v $TRAVIS_BUILD_DIR:/documents/ cp topics/*.html /documents/topics
 
 after_error:
   - docker logs asciidoc-to-html
@@ -26,6 +27,7 @@ after_success:
   - mv master.html index.html
   - cp -R ../images images
   - cp -R ../topics/*.html topics
+  - ls -al
   - git init
   - git config user.name "${GH_USER_NAME}"
   - git config user.email "{GH_USER_EMAIL}"
