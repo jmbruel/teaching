@@ -11,15 +11,14 @@ before_install:
 script:
   - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-html asciidoctor/docker-asciidoctor asciidoctor -D /documents/output master.adoc
 #  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-pdf asciidoctor/docker-asciidoctor asciidoctor-pdf -D /documents/output master.adoc
-  - docker run -v $TRAVIS_BUILD_DIR:/documents/ cp topics/*.html /documents/topics
 
 after_error:
   - docker logs asciidoc-to-html
-  - docker logs asciidoc-to-pdf
+#  - docker logs asciidoc-to-pdf
 
 after_failure:
   - docker logs asciidoc-to-html
-  - docker logs asciidoc-to-pdf
+#  - docker logs asciidoc-to-pdf
 
 after_success:
   - cd output
