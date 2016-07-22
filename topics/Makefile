@@ -4,7 +4,7 @@ DECKJS=../..asciidoctor-deck.js/templates/haml/
 #STYLE=../POO/COO/stylesheets/golo-jmb.css
 STYLE=../../asciidoctor-stylesheet-factory/stylesheets/jmb.css
 #ASCIIDOCTOR=asciidoctor
-ASCIIDOCTOR=asciidoctor -a icons=font --trace
+ASCIIDOCTOR=asciidoctor -a icons=font -a linkcss --trace
 EXT=adoc
 OUTPUT=.
 SITE=../jmbruel.github.io/teaching
