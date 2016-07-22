@@ -133,7 +133,7 @@
 :chantalMorand: mailto:morand@irit.fr[Chantal Morand]
 :cimi: http://www.cimi.univ-toulouse.fr/fr[CiMi]
 :dan: https://github.com/mojavelinux[Dan Allen]
-:dl: http://www.dept-info.ups-tlse.fr/index.php?option=com_content&view=article&id=294&Itemid=697&lang=fr[Master DL-SI]
+:dl: http://www.master-developpement-logiciel.fr/[Master DL]
 :dulas: mailto:jcdulas@phoenix-int.com[Jean-Charles Dulas]
 :eia: http://www.eciaonline.org/eiastandards/[EIA](((EIA)))
 :fast: http://fr.wikipedia.org/wiki/Analyse_fonctionnelle_(conception)[FAST](((FAST)))
@@ -176,6 +176,7 @@
 :univ-tlse: {univ-tlse-url}[Université de Toulouse]
 :luniv-tlse: {univ-tlse-url}[l'Univesité de Toulouse]
 :univ-tlse2: http://www.univ-tlse2.fr[Université de Toulouse II - Le Mirail]
+:ut2j: {univ-tlse2}
 :luniv-tlse2: http://www.univ-tlse2.fr[l'Université de Toulouse II - Le Mirail]
 :uag: http://www.uag.mx/[Universitad Autónoma de Guadalajara]
 :luag: http://www.uag.mx/[l'Universitad Autónoma de Guadalajara]

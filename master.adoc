@@ -15,19 +15,103 @@ V0.9, {localdate}
 
 include::definitions.txt[]
 
-== Undergraduate
+:vpuml: link:http://www.visual-paradigm.com/product/vpuml[VP-UML]
+:nomagic: link:http://www.nomagic.com/[No Magic]
+:magicdraw: link:http://www.nomagic.com/products/magicdraw.html/[MagicDraw]
+:lucidchart: link:https://www.lucidchart.com/[LucidChart]
+:jetbrains: link:http://www.jetbrains.com/[JetBrains]
+:rubymine: link:href="http://www.jetbrains.com/ruby/[RubyMine]
+:intellij: link:href="http://www.jetbrains.com/idea/[IntelliJ]
+:pycharm: link:http://www.jetbrains.com/pycharm/[PyCharm]
+:apsio: link:http://www.iut-blagnac.fr/spip.php?mot1&id_article=2[Licence APSIO]
+:ice: link:http://mathsinfo.univ-tlse2.fr/accueil/formations/master-ice/[Master ICE]
+:ntie: Master NTIE
 
-Materials used at {iut} :
+== icon:star-o[] Undergraduate
 
+=== DUT Informatique
+
+I teach the following courses in the _DUT Informatique_ at {iut} :
+
+* icon:cog[] link:mpa2016.html[Méthodologie de Production d'Application (MPA - M33301)] (L2 level)
+** icon:cogs[] Cours sur {git} (link:{website}/topics/git.html[HTML], link:{website}/topics/git.dzslides.html[Slides])
+
+[NOTE]
+=====
 .Modules dependencies
 image::dut-modules.svg[]
+=====
 
-- icon:cog[] link:mpa2016.html[MPA]
-- icon:cogs[] Cours sur {git} (link:{website}/topics/git.html[HTML], link:{website}/topics/git.dzslides.html[Slides])
+=== Licence APSIO
 
-== icon:cogs[] Contribute
+I teach the following course in the {apsio} at {iut} :
 
-If you want to contribute you can play first with the following (fake) materials.
+* link:http://jmbruel.github.io/MobileModeling/[Mobile Modeling] (L3 level)
+
+=== Old stuff
+
+- Analysis and Design of Information Systems - http://jmbhome.heroku.com/teaching/ACSI/acsi.html[ACSI] (L1/L2 levels)
+
+== icon:star-half-o[] Graduate
+
+=== Master ICE
+
+I teach the following course at {ICE} (formerly {ntie}) of {ut2j}:
+
+* IDM (M1 level)
+
+=== Master DL
+
+I teach the following course at {dl} of {ups}:
+
+* {sysml} (M2 level)
+
+== icon:star[] Advanced
+
+=== DU PLM
+
+I teach the following courses in the {duplm} at {ups} :
+
+* Introduction à {sysml} (M1 level)
+
+=== Old stuff
+
+- Advanced {sysML} at {uag}, Mexico
+
+image:guadalajara.jpg[2012 students,width=50%]
+
+== icon:dollar[] Academic partnerships
+
+[cols="1,8"]
+|===
+| image:https://wiki.eclipse.org/images/a/a2/Papyrus4education-logo.png[width=80,link="https://wiki.eclipse.org/Papyrus_for_Education/"]
+  | I am leader of the {p4e} initiative at {eclipse},
+  that aims at promoting the use of the open source {Papyrus} modeler for teaching {UML}/{SysML}. Thanks {cea}, for your constant support.
+
+| image:https://github.global.ssl.fastly.net/images/modules/training/professortocat.png[width=80,link="https://github.com/edu"]
+  | Through link:https://github.com/edu[GitHub Educational Account], my students have private repositories on {GitHub}.
+
+| image:http://images.visual-paradigm.com/images/media/product/vpuml60logo.gif[width=80,link="http://www.visual-paradigm.com/product/vpuml"]
+  | Through link:http://www.visual-paradigm.com/partner/academic/[Visual Paradigm Academic Partner Program], {IRIT}
+    is granted license for modeling software - {VPUML} for educational use.
+
+| image:http://www.nomagic.com/media/k2/items/cache/0548677e6432786dd8df61eb3aaec139_M.jpg[width=80,link="http://www.nomagic.com"]
+  | Thanks {nomagic}, for providing me with a {MagicDraw} licence for teaching {SysML}.
+
+| image:jetbrains.png[width=80,link="http://www.jetbrains.com/"]
+  | Thanks {jetbrains} for providing me with free licence for {rubymine},
+    {intellij} and {pycharm}.
+
+| image:lucidchart-logo-2016.png[width=80,link="https://www.lucidchart.com/"]
+  | Thanks {LucidChart} for supports in drawings for my students.
+
+|===
+
+== icon:cogs[] Contribution are welcome!
+
+If you want to contribute  you can play first with the following (fake) materials.
+
+NOTE: My dear students are more than welcome to contribute!
 
 link:output/bac_a_sable.html[Bac à sable]
 
