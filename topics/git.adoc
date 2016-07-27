@@ -692,7 +692,8 @@ GitHub::
   https://github.com/
 Un excellent livre en ligne sur {Git}::
   http://git-scm.com/book
-
+Comparaison entre merge/rebase/etc.::
+  https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&utm_medium=social&utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate[ici]
 // ------
 [{topic}]
 == Glossaire

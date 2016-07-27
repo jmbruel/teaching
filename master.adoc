@@ -34,10 +34,15 @@ image:icons/fr.svg[width=30] Ce site est en anglais pour permettre une plus larg
 Si vous êtes allergique à l'anglais et que vous êtes un de mes étudiants en informatique : changez d'orientation
 tout de suite...
 
+The following courses are in English except those with the French flag image:icons/fr.svg[width=20].
+
 === Conventions
 
 Level of difficulty::
 I've graded from easy/beginner (icon:star-o[]) to advanced (icon:star[])
+
+Definitions/Theory vs Practical::
+Courses with icon:graduation-cap[] are more theoretical than those with icon:cogs[]
 
 :numbered:
 == icon:star-o[] Undergraduate
@@ -46,7 +51,7 @@ I've graded from easy/beginner (icon:star-o[]) to advanced (icon:star[])
 
 I teach the following courses in the _DUT Informatique_ at {iut} :
 
-* icon:cog[] link:mpa2016.html[Méthodologie de Production d'Application (MPA - M33301)] (L2 level)
+* icon:cogs[] image:icons/fr.svg[width=20] link:mpa2016.html[Méthodologie de Production d'Application (MPA - M33301)] (L2 level)
 ** icon:cogs[] Cours sur {git} (link:{website}/topics/git.html[HTML], link:{website}/topics/git.dzslides.html[Slides])
 
 [NOTE]
@@ -59,11 +64,11 @@ image::dut-modules.svg[]
 
 I teach the following course in the {apsio} at {iut} :
 
-* link:http://jmbruel.github.io/MobileModeling/[Mobile Modeling] (L3 level)
+* icon:graduation-cap[] link:http://jmbruel.github.io/MobileModeling/[Mobile Modeling] (L3 level)
 
 === Old stuff
 
-- Analysis and Design of Information Systems - http://jmbhome.heroku.com/teaching/ACSI/acsi.html[ACSI] (L1/L2 levels)
+- icon:graduation-cap[] Analysis and Design of Information Systems - http://jmbhome.heroku.com/teaching/ACSI/acsi.html[ACSI] (L1/L2 levels)
 
 == icon:star-half-o[] Graduate
 
@@ -71,13 +76,13 @@ I teach the following course in the {apsio} at {iut} :
 
 I teach the following course at {ICE} (formerly {ntie}) of {ut2j}:
 
-* IDM (M1 level)
+* icon:cogs[] IDM (M1 level)
 
 === Master DL
 
 I teach the following course at {dl} of {ups}:
 
-* {sysml} (M2 level)
+* icon:graduation-cap[] {sysml} (M2 level)
 
 == icon:star[] Advanced
 
@@ -85,11 +90,11 @@ I teach the following course at {dl} of {ups}:
 
 I teach the following courses in the {duplm} at {ups} :
 
-* Introduction à {sysml} (M1 level)
+* icon:graduation-cap[] Introduction à {sysml} (M1 level)
 
 === Old stuff
 
-- Advanced {sysML} at {uag}, Mexico
+- icon:cogs[] Advanced {sysML} at {uag}, Mexico
 
 image:guadalajara.jpg[2012 students,width=50%]
 
