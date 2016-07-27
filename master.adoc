@@ -27,6 +27,19 @@ include::definitions.txt[]
 :ice: link:http://mathsinfo.univ-tlse2.fr/accueil/formations/master-ice/[Master ICE]
 :ntie: Master NTIE
 
+:numbered!:
+== About this document / Avant-Propos
+
+image:icons/fr.svg[width=30] Ce site est en anglais pour permettre une plus large diffusion.
+Si vous êtes allergique à l'anglais et que vous êtes un de mes étudiants en informatique : changez d'orientation
+tout de suite...
+
+=== Conventions
+
+Level of difficulty::
+I've graded from easy/beginner (icon:star-o[]) to advanced (icon:star[])
+
+:numbered:
 == icon:star-o[] Undergraduate
 
 === DUT Informatique
@@ -107,7 +120,7 @@ image:guadalajara.jpg[2012 students,width=50%]
 
 |===
 
-== icon:cogs[] Contribution are welcome!
+== icon:cogs[] Contributions are welcome!
 
 If you want to contribute  you can play first with the following (fake) materials.
 

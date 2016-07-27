@@ -1,0 +1,15 @@
+//---------------------------------
+// Test divers
+// (c) JMB - 2016
+//---------------------------------
+= Tests *Asciidoctor*
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+include::config.adoc[]
+
+== Graphviz
+
+[graphviz]
+....
+include::test.gv[]
+....
