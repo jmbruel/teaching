@@ -110,7 +110,9 @@
 :sysmltrends: http://www.google.fr/trends/explore#q=sysml[SysML Trends]
 :topcased: http://www.topcased.org[TOPCASED]indexterm:[Topcased]
 :travis: link:https://travis-ci.org/[Travis]
-:tuleap: link:https://tuleap-campus.org/[Tuleap-Campus]
+:tuleapurl: https://www.tuleap.org
+:tuleap: link:{tuleapurl}[tuleap]
+:tuleapcampus: link:https://tuleap-campus.org/[Tuleap-Campus]
 :uml: http://www.uml.org/[UML(TM)]indexterm:[UML(TM)]
 :duml: http://www.uml.org/[d'UML(TM)]indexterm:[UML(TM)]
 :umlspec: http://www.omg.org/spec/UML/2.4.1/Infrastructure/PDF/[UML 2.4.2 Specifictation]
