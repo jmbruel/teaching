@@ -688,12 +688,17 @@ image::git-resume.png[width="50%",link="http://osteele.com"]
 
 Le site de référence::
   http://git-scm.com/
-GitHub::
-  https://github.com/
+Les "hébergeurs"::
+* icon:github[] GitHub
+  - {githuburl}[le site officiel]
+  - https://stories.devacademy.la/how-to-use-github-like-a-proper-human-being-1a9c895c4e13#.ewxiz5w8l[l'étiquette]
+* gitlab
+  - {gitlaburl}[le site officiel]
 Un excellent livre en ligne sur {Git}::
   http://git-scm.com/book
 Comparaison entre merge/rebase/etc.::
   https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&utm_medium=social&utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate[ici]
+
 // ------
 [{topic}]
 == Glossaire

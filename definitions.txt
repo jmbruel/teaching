@@ -43,8 +43,10 @@
 :gemoc: http://gemoc.org/[GEMOC]
 :giturl: http://git-scm.com/
 :git: link:{giturl}[icon:git[]]
-:github: link:https://github.com/[GitHub]
-:gitlab: icon:gitlab[]link:https://gitlab.com/[GitLab]
+:githuburl: https://github.com/
+:github: link:{githuburl}[GitHub]
+:gitlaburl: https://gitlab.com/
+:gitlab: icon:gitlab[]link:{gitlaburl}[GitLab]
 :gherkin: link:http://cukes.info/gherkin.html[Gherkin]
 :googlemaps: https://www.google.fr/maps[Google Maps]
 :gradle: http://www.gradle.org/[Gradle]
