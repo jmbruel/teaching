@@ -1,0 +1,736 @@
+//---------------------------------
+// Cours MPA
+// (c) JMB - 2016
+//---------------------------------
+[[MPA]]
+= Gestion de projet, Agilité, Tests
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
+image:blasonJMI.png[width=50%] À l'initiateur de ce cours, Jean-Michel Inglebert...
+
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:git-version: 2.9.2
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: http://jmbhome.github.io/teaching/agile.html
+//------------------------------------ Slides uniquement
+ifdef::slides[]
+//--------------------- dzslides slides
+ifdef::dzslides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+endif::dzslides[]
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+
+// ------------------------------------------ disclaimer
+[{intro}]
+== Gestion de *projets*
+
+ifndef::slides[:leveloffset: +1]
+
+// ------
+[{topic}]
+== C'est quoi 1 projet ?
+
+[quote, 2014, Wikipedia]
+On appelle *projet* un ensemble finalisé d’*activités et d’actions* entreprises dans le but de *répondre* à un *besoin* défini dans des délais fixés et dans la limite d'une enveloppe budgétaire allouée.
+
+
+[quote, 2014, AJMOJMRIPB]
+___________________________________________
+Répondre au client::
+
+(qui paye)
+
+dans la vraie vie::
+
+(les ressources sont limitées ET les obstacles matériels et humains sont sans limite)
+___________________________________________
+
+== OK, allons-y ...
+
+- *DEBUT* : la demande est exprimée/fournie comment ?
+
+.. cahier des charges,
+.. liste de fonctionnalités attendues
+.. ...
+
+- *FIN* : le résultat sera livré quand ?
++
+[TIP]
+.Eviter de répondre : *hier*
+=====
+(Sinon, c'est un processus de sauvetage et plus 1 projet)
+=====
+
+== ... entre DEBUT et FIN, comment FAIRE ?
+
+Option 1:: se débrouiller (comme dans 'FAIRE les soldes')
+Option 2:: dérouler un process (comme dans '(RE)FAIRE son passeport')
+Option 3:: réaliser un projet
+
+== Depuis le temps que la notion de projet existe ...
+
+[quote, Janvier 2014, Revue Programmez!]
+.7 projets sur 10 arrivent en retard ou jamais !
+___________________________________________
+- cause 1: *la demande client est floue*
+- cause 2: *sur estimation des compétences disponibles*
+- cause 3: *dérive au démarrage*
+- cause 4: *les demandes de modification du client se sont perdues*
+- cause 5: *les équipes sont surchargées*
+- cause 6: *perte de compétences au cours du projet*
+- cause 7: *les risques sont mal évalués*
+- cause 8: *les réunions sont improductives*
+___________________________________________
+
+CAUTION: Dans tous les cas, c'est l'équipe de développement qui est fautive.
+
+== Pourquoi est-ce si difficile ?
+
+. L'objectif est connu (fourni par le client)
+. L'atteinte de l'objectif est mesurable (évaluable)
+
+[CAUTION]
+.le problème
+====
+On n'a pas de méthode infaillible
+
+qui garantisse qu'une équipe projet atteindra les objectifs.
+====
+
+[NOTE]
+.pourquoi ?
+====
+Il s'agit de gérer une complexité métier, technique et humaine
+
+avec des ressources limitées (temps, moyens ...)
+====
+
+Seule CERTITUDE prévisible:: il faudra *s'adapter aux imprévus*
+
+== Le découpage en phases d'un projet logiciel
+
+Seule CERTITUDE prévisible:: il faudra *s'adapter aux imprévus*
+
+CAUTION: Ca n'empèche pas de définir de grandes étapes génériques
+que le projet devra franchir : ses *PHASES*
+
+[WARNING]
+====
+Un projet de développement logiciel se terminera de 'manière satisfaisante'
+si l'équipe fournit une application fiable, robuste et maintenable qui répond aux exigences du client.
+====
+
+fiable:: fait ce qu'on attend d'elle dans les conditions fixées
+robuste:: supporte la charge, les erreurs des utilisateurs, les pannes etc
+maintenable:: ne demande pas d'être réécrite pour la moindre évolution
+
+=== Méthodes en Cascade ou Cycle en V
+
+.Les méthodes en cascade (waterfall)
+image::imagesC1/waterfall.png[]
+
+ifdef::backend-slidy2[<<<]
+
+Le cycle en V adopte :
+
+- 'une approche descendante' pour l'analyse et la conception
+- suivie d'une 'phase montante' pour le codage, les tests et l'intégration.
+
+:incremental:
+
+ifdef::backend-slidy2[]
+images::./imagesC1/v123.png[./imagesC1/v1.png,./imagesC1/v2.png]
+endif::backend-slidy2[]
+
+ifndef::backend-slidy2[]
+.Les méthodes de type Cycle en V
+image::./imagesC1/v123.png[scaledwidth="90%"]
+endif::backend-slidy2[]
+
+[WARNING]
+====
+Un projet de développement de type cycle en V se terminera de 'manière satisfaisante'
+si l'équipe arrive à remonter le 'V' dans de 'bonnes conditions'.
+====
+
+ifdef::backend-slidy2[<<<]
+
+[icon="./imagesC1/v3.png"]
+[NOTE]
+.Arrêt du projet
+====
+- l'application n'est pas livrable
+- au mieux des modules/classes de base peuvent être réutilisés
+====
+
+[icon="./imagesC1/v4.png"]
+[NOTE]
+.Dérive temporelle
+====
+- la phase de codage et d'intégration est raccourcie
+- le produit livré a été 'trop peu' testé
+====
+
+==== En résumé
+
+
+[NOTE]
+====
+- illustre une approche cartésienne de réduction de la complexité
+- produit les plans de tests dans les phases descendantes
+- vérifie les plans de tests dans les phases ascendantes
+====
+
+
+[CAUTION]
+.Limites connues
+====
+- *ne décrit pas* les phases de *maintenance* et *d'évolution*
+- ne prévoit pas qu'on revienne sur les étapes de conception ?
+- courbe à postériori : quel est la complexité estimée du projet à son début ?
+- *l'application* livrée est-elle conforme à *sa documentation* (*et vice versa*) ?
+====
+
+:incremental!:
+
+=== Du cycle en V aux cycles en W
+
+ifdef::backend-slidy2[>>>]
+
+====  Partons d'un exemple trivial
+
+.Une application web de gestion d’urls
+====
+Développer une 'application web' capable de 'collecter'
+et 'd'afficher' les urls collectées.
+====
+
+===== Cycle 0
+
+Mise en place d'une infrastructure d'intégration
+
+.solution retenue :
+
+. Langage de développement : +PHP+
+. Infrastructure d'intégration : serveur LAMP
+
+
+===== Cycle 1
+
+Afficher les urls collectées
+
+.solution retenue :
+
+. le serveur maintient un tableau d'urls
+. la page retournée en mode +GET+ affiche les urls
+sous forme de liste
+
+===== Cycle 2
+
+Saisie et collecte des urls
+
+.solution retenue :
+
+. la page propose un formulaire de saisie de nouvelles urls
+
+:incremental:
+
+==== Bilan de l'exemple trivial
+
+ifdef::backend-slidy2[]
+images::./imagesC1/w5rb2.png[./imagesC1/w12.png,./imagesC1/w32.png,./imagesC1/w42.png,./imagesC1/w52.png,./imagesC1/w5b2.png]
+endif::backend-slidy2[]
+
+ifndef::backend-slidy2[]
+image::./imagesC1/w5rb2.png[scaledwidth="90%"]
+endif::backend-slidy2[]
+
+
+==== Les bénéfices reconnus
+
+[NOTE]
+====
+. livre une application qui marche dès le cycle 1
+. gère la complexité et les problèmes d'intégration à chaque cycle
+. s'applique à un développement nouveau comme à une évolution
+. permet au client d'affiner ses exigences
+====
+
+[WARNING]
+.Rappel
+====
+Un projet de développement logiciel se terminera de 'manière satisfaisante'
+si l'équipe fournit une application fiable, robuste et maintenable qui répond aux exigences du client.
+====
+
+===== Les cas où ça ne marche pas
+
+[WARNING]
+====
+. le client est (trop) absent
+. la conduite de la méthode choisie est approximative  (dérive des livraisons)
+. les tests sont à l'abandon
+====
+
+===== Les problèmes nouveaux
+
+[WARNING]
+====
+. qu'elle est la capacité de l'infrastructure initiale (cycle 0)
+. automatiser les tests de non régression : XP, T/BDD ...
+. approche ascendante => refactoring ...
+. comment gérer les livraisons fréquentes : intégration continue ...
+. que devient la documentation ???
+====
+
+=== V versus W
+
+[NOTE]
+.V
+====
+. Expression des besoins
+. Spécifications
+. Conception générale et détaillée
+. Codage et tests
+. Intégration et tests
+. Livraison (recette)
+====
+
+ifdef::backend-slidy2[<<<]
+
+[NOTE]
+.W
+====
+. Cycle 0
+. Cycle 1 .. N
+.. choisir des fonctionnalités
+.. ... coder/tester ...
+.. livrer
+.. ajuster la liste des demandes
+====
+
+=== Ce qui est toujours fait
+
+. Planifier (tout ou partie) des prochaines actions
+. Réaliser les actions planifiées
+. Evaluer la distance au but
+
+
+=== Evaluer l'atteinte des objectifs
+
+L'atteinte de tous les objectifs (et sous-objectifs) d'un projet
+doit être évaluée.
+
+[CAUTION]
+====
+Quelle que soit la 'méthode de développement' employée,
+tout développement logiciel doit réaliser des 'tests unitaires'
+et des 'tests d'intégration'.
+====
+
+[NOTE]
+.Aujourd'hui, ON DOIT
+====
+- écrire *systématiquement* des *programmes de test*
+- exécuter très *régulièrement* ces programmes de tests
+====
+
+== La méthode Agile SCRUM
+
+*******************
+- Scrum est un processus agile qui permet de produire la plus grande valeur métier dans la durée la plus courte.
+
+- Du logiciel qui fonctionne est produit à chaque sprint (toutes les 2 à 4 semaines).
+
+- Le métier définit les priorités. L'équipe s'organise elle-même pour déterminer la meilleure façon de produire les exigences les plus prioritaires.
+
+- A chaque fin de sprint, tout le monde peut voir fonctionner le produit courant et décider soit de le livrer dans l'état, soit de continuer à l'améliorer pendant un sprint supplémentaire.
+*******************
+
+=== Les Acteurs SCRUM
+
+Les acteurs dans SCRUM sont :
+
+le *Product Owner*:: le client ou son représentant qui fait partie de l'équipe
+le *SCRUM Master*:: un animateur, facilitateur plutôt qu'un chef (de projet)
+l'*équipe*:: capable de mettre en oeuvre toutes les compétences (architecture, conception, développement, IHM, tests, documentation etc)
+
+==== Rôles du Product Owner
+
+- Définit les fonctionnalités du produit
+- Choisit la date et le contenu de la release (version livrée aux utilisateurs réalisée en plusieurs sprints)
+- Est responsable du retour sur investissement (de la valeur métier)
+- Définit les priorités dans le backlog en fonction de la valeur « métier »
+- Ajuste les fonctionnalités et les priorités à chaque sprint si nécessaire
+- Accepte ou rejette les résultats
+
+==== Rôles du SCRUM Master
+
+- Assure le management du projet
+- Fait appliquer par l’équipe les valeurs et les pratiques de Scrum
+- Résout des problèmes
+- S'assure que l'équipe est complètement fonctionnelle et productive
+- Facilite une coopération poussée entre tous les rôles et fonctions
+- Protège l'équipe des interférences extérieures
+
+==== L'équipe SCRUM
+
+- Comprend de 5 à 10 personnes, de préférence à plein temps sur le projet
+- Regroupe tous les rôles : Architecte, concepteur, développeur, spécialiste IHM, testeur, etc.
+- S’organise par elle-même
+- La composition de l’équipe ne doit pas changer pendant un Sprint
+
+=== Déroulement d'un projet SCRUM
+
+image:imagesC1/scrum1.jpg[]
+
+ifdef::backend-slidy2[<<<]
+
+. *Planification du sprint suivant*
+.. Choix des items du backlog de produit qui seront réalisés durant le sprint
+.. Identification des tâches et définition du backlog de sprint estimé en heures
+
+. *SCRUM quotidien* (15mn)
+.. qu'ai-je fait hier ?
+.. que vais-je faire aujourd'hui ?
+.. y-a-t-il des problèmes particuliers ?
+
+. *Revue de SPRINT* (15-30mn)
+.. Présentation de l'application à l'équipe et à toute personne invitée
+.. Calcul de la vélocité de l'équipe
+
+. *Rétrospective de SPRINT* (15mn)
+.. L'équipe (client compris) revient sur ses modes de fonctionnement
+.. Qu'est-ce qui marche : on continue à l'identique
+.. Qu'est-ce qui ne marche pas : comment fait-on désormais ?
+.. Y-a-t-il des choses à ne plus faire ?
+
+ifdef::backend-slidy2[<<<]
+
+. *Planification de Release*
+.. Définit les exigences du *backlog de produit* qui constitueront la release
+.. Définit le nombre de sprints et la date de livraison de la release
+.. Effectuée avant le premier sprint si la vélocité de l'équipe est connue
+.. Actualisée à chaque fin de sprint
+
+=== Les artefacts SCRUM
+
+*Le backlog de produit*:: la liste des exigences métier ordonnée par la valeur métier (l'importance métier pour le *Product Owner*)
+*Les backlogs de sprint*:: les listes des tâches à réaliser pour répondre aux exigences métier choisies pour le sprint
+*Les burndowns du projet*:: les graphiques montrant l'avancement du projet
+
+==== Le backlog de produit
+
+- Le *backlog de produit* est fourni par le *Product Owner* au démarrage du projet
+- Le *backlog de produit* est une liste ordonnée d'exigences (stories) classées selon leur *importance métier*
+- Le classement de chaque exigence pourra être révisé à chaque revue de sprint par le *Product Owner*
+- Des exigences pourront être ajoutées ou retirées à chaque revue de sprint par le *Product Owner*
+
+==== Les backlogs de sprint
+
+- Définis lors de la planification des sprints
+- Un *backlog de sprint* définit l'ensemble des tâches à effectuer pour réaliser
+les exigences choisies pour le sprint dans le *backlog de produit*
+- Les tâches du *backlogs de sprint* sont estimées en heures
+- L'estimation des tâches du *backlogs de sprint* sont réestimées à chaque SCRUM (mélée quotidienne)
+- La définition des tâches du *backlog de sprint* conduit souvent à réaliser collectivement une conception de haut niveau
+
+==== Les burndowns du projet
+
+- Les valeurs du *backlog de produit* et les estimations du *backlog de sprint*
+permettent de produire les courbes d'avancement du projet
+
+===== Burndown de sprint
+
+Le Burndown de sprint actualisé chaque jour, indique le nombre d'heures
+restantes pour toutes les tâches du sprint.
+
+NOTE: le *burndown de sprint* n'est pas
+nécessairement décroissant si des tâches sont ajoutées ou bien réévaluées
+à la hausse pour leur durée.
+
+===== Burndown de release
+
+Le Burndown de release évalue à chaque fin de sprint la quantité du backlog de release qui reste à faire.
+
+NOTE: le *backlog de release* pouvant évoluer, la courbe n'est pas
+nécessairement décroissante.
+
+TIP: permet d'en déduire une estimation de la date de fin de release
+ou une estimation de la quantité du backlog de release qui ne sera pas
+réalisée à une date donnée.
+
+==== Indicateurs
+
+*Vélocité*:: quantité du backlog de produit réalisée par l'équipe pendant un sprint (calculée en points)
+
+*Capacité*:: quantité du backlog de produit qui sera réalisée lors du prochain sprint
+
+== Les Tests
+
+Quelle que soit la méthode de développement choisie,
+les Tests sont le seul moyen de garantir que le produit livré
+est conforme aux exigences du client.
+
+=== Tests unitaires
+
+Les plus simples et pourtant il s'agit ...
+
+** d'oublier les approches 'manuelles'
+** d'expliciter les 'limites'
+** de traiter le 'qualitatif' et le 'quantitatif'
+
+ifdef::backend-slidy2[<<<]
+
+.Exemple connu (cf DUT/INFO S1)
+****************************************
+Implémenter le type abstrait MatriceEntier
+****************************************
+[TIP]
+.Spécifications
+====
+.Opérations
+--
+. +creerMatrice : Entier * Entier -> MatriceEntier+
+. +getNbLignes : MatriceEntier -> Entier+
+. +getNbColonnes : MatriceEntier -> Entier+
+. +getElement : MatriceEntier * Entier * Entier -> Entier+
+. +somLigne : MatriceEntier * Entier -> Entier+
+. +somColonne : MatriceColonne * Entier -> Entier+
+. +estCarree : MatriceEntier -> Booleen+
+. +estDiagonale : MatriceEntier -> Booleen+
+. +setElement : MatriceEntier * Entier * Entier * Entier -> MatriceEntier+
+. +setPremiereDiagonale : MatriceEntier * Entier -> MatriceEntier+
+. +setSecondeDiagonale : MatriceEntier * Entier -> MatriceEntier+
+. +mulMatNombre : MatriceEntier * Entier -> MatriceEntier+
+--
+
+.Préconditions
+--
+. +creerMatrice(l,c) valide SI ET SEULEMENT SI ( l > 0 ) ET ( c > 0 )+
+. +getElement(m,i,j) valide SI ET SEULEMENT SI ( 0 < = i < getNbLignes(m) ) ET ( 0 < = j < getNbColonnes(m))+
+. +setElement(m,i,j,n) valide SI ET SEULEMENT SI ( 0 < = i < getNbLignes(m) ) ET ( 0 < = j < getNbColonnes(m))+
+. +somLigne(m,i) valide SI ET SEULEMENT SI 0 < = i < getNbLignes(m)+
+. +somColonne(m,j) valide SI ET SEULEMENT SI  0 < = j < getNbColonnes(m)+
+. +setPremiereDiagonale(m,n) valide SI ET SEULEMENT SI estCarree(m)+
+. +setSecondeDiagonale(m,n) valide SI ET SEULEMENT SI estCarree(m)+
+. +estDiagonale(m) valide SI ET SEULEMENT SI estCarree(m)+
+--
+
+.Axiomes
+
+. +getNbLignes(creerMatrice(l,c)) = l+
+. +getNbColonnes(creerMatrice(l,c)) = c+
+. +getElement(creerMatrice(l,c),i,j) = 0+
+. +somLigne(creerMatrice(l,c),i) = 0+
+. +somColonne(creerMatrice(l,c),j) = 0+
+. +estCarree(creerMatrice(l,c)) SI ET SEULEMENT SI l = c+
+. +estDiagonale(creerMatrice(lc,lc)) = VRAI+
+. +getNbLignes(setPremiereDiagonale(m,n)) = getNbLignes(m)+
+. +getNbColonnes(setPremiereDiagonale(m,n)) = getNbColonnes(m)+
+. +getElement(setPremiereDiagonale(m,n),ij,ij) = n+
+. +getElement(setPremiereDiagonale(m,n),i,j) = getElement(m,i,j)+
+. +somLigne(setPremiereDiagonale(m,n),i) = somLigne(m,i) + n - getElement(m,i,i)+
+. +somColonne(setPremiereDiagonale(m,n),j) = somColonne(m,j) + n - getElement(m,j,j)+
+. +somLigne(setSecondeDiagonale(m,n),i) = somLigne(m,i) + n - getElement(m,i,getNbColonnes(m) - 1 - i)+
+. +somColonne(setSecondeDiagonale(m,n),j) = somColonne(m,j) + n - getElement(m,j,getNbLignes(m) -1 - j)+
+. +somLigne(mulMatNombre(setPremiereDiagonale(m,1),n),i) = somLigne(m,i) + n - getElement(m,i,i)+
+. +somColonne(mulMatNombre(setPremiereDiagonale(m,1),n),j) = somColonne(m,j) + n - getElement(m,j,j)+
+
+====
+
+ifdef::backend-slidy2[<<<]
+
+[source,java]
+.Programme de Test des Opérations
+----
+include::srcC1/MatriceEntierOperationsTest.java[]
+----
+
+ifdef::backend-slidy2[<<<]
+
+[source,java]
+.Programme de Test des Préconditions
+----
+include::srcC1/MatriceEntierPreconditionsTest.java[]
+----
+
+ifdef::backend-slidy2[<<<]
+
+[source,java]
+.Programme de Test des Axiomes
+----
+include::srcC1/MatriceEntierAxiomesTest.java[]
+----
+
+ifdef::backend-slidy2[<<<]
+
+[source,java]
+.Programme de Test des Opérations supplémentaires
+----
+include::srcC1/MatriceEntierOpSupTest.java[]
+----
+
+ifdef::backend-slidy2[<<<]
+
+[NOTE]
+.Le programme de test fourni est :
+====
+* un outil de détection des régressions
+** qui pourraient intervenir à la suite d'une modification de la Classe MatriceEntier
+* une 'documentation' de 'spécification'
+** précise et concise
+* une 'documentation' pour le 'programmeur'
+** opérationnelle
+====
+
+
+
+=== Tests d'intégration
+
+Plus délicat, il s'agit ...
+
+** de tester les exigences du client
+** de tester les intéractions système
+** de ne pas refaire les tests unitaires
+
+ifdef::backend-slidy2[<<<]
+
+[source,java]
+.Programme de Test du programme *JourSuivantAvecLibDate.class*
+----
+include::srcC1/JourSuivantAvecLibDateTest.java[]
+----
+<1> nom de l'application (du programme) à tester
+<2> Process (Processus) = programme en cours d'exécution
+<3> lien vers l'écran du programme en cours d'exécution
+<4> lien vers le clavier du programme en cours d'exécution
+<5> récupération *portable* du retour à la ligne
+<6> lancement de toutes les fonctions débutant par 'test'
+<7> fonction (ré-)exécutée avant chaque fonction de test et qui exécute le programme à tester
+<8> lance le programme
+<9> se connecte à l'écran (sortie standard) du programme lancé
+<10> se connecte au clavier (entrée standard) du programme lancé
+<11> lit une ligne sur l'écran du programme lancé
+<12> écrit une ligne au clavier du programme lancé
+<13> force l'envoi de la ligne au clavier (vide le tampon de sortie)
+<14> lit une autre ligne sur l'écran du programme lancé
+
+
+=== Les tests implémentent des algorithmes simples
+
+[source,java]
+.given/when/then
+----
+public void test_dates_invalides() {
+    int[][] tabJeuDEssaiDatesInvalides = {         // <1>
+        {1,1,1581},{0,1,2013},{99,99,2099},
+        {32,1,2013},{29,2,2013},{32,3,2013},
+        {31,4,2013},{32,5,2013},{31,6,2013},
+        {32,7,2013},{32,8,2013},{31,9,2013},
+        {32,10,2013},{31,11,2013},{32,12,2013},
+        {29,2,1900},{30,2,2000}
+    } ;
+    for (int indice = 0, taille = tabJeuDEssaiDatesInvalides.length; indice < taille ; indice = indice + 1){
+      int[] date = tabJeuDEssaiDatesInvalides[indice] ;
+      assertFalse(date[0]+"/"+date[1]+"/"+date[2]+" est une date invalide"
+      , LibDate.dateValide(date[0],date[1],date[2]));      // <2> <3>
+    }
+    bilanAssertions = bilanAssertions + tabJeuDEssaiDatesInvalides.length ;
+  }
+----
+<1> *given* : dans les situations suivantes
+<2> *when* : quand on vérifie la validité de la date
+<3> *then* : on doit obtenir false
+
+
+=== Tout est-il testable ?
+
+
+- les librairies
+- les intéractions systèmes (concurrence etc)
+- les services réseau
+- les interfaces graphiques (html, java, flash etc)
+- ...
+
+- PEUT-ETRE PAS, mais seulement après avoir essayé
+
+
+=== Toutes les manières de faire sont exploitables
+
+[NOTE]
+====
+. Ecrire le programme qui fasse passer les tests fournis
+. Ecrire les tests d'un programme fourni
+. Coder une fonctionnalité et ajouter le test correspondant
+. Ajouter un test et intégrer la fonctionnalité correspondante (TDD)
+. Retrouver l'équilibre du couple Programme / Programme de Test
+====
+
+
+== Au menu du module M3301/MPA
+
+Réaliser le développement d'une application logicielle en utilisant la méthode SCRUM
+
+et qui se termine dans de bonnes conditions
+
+=== Modalités
+
+Chaque groupe dispose de ses force vives et de 2 TD + 2 TP par semaine :
+
+- pour réaliser le sprint courant (fournir tous les livrables)
+
+ifdef::backend-slidy2[]
+== Merci de votre attention
+
+Des *questions* ? N'hésitez pas ?
+endif::backend-slidy2[]
