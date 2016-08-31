@@ -51,8 +51,10 @@ Courses with icon:graduation-cap[] are more theoretical than those with icon:cog
 
 I teach the following courses in the _DUT Informatique_ at {iut} :
 
-* icon:cogs[] image:icons/fr.svg[width=20] link:mpa2016.html[Méthodologie de Production d'Application (MPA - M33301)] (L2 level)
+* icon:cogs[] image:icons/fr.svg[width=20] link:mpa2016.html[Méthodologie de Production d'Application (MPA - M3301)] (L2 level)
+** icon:cogs[] Cours sur l'approche Agile (et {scrum} en particulier) (link:{website}/topics/agile.html[HTML], link:{website}/topics/agile.dzslides.html[Slides])
 ** icon:cogs[] Cours sur {git} (link:{website}/topics/git.html[HTML], link:{website}/topics/git.dzslides.html[Slides])
+* icon:cogs[] image:icons/fr.svg[width=20] Conception et Programmation Objet Avancées (CPOA - M3105) (L2 level)
 
 [NOTE]
 =====
@@ -62,7 +64,7 @@ image::dut-modules.svg[]
 
 === Licence APSIO
 
-I teach the following course in the {apsio} at {iut} :
+I teach the following courses in the {apsio} at {iut}:
 
 * icon:graduation-cap[] link:http://jmbruel.github.io/MobileModeling/[Mobile Modeling] (L3 level)
 
