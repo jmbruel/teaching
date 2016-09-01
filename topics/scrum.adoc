@@ -202,7 +202,7 @@ ifdef::slides[:leveloffset: -2]
 ==== Indicateurs
 
 [{incremental}]
-Vélocité:: quantité du backlog de produit réalisée par l'équipe pendant un sprint detail]#(calculée en points)detail]#
+Vélocité:: quantité du backlog de produit réalisée par l'équipe pendant un sprint [detail]#(calculée en points)#
 Capacité:: quantité du backlog de produit qui sera réalisée lors du prochain sprint
 
 ifdef::slides[:leveloffset: +1]
@@ -237,10 +237,36 @@ ifndef::slides[]
 ****************************************
 endif::slides[]
 
-Implémenter le type abstrait `MatriceEntier`
+Exemple: implémenter le type abstrait `MatriceEntier`
 
 ifndef::slides[]
 ****************************************
+endif::slides[]
+
+ifdef::slides[]
+
+ifdef::slides[===  !]
+
+* Opérations
+** `creerMatrice : Entier * Entier -> MatriceEntier`
+** `getNbLignes : MatriceEntier -> Entier`
+** `getNbColonnes : MatriceEntier -> Entier`
+** ...
+
+ifdef::slides[===  !]
+
+* Préconditions
+** `creerMatrice(l,c) valide SI ET SEULEMENT SI ( l > 0 ) ET ( c > 0 )`
+** `getElement(m,i,j) valide SI ET SEULEMENT SI ( 0 < = i < getNbLignes(m) ) ET ( 0 < = j < getNbColonnes(m))`
+** ...
+
+ifdef::slides[===  !]
+
+* Axiomes
+** `getNbLignes(creerMatrice(l,c)) = l`
+** `getNbColonnes(creerMatrice(l,c)) = c`
+** `getElement(creerMatrice(l,c),i,j) = 0`
+** ...
 endif::slides[]
 
 ifndef::slides[]
@@ -249,56 +275,55 @@ ifndef::slides[]
 ====
 .Opérations
 --
-. +creerMatrice : Entier * Entier -> MatriceEntier+
-. +getNbLignes : MatriceEntier -> Entier+
-. +getNbColonnes : MatriceEntier -> Entier+
-. +getElement : MatriceEntier * Entier * Entier -> Entier+
-. +somLigne : MatriceEntier * Entier -> Entier+
-. +somColonne : MatriceColonne * Entier -> Entier+
-. +estCarree : MatriceEntier -> Booleen+
-. +estDiagonale : MatriceEntier -> Booleen+
-. +setElement : MatriceEntier * Entier * Entier * Entier -> MatriceEntier+
-. +setPremiereDiagonale : MatriceEntier * Entier -> MatriceEntier+
-. +setSecondeDiagonale : MatriceEntier * Entier -> MatriceEntier+
-. +mulMatNombre : MatriceEntier * Entier -> MatriceEntier+
+. `creerMatrice : Entier * Entier -> MatriceEntier`
+. `getNbLignes : MatriceEntier -> Entier`
+. `getNbColonnes : MatriceEntier -> Entier`
+. `getElement : MatriceEntier * Entier * Entier -> Entier`
+. `somLigne : MatriceEntier * Entier -> Entier`
+. `somColonne : MatriceColonne * Entier -> Entier`
+. `estCarree : MatriceEntier -> Booleen`
+. `estDiagonale : MatriceEntier -> Booleen`
+. `setElement : MatriceEntier * Entier * Entier * Entier -> MatriceEntier`
+. `setPremiereDiagonale : MatriceEntier * Entier -> MatriceEntier`
+. `setSecondeDiagonale : MatriceEntier * Entier -> MatriceEntier`
+. `mulMatNombre : MatriceEntier * Entier -> MatriceEntier`
 --
 
 
 .Préconditions
 --
-. +creerMatrice(l,c) valide SI ET SEULEMENT SI ( l > 0 ) ET ( c > 0 )+
-. +getElement(m,i,j) valide SI ET SEULEMENT SI ( 0 < = i < getNbLignes(m) ) ET ( 0 < = j < getNbColonnes(m))+
-. +setElement(m,i,j,n) valide SI ET SEULEMENT SI ( 0 < = i < getNbLignes(m) ) ET ( 0 < = j < getNbColonnes(m))+
-. +somLigne(m,i) valide SI ET SEULEMENT SI 0 < = i < getNbLignes(m)+
-. +somColonne(m,j) valide SI ET SEULEMENT SI  0 < = j < getNbColonnes(m)+
-. +setPremiereDiagonale(m,n) valide SI ET SEULEMENT SI estCarree(m)+
-. +setSecondeDiagonale(m,n) valide SI ET SEULEMENT SI estCarree(m)+
-. +estDiagonale(m) valide SI ET SEULEMENT SI estCarree(m)+
+. `creerMatrice(l,c) valide SI ET SEULEMENT SI ( l > 0 ) ET ( c > 0 )`
+. `getElement(m,i,j) valide SI ET SEULEMENT SI ( 0 < = i < getNbLignes(m) ) ET ( 0 < = j < getNbColonnes(m))`
+. `setElement(m,i,j,n) valide SI ET SEULEMENT SI ( 0 < = i < getNbLignes(m) ) ET ( 0 < = j < getNbColonnes(m))`
+. `somLigne(m,i) valide SI ET SEULEMENT SI 0 < = i < getNbLignes(m)`
+. `somColonne(m,j) valide SI ET SEULEMENT SI  0 < = j < getNbColonnes(m)`
+. `setPremiereDiagonale(m,n) valide SI ET SEULEMENT SI estCarree(m)`
+. `setSecondeDiagonale(m,n) valide SI ET SEULEMENT SI estCarree(m)`
+. `estDiagonale(m) valide SI ET SEULEMENT SI estCarree(m)`
 --
 
 .Axiomes
 
-. +getNbLignes(creerMatrice(l,c)) = l+
-. +getNbColonnes(creerMatrice(l,c)) = c+
-. +getElement(creerMatrice(l,c),i,j) = 0+
-. +somLigne(creerMatrice(l,c),i) = 0+
-. +somColonne(creerMatrice(l,c),j) = 0+
-. +estCarree(creerMatrice(l,c)) SI ET SEULEMENT SI l = c+
-. +estDiagonale(creerMatrice(lc,lc)) = VRAI+
-. +getNbLignes(setPremiereDiagonale(m,n)) = getNbLignes(m)+
-. +getNbColonnes(setPremiereDiagonale(m,n)) = getNbColonnes(m)+
-. +getElement(setPremiereDiagonale(m,n),ij,ij) = n+
-. +getElement(setPremiereDiagonale(m,n),i,j) = getElement(m,i,j)+
-. +somLigne(setPremiereDiagonale(m,n),i) = somLigne(m,i) + n - getElement(m,i,i)+
-. +somColonne(setPremiereDiagonale(m,n),j) = somColonne(m,j) + n - getElement(m,j,j)+
-. +somLigne(setSecondeDiagonale(m,n),i) = somLigne(m,i) + n - getElement(m,i,getNbColonnes(m) - 1 - i)+
-. +somColonne(setSecondeDiagonale(m,n),j) = somColonne(m,j) + n - getElement(m,j,getNbLignes(m) -1 - j)+
-. +somLigne(mulMatNombre(setPremiereDiagonale(m,1),n),i) = somLigne(m,i) + n - getElement(m,i,i)+
-. +somColonne(mulMatNombre(setPremiereDiagonale(m,1),n),j) = somColonne(m,j) + n - getElement(m,j,j)+
+. `getNbLignes(creerMatrice(l,c)) = l`
+. `getNbColonnes(creerMatrice(l,c)) = c`
+. `getElement(creerMatrice(l,c),i,j) = 0`
+. `somLigne(creerMatrice(l,c),i) = 0`
+. `somColonne(creerMatrice(l,c),j) = 0`
+. `estCarree(creerMatrice(l,c)) SI ET SEULEMENT SI l = c`
+. `estDiagonale(creerMatrice(lc,lc)) = VRAI`
+. `getNbLignes(setPremiereDiagonale(m,n)) = getNbLignes(m)`
+. `getNbColonnes(setPremiereDiagonale(m,n)) = getNbColonnes(m)`
+. `getElement(setPremiereDiagonale(m,n),ij,ij) = n`
+. `getElement(setPremiereDiagonale(m,n),i,j) = getElement(m,i,j)`
+. `somLigne(setPremiereDiagonale(m,n),i) = somLigne(m,i) ` n - getElement(m,i,i)`
+. `somColonne(setPremiereDiagonale(m,n),j) = somColonne(m,j) ` n - getElement(m,j,j)`
+. `somLigne(setSecondeDiagonale(m,n),i) = somLigne(m,i) ` n - getElement(m,i,getNbColonnes(m) - 1 - i)`
+. `somColonne(setSecondeDiagonale(m,n),j) = somColonne(m,j) ` n - getElement(m,j,getNbLignes(m) -1 - j)`
+. `somLigne(mulMatNombre(setPremiereDiagonale(m,1),n),i) = somLigne(m,i) ` n - getElement(m,i,i)`
+. `somColonne(mulMatNombre(setPremiereDiagonale(m,1),n),j) = somColonne(m,j) ` n - getElement(m,j,j)`
 
 ====
 endif::slides[]
-
 
 ifdef::slides[== !]
 
