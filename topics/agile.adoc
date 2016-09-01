@@ -7,8 +7,6 @@
 J.-M. Bruel <jbruel@gmail.com>
 v1.0 {localdate}
 :imagesdir: images
-image:blasonJMI.png[width=50%] À l'initiateur de ce cours, Jean-Michel Inglebert...
-
 //------------------------------------ variables de configuration
 // only used when master document
 ifndef::jmbtopic[]
@@ -69,6 +67,13 @@ ifndef::definitions[]
 include::../definitions.txt[]
 endif::definitions[]
 
+ifdef::slides[== !]
+
+À l'initiateur de ce cours, Jean-Michel Inglebert...
+
+ifndef::slides[.Blason des étudiants DUT Info 2016]
+image::blasonJMI.png[width=50%]
+
 // ------------------------------------------ disclaimer
 [{intro}]
 == Gestion de *projets*
@@ -82,6 +87,7 @@ ifndef::slides[:leveloffset: +1]
 [quote, 2014, Wikipedia]
 On appelle *projet* un ensemble finalisé d’*activités et d’actions* entreprises dans le but de *répondre* à un *besoin* défini dans des délais fixés et dans la limite d'une enveloppe budgétaire allouée.
 
+ifdef::slides[== !]
 
 [quote, 2014, JMI]
 ___________________________________________
@@ -105,17 +111,14 @@ ___________________________________________
 .. ...
 
 - *FIN* : le résultat sera livré quand ?
-+
-[TIP]
-.Eviter de répondre : *hier*
-=====
-(Sinon, c'est un processus de sauvetage et plus 1 projet)
-=====
+
+Eviter de répondre : *hier* [detail]#(Sinon, c'est un processus de sauvetage et plus 1 projet)#
 
 // ------
 [{topic}]
 == ... entre DEBUT et FIN, comment FAIRE ?
 
+[{incremental}]
 Option 1:: se débrouiller (comme dans 'FAIRE les soldes')
 Option 2:: dérouler un process (comme dans '(RE)FAIRE son passeport')
 Option 3:: réaliser un projet
@@ -125,57 +128,68 @@ Option 3:: réaliser un projet
 == Depuis le temps que la notion de projet existe ...
 
 [quote, Janvier 2014, Revue Programmez!]
-.7 projets sur 10 arrivent en retard ou jamais !
 ___________________________________________
-[{incremental}]
-- cause 1: *la demande client est floue*
-- cause 2: *sur estimation des compétences disponibles*
-- cause 3: *dérive au démarrage*
-- cause 4: *les demandes de modification du client se sont perdues*
-- cause 5: *les équipes sont surchargées*
-- cause 6: *perte de compétences au cours du projet*
-- cause 7: *les risques sont mal évalués*
-- cause 8: *les réunions sont improductives*
+7 projets sur 10 arrivent *en retard ou jamais* !
 ___________________________________________
 
-CAUTION: Dans tous les cas, c'est l'équipe de développement qui est fautive.
+ifdef::slides[== !]
+
+Les causes :
+[{incremental}]
+- la demande client est *floue*
+- *surestimation* des compétences disponibles
+- dérive au *démarrage*
+- les demandes de modification se sont *perdues*
+- les équipes sont *surchargées*
+- *perte de compétences* au cours du projet
+- les risques sont *mal évalués*
+- les réunions sont *improductives*
+
+ifdef::slides[== !]
+
+Dans tous les cas, c'est l'équipe de développement qui est fautive.
 
 // ------
 [{topic}]
 == Pourquoi est-ce si difficile ?
 
-. L'objectif est connu (fourni par le client)
-. L'atteinte de l'objectif est mesurable (évaluable)
+Pourtant :
+
+- L'objectif est connu (fourni par le client)
+- L'atteinte de l'objectif est mesurable (évaluable)
 
 [CAUTION]
-.le problème
+.Le problème
 ====
 On n'a pas de méthode infaillible qui garantisse qu'une équipe projet atteindra les objectifs.
 ====
 
 [NOTE]
-.pourquoi ?
+.Pourquoi ?
 ====
 Il s'agit de gérer une complexité métier, technique et humaine avec des ressources limitées (temps, moyens ...)
 ====
 
-Seule CERTITUDE prévisible:: il faudra *s'adapter aux imprévus*
+ifdef::slides[== !]
+
+Seule certitude prévisible : il faudra *s'adapter aux imprévus*.
 
 // ------
 [{topic}]
 == Le découpage en phases d'un projet logiciel
 
-Seule CERTITUDE prévisible:: il faudra *s'adapter aux imprévus*
-
-CAUTION: Ca n'empèche pas de définir de grandes étapes génériques
+Ça n'empêche pas de définir de grandes étapes génériques
 que le projet devra franchir : ses *PHASES*
 
 [WARNING]
 ====
 Un projet de développement logiciel se terminera de 'manière satisfaisante'
-si l'équipe fournit une application fiable, robuste et maintenable qui répond aux exigences du client.
+si l'équipe fournit une application *fiable*, *robuste* et *maintenable* qui répond aux exigences du client.
 ====
 
+ifdef::slides[== !]
+
+[{incremental}]
 fiable:: fait ce qu'on attend d'elle dans les conditions fixées
 robuste:: supporte la charge, les erreurs des utilisateurs, les pannes etc
 maintenable:: ne demande pas d'être réécrite pour la moindre évolution
@@ -186,20 +200,27 @@ ifdef::slides[:leveloffset: -1]
 [{topic}]
 === Méthodes en Cascade ou Cycle en V
 
-.Les méthodes en cascade (waterfall)
-image::waterfall.png[]
+ifndef::slides[.Les méthodes en cascade (waterfall)]
+image::waterfall.png[width=70%]
 
-ifdef::slides[==!]
+ifdef::slides[=== !]
 
 Le cycle en V adopte :
 
-- 'une approche descendante' pour l'analyse et la conception
-- suivie d'une 'phase montante' pour le codage, les tests et l'intégration.
-
-:incremental:
+- une approche *descendante* pour l'analyse et la conception
+- suivie d'une phase *montante* pour le codage, les tests et l'intégration.
 
 ifdef::slides[]
-images::v123.png[v1.png,v2.png]
+
+=== !
+image::v1.png[]
+
+=== !
+image::v2.png[]
+
+=== !
+image::v123.png[]
+
 endif::slides[]
 
 ifndef::slides[]
@@ -209,13 +230,12 @@ endif::slides[]
 
 [WARNING]
 ====
-Un projet de développement de type cycle en V se terminera de 'manière satisfaisante'
+Un projet de développement de type cycle en V se terminera de *manière satisfaisante*
 si l'équipe arrive à remonter le 'V' dans de 'bonnes conditions'.
 ====
 
-ifdef::slides[==!]
+ifdef::slides[=== !]
 
-[icon="v3.png"]
 [NOTE]
 .Arrêt du projet
 ====
@@ -223,7 +243,6 @@ ifdef::slides[==!]
 - au mieux des modules/classes de base peuvent être réutilisés
 ====
 
-[icon="v4.png"]
 [NOTE]
 .Dérive temporelle
 ====
@@ -232,84 +251,106 @@ ifdef::slides[==!]
 ====
 
 // ------
-ifdef::slides[==!]
+ifdef::slides[=== !]
 
 En résumé :
 
-
-[NOTE]
-====
+[{incremental}]
 - illustre une approche cartésienne de réduction de la complexité
 - produit les plans de tests dans les phases descendantes
 - vérifie les plans de tests dans les phases ascendantes
-====
 
+
+ifdef::slides[=== !]
 
 [CAUTION]
 .Limites connues
 ====
+[{incremental}]
 - *ne décrit pas* les phases de *maintenance* et *d'évolution*
 - ne prévoit pas qu'on revienne sur les étapes de conception ?
-- courbe à postériori : quel est la complexité estimée du projet à son début ?
+- courbe _a posteriori_ : quelle est la complexité estimée du projet à son début ?
 - *l'application* livrée est-elle conforme à *sa documentation* (*et vice versa*) ?
 ====
 
-:incremental!:
+// ------
+[{intro}]
+=== Du cycle en *V* aux cycles en *W*
+
+ifdef::slides[:leveloffset: -1]
 
 // ------
 [{topic}]
-=== Du cycle en V aux cycles en W
-
-ifdef::slides[==!]
-
-ifdef::slides[:leveloffset: -2]
-
 ====  Partons d'un exemple trivial
 
 .Une application web de gestion d’urls
 ====
-Développer une 'application web' capable de 'collecter'
-et 'd'afficher' les urls collectées.
+Développer une *application web* capable de *collecter*
+et *d'afficher* les urls collectées.
 ====
 
 ifdef::slides[:leveloffset: -3]
 
+// ------
+[{topic}]
 ===== Cycle 0
 
 Mise en place d'une infrastructure d'intégration
 
-.solution retenue :
+Solution retenue :
 
-. Langage de développement : +PHP+
-. Infrastructure d'intégration : serveur LAMP
+- Langage de développement : `PHP`
+- Infrastructure d'intégration : serveur `LAMP`
 
 
+// ------
+[{topic}]
 ===== Cycle 1
 
 Afficher les urls collectées
 
-.solution retenue :
+Solution retenue :
 
-. le serveur maintient un tableau d'urls
-. la page retournée en mode +GET+ affiche les urls
+- le serveur maintient un tableau d'urls
+- la page retournée en mode +GET+ affiche les urls
 sous forme de liste
 
+// ------
+[{topic}]
 ===== Cycle 2
 
 Saisie et collecte des urls
 
-.solution retenue :
+Solution retenue :
 
-. la page propose un formulaire de saisie de nouvelles urls
-
-:incremental:
+- la page propose un formulaire de saisie de nouvelles urls
 
 ifdef::slides[:leveloffset: -2]
 
+// ------
+[{topic}]
 ==== Bilan de l'exemple trivial
 
 ifdef::slides[]
-images::w5rb2.png[w12.png,w32.png,w42.png,w52.png,w5b2.png]
+
+==== !
+image::w12.png[]
+
+==== !
+image::w32.png[]
+
+==== !
+image::w42.png[]
+
+==== !
+image::w52.png[]
+
+==== !
+image::w5b2.png[]
+
+==== !
+image::w5rb2.png[]
+
 endif::slides[]
 
 ifndef::slides[]
@@ -317,80 +358,110 @@ image::w5rb2.png[scaledwidth="90%"]
 endif::slides[]
 
 
+// ------
+[{topic}]
 ==== Les bénéfices reconnus
 
 [NOTE]
 ====
-. livre une application qui marche dès le cycle 1
-. gère la complexité et les problèmes d'intégration à chaque cycle
-. s'applique à un développement nouveau comme à une évolution
-. permet au client d'affiner ses exigences
+[{incremental}]
+- livre une application qui marche dès le cycle 1
+- gère la complexité et les problèmes d'intégration à chaque cycle
+- s'applique à un développement nouveau comme à une évolution
+- permet au client d'affiner ses exigences
 ====
 
-[WARNING]
-.Rappel
-====
+ifdef::slides[]
+==== !
+
+Rappel :
+
 Un projet de développement logiciel se terminera de 'manière satisfaisante'
-si l'équipe fournit une application fiable, robuste et maintenable qui répond aux exigences du client.
-====
+si l'équipe fournit une application ......, ....... et ........... qui répond aux exigences du client.
+
+==== !
+
+endif::slides[]
+
+Rappel :
+
+Un projet de développement logiciel se terminera de 'manière satisfaisante'
+si l'équipe fournit une application *fiable*, *robuste* et *maintenable* qui répond aux exigences du client.
+
 
 ifdef::slides[:leveloffset: -3]
 
+// ------
+[{topic}]
 ===== Les cas où ça ne marche pas
 
 [WARNING]
 ====
-. le client est (trop) absent
-. la conduite de la méthode choisie est approximative  (dérive des livraisons)
-. les tests sont à l'abandon
+[{incremental}]
+- le client est (trop) absent
+- la conduite de la méthode choisie est approximative  (dérive des livraisons)
+- les tests sont à l'abandon
 ====
 
+// ------
+[{topic}]
 ===== Les problèmes nouveaux
 
 [WARNING]
 ====
-. qu'elle est la capacité de l'infrastructure initiale (cycle 0)
-. automatiser les tests de non régression : XP, T/BDD ...
-. approche ascendante => refactoring ...
-. comment gérer les livraisons fréquentes : intégration continue ...
-. que devient la documentation ???
+[{incremental}]
+- qu'elle est la capacité de l'infrastructure initiale (cycle 0)
+- automatiser les tests de non régression : XP, T/BDD ...
+- approche ascendante => refactoring ...
+- comment gérer les livraisons fréquentes : intégration continue ...
+- que devient la documentation ???
 ====
 
 ifdef::slides[:leveloffset: -2]
 
+// ------
+[{topic}]
 === V versus W
 
 [NOTE]
 .V
 ====
-. Expression des besoins
-. Spécifications
-. Conception générale et détaillée
-. Codage et tests
-. Intégration et tests
-. Livraison (recette)
+[{incremental}]
+- Expression des besoins
+- Spécifications
+- Conception générale et détaillée
+- Codage et tests
+- Intégration et tests
+- Livraison (recette)
 ====
 
-ifdef::slides[==!]
+ifdef::slides[=== V versus W (suite)]
 
 [NOTE]
 .W
 ====
-. Cycle 0
-. Cycle 1 .. N
-.. choisir des fonctionnalités
-.. ... coder/tester ...
-.. livrer
-.. ajuster la liste des demandes
+[{incremental}]
+* Cycle 0
+* Cycle 1 .. N
+[{incremental}]
+** choisir des fonctionnalités
+** ... coder/tester ...
+** livrer
+** ajuster la liste des demandes
 ====
 
+// ------
+[{topic}]
 === Ce qui est toujours fait
 
-. Planifier (tout ou partie) des prochaines actions
-. Réaliser les actions planifiées
-. Evaluer la distance au but
+[{incremental}]
+- Planifier (tout ou partie) des prochaines actions
+- Réaliser les actions planifiées
+- Evaluer la distance au but
 
 
+// ------
+[{topic}]
 === Evaluer l'atteinte des objectifs
 
 L'atteinte de tous les objectifs (et sous-objectifs) d'un projet
@@ -406,8 +477,11 @@ et des 'tests d'intégration'.
 [NOTE]
 .Aujourd'hui, ON DOIT
 ====
+[{incremental}]
 - écrire *systématiquement* des *programmes de test*
 - exécuter très *régulièrement* ces programmes de tests
 ====
+
+ifdef::slides[:leveloffset: +1]
 
 include::scrum.adoc[]
