@@ -18,7 +18,8 @@ ifndef::jmbtopic[]
 :toc: left
 :numbered:
 :status:
-:siteurl: http://jmbhome.github.io/teaching/git.html
+:siteurl: http://jmbhome.github.io/teaching/topics/git.html
+:bitlysiteurl: http://bit.ly/jmb-git
 //------------------------------------ Slides uniquement
 ifdef::slides[]
 //--------------------- dzslides slides
@@ -78,6 +79,8 @@ ifdef::slides[]
 == Pour suivre en live... icon:mobile[] icon:tablet[] icon:laptop[]
 
 [{statement}]
+{bitlysiteurl}
+
 {siteurl}
 
 /////

@@ -248,24 +248,28 @@ ifdef::slides[]
 ifdef::slides[===  !]
 
 * Opérations
-** `creerMatrice : Entier * Entier -> MatriceEntier`
-** `getNbLignes : MatriceEntier -> Entier`
-** `getNbColonnes : MatriceEntier -> Entier`
+[{incremental}]
+** creerMatrice : Entier * Entier -> MatriceEntier
+** getNbLignes : MatriceEntier -> Entier
+** getNbColonnes : MatriceEntier -> Entier
 ** ...
 
 ifdef::slides[===  !]
 
 * Préconditions
-** `creerMatrice(l,c) valide SI ET SEULEMENT SI ( l > 0 ) ET ( c > 0 )`
-** `getElement(m,i,j) valide SI ET SEULEMENT SI ( 0 < = i < getNbLignes(m) ) ET ( 0 < = j < getNbColonnes(m))`
+[{incremental}]
+** creerMatrice(l,c) valide SI ET SEULEMENT SI ( l > 0 ) ET ( c > 0 )
+** getElement(m,i,j) valide SI ET SEULEMENT SI ( 0 < = i < getNbLignes(m) ) ET ( 0 < = j < getNbColonnes(m))
 ** ...
 
 ifdef::slides[===  !]
 
 * Axiomes
-** `getNbLignes(creerMatrice(l,c)) = l`
-** `getNbColonnes(creerMatrice(l,c)) = c`
-** `getElement(creerMatrice(l,c),i,j) = 0`
+[{incremental}]
+** getNbLignes(creerMatrice(l,c)) = l
+** getNbColonnes(creerMatrice(l,c)) = c
+** getElement(creerMatrice(l,c),i,j) = 0
+** estCarree(creerMatrice(l,c)) SI ET SEULEMENT SI l = c
 ** ...
 endif::slides[]
 
@@ -325,15 +329,13 @@ ifndef::slides[]
 ====
 endif::slides[]
 
-ifdef::slides[== !]
-
 [source,java]
 .Programme de Test des Opérations
 ----
 include::src/MatriceEntierOperationsTest.java[]
 ----
 
-ifdef::slides[== !]
+ifdef::slides[===  !]
 
 [source,java]
 .Programme de Test des Préconditions
@@ -341,7 +343,7 @@ ifdef::slides[== !]
 include::src/MatriceEntierPreconditionsTest.java[]
 ----
 
-ifdef::slides[== !]
+ifdef::slides[===  !]
 
 [source,java]
 .Programme de Test des Axiomes
@@ -349,7 +351,7 @@ ifdef::slides[== !]
 include::src/MatriceEntierAxiomesTest.java[]
 ----
 
-ifdef::slides[== !]
+ifdef::slides[===  !]
 
 [source,java]
 .Programme de Test des Opérations supplémentaires
@@ -357,34 +359,32 @@ ifdef::slides[== !]
 include::src/MatriceEntierOpSupTest.java[]
 ----
 
-ifdef::slides[== !]
+ifdef::slides[===  !]
 
-[NOTE]
-.Le programme de test fourni est :
-====
-* un outil de détection des régressions
-** qui pourraient intervenir à la suite d'une modification de la Classe MatriceEntier
-* une 'documentation' de 'spécification'
+Le programme de test fourni est :
+
+[{incremental}]
+* un outil de *détection des régressions*
+** qui pourraient intervenir à la suite d'une modification de la classe `MatriceEntier`
+* une _documentation_ de *spécification*
 ** précise et concise
-* une 'documentation' pour le 'programmeur'
+* une _documentation_ pour les *programmeurs*
 ** opérationnelle
-====
-
-
 
 [{topic}]
 === Tests d'intégration
 
-Plus délicat, il s'agit ...
+Plus délicat, il s'agit :
 
-** de tester les exigences du client
-** de tester les intéractions système
-** de ne pas refaire les tests unitaires
+[{incremental}]
+* de tester les exigences du client
+* de tester les intéractions système
+* de ne pas refaire les tests unitaires
 
-ifdef::slides[== !]
+ifdef::slides[=== !]
 
 [source,java]
-.Programme de Test du programme *JourSuivantAvecLibDate.class*
+.Programme de Test du programme `JourSuivantAvecLibDate.class`
 ----
 include::src/JourSuivantAvecLibDateTest.java[]
 ----
@@ -407,54 +407,57 @@ include::src/JourSuivantAvecLibDateTest.java[]
 [{topic}]
 === Les tests implémentent des algorithmes simples
 
+ifndef::slides[]
 [source,java]
 .given/when/then
+endif::slides[]
 ----
 public void test_dates_invalides() {
-    int[][] tabJeuDEssaiDatesInvalides = {         // <1>
-        {1,1,1581},{0,1,2013},{99,99,2099},
-        {32,1,2013},{29,2,2013},{32,3,2013},
-        {31,4,2013},{32,5,2013},{31,6,2013},
-        {32,7,2013},{32,8,2013},{31,9,2013},
-        {32,10,2013},{31,11,2013},{32,12,2013},
-        {29,2,1900},{30,2,2000}
-    } ;
-    for (int indice = 0, taille = tabJeuDEssaiDatesInvalides.length; indice < taille ; indice = indice + 1){
-      int[] date = tabJeuDEssaiDatesInvalides[indice] ;
-      assertFalse(date[0]+"/"+date[1]+"/"+date[2]+" est une date invalide"
-      , LibDate.dateValide(date[0],date[1],date[2]));      // <2> <3>
-    }
-    bilanAssertions = bilanAssertions + tabJeuDEssaiDatesInvalides.length ;
+  int[][] tabJeuDEssaiDatesInvalides = {  // <1>
+      {1,1,1581},{0,1,2013},{99,99,2099},
+      {32,1,2013},{29,2,2013},{32,3,2013},
+      {31,4,2013},{32,5,2013},{31,6,2013},
+      {32,7,2013},{32,8,2013},{31,9,2013},
+      {32,10,2013},{31,11,2013},{32,12,2013},
+      {29,2,1900},{30,2,2000}
+  } ;
+  for ( int indice = 0, taille = tabJeuDEssaiDatesInvalides.length;
+        indice < taille ;
+        indice = indice + 1){
+    int[] date = tabJeuDEssaiDatesInvalides[indice] ;
+    assertFalse(date[0]+"/"+date[1]+"/"+date[2]+" est invalide"
+    , LibDate.dateValide(date[0],date[1],date[2])); // <2> <3>
   }
+  bilanAssertions = bilanAssertions + tabJeuDEssaiDatesInvalides.length ;
+}
 ----
 <1> *given* : dans les situations suivantes
 <2> *when* : quand on vérifie la validité de la date
-<3> *then* : on doit obtenir false
+<3> *then* : on doit obtenir `false`
 
 
 [{topic}]
 === Tout est-il testable ?
 
-
+[{incremental}]
 - les librairies
-- les intéractions systèmes (concurrence etc)
+- les intéractions systèmes [detail]#(concurrence, etc.)#
 - les services réseau
-- les interfaces graphiques (html, java, flash etc)
+- les interfaces graphiques [detail]#(html, java, flash, etc.)#
 - ...
-
-- PEUT-ETRE PAS, mais seulement après avoir essayé
-
+- PEUT-ETRE PAS, mais seulement après avoir essayé!
 
 [{topic}]
 === Toutes les manières de faire sont exploitables
 
 [NOTE]
 ====
-. Ecrire le programme qui fasse passer les tests fournis
-. Ecrire les tests d'un programme fourni
-. Coder une fonctionnalité et ajouter le test correspondant
-. Ajouter un test et intégrer la fonctionnalité correspondante (TDD)
-. Retrouver l'équilibre du couple Programme / Programme de Test
+[{incremental}]
+- Ecrire le programme qui fasse passer les tests fournis
+- Ecrire les tests d'un programme fourni
+- Coder une fonctionnalité et ajouter le test correspondant
+- Ajouter un test et intégrer la fonctionnalité correspondante (TDD)
+- Retrouver l'équilibre du couple Programme / Programme de Test
 ====
 
 ifdef::slides[:leveloffset: +1]
