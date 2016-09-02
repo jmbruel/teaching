@@ -66,6 +66,7 @@ endif::jmbtopic[]
 ifndef::definitions[]
 include::../definitions.txt[]
 endif::definitions[]
+:compMergeURL: https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&utm_medium=social&utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate
 
 ifdef::slides[]
 // ------------------------------------------ disclaimer
@@ -451,6 +452,8 @@ Merge made by recursive.
  1 files changed, 7 insertions(+), 0 deletions(-)
 ----------------------------------------------------------------------
 
+ifdef::slides[== !]
+
 [NOTE]
 ====
 [{incremental}]
@@ -518,12 +521,12 @@ $ git checkout -b iss53
 ----------------------------------------------------------------------
 
 ifndef::slides[.Création d'une branche]
-image::gf2.svg[width="50%"]
+image::gf2.svg[width="40%"]
 
 [NOTE]
 ====
 [{incremental}]
-- Notez que git n'a rien créé d'autre qu'un pointeur de plus => aucun espace mémoire perdu.
+- {git} n'a créé qu'un pointeur => aucun espace mémoire perdu.
 ====
 
 // ------
@@ -540,6 +543,7 @@ $ git commit -m " blabla iss53"
 
 ifndef::slides[.On commence à diverger de `master`]
 image::gf3.svg[width="50%"]
+ifdef::slides[NOTE: On commence à diverger de `master`]
 
 // ------
 [{topic}]
@@ -572,6 +576,7 @@ $ git merge hotfix
 
 ifndef::slides[.Merge de deux branches (en _fast-forward_)]
 image::gf5.svg[width="40%"]
+ifdef::slides[NOTE: Il manque le pointeur *HEAD* sur mes illustrations]
 
 [NOTE]
 ====
@@ -596,6 +601,7 @@ $ git commit -m " blabla iss53"
 
 ifndef::slides[.On retravaille sur `iss53`]
 image::gf6.svg[width="50%"]
+ifdef::slides[NOTE: On retravaille sur `iss53`]
 
 // ------
 [{topic}]
@@ -611,13 +617,16 @@ $ git merge iss53
 
 ifndef::slides[.Explications du fonctionnement du merge sans _fast-forward_]
 image::gf7.svg[width="50%"]
+ifdef::slides[NOTE: Merge sans _fast-forward_]
 
+ifndef::slides[]
 [NOTE]
 ====
 [{incremental}]
 - Explications : {git} recherche la racine commune (ici `c3` pour intégrer
 les branches (les commits feuilles) une par une et vérifier les conflits par itérations à partir de cette racine.
 ====
+endif::slides[]
 
 // ------
 [{topic}]
@@ -625,12 +634,13 @@ les branches (les commits feuilles) une par une et vérifier les conflits par it
 
 ifndef::slides[.Situation finale]
 image::gf8.svg[width="50%"]
+ifdef::slides[NOTE: Situation finale]
 
 [NOTE]
 ====
 [{incremental}]
-- On part du principe qu'il n'y a pas eu de <<conflits>>.
-- On peut maintenant supprimer `iss53`.
+- On part du principe qu'il n'y a pas eu de <<conflits>>
+- On peut maintenant supprimer `iss53`
 ====
 
 // ------
@@ -652,6 +662,49 @@ ifdef::slides[== !]
 
 La principale difficulté de {git} vient de la liberté en termes de branches.
 
+// ------
+[{topic}]
+== Les différents `merge`
+
+ifdef::slides[== !]
+
+Les exemples suivants sont tirés de :
+
+NOTE: {compMergeURL}
+
+ifdef::slides[:leveloffset: -1]
+
+// ------
+[{topic}]
+=== Explicit `merge`
+
+image::what-is-a-merge.gif[width=95%,link={compMergeURL}]
+ifdef::slides[NOTE: [detail]#{compMergeURL}#]
+
+// ------
+[{topic}]
+=== Implicit `merge` via `rebase` or `fast-forward`
+
+image::what-is-a-rebase.gif[width=95%,link={compMergeURL}]
+ifdef::slides[NOTE: [detail]#{compMergeURL}#]
+
+// ------
+[{topic}]
+=== Implicit `merge` via `fast-forward`
+
+image::what-is-a-fast-forward.gif[width=95%,link={compMergeURL}]
+ifdef::slides[NOTE: [detail]#{compMergeURL}#]
+
+// ------
+[{topic}]
+=== Squash on `merge`
+
+image::squash-on-merge.gif[width=95%,link={compMergeURL}]
+ifdef::slides[NOTE: [detail]#{compMergeURL}#]
+
+
+ifdef::slides[:leveloffset: +1]
+
 [[conflits]]
 // ------
 [{intro}]
@@ -659,7 +712,7 @@ La principale difficulté de {git} vient de la liberté en termes de branches.
 
 ifdef::slides[== !]
 
-La principale activité du programmeur qui utilise {git} en équipe vient de la gestion des conflits.
+La principale activité du programmeur qui utilise {git} en équipe vient de la gestion des *conflits*.
 
 // ------
 [{intro}]
@@ -669,9 +722,11 @@ ifdef::slides[== !]
 
 http://danielkummer.github.io/git-flow-cheatsheet/
 
+ifdef::slides[]
 // ------
 [{intro}]
 == Wrap-up
+endif::slides[]
 
 // ------
 [{topic}]
@@ -679,8 +734,10 @@ http://danielkummer.github.io/git-flow-cheatsheet/
 
 Voici un schéma pour résumer la philosophie (tiré de http://osteele.com) :
 
-ifndef::slides[.Résumé des commandes {git} (http://osteele.com)]
+ifndef::slides[.Résumé des commandes git (http://osteele.com)]
 image::git-resume.png[width="50%",link="http://osteele.com"]
+
+ifndef::slides[]
 
 // ------
 [{topic}]
@@ -697,7 +754,7 @@ Les "hébergeurs"::
 Un excellent livre en ligne sur {Git}::
   http://git-scm.com/book
 Comparaison entre merge/rebase/etc.::
-  https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&utm_medium=social&utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate[ici]
+  {compmergeURL}
 
 // ------
 [{topic}]
@@ -706,3 +763,5 @@ Comparaison entre merge/rebase/etc.::
 _fast_forward_::
 Quand on merge une branche depuis un noeud situé  sur le même "historique".
 Il s'agit donc pour {git} d'un simple déplacement de pointeur!
+
+endif::slides[]

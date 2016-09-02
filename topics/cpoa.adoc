@@ -26,6 +26,7 @@ http://iut-blagnac.github.io/cpoa/
 
 endif::slides[]
 
+/////
 include::introduction.txt[]
 
 == Rappels sur des éléments Java importants
@@ -91,26 +92,16 @@ include::composite.asc[]
 include::refactoringBanque.txt[]
 
 include::patterns4.asc[]
-
+/////
 == OO or not OO
 
 Un peu de contreverse...
 
 https://medium.com/@cscalfani/goodbye-object-oriented-programming-a59cda4c0e53#.g5y9w0a9l
 
-
+/////
 :numbered!:
 include::glossaire.txt[]
 
 include::refs.txt[]
-
-:numbered!:
-== About...
-
-****************************************************************
-Document réalisé par mailto:{email}[{author}] via  {asciidoctorlink} (version `{asciidoctor-version}`) de 'Dan Allen', lui même basé sur {asciidoc}.
-Pour l'instant ce document est libre d'utilisation et géré par la 'Licence Creative Commons'.
-image:88x31.png["Licence Creative
-Commons",style="border-width:0",link="http://creativecommons.org/licenses/by-sa/3.0/"]
-http://creativecommons.org/licenses/by-sa/3.0/[licence Creative Commons Paternité - Partage à l&#39;Identique 3.0 non transposé].
-****************************************************************
+/////
