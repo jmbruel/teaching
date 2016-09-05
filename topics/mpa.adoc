@@ -18,7 +18,8 @@ ifndef::jmbtopic[]
 :toc: left
 :numbered:
 :status:
-:siteurl: http://jmbhome.github.io/teaching/agile.html
+:siteurl: http://jmbhome.github.io/teaching/topics/mpa.html
+:bitlysiteurl: http://bit.ly/jmb-mpa
 //------------------------------------ Slides uniquement
 ifdef::slides[]
 //--------------------- dzslides slides
@@ -113,7 +114,7 @@ endif::slides[]
 ifdef::slides[== !]
 
 Nous allons nous intéresser dans ce cours aux
-**M**éthodologies de la **P**roduction d'**A**pplication.
+**M**éthodologies de la **P**roduction d'**A**pplications.
 
 Ce module, qui fait suite aux modules de :
 
@@ -134,6 +135,26 @@ endif::slides[]
 
 ifndef::slides[.Le contenu officiel]
 image::M3301.png["M3301", width="80%", link="http://www.iut.univ-paris8.fr/files/webfm/administration/com/PPNinformatique.pdf"]
+
+// ------
+[{intro}]
+== icon:home[] Principes
+
+ifdef::slides[== !]
+
+Ce module s'intéresse aux **M**éthodes et outils de la **P**roduction d'**A**pplications (MPA).
+
+ifdef::slides[== !]
+
+[{incremental}]
+Application::
+  Dans notre cas, du logiciel.
+Production::
+  Cela signifie que c'est le résultat d'une fabrication => *build*
+Méthodes::
+  On illustrera certaines méthodes et on travaillera {scrum} en particulier
+Outils::
+  On continuera l'apprentissage des outils de base
 
 // ------
 [{intro}]

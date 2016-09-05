@@ -18,7 +18,8 @@ ifndef::jmbtopic[]
 :toc: left
 :numbered:
 :status:
-:siteurl: http://jmbhome.github.io/teaching/agile.html
+:siteurl: http://jmbhome.github.io/teaching/topics/agile.html
+:bitlysiteurl: http://bit.ly/jmb-agile
 //------------------------------------ Slides uniquement
 ifdef::slides[]
 //--------------------- dzslides slides
@@ -67,6 +68,12 @@ ifndef::definitions[]
 include::../definitions.txt[]
 endif::definitions[]
 
+[{topic}]
+== Pour suivre en live... icon:mobile[] icon:tablet[] icon:laptop[]
+
+[{statement}]
+{siteurl}
+
 ifdef::slides[== !]
 
 À l'initiateur de ce cours, Jean-Michel Inglebert...
@@ -78,16 +85,16 @@ image::blasonJMI.png[width=50%]
 [{intro}]
 == Gestion de *projets*
 
-ifndef::slides[:leveloffset: +1]
+ifdef::slides[:leveloffset: -1]
 
 // ------
 [{topic}]
-== C'est quoi 1 projet ?
+=== C'est quoi 1 projet ?
 
 [quote, 2014, Wikipedia]
 On appelle *projet* un ensemble finalisé d’*activités et d’actions* entreprises dans le but de *répondre* à un *besoin* défini dans des délais fixés et dans la limite d'une enveloppe budgétaire allouée.
 
-ifdef::slides[== !]
+ifdef::slides[=== !]
 
 [quote, 2014, JMI]
 ___________________________________________
@@ -102,7 +109,7 @@ ___________________________________________
 
 // ------
 [{topic}]
-== OK, allons-y ...
+=== OK, allons-y ...
 
 - *DEBUT* : la demande est exprimée/fournie comment ?
 
@@ -116,7 +123,7 @@ Eviter de répondre : *hier* [detail]#(Sinon, c'est un processus de sauvetage et
 
 // ------
 [{topic}]
-== ... entre DEBUT et FIN, comment FAIRE ?
+=== ... entre DEBUT et FIN, comment FAIRE ?
 
 [{incremental}]
 Option 1:: se débrouiller (comme dans 'FAIRE les soldes')
@@ -125,14 +132,14 @@ Option 3:: réaliser un projet
 
 // ------
 [{topic}]
-== Depuis le temps que la notion de projet existe ...
+=== Depuis le temps que la notion de projet existe ...
 
 [quote, Janvier 2014, Revue Programmez!]
 ___________________________________________
 7 projets sur 10 arrivent *en retard ou jamais* !
 ___________________________________________
 
-ifdef::slides[== !]
+ifdef::slides[=== !]
 
 Les causes :
 [{incremental}]
@@ -145,13 +152,13 @@ Les causes :
 - les risques sont *mal évalués*
 - les réunions sont *improductives*
 
-ifdef::slides[== !]
+ifdef::slides[=== !]
 
 Dans tous les cas, c'est l'équipe de développement qui est fautive.
 
 // ------
 [{topic}]
-== Pourquoi est-ce si difficile ?
+=== Pourquoi est-ce si difficile ?
 
 Pourtant :
 
@@ -170,13 +177,13 @@ On n'a pas de méthode infaillible qui garantisse qu'une équipe projet atteindr
 Il s'agit de gérer une complexité métier, technique et humaine avec des ressources limitées (temps, moyens ...)
 ====
 
-ifdef::slides[== !]
+ifdef::slides[=== !]
 
 Seule certitude prévisible : il faudra *s'adapter aux imprévus*.
 
 // ------
 [{topic}]
-== Le découpage en phases d'un projet logiciel
+=== Le découpage en phases d'un projet logiciel
 
 Ça n'empêche pas de définir de grandes étapes génériques
 que le projet devra franchir : ses *PHASES*
@@ -187,14 +194,40 @@ Un projet de développement logiciel se terminera de 'manière satisfaisante'
 si l'équipe fournit une application *fiable*, *robuste* et *maintenable* qui répond aux exigences du client.
 ====
 
-ifdef::slides[== !]
+ifdef::slides[=== !]
 
 [{incremental}]
 fiable:: fait ce qu'on attend d'elle dans les conditions fixées
 robuste:: supporte la charge, les erreurs des utilisateurs, les pannes etc
 maintenable:: ne demande pas d'être réécrite pour la moindre évolution
 
+ifdef::slides[:leveloffset: 0]
+
+// ------
+[{intro}]
+== icon:wrench[] *Produire* des applications
+
+ifdef::slides[== !]
+
+BUILD:: make, {ant}, {maven}, {ivy}, {gradle}, etc.
+=>:: cf. cours suivants...
+Gestion de projets::
+- {tuleap}, le remplaçant de {redmine}, en version gratuite pour les académiques.
+- icon:gitlab[] {gitlab}, le site pour héberger vos codes en utilisant {git}.
+
+// ------
+[{intro}]
+== icon:road[] Méthodes
+
 ifdef::slides[:leveloffset: -1]
+
+// ------
+[{topic}]
+=== R.A.C.H.E
+
+La méthode préférée des étudiants La RACHE!
+
+NOTE: Voir l'excellent site parodique http://www.la-rache.com/.
 
 // ------
 [{topic}]
@@ -485,3 +518,31 @@ et des 'tests d'intégration'.
 ifdef::slides[:leveloffset: +1]
 
 include::scrum.adoc[]
+
+ifdef::slides[]
+
+[{topic}]
+== Ready for a quizz?
+
+image::icons/tuxteacher.png[]
+
+== !
+
+endif::slides[]
+
+ifndef::slides[]
+:numbered!:
+== Quizz
+endif::slides[]
+
+//----------------------------- Question ------------------
+.*QUESTION*
+[WARNING]
+====
+
+- Connectez-vous sur : http://www.socrative.com/ (*student login*)
+- Ou téléchargez l'application pour étudiant image:socrative2.png[width=10%]
+- Choisissez la room *44918d67*
+====
+
+image::socrative1.png[width=50%,link=http://www.socrative.com/]
