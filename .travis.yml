@@ -27,9 +27,10 @@ after_success:
   - cd output
   - ls -al
   - mv master.html index.html
-  - mv git.html topics
-  - mv mpa.html topics
-  - mv agile.html topics
+  - mkdir topics
+  - mv git.html topics/
+  - mv mpa.html topics/
+  - mv agile.html topics/
   - cp -R ../images images
 #  - cp -R ../topics/*.html topics
   - ls -al
