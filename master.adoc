@@ -36,6 +36,8 @@ tout de suite...
 
 The following courses are in English except those with the French flag image:icons/fr.svg[width=20].
 
+WARNING: Site under construction!!
+
 === Conventions
 
 Level of difficulty::
