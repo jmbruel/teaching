@@ -10,7 +10,7 @@ before_install:
 
 script:
   - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-html asciidoctor/docker-asciidoctor asciidoctor -D /documents/output master.adoc
-  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-topics-to-html asciidoctor/docker-asciidoctor asciidoctor -D /documents/output topics/git.adoc
+  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-topics-to-html asciidoctor/docker-asciidoctor asciidoctor -D /documents/output topics/*.adoc
 #  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-pdf asciidoctor/docker-asciidoctor asciidoctor-pdf -D /documents/output master.adoc
 
 after_error:
@@ -26,6 +26,8 @@ after_success:
   - ls -al
   - mv master.html index.html
   - mv git.html topics
+  - mv mpa.html topics
+  - mv agile.html topics
   - cp -R ../images images
 #  - cp -R ../topics/*.html topics
   - ls -al
