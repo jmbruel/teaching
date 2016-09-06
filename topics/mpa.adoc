@@ -85,6 +85,8 @@ ifdef::slides[]
 == Pour suivre en live... icon:mobile[] icon:tablet[] icon:laptop[]
 
 [{statement}]
+{bitlysiteurl}
+
 {siteurl}
 
 /////

@@ -8,9 +8,11 @@
 
 // raccourcis sites
 :aadl: http://www.aadl.info/[AADL]indexterm:[AADL]
+:agileBookUrl: https://www.amazon.com/Agile-Good-Hype-Bertrand-Meyer/dp/3319051547
+:agileMoocUrl: https://www.edx.org/course/agile-software-development-ethx-asd-1x
+:agileManifesto: http://agilemanifesto.org/
 :android: https://www.android.com/[Android icon:android[]]
 :androidstudio: https://developer.android.com/sdk/index.html[Android Studio]
-
 :as: {androidstudio}
 :ant: http://ant.apache.org/[ant]
 :argouml: link:http://argouml.tigris.org/[ArgoUML]
@@ -131,6 +133,7 @@
 :ap: André Péninou
 :bc: mailto:benoit.combemale@irisa.fr[Benoît Combemale]
 :bh: mailto:brahim.haimd@irit.fr[Brahim Hamid]
+:bm: mailto:bertrand.meyer@inf.ethz.ch[Bertrand Meyer]
 :cabot: http://jordicabot.com/[Jordi Cabot]
 :cb: mailto:cedric.brun@obeo.fr[Cédric Brun]
 :cealist: http://www-list.cea.fr/[CEA Tech List]

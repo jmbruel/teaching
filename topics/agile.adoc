@@ -68,13 +68,19 @@ ifndef::definitions[]
 include::../definitions.txt[]
 endif::definitions[]
 
+ifdef::slides[]
+
 [{topic}]
 == Pour suivre en live... icon:mobile[] icon:tablet[] icon:laptop[]
 
 [{statement}]
+{bitlysiteurl}
+
 {siteurl}
 
-ifdef::slides[== !]
+== !
+
+endif::slides[]
 
 À l'initiateur de ce cours, Jean-Michel Inglebert...
 

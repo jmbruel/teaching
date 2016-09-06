@@ -1,0 +1,219 @@
+//---------------------------------
+// Cours MPA
+// (c) JMB - 2016
+//---------------------------------
+[[MPA]]
+= Les principes de l'*Agilité*
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:git-version: 2.9.2
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: http://jmbhome.github.io/teaching/topics/agile.html
+:bitlysiteurl: http://bit.ly/jmb-agile
+//------------------------------------ Slides uniquement
+ifdef::slides[]
+//--------------------- dzslides slides
+ifdef::dzslides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+endif::dzslides[]
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+
+//----------------------------- Avant-Propos ------------------
+ifdef::slides[]
+
+[{topic}]
+== Pour suivre en live... icon:mobile[] icon:tablet[] icon:laptop[]
+
+[{statement}]
+{bitlysiteurl}
+
+{siteurl}
+
+== !
+
+endif::slides[]
+
+Cette partie du cours est fortement inspirée par le {agileMoocUrl}[MOOC Agile]
+de {bm}.
+
+
+//----------------------------- Manifesto ------------------
+[{topic}]
+== Le manifeste Agile
+
+ifndef::slides[.Le manifeste Agile ({agileManifesto})]
+image::manifesto.png[link="{agileManifesto}",width=100%]
+ifdef::slides[NOTE: [detail]#{agileManifesto}#]
+
+//----------------------------- les 12 principes ------------------
+[{topic}]
+== Les 12 principes
+
+ifdef::slides[== !]
+
+- image:icons/fr.svg[width=30] https://fr.wikipedia.org/wiki/Manifeste_agile#Les_12_principes
+- https://en.wikipedia.org/wiki/Agile_software_development
+
+ifdef::slides[== !]
+
+. Customer satisfaction by early and continuous delivery of valuable software
+. Welcome changing requirements, even in late development
+. Working software is delivered frequently (weeks rather than months)
+. Close, daily cooperation between business people and developers
+. Projects are built around motivated individuals, who should be trusted
+. Face-to-face conversation is the best form of communication (co-location)
+. Working software is the principal measure of progress
+. Sustainable development, able to maintain a constant pace
+. Continuous attention to technical excellence and good design
+. Simplicity—the art of maximizing the amount of work not done—is essential
+. Best architectures, requirements, and designs emerge from self-organizing teams
+. Regularly, the team reflects on how to become more effective, and adjusts accordingly
+
+
+ifdef::slides[]
+
+[{topic}]
+== Exercice
+
+Repérez dans la liste des 12 principes :
+
+[{incremental}]
+- Lesquels n'en sont pas!
+- Lesquels sont en fait des pratiques
+- Lesquels sont en fait des assertions
+- Lequel est même erroné
+- Les répétitions inutiles
+- Où est-ce qu'on parle du test?
+
+[{topic}]
+== Correction
+
+image::answerManifesto.png[link="{agileManifesto}",width=100%]
+ifdef::slides[NOTE: [detail]#{agileMoocUrl}#]
+
+endif::slides[]
+
+//----------------------------- les "values" ------------------
+[{topic}]
+== Les valeurs agiles
+
+Idées générales, qui précèdent aux principes.
+
+ifdef::slides[== !]
+
+Du {agileManifesto}[manifesto] lui-même :
+
+[{incremental}]
+- Les individus et leurs interactions [detail]#plus que les processus et les outils#
+- Du logiciel qui fonctionne [detail]#plus qu’une documentation exhaustive#
+- La collaboration avec les clients [detail]#plus que la négociation contractuelle#
+- L’adaptation au changement [detail]#plus que le suivi d’un plan#
+
+ifdef::slides[== !]
+
+Du {agileMoocUrl}[MOOC Agile] :
+
+[{incremental}]
+- Nouveau rôle pour le _manager_ [detail]#(rôle réduit)#
+- Pas d'étapes trop tôt ou trop _importante_ [detail]#(longues)#
+- Développement itératifs [detail]#(et donc continu)#
+- Nouvelle façon de _négocier_ [detail]#(trade off)#
+- Focus sur la qualité [detail]#(et donc les tests)#
+
+
+//----------------------------- les "roles" ------------------
+[{topic}]
+== Les rôles
+
+Idées générales
+
+//----------------------------- les "practices" ------------------
+[{topic}]
+== Les pratiques
+
+Idées générales
+
+//----------------------------- les "artefacts" ------------------
+[{topic}]
+== Les artefacts
+
+Idées générales
+
+//----------------------------- Quizz ------------------
+
+ifdef::slides[]
+
+[{topic}]
+== Ready for a quizz?
+
+image::icons/tuxteacher.png[]
+
+== !
+
+endif::slides[]
+
+ifndef::slides[]
+:numbered!:
+== Quizz
+endif::slides[]
+
+.*QUESTION*
+[WARNING]
+====
+
+- Connectez-vous sur : http://www.socrative.com/ (*student login*)
+- Ou téléchargez l'application pour étudiant image:socrative2.png[width=10%]
+- Choisissez la room *44918d67*
+====
+
+image::socrative1.png[width=50%,link=http://www.socrative.com/]
