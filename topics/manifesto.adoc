@@ -314,6 +314,8 @@ et traitées pour ce Sprint là.
 [{topic}]
 === Burndown
 
+https://docs.google.com/spreadsheets/d/17bppZL6IQoHXKHm0Cr5Q5yYrQivA9oTSB5fmo6ECsJs/edit#gid=6
+
 ifdef::slides[:leveloffset: +1]
 
 //----------------------------- process ------------------
