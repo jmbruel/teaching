@@ -116,6 +116,8 @@ Les plus connus :
 
 ifdef::slides[== !]
 
+Vous trouverez une version actualisée des principes sur Wikipedia :
+
 - image:icons/fr.svg[width=30] https://fr.wikipedia.org/wiki/Manifeste_agile#Les_12_principes
 - https://en.wikipedia.org/wiki/Agile_software_development
 
@@ -314,7 +316,16 @@ et traitées pour ce Sprint là.
 [{topic}]
 === Burndown
 
-https://docs.google.com/spreadsheets/d/17bppZL6IQoHXKHm0Cr5Q5yYrQivA9oTSB5fmo6ECsJs/edit#gid=6
+:thisref: http://www.agiliste.fr/instruments-pilotage-projet/
+ifndef::slides[.Exemple d'inputs pour mon Burn-down ({thisref})]
+image::burndown-inputs.png[width=50%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifndef::slides[.Exemple de Burn-down résultant ({thisref})]
+image::burndown.png[width=50%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifndef::slides[NOTE: Pour tester vous-mêmes : [detail]#https://docs.google.com/spreadsheets/d/17bppZL6IQoHXKHm0Cr5Q5yYrQivA9oTSB5fmo6ECsJs/edit#gid=6#]
 
 ifdef::slides[:leveloffset: +1]
 
