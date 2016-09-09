@@ -1,0 +1,154 @@
+= MPA : Sprint -1
+DUT/INFO/M3301, v1.0, {localdate}
+:lang: fr
+:slideshowlocation: Your computer
+:copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169;
+:incremental:
+include::../definitions.txt[]
+:icons: font
+:imagesdir: images
+
+ifdef::prof[]
+[IMPORTANT]
+.Version corrigée
+=====
+Cette version comporte des indications pour les
+réponses aux exercices.
+=====
+endif::prof[]
+
+:numbered!:
+== Pensez à faire l'appel!
+:numbered:
+
+== Organization des groupes
+
+Validez la constitution de votre groupe auprès de votre enseignant.
+
+== Tuleap
+
+. Connectez-vous sur {tuleapIUT} (tous les membres du groupe)
++
+NOTE: Demandez vos codes d'accès à votre enseignant.
++
+. Découvrez l'environnement, les menus et configurez votre profil
+. Désignez un Scrum Master pour cette séance au moins (et pour le sprint au
+  plus) qui demande à l'enseignant de l'ajouter comme gestionnaire du projet
+  de votre groupe.
+. Le Scrum Master ajoute tous les autres membres du groupe, ainsi que le ou les
+Product Owner (le prof de TD/TP), ainsi que {jmb} comme Product Owner.
+. Participez par un billet d'humeur de votre choix (humour autorisé mais restez
+  correct) sur les forums.
++
+NOTE: Les forums seront le seul moyen de communication officiel avec le client ou
+le support technique (les enseignants supports en {tuleap}, {git}, {java}, etc.)
++
+. Remplissez les champs pour votre projet (description, etc.)
+. Commencez un wiki avec la composition de votre équipe, son nom
+(soyez créatifs), etc.
+
+== git
+
+. Connectez-vous sur le gitlab de l'IUT : {gitlabIUT} (tous les membres du groupe)
+. L'un des membres du groupe créé un dépôt respectant la nomenclature :
+`MPA2016-X[A|B]Y`.
+Où `X` est le numéro du groupe de TD (entre 1 et 3) et `Y` le numéro du groupe
+projet (1 ou 2). `A` ou `B` désignant le groupe TP.
+. Il ajoute comme membre du dépôt ses collègues, ainsi que le compte gitlab du
+prof de TD/TP, ainsi que l'utilisateur `jmb`.
+
+== Retours André
+
+
+
+0) Diverses manips
+------------------
+
+Suppression d'artefact (Epic, User Story, Sprint, ...)
+	Etre Admin
+	Suivi
+		Choisir le type d'artefact ‡ supprimer
+		Administration
+		Suppression d'artefact
+		Donner le numÈro !!! (et reboucler sur Suppression d'artefact au besoin)
+	=> utiliser 2 fenÍtres si plusieurs suppressions (en Ètant dans la bonne categ de suivi)
+		Une pour supprimer
+		L'autre pour lister les ids des suivis ...
+
+1) User Stories
+---------------
+
+1 backlog
+2 add user story
+Epics == ensemble de user stories
+
+CrÈer un Epic (pas obligatoire dans Tuleap Blagnac)
+
+Dans Backlog
+	CrÈer User Story
+		Ne pas nommer User Story x dans epic y car User Story peuvent changer d'epic
+
+Ordonner Epics et User Story
+Donner points aux User Story
+	Fibonacci : 1, 2, 3, 5, 8, 13, 21, 34 	55 	89 	144 	233 	377
+	ou binaire : 2 4 8 16 32 64 128 ...
+
+Ordonner prioritÈs (ordre apparition) aux Epics et User Story dans EPICs
+
+2) Release/Sprints
+------------------
+
+A Release is the parent item of a Sprint.
+We assume that several Sprints are necessary to complete one Release.
+
+CrÈer une release
+Y mettre un/des Epic
+
+CrÈer les Sprints
+Y placer les User Story
+
+3) Tasks
+--------
+
+Aller dans Sprint > CardWall
+Sur une story
+	Petit triangle -> crÈer agile-task
+		La crÈer et l'assigner
+Story passe en Elts du bl
+	T‚che avance
+Lorsqu'on bouge un t‚che (toDo->OnGoing>Review>Done) -> Ètat de User Story avance aussi ...
+
+Attention : si toutes les t‚ches d'une User Story sont dans la colonne DONE => User Story ‡ DONE et IMPOSSIBL DE REVENIR EN ARRIERE SUR l'User Story
+
+On peut modifier les Ètats des Users Story (points) et t‚che (Ètat)
+=> Etat des sprints avance aussi (points)
+
+Mettre les sprints ‡ Done lorsque OK.
+
+4) Limites / Impasses / DifficultÈs
+-----------------------------------
+
+Marche par journÈes !! Pb si tous les TPs le mÍme jour
+Pas de burndown correct.
+
+Faire une fois un sprint de 2-3 semaines (avec des User Stories en cascade ?) pour voir un burndown ...
+
+Tips :
+- une user story passÈe ‡ done ne peut pas revenir en arriËre.
+- une t‚che attachÈe ‡ une user story ne change pas de story
+- une story dans un seul sprint
+- ...
+- petits menus signalÈs par un triangle un peu partout dans le dashboard
+- ...
+
+5) RÈfÈrences
+-------------
+
+https://blog.enalean.com/how-to-implement-scrum-with-tuleap/#backlog
+
+
+:numbered!:
+== Contact
+
+En cas de soucis, n'hésitez pas à poser vos questions sur le forum {tuleapIUT}
+ou en dernier recours à {jmb}.

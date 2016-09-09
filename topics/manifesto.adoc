@@ -272,8 +272,6 @@ ifdef::slides[:leveloffset: -1]
 [{topic}]
 === User stories
 
-Exemples :
-
 ifdef::slides[=== !]
 
 Caractéristiques (XP => INVEST) :
@@ -306,6 +304,29 @@ ifndef::slides[.Exemple de carte pour User Story ({thisref})]
 image::US.jpg[width=100%,link="{thisref}"]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
+ifdef::slides[=== !]
+
+Une activité populaire consiste à organiser les Stories sous forme
+d'une matrice et non d'une simple liste : c'est le *Story Mapping*.
+
+**M**ust, **S**hould, **C**ould, **W**ont
+=> *MoSCoW*
+
+:thisref: http://www.agilegarden.fr/un-lancement-de-projet-ludique-et-productif/
+ifndef::slides[.Exemple de Story Map ({thisref})]
+image::storymap.png[width=50%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[=== !]
+
+L'autre dimenstion de la matrice :
+
+- par flot (par dépendances entre stories)
+
+:thisref: http://blog.cayenneapps.com/2014/11/25/5-steps-to-building-minimum-viable-product-with-story-mapping/
+ifndef::slides[.Exemple de Story Map par flot ({thisref})]
+image::mvp-priorities.png[width=80%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
 
 [{topic}]
 === Sprint Backlog

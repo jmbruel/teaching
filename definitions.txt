@@ -49,6 +49,7 @@
 :github: link:{githuburl}[GitHub]
 :gitlaburl: https://gitlab.com/
 :gitlab: icon:gitlab[]link:{gitlaburl}[GitLab]
+:gitlabIUT: icon:gitlab[]https://algec.iut-blagnac.fr/
 :gherkin: link:http://cukes.info/gherkin.html[Gherkin]
 :googlemaps: https://www.google.fr/maps[Google Maps]
 :gradle: http://www.gradle.org/[Gradle]
@@ -114,7 +115,9 @@
 :travis: link:https://travis-ci.org/[Travis]
 :tuleapurl: https://www.tuleap.org
 :tuleap: link:{tuleapurl}[tuleap]
+:tuleapIUT: link:http://tuleap.iut-blagnac.fr[tuleap.iut-blagnac.fr]
 :tuleapcampus: link:https://tuleap-campus.org/[Tuleap-Campus]
+:tuleapMPA: http://tuleap.iut-blagnac.fr/projects/mpa2016/
 :uml: http://www.uml.org/[UML(TM)]indexterm:[UML(TM)]
 :duml: http://www.uml.org/[d'UML(TM)]indexterm:[UML(TM)]
 :umlspec: http://www.omg.org/spec/UML/2.4.1/Infrastructure/PDF/[UML 2.4.2 Specifictation]

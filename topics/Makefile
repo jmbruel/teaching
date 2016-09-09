@@ -12,11 +12,11 @@ SITE=../jmbruel.github.io/teaching
 THEME=riak
 #The valid options are coderay, highlightjs, prettify, and pygments.
 HIGHLIGHT=pygments
-
+MAIN=TD1
 
 #-----------------------------------------------------
 
-all: $(OUTPUT)/$(MAIN).html $(OUTPUT)/$(MAIN).slides.html
+all: $(OUTPUT)/$(MAIN).html $(OUTPUT)/$(MAIN).dzslides.html $(OUTPUT)/$(MAIN).teacher.html
 
 $(OUTPUT)/%.html: %.$(EXT)
 	@echo '==> Compiling asciidoc files to generate HTML'
@@ -39,6 +39,18 @@ $(OUTPUT)/%.dzslides.html: %.$(EXT)
 		-a stylesheet=$(STYLE) \
 		-a source-highlighter=$(HIGHLIGHT) \
 		-o $@ $<
+
+$(OUTPUT)/%.teacher.html: %.$(EXT)
+	@echo '==> Compiling asciidoc files to generate HTML'
+	$(ASCIIDOCTOR) -b html5 \
+		-a prof \
+		-a numbered \
+		-a data-uri \
+		-a toc2 \
+		-r asciidoctor-diagram \
+		-a source-highlighter=$(HIGHLIGHT) \
+		-o $@ $<
+
 
 $(OUTPUT)/%.slides.html: %.$(EXT)
 	@echo '==> Compiling asciidoc files to generate Deckjs'
