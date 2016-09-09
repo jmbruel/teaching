@@ -95,6 +95,21 @@ ifndef::slides[.Le manifeste Agile ({agileManifesto})]
 image::manifesto.png[link="{agileManifesto}",width=100%]
 ifdef::slides[NOTE: [detail]#{agileManifesto}#]
 
+NOTE: il date de février 2001!
+
+//----------------------------- les 17 signataires ------------------
+[{topic}]
+== Les 17 auteurs
+
+Les plus connus :
+
+- Ward Cunningham (Wiki)
+- Kent Beck (XP, JUnit)
+- Ken Schwaber et Jeff Sutherland ({Scrum})
+- Alistair Cockburn
+- Martin Fowler
+- ...
+
 //----------------------------- les 12 principes ------------------
 [{topic}]
 == Les 12 principes
@@ -129,8 +144,8 @@ Repérez dans la liste des 12 principes :
 
 [{incremental}]
 - Lesquels n'en sont pas!
-- Lesquels sont en fait des pratiques
-- Lesquels sont en fait des assertions
+- Lesquels sont en fait des *pratiques*
+- Lesquels sont en fait des *assertions*
 - Lequel est même erroné
 - Les répétitions inutiles
 - Où est-ce qu'on parle du test?
@@ -159,6 +174,13 @@ Du {agileManifesto}[manifesto] lui-même :
 - La collaboration avec les clients [detail]#plus que la négociation contractuelle#
 - L’adaptation au changement [detail]#plus que le suivi d’un plan#
 
+[WARNING]
+=====
+Ne pas oublier la petite phrase qui va avec :
+[quote,{agileManifesto}]
+*Nous reconnaissons la valeur des seconds* éléments, mais privilégions les premiers.
+=====
+
 ifdef::slides[== !]
 
 Du {agileMoocUrl}[MOOC Agile] :
@@ -171,23 +193,137 @@ Du {agileMoocUrl}[MOOC Agile] :
 - Focus sur la qualité [detail]#(et donc les tests)#
 
 
+//----------------------------- les principes actuels ------------------
+[{topic}]
+== Les principes
+
+Plusieurs types :
+
+- Organisationnels / Managériaux
+- Techniques
+
+ifdef::slides[:leveloffset: -1]
+
+[{topic}]
+=== Les bons principes NON AGILES!
+
+- Process, procédure et méthodes
+[detail]#(critique => statique, imposée, ruptures entre phases)#
+- Insister sur les exigences et leur qualités
+[detail]#(critiques => ils évoluent, on ne les livrent pas,
+ils sont souvent des solutions plus que des besoins)#
+
+[{topic}]
+=== Les principes organisationnels
+
+[{incremental}]
+- Le client au centre
+- Accepte le changement
+- Laisser l'équipe s'organiser
+- Maintenir un rythme durable
+- Produire du logiciel "minimaliste"
+** Les fonctionalités requises
+** et uniquement elles
+** ne développer que le code et les tests
+
+[{topic}]
+=== Les principes techniques
+
+[{incremental}]
+- Développer itérativement
+- Mettre en avant les tests (TDD)
+- Exprimer les exigences comme des scénarios
+
+ifdef::slides[:leveloffset: +1]
+
 //----------------------------- les "roles" ------------------
 [{topic}]
 == Les rôles
 
-Idées générales
+- Product Owner
+- SCRUM Master
+- Team
 
 //----------------------------- les "practices" ------------------
 [{topic}]
 == Les pratiques
 
-Idées générales
+- Plannings
+- Meetings & Scrums
+- Retrospectives
+- TDD
 
 //----------------------------- les "artefacts" ------------------
 [{topic}]
 == Les artefacts
 
-Idées générales
+- Product Backlog
+- User stories
+- Sprint Backlog
+- Burdown
+
+ifdef::slides[:leveloffset: -1]
+
+[{topic}]
+=== Product Backlog
+
+[{topic}]
+=== User stories
+
+Exemples :
+
+ifdef::slides[=== !]
+
+Caractéristiques (XP => INVEST) :
+
+[{incremental}]
+- Indépendante des autres histoires d’utilisateur
+[detail]#(dans la mesure du possible)#
+- Négociable [detail]#(discutée avec l’équipe, notamment lors de
+l’estimation)#
+- Source de valeur [detail]#(porteuse d’une
+valeur pour le client)#
+- Estimable [detail]#(elle peut être estimée par l’équipe)#
+- Courte [detail]#(généralement une ou trois phrases environ)#
+- D’une taille appropriée [detail]#(pouvoir être développée
+et testée au sein d’une itération)#
+
+ifdef::slides[=== !]
+
+Attributs :
+
+- Un numéro
+- Une importance/priorité client
+- Une estimation du coût (en points, temps, ...)
+- Une expression de la forme "En tant que ... je souhaite ... pour pouvoir ...
+
+ifdef::slides[=== !]
+
+:thisref: http://www.agiliste.fr/guide-de-demarrage-scrum/
+ifndef::slides[.Exemple de carte pour User Story ({thisref})]
+image::US.jpg[width=100%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+
+[{topic}]
+=== Sprint Backlog
+
+Juste un regroupement de User Stories, prisent dans le Product Backlog
+et traitées pour ce Sprint là.
+
+[{topic}]
+=== Burndown
+
+ifdef::slides[:leveloffset: +1]
+
+//----------------------------- process ------------------
+[{topic}]
+== Le déroulement
+
+:thisref: http://scrumprimer.org
+ifndef::slides[.Déroulement type d'une approche agile ({thisref})]
+image::anime_scrum_overview_blue.png[width=100%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
 
 //----------------------------- Quizz ------------------
 
