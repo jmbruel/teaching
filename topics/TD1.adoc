@@ -8,17 +8,17 @@ DUT/INFO/M3301, v1.0, {localdate}
 include::../definitions.txt[]
 :icons: font
 :imagesdir: images
-
+//:prof:
 ifdef::prof[]
 [IMPORTANT]
-.Version corrigée
+.icon:graduation-cap[] Version corrigée
 =====
 Cette version comporte des indications pour les
 réponses aux exercices.
 =====
 
 :numbered!:
-== Pensez à faire l'appel!
+== icon:graduation-cap[] Penser à faire l'appel!
 :numbered:
 
 endif::prof[]
@@ -33,7 +33,7 @@ https://www.youtube.com/watch?v=XU0llRltyFM
 
 ifdef::prof[]
 [IMPORTANT]
-.Version corrigée
+.icon:graduation-cap[] Version corrigée
 =====
 - Vérifier que l'anglais a été compris
 - Vérifier que le cycle a été enregistré (déjà vu en cours)
@@ -47,7 +47,7 @@ endif::prof[]
 
 ifdef::prof[]
 [IMPORTANT]
-.Version corrigée
+.icon:graduation-cap[] Version corrigée
 =====
 Exercice tiré de :
 http://www.bouzin-agile.fr/?post/2010/11/13/Exercice-La-communication-est-difficile
@@ -71,7 +71,7 @@ Tous les autres sont Maîtres d'Oeuvre (MOE).
 +
 ifdef::prof[]
 [IMPORTANT]
-.Version corrigée
+.icon:graduation-cap[] Version corrigée
 =====
 Sur une feuille A4, le dessinateur dessine :
 
@@ -110,7 +110,7 @@ Points importants :
 
 ifdef::prof[]
 [IMPORTANT]
-.Version corrigée
+.icon:graduation-cap[] Version corrigée
 =====
 - Voir qu'au 2ème exercice les dessins sont biens mieux
 - Demander comment les étudiants expliquent ça
@@ -124,7 +124,7 @@ endif::prof[]
 
 ifdef::prof[]
 [IMPORTANT]
-.Version corrigée
+.icon:graduation-cap[] Version corrigée
 =====
 Exercice tiré de :
 https://idetido.wordpress.com/2014/06/04/exercice-de-story-mapping/
@@ -153,7 +153,7 @@ ifdef::prof[Won't (or Will)]
 
 ifdef::prof[]
 [IMPORTANT]
-.Version corrigée
+.icon:graduation-cap[] Version corrigée
 =====
 Utilisez l'exemple d'une voiture pour donner des illustrations.
 C'est très important pour la fin de l'exercice...
@@ -171,7 +171,7 @@ des lignes "Moscow".
 +
 ifdef::prof[]
 [IMPORTANT]
-.Version corrigée
+.icon:graduation-cap[] Version corrigée
 =====
 Trop de Must en générale.
 =====
@@ -187,7 +187,7 @@ NOTE: À partir de là on quitte {Scrum} à cause des contraintes de l'exercice 
 +
 ifdef::prof[]
 [IMPORTANT]
-.Version corrigée
+.icon:graduation-cap[] Version corrigée
 =====
 :thisref: http://blog.cayenneapps.com/2014/11/25/5-steps-to-building-minimum-viable-product-with-story-mapping/
 ifndef::slides[.Exemple de MVP ({thisref})]
@@ -202,7 +202,7 @@ endif::prof[]
 
 ifdef::prof[]
 [IMPORTANT]
-.Version corrigée
+.icon:graduation-cap[] Version corrigée
 =====
 L'exercice a un double objectif. Effectuer cette tâche de répartition,
 mais aussi montrer ce qui se passe si on ne pose aucune question sur

@@ -6,6 +6,8 @@
 :standScreen: 500
 :standWidth: 250
 
+:firstWeek: 37
+
 // raccourcis sites
 :aadl: http://www.aadl.info/[AADL]indexterm:[AADL]
 :agileBookUrl: https://www.amazon.com/Agile-Good-Hype-Bertrand-Meyer/dp/3319051547

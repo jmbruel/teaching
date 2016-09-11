@@ -1,51 +1,98 @@
-= MPA : Sprint -1
-DUT/INFO/M3301, v1.0, {localdate}
-:lang: fr
-:slideshowlocation: Your computer
-:copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169;
-:incremental:
+:moduleTitle: MPA
+:authorDefault:  DUT-Info-S3/M3301
+// include::lib/globals.asc[] // temporairement
+:tdnum: Sprint-1
 include::../definitions.txt[]
-:icons: font
-:imagesdir: images
+:weekNumber: 37
 
+:doctitle:  {moduleTitle} - Sujet {tdnum} (semaine {weekNumber})
 ifdef::prof[]
-[IMPORTANT]
-.Version corrigée
-=====
-Cette version comporte des indications pour les
-réponses aux exercices.
-=====
+:doctitle: {moduleTitle} - Support {tdnum} (semaine {weekNumber})
 endif::prof[]
 
+= {doctitle}
+{authorDefault}, v1.0, {localdate}
+:lang: fr
+:incremental:
+:icons: font
+:imagesdir: images
+:experimental:
+
+//----------- définitions --------------
+:sitecours: http://webetud.iut-blagnac.fr/[Support de Cours]
+:pre: Pré-Requis
+:objtd: Objectif
+:duree: Durée
+:depot: À rendre
+:lien: Lien
+:img: img
+:tuleapVersion: 6.0
+
+
+//-------------------- Warning si correction -----------
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Version corrigée - Support du prof
+=====
+Cette version comporte des indications pour les
+réponses aux exercices, ainsi que des consignes pour les
+enseignants.
+=====
+
 :numbered!:
-== Pensez à faire l'appel!
+== icon:graduation-cap[] Penser à faire l'appel!
 :numbered:
+
+endif::prof[]
+
+//-------------------- Cartouche d'en-tête -----------
+[[cartouche]]
+[align="left",cols="2,10",width="90%"]
+|======================
+| {pre}		|
+1.	Je connais les concepts principaux de {scrum}
+| {objtd}	| Comprendre ce qu'est un *modèle*.
+| {duree}	| *1 ou 2 séance(s)* de 1,5h (selon la chaleur)
+|======================
+
 
 == Organization des groupes
 
-Validez la constitution de votre groupe auprès de votre enseignant.
+Validez la constitution de votre groupe auprès de votre enseignant de TD/TP.
+
+NOTE: Ce n'est pas parce que vous êtes dans une salle machine que vous devez foncer sur le codage!
 
 == Tuleap
 
-. Connectez-vous sur {tuleapIUT} (tous les membres du groupe)
+. Connectez-vous sur {tuleapIUT} (icon:users[] tous les membres du groupe)
 +
 NOTE: Demandez vos codes d'accès à votre enseignant.
 +
-. Découvrez l'environnement, les menus et configurez votre profil
-. Désignez un Scrum Master pour cette séance au moins (et pour le sprint au
-  plus) qui demande à l'enseignant de l'ajouter comme gestionnaire du projet
-  de votre groupe.
-. Le Scrum Master ajoute tous les autres membres du groupe, ainsi que le ou les
-Product Owner (le prof de TD/TP), ainsi que {jmb} comme Product Owner.
+. icon:users[] Découvrez l'environnement, les menus et configurez votre profil
+. icon:users[] Désignez un Scrum Master icon:user-md[] pour cette séance au
+  moins (vous pouvez changer régulièrement si vous voulez, mais à chaque Sprint,
+  pas pendant un Sprint) qui demande à l'enseignant icon:graduation-cap[] de
+  l'ajouter comme gestionnaire du projet de votre groupe.
+. icon:user-md[] Le Scrum Master ajoute tous les autres membres du groupe, ainsi que le ou les
+Product Owner icon:male[] (le prof de TD/TP), ainsi que {jmb} comme Product Owner.
 . Participez par un billet d'humeur de votre choix (humour autorisé mais restez
   correct) sur les forums.
 +
-NOTE: Les forums seront le seul moyen de communication officiel avec le client ou
+NOTE: Les forums seront le seul moyen de communication officiel avec le client icon:male[] ou
 le support technique (les enseignants supports en {tuleap}, {git}, {java}, etc.)
 +
 . Remplissez les champs pour votre projet (description, etc.)
 . Commencez un wiki avec la composition de votre équipe, son nom
 (soyez créatifs), etc.
+. Vérifiez que votre projet est bien configuré avec l'option Agile
++
+image:tuleap{tuleapVersion}/agile.png[width={standWidth}]
++
+. Vérifiez que votre tableau de bord Agile est bien configuré pour {Scrum}.
+Si vous avez l'image ci-dessous en allant dans le menu menu:Agile Dashboard[],
+cliquez simplement sur btn:[Démarrez Scrum].
++
+image:tuleap{tuleapVersion}/scrum.png[width={standWidth}]
 
 == git
 
@@ -57,97 +104,125 @@ projet (1 ou 2). `A` ou `B` désignant le groupe TP.
 . Il ajoute comme membre du dépôt ses collègues, ainsi que le compte gitlab du
 prof de TD/TP, ainsi que l'utilisateur `jmb`.
 
+== Plannification des Stories, Releases et Sprints
+
+NOTE: Le Scrum Master icon:user-md[] vérifiera que l'équipe suit bien
+le plan ci-dessous et les conseils {Tuleap} disponibles https://blog.enalean.com/how-to-implement-scrum-with-tuleap/#backlog[ici].
+
+WARNING: Ce Sprint un peu spécial dure une seule séance!
+
+En ayant en tête un simple projet Java "HelloWorld" :
+
+. icon:users[] Créez quelques User Stories
+. icon:users[] Organisez-les par priorité client
+. icon:users[] Faites les estimations en points des User Stories
+. icon:users[] Créez et plannifiez une seule Release
++
+NOTE: Vous devrez pour cette étape évaluer la *capacité* de l'équipe. À vous de voir
+par rapport à ce que vous vous sentez de faire dans le 1er sprint à donner une valeur
+réaliste. Pensez au nombre que vous êtes et ne soyez pas trop ambitieux le premier
+coup en vous rappelant que chaque Sprint inclut des tâches de test et de documentation.
++
+. icon:users[] Créez les Sprints
+. icon:users[]Ajoutez le Sprint 0 après avoir ajouté des Stories liées à la mise en place
+de l'infrastructure initiale
+. icon:users[] Créez les tâches associées pour ce Sprint unique
+. icon:user-md[] Faites valider tout ça par le prof icon:graduation-cap[]
+
+== Codage et livraison
+
+. icon:users[] Codez votre application dans un répertoire dédié de votre dépôt (que vous pourrez
+supprimer ensuite)
+. icon:users[] Réalisez au moins un test et au moins la {javadoc}
+. icon:users[] Mettez à jour les tâches au fur et à mesure.
+. Le Scrum Master icon:user-md[] vérifie que tout est à `Done` à la fin.
+
+== Pour aller plus loin
+
+Commencez à réfléchir à comment vous allez construire votre application
+(Makefile, {ant}, etc.)
+//----------------------------------------------------- Correction ------------
+ifdef::prof[]
+
 == Retours André
 
+=== Diverses manips
 
+* Suppression d'artefact (Epic, User Story, Sprint, ...)
+** Réperer le numéro de l'artefact à supprimer
+** (Etre Admin du projet)
+** menu:Outils de suivi[User Stories > Administration > Suppression d'artefact]
+** Donner le numéro !!! (et reboucler sur Suppression d'artefact au besoin)
+**	=> utiliser 2 fenêtres si plusieurs suppressions (en étant dans la bonne
+  categ de suivi) : une pour supprimer, l'autre pour lister les ids des suivis ...
 
-0) Diverses manips
-------------------
+=== User Stories
 
-Suppression d'artefact (Epic, User Story, Sprint, ...)
-	Etre Admin
-	Suivi
-		Choisir le type d'artefact ‡ supprimer
-		Administration
-		Suppression d'artefact
-		Donner le numÈro !!! (et reboucler sur Suppression d'artefact au besoin)
-	=> utiliser 2 fenÍtres si plusieurs suppressions (en Ètant dans la bonne categ de suivi)
-		Une pour supprimer
-		L'autre pour lister les ids des suivis ...
+* menu:Backlog[Ajouter un élément > Ajouter un(e) User Stories]
+* Pas vue en cours mais `Epics` = ensemble de User Stories
+* On évite les Epic si possible (pas obligatoire dans Tuleap Blagnac)
+* Ordonner Epics et User Story
+* Donner points aux User Story
+** Fibonacci : 1, 2, 3, 5, 8, 13, 21, 34 	55 	89 	144 	233 	377
+** ou binaire : 2 4 8 16 32 64 128 ...
+* Ordonner priorités (ordre apparition) aux Epics et User Story dans EPICs
 
-1) User Stories
----------------
+=== Release/Sprints
 
-1 backlog
-2 add user story
-Epics == ensemble de user stories
-
-CrÈer un Epic (pas obligatoire dans Tuleap Blagnac)
-
-Dans Backlog
-	CrÈer User Story
-		Ne pas nommer User Story x dans epic y car User Story peuvent changer d'epic
-
-Ordonner Epics et User Story
-Donner points aux User Story
-	Fibonacci : 1, 2, 3, 5, 8, 13, 21, 34 	55 	89 	144 	233 	377
-	ou binaire : 2 4 8 16 32 64 128 ...
-
-Ordonner prioritÈs (ordre apparition) aux Epics et User Story dans EPICs
-
-2) Release/Sprints
-------------------
-
+Définition :
+[quote]
 A Release is the parent item of a Sprint.
 We assume that several Sprints are necessary to complete one Release.
 
-CrÈer une release
-Y mettre un/des Epic
+* Creer une release V1
+** Y mettre un/des Epic
+* Créer les Sprints
+** Y placer des User Stories
 
-CrÈer les Sprints
-Y placer les User Story
+=== Tasks
 
-3) Tasks
---------
+* Aller dans menu:Sprint[CardWall]
+* Sur une story
+	menu:Petit triangle[créer agile-task]
+*		La créer et l'assigner
+** => la Story passe en Elts du backlog
+* Lorsqu'on bouge un tâche (toDo->OnGoing->Review->Done)
+** => Etat de User Story avance aussi ...
 
-Aller dans Sprint > CardWall
-Sur une story
-	Petit triangle -> crÈer agile-task
-		La crÈer et l'assigner
-Story passe en Elts du bl
-	T‚che avance
-Lorsqu'on bouge un t‚che (toDo->OnGoing>Review>Done) -> Ètat de User Story avance aussi ...
+WARNING: si toutes les tâches d'une User Story sont dans la colonne
+DONE => User Story passe à DONE et IMPOSSIBLE DE REVENIR EN ARRIERE SUR l'User Story
 
-Attention : si toutes les t‚ches d'une User Story sont dans la colonne DONE => User Story ‡ DONE et IMPOSSIBL DE REVENIR EN ARRIERE SUR l'User Story
-
-On peut modifier les Ètats des Users Story (points) et t‚che (Ètat)
+On peut modifier les états des Users Story (points) et tâche (état)
 => Etat des sprints avance aussi (points)
 
-Mettre les sprints ‡ Done lorsque OK.
+Mettre les sprints à Done lorsque OK.
 
-4) Limites / Impasses / DifficultÈs
------------------------------------
+=== Limites / Impasses / Difficultés
 
-Marche par journÈes !! Pb si tous les TPs le mÍme jour
-Pas de burndown correct.
+- Marche par journées !! Pb si tous les TPs le même jour
+- Pas de burndown correct.
 
-Faire une fois un sprint de 2-3 semaines (avec des User Stories en cascade ?) pour voir un burndown ...
+Faire une fois un sprint de 2-3 semaines (avec des User Stories en cascade ?)
+pour voir un burndown ...
 
-Tips :
-- une user story passÈe ‡ done ne peut pas revenir en arriËre.
-- une t‚che attachÈe ‡ une user story ne change pas de story
-- une story dans un seul sprint
-- ...
-- petits menus signalÈs par un triangle un peu partout dans le dashboard
-- ...
+[TIP]
+=====
+- une user story passée à Done ne peut pas revenir en arrière.
+- une tâche attachée à une user story ne change pas de story
+- une story ne peut aller que dans un seul sprint
+- petits menus signalés par un triangle un peu partout dans le dashboard
+=====
 
-5) RÈfÈrences
--------------
-
-https://blog.enalean.com/how-to-implement-scrum-with-tuleap/#backlog
+endif::prof[]
+//----------------------------------------------------- fin Correction --------
 
 
 :numbered!:
+
+== Liens utiles
+
+- La doc {tuleap} : https://tuleap.net/doc/fr/
+
 == Contact
 
 En cas de soucis, n'hésitez pas à poser vos questions sur le forum {tuleapIUT}
