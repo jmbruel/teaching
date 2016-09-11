@@ -102,8 +102,19 @@ image:mylynTuleap.png[width=50%]
 +
 . Installez le plug-in
 . Couplez l'outil avec votre projet tuleap en suivant http://tuleap-documentation.readthedocs.io/en/latest/mylyn/usage.html[ce tuto] (sorry for the English).
+. Ajouter un serveur de tâches
++
+image:serveurMylyn0.png[width=50%]
++
+. Sélectionner le connecteur Tuleap
++
+image:serveurMylyn.png[width=50%]
++
+. Entrez `http://tuleap.iut-blagnac.fr/projects/votreProjet/` comme nom de serveur
+. Décochez anonyme et entrez vos login/password
 . Constatez que les modifications dans l'un ou l'autre ({tuleap}/{eclipse}) ont
 bien des répercussions automatiquement dans l'autre.
+
 
 == Liens utiles
 
