@@ -51,15 +51,12 @@ $(OUTPUT)/%.teacher.html: %.$(EXT)
 		-a source-highlighter=$(HIGHLIGHT) \
 		-o $@ $<
 
-
-$(OUTPUT)/%.slides.html: %.$(EXT)
-	@echo '==> Compiling asciidoc files to generate Deckjs'
-	$(ASCIIDOCTOR) -b deckjs \
-	-a stylesheet=../../font-awesome-4.5.0/css/font-awesome.min.css \
-		-T $(DECKJS) \
-		-a slides -a deckjslides \
-		-r asciidoctor-diagram \
+$(OUTPUT)/%.sujet.html: %.$(EXT)
+	@echo '==> Compiling asciidoc files to generate subject for student'
+	$(ASCIIDOCTOR) -b html5 \
+		-a numbered \
 		-a data-uri \
+		-r asciidoctor-diagram \
 		-a source-highlighter=$(HIGHLIGHT) \
 		-o $@ $<
 

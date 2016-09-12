@@ -56,10 +56,25 @@ endif::prof[]
 | {duree}	| *1 ou 2 séance(s)* de 1,5h (selon ce qu'il vous reste)
 |======================
 
-
 == Découverte du sujet de projet
 
-Cf. ...
+=== Les besoins du client
+
+Cf. fichier Projet sous Moodle.
+
+=== Déroulement
+
+Le projet se déroulera en deux releases :
+
+- V1 (livraison 7 octobre soit à 4 semaines)
+- V2 (livraison 11 novembre soit à 4 semaines de plus)
+
+Chaque sprint donnera lieu à la livraison d'un nouveau code
+opérationnel et convenant au client, conformément au Sprint Backlog qui aura été produit avec lui.
+
+=== Evaluation
+
+L'évaluation de votre projet portera bien sûr sur la qualité du produit final, mais surtout sur votre capacité à mettre en oeuvre les principes agiles dans vos 8 semaines d'activités.
 
 == Plannification des Stories, Releases et Sprints
 

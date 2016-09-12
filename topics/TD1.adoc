@@ -24,8 +24,16 @@ réponses aux exercices.
 endif::prof[]
 
 //-------------------------------------------------------------------------
-== Video agile (15')
+== icon:film[] Video agile (15')
 //-------------------------------------------------------------------------
+
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Version corrigée
+=====
+Eventuellement garder cette partie pour la fin du TD (ou pour chez eux si les 2 autres parties débordent).
+=====
+endif::prof[]
 
 Visionner et discuter la video suivante (même pour le groupe non anglais!) :
 
@@ -42,7 +50,7 @@ ifdef::prof[]
 endif::prof[]
 
 //-------------------------------------------------------------------------
-== Exercice de communication (30')
+== icon:users[] Exercice de communication (30')
 //-------------------------------------------------------------------------
 
 ifdef::prof[]
@@ -106,7 +114,8 @@ Points importants :
 +
 . On compare le dessin d'origine et le dessin de la MOE :-)
 . La MOA choisit le meilleur dessin (pris en photo pour Moodle)
-. On recommence avec la meilleur MOE comme dessinateur et un nouveau volontaire en MOA.
+. On recommence avec la meilleur MOE comme dessinateur et un nouveau
+volontaire en MOA (consignes libres pour le dessinateur cette fois).
 
 ifdef::prof[]
 [IMPORTANT]
@@ -119,7 +128,7 @@ ifdef::prof[]
 endif::prof[]
 
 //-------------------------------------------------------------------------
-== Story mapping (40')
+== icon:th[] Story mapping (40')
 //-------------------------------------------------------------------------
 
 ifdef::prof[]
@@ -225,7 +234,7 @@ endif::prof[]
 
 //-------------------------------------------------------------------------
 :numbered!:
-== Contact
+== icon:comment[] Contacts
 //-------------------------------------------------------------------------
 
 En cas de soucis, n'hésitez pas à poser vos questions sur le forum générale du

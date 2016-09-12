@@ -97,8 +97,12 @@ image:tuleap{tuleapVersion}/scrum.png[width={standWidth}]
 == git
 
 . Connectez-vous sur le gitlab de l'IUT : {gitlabIUT} (tous les membres du groupe)
++
+NOTE: si le serveur est indisponible ou vos comptes pas encore créés, utilisez
+un dépôt git de votre choix, ou bien passez cette étape pour l'instant.
++
 . L'un des membres du groupe créé un dépôt respectant la nomenclature :
-`MPA2016-X[A|B]Y`.
+`MPA2016-GX[A|B]Y`.
 Où `X` est le numéro du groupe de TD (entre 1 et 3) et `Y` le numéro du groupe
 projet (1 ou 2). `A` ou `B` désignant le groupe TP.
 . Il ajoute comme membre du dépôt ses collègues, ainsi que le compte gitlab du

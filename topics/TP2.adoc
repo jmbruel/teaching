@@ -58,7 +58,9 @@ endif::prof[]
 
 //----------------------------------------------------- Correction ------------
 ifdef::prof[]
-
+[IMPORTANT]
+.icon:graduation-cap[] Version corrigée - Support du prof
+=====
 - Parcourir avec eux les différents outils.
 - Pour chaque technique, demander si un étudiant la maîtrise et peut faire une démo
 - N'hésitez pas à mettre en avant celle que vous préférez. Comme rien n'est imposé aux groupes
@@ -66,6 +68,7 @@ autant que vos groupes utilisent une techno que vous maîtrisez.
 - Les scripts et exemples marchent souvent sous Mac OS X, mais pas sur Linux ou
 Windows car je ne les teste pas sur l'environnement étudiant (flemme ou manque de temps).
 Donc n'hésitez pas à faire remonter les erreurs éventuelles.
+=====
 
 endif::prof[]
 //----------------------------------------------------- fin Correction --------
@@ -427,7 +430,16 @@ Total time: 3.486 secs
 
 == YaPlusKa!
 
-Vous pouvez choisir n'importe quel outil de build parmi ceux vu ci-dessus.
+=== Mise en pratique
+
+. Testez le build d'application par script
+. Testez le build d'application par ant
+. Testez le build d'application par maven
+
+=== Choix pour votre projet
+
+Vous pouvez choisir n'importe quel outil de build parmi ceux vu ci-dessus
+(à part les script et makefile, trop peu portables).
 Décidez au niveau de l'équipe, mettez en place vos règles et procédures et testez
 une livraison auprès du prof.
 
