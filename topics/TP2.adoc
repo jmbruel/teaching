@@ -4,7 +4,6 @@
 :tdnum: Sprint0
 include::../definitions.txt[]
 :weekNumber: 37
-:prof:
 
 :doctitle:  {moduleTitle} - Sujet {tdnum} (semaine {weekNumber})
 ifdef::prof[]
@@ -39,11 +38,11 @@ Cette version comporte des indications pour les
 réponses aux exercices, ainsi que des consignes pour les
 enseignants.
 =====
-endif::prof[]
 
 :numbered!:
 == icon:graduation-cap[] Penser à faire l'appel!
 :numbered:
+endif::prof[]
 
 //-------------------- Cartouche d'en-tête -----------
 [[cartouche]]
@@ -294,7 +293,7 @@ Exemples de conventions :
 ifdef::slides[=== Maven (suite)]
 
 [source,xml]
-.pom.xml
+.Exemple de fichier `pom.xml`
 ------
 <project>
   <modelVersion>4.0.0</modelVersion>
@@ -371,6 +370,9 @@ Pour comparer, voici l'équivalent {ant} :
 </project>
 -------
 ======
+
+N'hésitez pas à suivre http://www.vogella.com/tutorials/EclipseMaven/article.html[ce tuto]
+pour configurer correctement un projet {maven} sous {eclipse}.
 
 [[Ivy]]
 === Ivy

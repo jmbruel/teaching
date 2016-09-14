@@ -14,6 +14,7 @@ include::../definitions.txt[]
 :imagesdir: images
 //:prof:
 :csv: https://fr.wikipedia.org/wiki/Comma-separated_values[CSV]
+:json: https://en.wikipedia.org/wiki/JSON[JSON]
 
 //-------------------- Warning si correction -----------
 ifdef::prof[]
@@ -41,11 +42,13 @@ plusieurs fichiers excel d'information :
 - les entreprises qui versent de la taxe d'apprentissage (TA) au département informatique
 
 En tant que modérateur de la mailing liste des anciens étudiants du DUT Info (anciens_dut_info@univ-tlse2.fr),
-je reçois souvent des mails comme celui-ci :
+je reçois souvent des mails comme les exemples ci-dessous :
 
-ifndef::slides[.Exemple de mail]
-image::mail1.png[width=80%,link="{thisref}"]
-ifdef::slides[NOTE: [detail]#Exemple de mail#]
+.Exemple de mail avec des fichiers (`.pdf` ici) attachés
+image::mail1.png[width=80%"]
+
+.Exemple de mail sans fichier attaché
+image::mail2.png[width=80%"]
 
 == Besoins
 
@@ -108,12 +111,16 @@ Les fonctionnalités initiales demandées sont les suivantes :
 . Pouvoir définir pour chaque entreprise le lien avec l'IUT
 .. A pris un stagiaire l'année N (liste)
 .. A versée de la Taxe d'Apprentissage l'année N pour un montant M (liste)
+.. A proposé un stage
+.. A simplement pris contact avec nous
+.. ...
 
-. Etre capable d'importer et exporter ces informations sous un format {CSV}
+. Etre capable d'importer et exporter ces informations sous un format standard ({CSV} ou {json})
 .. Liste des entreprises
 .. Liste des versements de Taxe
 .. Liste des stagiaires d'une année N
 .. emails d'offres
+
 
 === User Stories initiales
 

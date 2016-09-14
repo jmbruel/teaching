@@ -168,6 +168,7 @@
 :jordi: {cabot}
 :karina: Karina Aguilar
 :loic: mailto:loic.fejoz@realtimeatwork.com[Loïc Féjoz]
+:masterICE: http://mathsinfo.univ-tlse2.fr/accueil/formations/master-ice/[Master ICE]
 :nasa: http://www.nasa.gov/[NASA]
 :nico: mailto:nicolas.belloir@univ-pau.fr[Nicolas Belloir]
 :nonne: Laurent Nonne

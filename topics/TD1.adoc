@@ -239,3 +239,8 @@ endif::prof[]
 
 En cas de soucis, n'hésitez pas à poser vos questions sur le forum générale du
 projet ({tuleapMPA}) ou en dernier recours à {jmb}.
+
+//////
+Autres idées :
+http://www.areyouagile.com/heros/masterstips.html
+//////

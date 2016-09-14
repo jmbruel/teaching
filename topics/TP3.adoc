@@ -4,7 +4,6 @@
 :tdnum: Sprint0
 include::../definitions.txt[]
 :weekNumber: 37
-:prof:
 
 :doctitle:  {moduleTitle} - Sujet {tdnum} (semaine {weekNumber})
 ifdef::prof[]
