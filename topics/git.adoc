@@ -512,9 +512,11 @@ On part d'une situation type :
 ifndef::slides[.Situation initiale]
 image::gf1.svg[width="50%"]
 
+ifdef::slides[]
 // ------
 [{topic}]
 == Illustration des branches (suite)
+endif::slides[]
 
 On crée une branche (appelée `iss53` ici pour indiquer qu'elle traite de l'_issue_ numéro 53) :
 
@@ -532,9 +534,12 @@ image::gf2.svg[width="40%"]
 - {git} n'a créé qu'un pointeur => aucun espace mémoire perdu.
 ====
 
+ifdef::slides[]
 // ------
 [{topic}]
 == Illustration des branches (suite)
+endif::slides[]
+
 
 On modifie et on commit :
 
@@ -548,9 +553,11 @@ ifndef::slides[.On commence à diverger de `master`]
 image::gf3.svg[width="50%"]
 ifdef::slides[NOTE: On commence à diverger de `master`]
 
+ifdef::slides[]
 // ------
 [{topic}]
 == Illustration des branches (suite)
+endif::slides[]
 
 On revient à la branche maître pour tester une autre solution :
 
@@ -565,9 +572,11 @@ $ git commit -m " blabla hotfix"
 ifndef::slides[.Maintenant on a 2 branches parallèles (en plus de `master`)]
 image::gf4.svg[width="50%"]
 
+ifdef::slides[]
 // ------
 [{topic}]
 == Illustration des branches (suite)
+endif::slides[]
 
 On intègre cette solution à la branche principale :
 
@@ -587,9 +596,11 @@ ifdef::slides[NOTE: Il manque le pointeur *HEAD* sur mes illustrations]
 - {git} utilise ici le *fast-forward*
 ====
 
+ifdef::slides[]
 // ------
 [{topic}]
 == Illustration des branches (suite)
+endif::slides[]
 
 On continue à travailler sur la branche `iss53` :
 
@@ -606,9 +617,11 @@ ifndef::slides[.On retravaille sur `iss53`]
 image::gf6.svg[width="50%"]
 ifdef::slides[NOTE: On retravaille sur `iss53`]
 
+ifdef::slides[]
 // ------
 [{topic}]
 == Illustration des branches (suite)
+endif::slides[]
 
 On intègre cette branche :
 
@@ -631,9 +644,11 @@ les branches (les commits feuilles) une par une et vérifier les conflits par it
 ====
 endif::slides[]
 
+ifdef::slides[]
 // ------
 [{topic}]
 == Illustration des branches (suite)
+endif::slides[]
 
 ifndef::slides[.Situation finale]
 image::gf8.svg[width="50%"]
@@ -656,6 +671,74 @@ ifndef::slides[.Usage classique de git (http://nvie.com/posts/a-successful-git-b
 image::git-branching.png[width="70%",link="http://nvie.com/posts/a-successful-git-branching-model/",window="_blank"]
 
 ifndef::slides[:leveloffset: -1]
+
+// ------
+[{intro}]
+== La gestion de version n'est pas un long fleuve tranquille
+
+ifdef::slides[:leveloffset: -1]
+
+// ------
+[{topic}]
+=== Oups! j'ai oublié un truc
+
+[source]
+----------------------------------------------------------
+$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend
+----------------------------------------------------------
+
+// ------
+[{topic}]
+=== Oups! j'ai mis trop de truc
+
+[source]
+----------------------------------------------------------
+$ git add *.*
+$ git reset *.class
+----------------------------------------------------------
+
+NOTE: Aucun danger
+
+// ------
+[{topic}]
+=== CTRL+Z
+
+[source]
+----------------------------------------------------------
+$ working on some file README.adoc ...
+$ git checkout -- REAME.adoc
+----------------------------------------------------------
+
+WARNING: Danger!
+
+// ------
+[{topic}]
+=== Où j'en suis
+
+[source]
+----------------------------------------------------------
+$ git status
+----------------------------------------------------------
+
+ifdef::slides[== !]
+
+image::gitbash1.png[width=95%]
+
+ifdef::slides[== !]
+
+image::gitbash2.png[width=95%]
+
+ifdef::slides[== !]
+
+image::gitbash3.png[width=95%]
+
+ifdef::slides[== !]
+
+image::gitbash4.png[width=95%]
+
+ifdef::slides[:leveloffset: +1]
 
 // ------
 [{intro}]
