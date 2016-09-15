@@ -1,0 +1,2259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="author" content="J.-M. Bruel">
+<title>Gestion de projet, Agilité, Tests</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body id="MPA" class="article toc2 toc-left">
+<div id="header">
+<h1>Gestion de projet, Agilité, Tests</h1>
+<div class="details">
+<span id="author" class="author">J.-M. Bruel</span><br>
+<span id="email" class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span><br>
+<span id="revnumber">version 1.0 2016-09-15</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matières</div>
+<ul class="sectlevel1">
+<li><a href="#_gestion_de_strong_projets_strong">1. Gestion de <strong>projets</strong></a>
+<ul class="sectlevel2">
+<li><a href="#_c_est_quoi_1_projet">1.1. C&#8217;est quoi 1 projet ?</a></li>
+<li><a href="#_ok_allons_y">1.2. OK, allons-y &#8230;&#8203;</a></li>
+<li><a href="#__entre_debut_et_fin_comment_faire">1.3. &#8230;&#8203; entre DEBUT et FIN, comment FAIRE ?</a></li>
+<li><a href="#_depuis_le_temps_que_la_notion_de_projet_existe">1.4. Depuis le temps que la notion de projet existe &#8230;&#8203;</a></li>
+<li><a href="#_pourquoi_est_ce_si_difficile">1.5. Pourquoi est-ce si difficile ?</a></li>
+<li><a href="#_le_découpage_en_phases_d_un_projet_logiciel">1.6. Le découpage en phases d&#8217;un projet logiciel</a></li>
+</ul>
+</li>
+<li><a href="#__span_class_icon_i_class_fa_fa_wrench_i_span_strong_produire_strong_des_applications">2. <span class="icon"><i class="fa fa-wrench"></i></span> <strong>Produire</strong> des applications</a></li>
+<li><a href="#__span_class_icon_i_class_fa_fa_road_i_span_méthodes">3. <span class="icon"><i class="fa fa-road"></i></span> Méthodes</a>
+<ul class="sectlevel2">
+<li><a href="#_r_a_c_h_e">3.1. R.A.C.H.E</a></li>
+<li><a href="#_méthodes_en_cascade_ou_cycle_en_v">3.2. Méthodes en Cascade ou Cycle en V</a></li>
+<li><a href="#_du_cycle_en_strong_v_strong_aux_cycles_en_strong_w_strong">3.3. Du cycle en <strong>V</strong> aux cycles en <strong>W</strong></a></li>
+<li><a href="#_v_versus_w">3.4. V versus W</a></li>
+<li><a href="#_ce_qui_est_toujours_fait">3.5. Ce qui est toujours fait</a></li>
+<li><a href="#_evaluer_l_atteinte_des_objectifs">3.6. Evaluer l&#8217;atteinte des objectifs</a></li>
+</ul>
+</li>
+<li><a href="#_la_méthode_agile_strong_scrum_strong">4. La méthode Agile <strong>SCRUM</strong></a>
+<ul class="sectlevel2">
+<li><a href="#_les_acteurs_scrum">4.1. Les Acteurs SCRUM</a></li>
+<li><a href="#_déroulement_d_un_projet_scrum">4.2. Déroulement d&#8217;un projet SCRUM</a></li>
+<li><a href="#_les_artefacts_scrum">4.3. Les artefacts SCRUM</a></li>
+</ul>
+</li>
+<li><a href="#_les_tests">5. Les Tests</a>
+<ul class="sectlevel2">
+<li><a href="#_tests_unitaires">5.1. Tests unitaires</a></li>
+<li><a href="#_tests_d_intégration">5.2. Tests d&#8217;intégration</a></li>
+<li><a href="#_les_tests_implémentent_des_algorithmes_simples">5.3. Les tests implémentent des algorithmes simples</a></li>
+<li><a href="#_tout_est_il_testable">5.4. Tout est-il testable ?</a></li>
+<li><a href="#_toutes_les_manières_de_faire_sont_exploitables">5.5. Toutes les manières de faire sont exploitables</a></li>
+</ul>
+</li>
+<li><a href="#_au_menu_du_module_m3301_mpa">6. Au menu du module M3301/MPA</a>
+<ul class="sectlevel2">
+<li><a href="#_modalités">6.1. Modalités</a></li>
+</ul>
+</li>
+<li><a href="#_quizz">Quizz</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>À l&#8217;initiateur de ce cours, Jean-Michel Inglebert&#8230;&#8203;</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/blasonJMI.png" alt="blasonJMI" width="50%">
+</div>
+<div class="title">Figure 1. Blason des étudiants DUT Info 2016</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gestion_de_strong_projets_strong">1. Gestion de <strong>projets</strong></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_c_est_quoi_1_projet">1.1. C&#8217;est quoi 1 projet ?</h3>
+<div class="quoteblock">
+<blockquote>
+On appelle <strong>projet</strong> un ensemble finalisé d’<strong>activités et d’actions</strong> entreprises dans le but de <strong>répondre</strong> à un <strong>besoin</strong> défini dans des délais fixés et dans la limite d&#8217;une enveloppe budgétaire allouée.
+</blockquote>
+<div class="attribution">
+&#8212; 2014<br>
+<cite>Wikipedia</cite>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Répondre au client</dt>
+<dd>
+<p>(qui paye)</p>
+</dd>
+<dt class="hdlist1">dans la vraie vie</dt>
+<dd>
+<p>(les ressources sont limitées ET les obstacles matériels et humains sont sans limite)</p>
+</dd>
+</dl>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; 2014<br>
+<cite>JMI</cite>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ok_allons_y">1.2. OK, allons-y &#8230;&#8203;</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>DEBUT</strong> : la demande est exprimée/fournie comment ?</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>cahier des charges,</p>
+</li>
+<li>
+<p>liste de fonctionnalités attendues</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>FIN</strong> : le résultat sera livré quand ?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Eviter de répondre : <strong>hier</strong> <span class="detail">(Sinon, c&#8217;est un processus de sauvetage et plus 1 projet)</span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__entre_debut_et_fin_comment_faire">1.3. &#8230;&#8203; entre DEBUT et FIN, comment FAIRE ?</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Option 1</dt>
+<dd>
+<p>se débrouiller (comme dans 'FAIRE les soldes')</p>
+</dd>
+<dt class="hdlist1">Option 2</dt>
+<dd>
+<p>dérouler un process (comme dans '(RE)FAIRE son passeport')</p>
+</dd>
+<dt class="hdlist1">Option 3</dt>
+<dd>
+<p>réaliser un projet</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_depuis_le_temps_que_la_notion_de_projet_existe">1.4. Depuis le temps que la notion de projet existe &#8230;&#8203;</h3>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>7 projets sur 10 arrivent <strong>en retard ou jamais</strong> !</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Janvier 2014<br>
+<cite>Revue Programmez!</cite>
+</div>
+</div>
+<div class="paragraph">
+<p>Les causes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>la demande client est <strong>floue</strong></p>
+</li>
+<li>
+<p><strong>surestimation</strong> des compétences disponibles</p>
+</li>
+<li>
+<p>dérive au <strong>démarrage</strong></p>
+</li>
+<li>
+<p>les demandes de modification se sont <strong>perdues</strong></p>
+</li>
+<li>
+<p>les équipes sont <strong>surchargées</strong></p>
+</li>
+<li>
+<p><strong>perte de compétences</strong> au cours du projet</p>
+</li>
+<li>
+<p>les risques sont <strong>mal évalués</strong></p>
+</li>
+<li>
+<p>les réunions sont <strong>improductives</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Dans tous les cas, c&#8217;est l&#8217;équipe de développement qui est fautive.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pourquoi_est_ce_si_difficile">1.5. Pourquoi est-ce si difficile ?</h3>
+<div class="paragraph">
+<p>Pourtant :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;objectif est connu (fourni par le client)</p>
+</li>
+<li>
+<p>L&#8217;atteinte de l&#8217;objectif est mesurable (évaluable)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Le problème</div>
+<div class="paragraph">
+<p>On n&#8217;a pas de méthode infaillible qui garantisse qu&#8217;une équipe projet atteindra les objectifs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Pourquoi ?</div>
+<div class="paragraph">
+<p>Il s&#8217;agit de gérer une complexité métier, technique et humaine avec des ressources limitées (temps, moyens &#8230;&#8203;)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Seule certitude prévisible : il faudra <strong>s&#8217;adapter aux imprévus</strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_le_découpage_en_phases_d_un_projet_logiciel">1.6. Le découpage en phases d&#8217;un projet logiciel</h3>
+<div class="paragraph">
+<p>Ça n&#8217;empêche pas de définir de grandes étapes génériques
+que le projet devra franchir : ses <strong>PHASES</strong></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un projet de développement logiciel se terminera de 'manière satisfaisante'
+si l&#8217;équipe fournit une application <strong>fiable</strong>, <strong>robuste</strong> et <strong>maintenable</strong> qui répond aux exigences du client.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">fiable</dt>
+<dd>
+<p>fait ce qu&#8217;on attend d&#8217;elle dans les conditions fixées</p>
+</dd>
+<dt class="hdlist1">robuste</dt>
+<dd>
+<p>supporte la charge, les erreurs des utilisateurs, les pannes etc</p>
+</dd>
+<dt class="hdlist1">maintenable</dt>
+<dd>
+<p>ne demande pas d&#8217;être réécrite pour la moindre évolution</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__span_class_icon_i_class_fa_fa_wrench_i_span_strong_produire_strong_des_applications">2. <span class="icon"><i class="fa fa-wrench"></i></span> <strong>Produire</strong> des applications</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BUILD</dt>
+<dd>
+<p>make, <a href="http://ant.apache.org/">ant</a>, <a href="http://maven.apache.org/">Maven</a>, <a href="http://ant.apache.org/ivy/">Ivy</a>, <a href="http://www.gradle.org/">Gradle</a>, etc.</p>
+</dd>
+<dt class="hdlist1">&#8658;</dt>
+<dd>
+<p>cf. cours suivants&#8230;&#8203;</p>
+</dd>
+<dt class="hdlist1">Gestion de projets</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.tuleap.org">tuleap</a>, le remplaçant de <a href="http://www.redmine.org/">redmine</a>, en version gratuite pour les académiques.</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-gitlab"></i></span> <span class="icon"><i class="fa fa-gitlab"></i></span><a href="https://gitlab.com/">GitLab</a>, le site pour héberger vos codes en utilisant <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a>.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__span_class_icon_i_class_fa_fa_road_i_span_méthodes">3. <span class="icon"><i class="fa fa-road"></i></span> Méthodes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_r_a_c_h_e">3.1. R.A.C.H.E</h3>
+<div class="paragraph">
+<p>La méthode préférée des étudiants La RACHE!</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Voir l&#8217;excellent site parodique <a href="http://www.la-rache.com/" class="bare">http://www.la-rache.com/</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_méthodes_en_cascade_ou_cycle_en_v">3.2. Méthodes en Cascade ou Cycle en V</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/waterfall.png" alt="waterfall" width="70%">
+</div>
+<div class="title">Figure 2. Les méthodes en cascade (waterfall)</div>
+</div>
+<div class="paragraph">
+<p>Le cycle en V adopte :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>une approche <strong>descendante</strong> pour l&#8217;analyse et la conception</p>
+</li>
+<li>
+<p>suivie d&#8217;une phase <strong>montante</strong> pour le codage, les tests et l&#8217;intégration.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/v123.png" alt="v123">
+</div>
+<div class="title">Figure 3. Les méthodes de type Cycle en V</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un projet de développement de type cycle en V se terminera de <strong>manière satisfaisante</strong>
+si l&#8217;équipe arrive à remonter le 'V' dans de 'bonnes conditions'.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Arrêt du projet</div>
+<div class="ulist">
+<ul>
+<li>
+<p>l&#8217;application n&#8217;est pas livrable</p>
+</li>
+<li>
+<p>au mieux des modules/classes de base peuvent être réutilisés</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Dérive temporelle</div>
+<div class="ulist">
+<ul>
+<li>
+<p>la phase de codage et d&#8217;intégration est raccourcie</p>
+</li>
+<li>
+<p>le produit livré a été 'trop peu' testé</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>En résumé :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>illustre une approche cartésienne de réduction de la complexité</p>
+</li>
+<li>
+<p>produit les plans de tests dans les phases descendantes</p>
+</li>
+<li>
+<p>vérifie les plans de tests dans les phases ascendantes</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Limites connues</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ne décrit pas</strong> les phases de <strong>maintenance</strong> et <strong>d&#8217;évolution</strong></p>
+</li>
+<li>
+<p>ne prévoit pas qu&#8217;on revienne sur les étapes de conception ?</p>
+</li>
+<li>
+<p>courbe <em>a posteriori</em> : quelle est la complexité estimée du projet à son début ?</p>
+</li>
+<li>
+<p><strong>l&#8217;application</strong> livrée est-elle conforme à <strong>sa documentation</strong> (<strong>et vice versa</strong>) ?</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_du_cycle_en_strong_v_strong_aux_cycles_en_strong_w_strong">3.3. Du cycle en <strong>V</strong> aux cycles en <strong>W</strong></h3>
+<div class="sect3">
+<h4 id="_partons_d_un_exemple_trivial">3.3.1. Partons d&#8217;un exemple trivial</h4>
+<div class="exampleblock">
+<div class="title">Example 1. Une application web de gestion d’urls</div>
+<div class="content">
+<div class="paragraph">
+<p>Développer une <strong>application web</strong> capable de <strong>collecter</strong>
+et <strong>d&#8217;afficher</strong> les urls collectées.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cycle_0">Cycle 0</h5>
+<div class="paragraph">
+<p>Mise en place d&#8217;une infrastructure d&#8217;intégration</p>
+</div>
+<div class="paragraph">
+<p>Solution retenue :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Langage de développement : <code>PHP</code></p>
+</li>
+<li>
+<p>Infrastructure d&#8217;intégration : serveur <code>LAMP</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cycle_1">Cycle 1</h5>
+<div class="paragraph">
+<p>Afficher les urls collectées</p>
+</div>
+<div class="paragraph">
+<p>Solution retenue :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>le serveur maintient un tableau d&#8217;urls</p>
+</li>
+<li>
+<p>la page retournée en mode GET affiche les urls
+sous forme de liste</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cycle_2">Cycle 2</h5>
+<div class="paragraph">
+<p>Saisie et collecte des urls</p>
+</div>
+<div class="paragraph">
+<p>Solution retenue :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>la page propose un formulaire de saisie de nouvelles urls</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_bilan_de_l_exemple_trivial">3.3.2. Bilan de l&#8217;exemple trivial</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/w5rb2.png" alt="w5rb2">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_les_bénéfices_reconnus">3.3.3. Les bénéfices reconnus</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>livre une application qui marche dès le cycle 1</p>
+</li>
+<li>
+<p>gère la complexité et les problèmes d&#8217;intégration à chaque cycle</p>
+</li>
+<li>
+<p>s&#8217;applique à un développement nouveau comme à une évolution</p>
+</li>
+<li>
+<p>permet au client d&#8217;affiner ses exigences</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Rappel :</p>
+</div>
+<div class="paragraph">
+<p>Un projet de développement logiciel se terminera de 'manière satisfaisante'
+si l&#8217;équipe fournit une application <strong>fiable</strong>, <strong>robuste</strong> et <strong>maintenable</strong> qui répond aux exigences du client.</p>
+</div>
+<div class="sect4">
+<h5 id="_les_cas_où_ça_ne_marche_pas">Les cas où ça ne marche pas</h5>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>le client est (trop) absent</p>
+</li>
+<li>
+<p>la conduite de la méthode choisie est approximative  (dérive des livraisons)</p>
+</li>
+<li>
+<p>les tests sont à l&#8217;abandon</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_les_problèmes_nouveaux">Les problèmes nouveaux</h5>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>qu&#8217;elle est la capacité de l&#8217;infrastructure initiale (cycle 0)</p>
+</li>
+<li>
+<p>automatiser les tests de non régression : XP, T/BDD &#8230;&#8203;</p>
+</li>
+<li>
+<p>approche ascendante &#8658; refactoring &#8230;&#8203;</p>
+</li>
+<li>
+<p>comment gérer les livraisons fréquentes : intégration continue &#8230;&#8203;</p>
+</li>
+<li>
+<p>que devient la documentation ???</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v_versus_w">3.4. V versus W</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">V</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Expression des besoins</p>
+</li>
+<li>
+<p>Spécifications</p>
+</li>
+<li>
+<p>Conception générale et détaillée</p>
+</li>
+<li>
+<p>Codage et tests</p>
+</li>
+<li>
+<p>Intégration et tests</p>
+</li>
+<li>
+<p>Livraison (recette)</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">W</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cycle 0</p>
+</li>
+<li>
+<p>Cycle 1 .. N</p>
+<div class="ulist">
+<ul>
+<li>
+<p>choisir des fonctionnalités</p>
+</li>
+<li>
+<p>&#8230;&#8203; coder/tester &#8230;&#8203;</p>
+</li>
+<li>
+<p>livrer</p>
+</li>
+<li>
+<p>ajuster la liste des demandes</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ce_qui_est_toujours_fait">3.5. Ce qui est toujours fait</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Planifier (tout ou partie) des prochaines actions</p>
+</li>
+<li>
+<p>Réaliser les actions planifiées</p>
+</li>
+<li>
+<p>Evaluer la distance au but</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_evaluer_l_atteinte_des_objectifs">3.6. Evaluer l&#8217;atteinte des objectifs</h3>
+<div class="paragraph">
+<p>L&#8217;atteinte de tous les objectifs (et sous-objectifs) d&#8217;un projet
+doit être évaluée.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Quelle que soit la 'méthode de développement' employée,
+tout développement logiciel doit réaliser des 'tests unitaires'
+et des 'tests d&#8217;intégration'.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Aujourd&#8217;hui, ON DOIT</div>
+<div class="ulist">
+<ul>
+<li>
+<p>écrire <strong>systématiquement</strong> des <strong>programmes de test</strong></p>
+</li>
+<li>
+<p>exécuter très <strong>régulièrement</strong> ces programmes de tests</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_la_méthode_agile_strong_scrum_strong">4. La méthode Agile <strong>SCRUM</strong></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://fr.wikipedia.org/wiki/Scrum_(m%C3%A9thode)">Scrum</a> est un processus <strong>agile</strong> qui permet de produire la <strong>plus grande valeur métier</strong> dans la <strong>durée la plus courte</strong>.</p>
+</li>
+<li>
+<p>Du logiciel <strong>qui fonctionne</strong> est produit à chaque sprint (toutes les 2 à 4 semaines).</p>
+</li>
+<li>
+<p>Le métier définit les <strong>priorités</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;équipe <strong>s&#8217;organise elle-même</strong> pour déterminer la meilleure façon de produire les exigences les plus prioritaires.</p>
+</li>
+<li>
+<p>À chaque fin de sprint, tout le monde peut voir <strong>fonctionner le produit</strong> courant et décider soit de le livrer dans l&#8217;état,
+soit de continuer à l&#8217;améliorer pendant un sprint supplémentaire.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_les_acteurs_scrum">4.1. Les Acteurs SCRUM</h3>
+<div class="paragraph">
+<p>Les acteurs dans <a href="http://fr.wikipedia.org/wiki/Scrum_(m%C3%A9thode)">Scrum</a> sont :</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">le <strong>Product Owner</strong></dt>
+<dd>
+<p>le client ou son représentant qui fait partie de l&#8217;équipe</p>
+</dd>
+<dt class="hdlist1">le <strong>SCRUM Master</strong></dt>
+<dd>
+<p>un animateur, facilitateur <span class="detail">plutôt qu&#8217;un chef (de projet)</span></p>
+</dd>
+<dt class="hdlist1">l'<strong>équipe</strong></dt>
+<dd>
+<p>capable de mettre en oeuvre toutes les compétences
+<span class="detail">(architecture, conception, développement, IHM, tests, documentation, etc.)</span></p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="_rôles_du_product_owner">4.1.1. Rôles du Product Owner</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Définit les <strong>fonctionnalités</strong> du produit</p>
+</li>
+<li>
+<p>Choisit la date et le contenu de la <strong>release</strong> <span class="detail">(version livrée aux utilisateurs réalisée en plusieurs sprints)</span></p>
+</li>
+<li>
+<p>Est responsable du <strong>retour sur investissement</strong> <span class="detail">(de la valeur métier)</span></p>
+</li>
+<li>
+<p>Définit les <strong>priorités</strong> dans le backlog <span class="detail">en fonction de la valeur « métier »</span></p>
+</li>
+<li>
+<p><strong>Ajuste</strong> les fonctionnalités et les priorités à chaque sprint <span class="detail">si nécessaire</span></p>
+</li>
+<li>
+<p><strong>Accepte</strong> ou <strong>rejette</strong> les résultats</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rôles_du_scrum_master">4.1.2. Rôles du SCRUM Master</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Assure le <strong>management</strong> du projet</p>
+</li>
+<li>
+<p>Fait <strong>appliquer</strong> par l’équipe les valeurs et les pratiques de Scrum</p>
+</li>
+<li>
+<p>Résout des problèmes</p>
+</li>
+<li>
+<p>S&#8217;assure que l&#8217;équipe est complètement fonctionnelle et <strong>productive</strong></p>
+</li>
+<li>
+<p>Facilite une <strong>coopération</strong> poussée entre tous les rôles et fonctions</p>
+</li>
+<li>
+<p><strong>Protège</strong> l&#8217;équipe des interférences extérieures</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_l_équipe_scrum">4.1.3. L&#8217;équipe SCRUM</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Comprend de 5 à 10 personnes, de préférence à plein temps sur le projet</p>
+</li>
+<li>
+<p>Regroupe tous les rôles <span class="detail">Architecte, concepteur, développeur, spécialiste IHM, testeur, etc.</span></p>
+</li>
+<li>
+<p>S’organise par elle-même</p>
+</li>
+<li>
+<p>La composition de l’équipe ne doit pas changer pendant un Sprint</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_déroulement_d_un_projet_scrum">4.2. Déroulement d&#8217;un projet SCRUM</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/scrum1.jpg" alt="scrum1" width="100%">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Planification du sprint suivant</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Choix des items du backlog de produit qui seront réalisés durant le sprint</p>
+</li>
+<li>
+<p>Identification des tâches et définition du backlog de sprint estimé en heures</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>SCRUM quotidien (15mn)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>qu&#8217;ai-je fait hier ?</p>
+</li>
+<li>
+<p>que vais-je faire aujourd&#8217;hui ?</p>
+</li>
+<li>
+<p>y-a-t-il des problèmes particuliers ?</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Revue de SPRINT (15-30mn)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Présentation de l&#8217;application à l&#8217;équipe et à toute personne invitée</p>
+</li>
+<li>
+<p>Calcul de la vélocité de l&#8217;équipe</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Rétrospective de SPRINT (15mn)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;équipe (client compris) revient sur ses modes de fonctionnement</p>
+</li>
+<li>
+<p>Qu&#8217;est-ce qui marche : on continue à l&#8217;identique</p>
+</li>
+<li>
+<p>Qu&#8217;est-ce qui ne marche pas : comment fait-on désormais ?</p>
+</li>
+<li>
+<p>Y-a-t-il des choses à ne plus faire ?</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Planification de Release</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Définit les exigences du <strong>backlog de produit</strong> qui constitueront la release</p>
+</li>
+<li>
+<p>Définit le nombre de sprints et la date de livraison de la release</p>
+</li>
+<li>
+<p>Effectuée avant le premier sprint si la vélocité de l&#8217;équipe est connue</p>
+</li>
+<li>
+<p>Actualisée à chaque fin de sprint</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_artefacts_scrum">4.3. Les artefacts SCRUM</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Le backlog de produit</dt>
+<dd>
+<p>la liste des <strong>exigences</strong> métier ordonnée par la valeur
+métier <span class="detail">(l&#8217;importance métier pour le Product Owner)</span></p>
+</dd>
+<dt class="hdlist1">Les backlogs de sprint</dt>
+<dd>
+<p>les listes des <strong>tâches à réaliser</strong> pour répondre aux exigences métier choisies pour le sprint</p>
+</dd>
+<dt class="hdlist1">Les burndowns du projet</dt>
+<dd>
+<p>les graphiques montrant l'<strong>avancement</strong> du projet</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="_le_backlog_de_produit">4.3.1. Le backlog de produit</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Il est fourni par le <strong>Product Owner</strong> au démarrage du projet</p>
+</li>
+<li>
+<p>Il est une liste ordonnée d&#8217;exigences (stories) classées <span class="detail">selon leur importance métier</span></p>
+</li>
+<li>
+<p>Le classement de chaque exigence pourra être révisé à chaque revue de sprint <span class="detail">par le Product Owner</span></p>
+</li>
+<li>
+<p>Des exigences pourront être ajoutées/retirées à chaque revue de sprint <span class="detail">par le Product Owner</span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_les_backlogs_de_sprint">4.3.2. Les backlogs de sprint</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Définis lors de la planification des sprints</p>
+</li>
+<li>
+<p>Ensemble des tâches à effectuer pour réaliser
+les exigences choisies pour le sprint <span class="detail">dans le backlog de produit</span></p>
+</li>
+<li>
+<p>Les tâches ont estimées en heures</p>
+</li>
+<li>
+<p>L&#8217;estimation des tâches sont réestimées à chaque SCRUM (mélée quotidienne)</p>
+</li>
+<li>
+<p>La définition des tâches conduit souvent à réaliser collectivement une conception de haut niveau</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_les_burndowns_du_projet">4.3.3. Les burndowns du projet</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Les valeurs du backlog de produit et les estimations du backlog de sprint
+permettent de produire les courbes d&#8217;avancement du projet</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="_burndown_de_sprint">Burndown de sprint</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Actualisé chaque jour</p>
+</li>
+<li>
+<p>Indique le nombre d&#8217;heures restantes <span class="detail">pour toutes les tâches du sprint</span></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.scrum-institute.org/Burndown_Chart.php"><img src="images/sprint-burndown.jpg" alt="sprint burndown" width="40%"></a>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+le <strong>burndown de sprint</strong> n&#8217;est pas
+nécessairement décroissant si des tâches sont ajoutées ou bien réévaluées
+à la hausse pour leur durée.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_burndown_de_produit_ou_de_release">Burndown de produit (ou de release)</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Évalue à chaque fin de sprint la quantité du backlog de produit qui reste à faire</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.scrum-institute.org/Burndown_Chart.php"><img src="images/productBurndown.jpg" alt="productBurndown" width="70%"></a>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+le <strong>backlog de release</strong> pouvant évoluer, la courbe n&#8217;est pas
+nécessairement décroissante.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+permet d&#8217;en déduire une estimation de la date de fin de release
+ou une estimation de la quantité du backlog de produit qui ne sera pas
+réalisée à une date donnée.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_indicateurs">4.3.4. Indicateurs</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Vélocité</dt>
+<dd>
+<p>quantité du backlog de produit réalisée par l&#8217;équipe pendant un sprint <span class="detail">(calculée en points)</span></p>
+</dd>
+<dt class="hdlist1">Capacité</dt>
+<dd>
+<p>quantité du backlog de produit qui sera réalisée lors du prochain sprint</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_tests">5. Les Tests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quelle que soit la méthode de développement choisie,
+les Tests sont le <strong>seul moyen de garantir</strong> que le produit livré
+est <strong>conforme aux exigences du client</strong>.</p>
+</div>
+<div class="sect2">
+<h3 id="_tests_unitaires">5.1. Tests unitaires</h3>
+<div class="paragraph">
+<p>Ce sont les plus simples.
+Et pourtant il s&#8217;agit &#8230;&#8203;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>d&#8217;oublier les approches 'manuelles'</p>
+</li>
+<li>
+<p>d&#8217;expliciter les 'limites'</p>
+</li>
+<li>
+<p>de traiter le 'qualitatif' et le 'quantitatif'</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Exemple connu (cf DUT/INFO S1)]</div>
+<div class="paragraph">
+<p>Exemple: implémenter le type abstrait <code>MatriceEntier</code></p>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Spécifications</div>
+<div class="openblock">
+<div class="title">Opérations</div><div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>creerMatrice : Entier * Entier &#8594; MatriceEntier</code></p>
+</li>
+<li>
+<p><code>getNbLignes : MatriceEntier &#8594; Entier</code></p>
+</li>
+<li>
+<p><code>getNbColonnes : MatriceEntier &#8594; Entier</code></p>
+</li>
+<li>
+<p><code>getElement : MatriceEntier * Entier * Entier &#8594; Entier</code></p>
+</li>
+<li>
+<p><code>somLigne : MatriceEntier * Entier &#8594; Entier</code></p>
+</li>
+<li>
+<p><code>somColonne : MatriceColonne * Entier &#8594; Entier</code></p>
+</li>
+<li>
+<p><code>estCarree : MatriceEntier &#8594; Booleen</code></p>
+</li>
+<li>
+<p><code>estDiagonale : MatriceEntier &#8594; Booleen</code></p>
+</li>
+<li>
+<p><code>setElement : MatriceEntier * Entier * Entier * Entier &#8594; MatriceEntier</code></p>
+</li>
+<li>
+<p><code>setPremiereDiagonale : MatriceEntier * Entier &#8594; MatriceEntier</code></p>
+</li>
+<li>
+<p><code>setSecondeDiagonale : MatriceEntier * Entier &#8594; MatriceEntier</code></p>
+</li>
+<li>
+<p><code>mulMatNombre : MatriceEntier * Entier &#8594; MatriceEntier</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">Préconditions</div><div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>creerMatrice(l,c) valide SI ET SEULEMENT SI ( l &gt; 0 ) ET ( c &gt; 0 )</code></p>
+</li>
+<li>
+<p><code>getElement(m,i,j) valide SI ET SEULEMENT SI ( 0 &lt; = i &lt; getNbLignes(m) ) ET ( 0 &lt; = j &lt; getNbColonnes(m))</code></p>
+</li>
+<li>
+<p><code>setElement(m,i,j,n) valide SI ET SEULEMENT SI ( 0 &lt; = i &lt; getNbLignes(m) ) ET ( 0 &lt; = j &lt; getNbColonnes(m))</code></p>
+</li>
+<li>
+<p><code>somLigne(m,i) valide SI ET SEULEMENT SI 0 &lt; = i &lt; getNbLignes(m)</code></p>
+</li>
+<li>
+<p><code>somColonne(m,j) valide SI ET SEULEMENT SI  0 &lt; = j &lt; getNbColonnes(m)</code></p>
+</li>
+<li>
+<p><code>setPremiereDiagonale(m,n) valide SI ET SEULEMENT SI estCarree(m)</code></p>
+</li>
+<li>
+<p><code>setSecondeDiagonale(m,n) valide SI ET SEULEMENT SI estCarree(m)</code></p>
+</li>
+<li>
+<p><code>estDiagonale(m) valide SI ET SEULEMENT SI estCarree(m)</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>getNbLignes(creerMatrice(l,c)) = l</code></p>
+</li>
+<li>
+<p><code>getNbColonnes(creerMatrice(l,c)) = c</code></p>
+</li>
+<li>
+<p><code>getElement(creerMatrice(l,c),i,j) = 0</code></p>
+</li>
+<li>
+<p><code>somLigne(creerMatrice(l,c),i) = 0</code></p>
+</li>
+<li>
+<p><code>somColonne(creerMatrice(l,c),j) = 0</code></p>
+</li>
+<li>
+<p><code>estCarree(creerMatrice(l,c)) SI ET SEULEMENT SI l = c</code></p>
+</li>
+<li>
+<p><code>estDiagonale(creerMatrice(lc,lc)) = VRAI</code></p>
+</li>
+<li>
+<p><code>getNbLignes(setPremiereDiagonale(m,n)) = getNbLignes(m)</code></p>
+</li>
+<li>
+<p><code>getNbColonnes(setPremiereDiagonale(m,n)) = getNbColonnes(m)</code></p>
+</li>
+<li>
+<p><code>getElement(setPremiereDiagonale(m,n),ij,ij) = n</code></p>
+</li>
+<li>
+<p><code>getElement(setPremiereDiagonale(m,n),i,j) = getElement(m,i,j)</code></p>
+</li>
+<li>
+<p><code>somLigne(setPremiereDiagonale(m,n),i) = somLigne(m,i) ` n - getElement(m,i,i)</code></p>
+</li>
+<li>
+<p><code>somColonne(setPremiereDiagonale(m,n),j) = somColonne(m,j) ` n - getElement(m,j,j)</code></p>
+</li>
+<li>
+<p><code>somLigne(setSecondeDiagonale(m,n),i) = somLigne(m,i) ` n - getElement(m,i,getNbColonnes(m) - 1 - i)</code></p>
+</li>
+<li>
+<p><code>somColonne(setSecondeDiagonale(m,n),j) = somColonne(m,j) ` n - getElement(m,j,getNbLignes(m) -1 - j)</code></p>
+</li>
+<li>
+<p><code>somLigne(mulMatNombre(setPremiereDiagonale(m,1),n),i) = somLigne(m,i) ` n - getElement(m,i,i)</code></p>
+</li>
+<li>
+<p><code>somColonne(mulMatNombre(setPremiereDiagonale(m,1),n),j) = somColonne(m,j) ` n - getElement(m,j,j)</code></p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Programme de Test des Opérations</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+
+public class MatriceEntierOperationsTest extends TestCase {
+  static int totalAssertions = 0;
+  static int bilanAssertions = 0;
+
+  /*
+   Types des opérations du type MatriceEntier
+  */
+  public void test_type_new_MatriceEntier() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+
+    totalAssertions++ ;
+    assertEquals("new MatriceEntier(3,3) retourne une MatriceEntier", "MatriceEntier", m.getClass().getName());
+    bilanAssertions++ ;
+  }
+
+  public void test_type_get() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,4) ;
+
+    totalAssertions++ ;
+    assertTrue("getNbLignes() &gt; 0", m.getNbLignes() &gt; 0);
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertTrue("getNbColonnes() &gt; 0", m.getNbColonnes() &gt; 0);
+    bilanAssertions++ ;
+
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertTrue("getElement() retourne un entier", (m.getElement(i,j) &gt;= 0) || (m.getElement(i,j) &lt; 0));
+      bilanAssertions++ ;
+     }
+    }
+  }
+
+  public void test_type_som() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,4) ;
+
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+      totalAssertions++ ;
+      assertTrue("somLigne("+i+") &gt;= 0", m.somLigne(i) &gt;= 0);
+      bilanAssertions++ ;
+    }
+    for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertTrue("somColonne("+j+") &gt;= 0", m.somColonne(j) &gt;= 0);
+      bilanAssertions++ ;
+    }
+  }
+
+  public void test_type_est() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+    totalAssertions++ ;
+    assertTrue("estCarree() retourne un booleen", (m.estCarree() == true) || (m.estCarree() == false));
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertTrue("estDiagonale() retourne un booleen", (m.estDiagonale() == true) || (m.estDiagonale() == false));
+    bilanAssertions++ ;
+
+    m.setElement(0,0,1) ;
+    totalAssertions++ ;
+    assertTrue("estDiagonale() retourne un booleen", (m.estDiagonale() == true) || (m.estDiagonale() == false));
+    bilanAssertions++ ;
+
+    m = new MatriceEntier(3,4) ;
+    totalAssertions++ ;
+    assertTrue("estCarree() retourne un booleen", (m.estCarree() == true) || (m.estCarree() == false));
+    bilanAssertions++ ;
+  }
+
+  public void test_type_set_mul() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertEquals("setElement() retourne une MatriceEntier", "MatriceEntier", m.setElement(i,j,i+j).getClass().getName());
+      bilanAssertions++ ;
+     }
+    }
+
+    totalAssertions++ ;
+    assertEquals("setPremiereDiagonale(99) retourne une MatriceEntier", "MatriceEntier", m.setPremiereDiagonale(99).getClass().getName());
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertEquals("setSecondeDiagonale(99) retourne une MatriceEntier", "MatriceEntier", m.setSecondeDiagonale(99).getClass().getName());
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertEquals("mulMatNombre() retourne une MatriceEntier", "MatriceEntier", m.mulMatNombre(33).getClass().getName());
+    bilanAssertions++ ;
+  }
+
+  /*
+   main() de la classe de Test
+  */
+  public static void main(String[] args) {
+    junit.textui.TestRunner.run(new TestSuite(MatriceEntierOperationsTest.class));
+    if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
+    else  { System.out.print("OUPS !"); }
+    System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions verifiees");
+  } // fin main
+
+} // fin MatriceEntierOperationsTest</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Programme de Test des Préconditions</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+
+public class MatriceEntierPreconditionsTest extends TestCase {
+  static int totalAssertions = 0;
+  static int bilanAssertions = 0;
+
+  /*
+   Préconditions du type Pile
+  */
+  public void test_precondition1() {
+    MatriceEntier m ;
+    boolean exception = false ;
+    try { m = new MatriceEntier(0,1) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("new MatriceEntier(0,1) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m = new MatriceEntier(1,0) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("new MatriceEntier(1,0) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m = new MatriceEntier(0,0) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("new MatriceEntier(0,0) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition2() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.getElement(-1,1) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("getElement(-1,1) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.getElement(2,2) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("getElement(2,2) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.getElement(1,-1) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("getElement(1,-1) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.getElement(1,3) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("getElement(1,3) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition3() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.setElement(-1,1,99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setElement(-1,1,99) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.setElement(2,2,99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setElement(2,2,99) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.setElement(1,-1,99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setElement(1,-1,99) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.setElement(1,3,99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setElement(1,3,99) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition4() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.somLigne(-1) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("somLigne(-1) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.somLigne(2) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("somLigne(2) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition5() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.somColonne(-1) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("somColonne(-1) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.somColonne(3) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("somColonne(3) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition6() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.setPremiereDiagonale(99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setPremiereDiagonale(99) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition7() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.setSecondeDiagonale(99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setSecondeDiagonale(99) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition8() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.estDiagonale() ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("estDiagonale() leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  /*
+   main() de la classe de Test
+  */
+  public static void main(String[] args) {
+    junit.textui.TestRunner.run(new TestSuite(MatriceEntierPreconditionsTest.class));
+    if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
+    else  { System.out.print("OUPS !"); }
+    System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions verifiees");
+  } // fin main
+
+} // fin MatriceEntierPreconditionsTest</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Programme de Test des Axiomes</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+
+public class MatriceEntierAxiomesTest extends TestCase {
+  static int totalAssertions = 0;
+  static int bilanAssertions = 0;
+
+  /*
+   Axiomes du type MatriceEntier
+  */
+  public void test_get() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,4) ;
+
+    totalAssertions++ ;
+    assertEquals("getNbLignes() == 3", 3, m.getNbLignes());
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertEquals("getNbColonnes() == 4", 4, m.getNbColonnes());
+    bilanAssertions++ ;
+
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertEquals("getElement("+i+","+j+") == 0", 0, m.getElement(i,j));
+      bilanAssertions++ ;
+     }
+    }
+
+    m = new MatriceEntier(3,3) ;
+    totalAssertions++ ;
+    assertEquals("setPremiereDiagonale(99).getNbLignes() == getNbLignes()", m.setPremiereDiagonale(99).getNbLignes(), m.getNbLignes());
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertEquals("setSecondeDiagonale(99).getNbLignes() == getNbLignes()", m.setSecondeDiagonale(99).getNbLignes(), m.getNbLignes());
+    bilanAssertions++ ;
+
+    m = new MatriceEntier(3,3) ;
+    m.setPremiereDiagonale(99) ;
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      if ( i == j ) {
+        assertEquals("getElement("+i+","+i+") == 99", 99, m.getElement(i,i));
+      } else {
+        assertEquals("getElement("+i+","+j+") == 0", 0, m.getElement(i,j));
+      }
+      bilanAssertions++ ;
+     }
+    }
+
+  } // fin test_get
+
+  public void test_som() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,4) ;
+
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+      totalAssertions++ ;
+      assertEquals("somLigne("+i+") == 0", 0, m.somLigne(i));
+      bilanAssertions++ ;
+    }
+    for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertEquals("somColonne("+j+") == 0", 0, m.somColonne(j));
+      bilanAssertions++ ;
+    }
+
+    m = new MatriceEntier(3,3) ;
+    m.setPremiereDiagonale(99) ;
+    for (int ij=0; ij&lt;m.getNbLignes(); ij++) {
+      totalAssertions = totalAssertions + 2 ; ;
+      assertEquals("setPremiereDiagonale(99).somLigne("+ij+") == 99", 99, m.somLigne(ij));
+      bilanAssertions++ ;
+      assertEquals("setPremiereDiagonale(99).somColonne("+ij+") == 99", 99, m.somColonne(ij));
+      bilanAssertions++ ;
+    }
+
+    m = new MatriceEntier(3,3) ;
+    m.setSecondeDiagonale(99) ;
+    for (int ij=0; ij&lt;m.getNbLignes(); ij++) {
+      totalAssertions = totalAssertions + 2 ; ;
+      assertEquals("setSecondeDiagonale(99).somLigne("+ij+") == 99", 99, m.somLigne(ij));
+      bilanAssertions++ ;
+      assertEquals("setSecondeDiagonale(99).somColonne("+ij+") == 99", 99, m.somColonne(ij));
+      bilanAssertions++ ;
+    }
+
+  } // fin test_som
+
+  public void test_est() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+    totalAssertions++ ;
+    assertTrue("estCarree() == true", m.estCarree());
+    bilanAssertions++ ;
+
+    m = new MatriceEntier(2,3) ;
+    totalAssertions++ ;
+    assertFalse("estCarree() == false", m.estCarree());
+    bilanAssertions++ ;
+
+    m = new MatriceEntier(3,3) ;
+    totalAssertions++ ;
+    assertTrue("estDiagonale() == true", m.estDiagonale());
+    bilanAssertions++ ;
+
+    m.setPremiereDiagonale(99);
+    totalAssertions++ ;
+    assertTrue("setPremiereDiagonale(99).estDiagonale() == true", m.estDiagonale());
+    bilanAssertions++ ;
+
+    m.setSecondeDiagonale(99);
+    totalAssertions++ ;
+    assertFalse("setSecondeDiagonale(99).estDiagonale() == false", m.estDiagonale());
+    bilanAssertions++ ;
+
+  } // fin test_est
+
+  public void test_mul() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+    m.setPremiereDiagonale(1).mulMatNombre(99) ;
+    for (int ij=0; ij&lt;m.getNbLignes(); ij++) {
+      totalAssertions = totalAssertions + 2 ; ;
+      assertEquals("setPremiereDiagonale(1).mulMatNombre(99).somLigne("+ij+") == 99", 99, m.somLigne(ij));
+      bilanAssertions++ ;
+      assertEquals("setPremiereDiagonale(1).mulMatNombre(99).somColonne("+ij+") == 99", 99, m.somColonne(ij));
+      bilanAssertions++ ;
+    }
+
+    m = new MatriceEntier(3,3) ;
+    m.setSecondeDiagonale(1).mulMatNombre(99) ;
+    for (int ij=0; ij&lt;m.getNbLignes(); ij++) {
+      totalAssertions = totalAssertions + 2 ; ;
+      assertEquals("setSecondeDiagonale(1).mulMatNombre(99).somLigne("+ij+") == 99", 99, m.somLigne(ij));
+      bilanAssertions++ ;
+      assertEquals("setSecondeDiagonale(1).mulMatNombre(99).somColonne("+ij+") == 99", 99, m.somColonne(ij));
+      bilanAssertions++ ;
+    }
+
+    MatriceEntier m_init = new MatriceEntier(3,3) ;
+    m = new MatriceEntier(3,3) ;
+    // Initialise m_init et m à {{0,1,2}{3,4,5}{6,7,8}}
+    int k = 0 ;
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+	m_init.setElement(i,j,k) ;
+	m.setElement(i,j,k) ;
+	k = k + 1 ;
+     }
+    }
+    m.mulMatNombre(3) ;
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertEquals("m.mulMatNombre(3).getElement("+i+","+j+") == m.getElement("+i+","+j+") * 3", m_init.getElement(i,j) * 3, m.getElement(i,j));
+      bilanAssertions++ ;
+     }
+    }
+
+  } // fin test_mul
+
+  /*
+   main() de la classe de Test
+  */
+  public static void main(String[] args) {
+    junit.textui.TestRunner.run(new TestSuite(MatriceEntierAxiomesTest.class));
+    if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
+    else  { System.out.print("OUPS !"); }
+    System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions verifiees");
+  } // fin main
+
+} // fin MatriceEntierAxiomesTest</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Programme de Test des Opérations supplémentaires</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+
+public class MatriceEntierOpSupTest extends TestCase {
+  static int totalAssertions = 0;
+  static int bilanAssertions = 0;
+
+  /*
+   Opérations supplémentaires du type MatriceEntier
+  */
+  public void test_toString() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+    m.setPremiereDiagonale(1).setSecondeDiagonale(2) ;
+
+    String ln = System.getProperty("line.separator") ;
+    String attendu = "1 0 2 " + ln + "0 2 0 " + ln + "2 0 1 " + ln ;
+    totalAssertions++ ;
+    assertEquals("toString() == ", attendu, m.toString());
+    bilanAssertions++ ;
+  }
+
+  public void test_toHTML() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+    m.setPremiereDiagonale(1).setSecondeDiagonale(2) ;
+
+    String ln = System.getProperty("line.separator") ;
+    String attendu = "&lt;table border=\"1\"&gt;" + ln ;
+    attendu += "&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;" + ln + "&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;" + ln + "&lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;" + ln ;
+    attendu += "&lt;/table&gt;" + ln ;
+    totalAssertions++ ;
+    assertEquals("toHTML() == ", attendu, m.toHTML());
+    bilanAssertions++ ;
+  }
+
+  /*
+   main() de la classe de Test
+  */
+  public static void main(String[] args) {
+    junit.textui.TestRunner.run(new TestSuite(MatriceEntierOpSupTest.class));
+    if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
+    else  { System.out.print("OUPS !"); }
+    System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions verifiees");
+  } // fin main
+
+} // fin PileTest</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le programme de test fourni est :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>un outil de <strong>détection des régressions</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>qui pourraient intervenir à la suite d&#8217;une modification de la classe <code>MatriceEntier</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>une <em>documentation</em> de <strong>spécification</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>précise et concise</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>une <em>documentation</em> pour les <strong>programmeurs</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>opérationnelle</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests_d_intégration">5.2. Tests d&#8217;intégration</h3>
+<div class="paragraph">
+<p>Plus délicat, il s&#8217;agit :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>de tester les exigences du client</p>
+</li>
+<li>
+<p>de tester les intéractions système</p>
+</li>
+<li>
+<p>de ne pas refaire les tests unitaires</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Programme de Test du programme <code>JourSuivantAvecLibDate.class</code></div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+import java.io.*;
+
+public class JourSuivantAvecLibDateTest extends TestCase {
+  static String programmeATester = "JourSuivantAvecLibDate" ;  <i class="conum" data-value="1"></i><b>(1)</b>
+  Process executionProgrammeATester ;                          <i class="conum" data-value="2"></i><b>(2)</b>
+  BufferedReader ecranProgrammeATester ;                       <i class="conum" data-value="3"></i><b>(3)</b>
+  BufferedWriter clavierProgrammeATester ;                     <i class="conum" data-value="4"></i><b>(4)</b>
+
+  String finDeLigne = System.getProperty("line.separator") ;   <i class="conum" data-value="5"></i><b>(5)</b>
+
+  public static void main(String[] args) {
+    if ( args.length &gt; 0 ) { programmeATester = args[0] ; }
+    System.out.println("Tests du programme : " + programmeATester);
+    junit.textui.TestRunner.run(new TestSuite(JourSuivantAvecLibDateTest.class)); <i class="conum" data-value="6"></i><b>(6)</b>
+  }
+
+  protected void setUp() throws IOException {  <i class="conum" data-value="7"></i><b>(7)</b>
+    executionProgrammeATester = Runtime.getRuntime().exec("java -cp . "+programmeATester); <i class="conum" data-value="8"></i><b>(8)</b>
+    ecranProgrammeATester = new BufferedReader(new  InputStreamReader( executionProgrammeATester.getInputStream() )); <i class="conum" data-value="9"></i><b>(9)</b>
+    clavierProgrammeATester  = new BufferedWriter(new OutputStreamWriter( executionProgrammeATester.getOutputStream() )); <i class="conum" data-value="10"></i><b>(10)</b>
+  }
+
+  // Saisies valides
+  public void test_31_1_2013() throws IOException {
+    assertEquals("Affiche : 'Saisir une date : jour mois annee ? '","Saisir une date : jour mois annee ? ",ecranProgrammeATester.readLine()); <i class="conum" data-value="11"></i><b>(11)</b>
+    clavierProgrammeATester.write("31 1 2013"+finDeLigne); <i class="conum" data-value="12"></i><b>(12)</b>
+    clavierProgrammeATester.flush();                       <i class="conum" data-value="13"></i><b>(13)</b>
+    assertEquals("Affiche : 'Le lendemain du 31/1/2013'","Le lendemain du 31/1/2013",ecranProgrammeATester.readLine());
+    assertEquals("Affiche : 'sera le 1/2/2013.'","sera le 1/2/2013.",ecranProgrammeATester.readLine()); <i class="conum" data-value="14"></i><b>(14)</b>
+  }
+
+  public void test_28_2_2013() throws IOException {
+    String messageSaisie = "Saisir une date : jour mois annee ? " ;
+    String[] ligneJeuDEssai = {"28 2 2013","Le lendemain du 28/2/2013","sera le 1/3/2013."} ;
+
+    assertEquals("Affiche : "+messageSaisie,messageSaisie,ecranProgrammeATester.readLine());
+    clavierProgrammeATester.write(ligneJeuDEssai[0]+finDeLigne); clavierProgrammeATester.flush();
+    assertEquals("Affiche : "+ligneJeuDEssai[1],ligneJeuDEssai[1],ecranProgrammeATester.readLine());
+    assertEquals("Affiche : "+ligneJeuDEssai[2],ligneJeuDEssai[2],ecranProgrammeATester.readLine());
+  }
+
+  protected void assertsPourSaisieValide(String messageSaisie,String saisie,String affichage1,String affichage2) throws IOException {
+     assertEquals("Affiche : "+messageSaisie,messageSaisie,ecranProgrammeATester.readLine());
+     clavierProgrammeATester.write(saisie+finDeLigne); clavierProgrammeATester.flush();
+     assertEquals("Affiche : "+affichage1,affichage1,ecranProgrammeATester.readLine());
+     assertEquals("Affiche : "+affichage2,affichage2,ecranProgrammeATester.readLine());
+  }
+  public void test_31_3_2013() throws IOException {
+    String messageSaisie = "Saisir une date : jour mois annee ? " ;
+    String[] ligneJeuDEssai = {"31 3 2013","Le lendemain du 31/3/2013","sera le 1/4/2013."} ;
+    assertsPourSaisieValide(messageSaisie,ligneJeuDEssai[0],ligneJeuDEssai[1],ligneJeuDEssai[2]);
+  }
+
+  // Saisies invalides
+  protected void assertsPourSaisieInvalide(String messageSaisie,String saisie,String affichage) throws IOException {
+     assertEquals("Affiche : "+messageSaisie,messageSaisie,ecranProgrammeATester.readLine());
+     clavierProgrammeATester.write(saisie+finDeLigne); clavierProgrammeATester.flush();
+     assertEquals("Affiche : "+affichage,affichage,ecranProgrammeATester.readLine());
+  }
+
+  public void test_1_1_1581() throws IOException {
+    String messageSaisie = "Saisir une date : jour mois annee ? " ;
+    String[] ligneJeuDEssai = {"1 1 1581","La date du 1/1/1581 n'est pas une date valide."} ;
+    assertsPourSaisieInvalide(messageSaisie,ligneJeuDEssai[0],ligneJeuDEssai[1]);
+  }
+
+  public void test_32_1_2013() throws IOException {
+    String messageSaisie = "Saisir une date : jour mois annee ? " ;
+    String[] ligneJeuDEssai = {"32 1 2013","La date du 32/1/2013 n'est pas une date valide."} ;
+    assertsPourSaisieInvalide(messageSaisie,ligneJeuDEssai[0],ligneJeuDEssai[1]);
+  }
+
+} // fin class</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>nom de l&#8217;application (du programme) à tester</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Process (Processus) = programme en cours d&#8217;exécution</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>lien vers l&#8217;écran du programme en cours d&#8217;exécution</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>lien vers le clavier du programme en cours d&#8217;exécution</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>récupération <strong>portable</strong> du retour à la ligne</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>lancement de toutes les fonctions débutant par 'test'</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>fonction (ré-)exécutée avant chaque fonction de test et qui exécute le programme à tester</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>lance le programme</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>se connecte à l&#8217;écran (sortie standard) du programme lancé</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td>se connecte au clavier (entrée standard) du programme lancé</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="11"></i><b>11</b></td>
+<td>lit une ligne sur l&#8217;écran du programme lancé</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="12"></i><b>12</b></td>
+<td>écrit une ligne au clavier du programme lancé</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="13"></i><b>13</b></td>
+<td>force l&#8217;envoi de la ligne au clavier (vide le tampon de sortie)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="14"></i><b>14</b></td>
+<td>lit une autre ligne sur l&#8217;écran du programme lancé</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_les_tests_implémentent_des_algorithmes_simples">5.3. Les tests implémentent des algorithmes simples</h3>
+<div class="listingblock">
+<div class="title">given/when/then</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public void test_dates_invalides() {
+  int[][] tabJeuDEssaiDatesInvalides = {  <i class="conum" data-value="1"></i><b>(1)</b>
+      {1,1,1581},{0,1,2013},{99,99,2099},
+      {32,1,2013},{29,2,2013},{32,3,2013},
+      {31,4,2013},{32,5,2013},{31,6,2013},
+      {32,7,2013},{32,8,2013},{31,9,2013},
+      {32,10,2013},{31,11,2013},{32,12,2013},
+      {29,2,1900},{30,2,2000}
+  } ;
+  for ( int indice = 0, taille = tabJeuDEssaiDatesInvalides.length;
+        indice &lt; taille ;
+        indice = indice + 1){
+    int[] date = tabJeuDEssaiDatesInvalides[indice] ;
+    assertFalse(date[0]+"/"+date[1]+"/"+date[2]+" est invalide"
+    , LibDate.dateValide(date[0],date[1],date[2])); <i class="conum" data-value="2"></i><b>(2)</b> <i class="conum" data-value="3"></i><b>(3)</b>
+  }
+  bilanAssertions = bilanAssertions + tabJeuDEssaiDatesInvalides.length ;
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><strong>given</strong> : dans les situations suivantes</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><strong>when</strong> : quand on vérifie la validité de la date</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><strong>then</strong> : on doit obtenir <code>false</code></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tout_est_il_testable">5.4. Tout est-il testable ?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>les librairies</p>
+</li>
+<li>
+<p>les intéractions systèmes <span class="detail">(concurrence, etc.)</span></p>
+</li>
+<li>
+<p>les services réseau</p>
+</li>
+<li>
+<p>les interfaces graphiques <span class="detail">(html, java, flash, etc.)</span></p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+<li>
+<p>PEUT-ETRE PAS, mais seulement après avoir essayé!</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_toutes_les_manières_de_faire_sont_exploitables">5.5. Toutes les manières de faire sont exploitables</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Ecrire le programme qui fasse passer les tests fournis</p>
+</li>
+<li>
+<p>Ecrire les tests d&#8217;un programme fourni</p>
+</li>
+<li>
+<p>Coder une fonctionnalité et ajouter le test correspondant</p>
+</li>
+<li>
+<p>Ajouter un test et intégrer la fonctionnalité correspondante (TDD)</p>
+</li>
+<li>
+<p>Retrouver l&#8217;équilibre du couple Programme / Programme de Test</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_au_menu_du_module_m3301_mpa">6. Au menu du module M3301/MPA</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Réaliser le développement d&#8217;une application logicielle en utilisant la méthode SCRUM</p>
+</div>
+<div class="paragraph">
+<p>et qui se termine dans de bonnes conditions</p>
+</div>
+<div class="sect2">
+<h3 id="_modalités">6.1. Modalités</h3>
+<div class="paragraph">
+<p>Chaque groupe dispose de ses force vives et de 2 TD + 2 TP par semaine :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>pour réaliser le sprint courant (fournir tous les livrables)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quizz">Quizz</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title"><strong>QUESTION</strong></div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connectez-vous sur : <a href="http://www.socrative.com/" class="bare">http://www.socrative.com/</a> (<strong>student login</strong>)</p>
+</li>
+<li>
+<p>Ou téléchargez l&#8217;application pour étudiant <span class="image"><img src="images/socrative2.png" alt="socrative2" width="10%"></span></p>
+</li>
+<li>
+<p>Choisissez la room <strong>44918d67</strong></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.socrative.com/"><img src="images/socrative1.png" alt="socrative1" width="50%"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0 2016-09-15<br>
+Last updated 2016-09-15 11:52:56 UTC
+</div>
+</div>
+</body>
+</html>
