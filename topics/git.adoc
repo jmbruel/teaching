@@ -665,12 +665,29 @@ ifdef::slides[NOTE: Situation finale]
 [{topic}]
 == Bonne utilisation
 
+ifdef::slides[:leveloffset: -1]
+
+// ------
+[{topic}]
+=== Avoir une procédure concertée
+
 Revenons sur l'exemple type :
 
 ifndef::slides[.Usage classique de git (http://nvie.com/posts/a-successful-git-branching-model/)]
 image::git-branching.png[width="70%",link="http://nvie.com/posts/a-successful-git-branching-model/",window="_blank"]
 
-ifndef::slides[:leveloffset: -1]
+// ------
+[{topic}]
+=== Ne pas versionner n'importe quoi!
+
+Ce qu'il ne faut pas versionner :
+- les exécutables
+- les zip dont le contenu change sans arrêt
+- les images générées
+- tous les binaires en général!
+
+
+ifdef::slides[:leveloffset: +1]
 
 // ------
 [{intro}]
@@ -808,15 +825,39 @@ ifdef::slides[:leveloffset: -1]
 
 [source]
 ----------------------------------------------------------
-$ working on some file README.adoc ...
-$ git checkout -- REAME.adoc
+$ git checkout master
+$ git merge other_branch
+Auto-merging toto.txt
+CONFLICT (content): Merge conflict in toto.txt
+Automatic merge failed; fix conflicts and then commit the result.
+$ more toto.txt
+<<<<<<< HEAD <1>
+Salut monde
+======= <2>
+hello world!
+
+>>>>>>> other_branch <3>
+$ vi toto.txt <4>
+$ git commit <5>
 ----------------------------------------------------------
+<1> Voilà où commence la différence entre la branche courante (`HEAD`)
+et la branche qu'on essaye de merger (`other_branch`)
+<2> Séparation
+<3> Voilà où se termine cette différence
+<4> on édite le fichier à la main pour choisir la bonne version
+<5> on commit pour valider la modif
+
+NOTE: Il est déconseillé d'en profiter pour faire une nouvelle modif
+dans le fichier...
 
 // ------
 [{topic}]
 === Avec un peu d'aide
 
-- diffmerge
+- `git diff`
+- `git difftool`
+** {diffmerge}
+** ...
 
 ifdef::slides[:leveloffset: +1]
 
