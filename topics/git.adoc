@@ -800,6 +800,26 @@ ifdef::slides[== !]
 
 La principale activité du programmeur qui utilise {git} en équipe vient de la gestion des *conflits*.
 
+ifdef::slides[:leveloffset: -1]
+
+// ------
+[{topic}]
+=== À la main
+
+[source]
+----------------------------------------------------------
+$ working on some file README.adoc ...
+$ git checkout -- REAME.adoc
+----------------------------------------------------------
+
+// ------
+[{topic}]
+=== Avec un peu d'aide
+
+- diffmerge
+
+ifdef::slides[:leveloffset: +1]
+
 // ------
 [{intro}]
 == Git avancé : Git-Flow
