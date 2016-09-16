@@ -1,0 +1,158 @@
+// ------------------------------------------
+//  Created by Jean-Michel Bruel on 2016-09.
+//  Copyright (c) 2016 IRIT/U. Toulouse. All rights reserved.
+// ------------------------------------------
+= DUT-Info/S3/M3301 (MPA) : Projet
+Jean-Michel Bruel <jbruel@gmail.com>
+v1.0, {localdate}
+:status: bottom
+:inclusion:
+:experimental:
+// ------------------------------------------
+include::../definitions.txt[]
+:icons: font
+:imagesdir: images
+//:prof:
+:csv: https://fr.wikipedia.org/wiki/Comma-separated_values[CSV]
+:json: https://en.wikipedia.org/wiki/JSON[JSON]
+
+//-------------------- Warning si correction -----------
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Version corrigée
+=====
+Cette version comporte des indications pour les
+réponses aux exercices.
+=====
+endif::prof[]
+
+:thisref: http://ent.ensa-learning.com/
+ifndef::slides[.(crédit photo : {thisref})]
+image::gestage.jpg[width=30%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+== Contexte
+
+Ce sujet, même s'il est proposé par {jmb}, concerne un véritable besoin, et le meilleur des produits délivrés par les 12 groupes qui travaillent sur ce même sujet en parallèle sera utilisé pour de vrai (s'il est bon).
+
+En tant que responsable des stages, j'ai à ma disposition
+plusieurs fichiers excel d'information :
+
+- les entreprises qui nous ont pris des stagiaires
+- les entreprises qui versent de la taxe d'apprentissage (TA) au département informatique
+
+En tant que modérateur de la mailing liste des anciens étudiants du DUT Info (anciens_dut_info@univ-tlse2.fr),
+je reçois souvent des mails comme les exemples ci-dessous :
+
+.Exemple de mail avec des fichiers (`.pdf` ici) attachés
+image::mail1.png[width=80%"]
+
+.Exemple de mail sans fichier attaché
+image::mail2.png[width=80%"]
+
+== Besoins
+
+Ces mails contiennent soit des offres de stage, soit des offres d'emploi (soit les deux).
+J'aimerai pouvoir les traiter plus rapidement à savoir :
+
+- pouvoir vérifier facilement si l'entreprise en question est dans notre base car elle nous prend régulièrement des stagiaires
+- pouvoir vérifier facilement si elle nous verse ou nous a déjà versé de la TA
+
+L'idée est d'avoir rapidement en quelque sorte un "profil" de cette entreprise pour pouvoir agir en conséquence par rapport à ces mails :
+
+- les ignorer
+- les remercier au passage
+- les solliciter dans nos prochaines campagnes de recherche de TA
+- les solliciter pour placer un stagiaire
+- etc.
+
+== Problèmes
+
+Il s'agit donc pour vous de fournir une application java
+où je vais pouvoir manipuler une base de donnée (entreprise/stagiaire/TA), avoir des filtres puissants et rapides (à la google, par simple mot clef comme "Sogeti" dans l'exemple ci-dessus) et une interface sympa ooù je puisse "ranker" les entreprises en fonction de leur historique avec nous.
+
+[NOTE]
+=====
+- Aucune consigne particulière sur l'IHM (maquette et prototypes welcome tout de même)
+- La cerise sur le gateau serait le traitement automatique des emails (Could/Will ;-)
+=====
+
+== Backlog de Produit initial (dernière mise à jour 12/09/2016)
+
+//----------------------------------------------------- Correction ------------
+ifdef::prof[]
+[icon="{iconsdir}/example.png"]
+[IMPORTANT]
+.Version corrigée
+=====
+Cette version comporte des indications pour les
+réponses aux exercices.
+=====
+endif::prof[]
+//----------------------------------------------------- fin Correction --------
+
+[IMPORTANT]
+=====
+Le mot "définir" s'entendra comme "Créer/Supprimer/Modifier" une donnée (CRUD classique).
+=====
+
+==  Fonctionnalités client (Backlog Produit) V1
+
+Les fonctionnalités initiales demandées sont les suivantes :
+
+. Liste des entreprises
+.. Créer/Supprimer/Modifier une entreprise
+.. Lister les entreprise avec filtres
+
+. Liste des emails envoyés
+.. Pour quelle entreprise
+.. À quelle date
+
+. Pouvoir définir pour chaque entreprise le lien avec l'IUT
+.. A pris un stagiaire l'année N (liste)
+.. A versée de la Taxe d'Apprentissage l'année N pour un montant M (liste)
+.. A proposé un stage
+.. A simplement pris contact avec nous
+.. ...
+
+. Etre capable d'importer et exporter ces informations sous un format standard ({CSV} ou {json})
+.. Liste des entreprises
+.. Liste des versements de Taxe
+.. Liste des stagiaires d'une année N
+.. emails d'offres
+
+
+=== User Stories initiales
+
+NOTE: Comme {tuleap} n'est pas configuré pour avoir des types d'utilisateurs configurables, je n'ai pas différencier les rôles responsable des stages, modérateur de la liste, etc.
+
+WARNING: C'est toutes celles qui me sont venu quand on m'a demandé un "Product Backlog", mais j'ai dû en oublier plein. Discutez avec moi via les forums.
+
+- En tant qu'utilisateur, je veux pouvoir afficher la liste des entreprises du fichier de type  `entreprises2015_2016.csv` grâce à l'IHM - *priorité métier 8*
+
+- En tant qu'utilisateur, je veux pouvoir afficher la liste des versements de TA d'un fichier de type `versements2015_2016.csv` grâce à l'IHM - *priorité métier 8*
+
+- En tant qu'utilisateur, je veux pouvoir afficher la liste des entreprises dans l'IHM, en supprimer certains puis l'enregistrer dans un fichier `.csv` de mon choix - *priorité métier 8*
+
+- En tant qu'utilisateur, une fois la liste des entreprises affichée dans l'IHM, je veux pouvoir sélectionner (filtrer) les éléments affichés sur chacun des champs du fichier `.csv` correspondant - *priorité métier 8*.
+
+- En tant qu'utilisateur, je veux pouvoir afficher la liste des entreprises dans l'IHM, en supprimer certains puis l'enregistrer dans un fichier `.csv` de mon choix - *priorité métier 8*
+
+- En tant qu'utilisateur, je veux pouvoir saisir les champs des différentes données (coordonnées de l'entreprise, montant du versements d'une TA l'année N, infos sur le stage de l'année N, etc.) - *priorité métier 8*.
+
+- En tant qu'utilisateur, j'aimerai que mon produit ait un nom et un look sympa - *priorité métier 2*
+
+== Fonctionnalités client (Backlog Produit) V2
+
+Toutes les fonctionnalités de la  version V1,
+auxquelles s'ajoutent ...
+
+=== User Stories
+
+- En tant qu'utilisateur, je veux pouvoir associer un email (fichier texte, mais aussi PDF attachés) à une entreprise pour signifier qu'il a été envoyé pour elle à une certaine date - *priorité métier 4*.
+
+- En tant qu'utilisateur, je veux pouvoir avoir un historique pour chaque société des emails envoyés - *priorité métier 4*.
+
+- En tant qu'utilisateur j'aimerai bien qu'un programme analyse un email (fichier texte), en me demandant éventuellement de repérer des informations clefs, et qu'il me propose directement la bonne société déjà en base ou bien qu'il me propose de la créer - *priorité métier 4*.
+
+- En tant qu'utilisateur, je n'aime pas trop les interfaces java, mais je préfère les interfaces web... - *priorité métier 2*

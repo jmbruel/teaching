@@ -1,0 +1,18 @@
+= Consignes aux dessinateurs
+
+Sur une feuille A4, le dessinateur dessine :
+
+-    un triangle,
+-    un carré,
+-    un rectangle,
+-    un cercle,
+-    une maison,
+-    un arbre,
+-    et un oiseau.
+
+Il n'y a aucune contrainte dans le choix :
+
+-    des couleurs,
+-    la taille,
+-    la position,
+-    etc.

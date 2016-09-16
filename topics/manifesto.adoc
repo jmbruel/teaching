@@ -1,0 +1,389 @@
+//---------------------------------
+// Cours MPA
+// (c) JMB - 2016
+//---------------------------------
+[[MPA]]
+= Les principes de l'*Agilité*
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:git-version: 2.9.2
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: http://jmbhome.github.io/teaching/topics/agile.html
+:bitlysiteurl: http://bit.ly/jmb-agile
+//------------------------------------ Slides uniquement
+ifdef::slides[]
+//--------------------- dzslides slides
+ifdef::dzslides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+endif::dzslides[]
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+
+//----------------------------- Avant-Propos ------------------
+ifdef::slides[]
+
+[{topic}]
+== Pour suivre en live... icon:mobile[] icon:tablet[] icon:laptop[]
+
+[{statement}]
+{bitlysiteurl}
+
+{siteurl}
+
+== !
+
+endif::slides[]
+
+Cette partie du cours est fortement inspirée par le {agileMoocUrl}[MOOC Agile]
+de {bm}.
+
+
+//----------------------------- Manifesto ------------------
+[{topic}]
+== Le manifeste Agile
+
+ifndef::slides[.Le manifeste Agile ({agileManifesto})]
+image::manifesto.png[link="{agileManifesto}",width=100%]
+ifdef::slides[NOTE: [detail]#{agileManifesto}#]
+
+NOTE: il date de février 2001!
+
+//----------------------------- les 17 signataires ------------------
+[{topic}]
+== Les 17 auteurs
+
+Les plus connus :
+
+- Ward Cunningham (Wiki)
+- Kent Beck (XP, JUnit)
+- Ken Schwaber et Jeff Sutherland ({Scrum})
+- Alistair Cockburn
+- Martin Fowler
+- ...
+
+//----------------------------- les 12 principes ------------------
+[{topic}]
+== Les 12 principes
+
+ifdef::slides[== !]
+
+Vous trouverez une version actualisée des principes sur Wikipedia :
+
+- image:icons/fr.svg[width=30] https://fr.wikipedia.org/wiki/Manifeste_agile#Les_12_principes
+- https://en.wikipedia.org/wiki/Agile_software_development
+
+ifdef::slides[== !]
+
+. Customer satisfaction by early and continuous delivery of valuable software
+. Welcome changing requirements, even in late development
+. Working software is delivered frequently (weeks rather than months)
+. Close, daily cooperation between business people and developers
+. Projects are built around motivated individuals, who should be trusted
+. Face-to-face conversation is the best form of communication (co-location)
+. Working software is the principal measure of progress
+. Sustainable development, able to maintain a constant pace
+. Continuous attention to technical excellence and good design
+. Simplicity—the art of maximizing the amount of work not done—is essential
+. Best architectures, requirements, and designs emerge from self-organizing teams
+. Regularly, the team reflects on how to become more effective, and adjusts accordingly
+
+
+ifdef::slides[]
+
+[{topic}]
+== Exercice
+
+Repérez dans la liste des 12 principes :
+
+[{incremental}]
+- Lesquels n'en sont pas!
+- Lesquels sont en fait des *pratiques*
+- Lesquels sont en fait des *assertions*
+- Lequel est même erroné
+- Les répétitions inutiles
+- Où est-ce qu'on parle du test?
+
+[{topic}]
+== Correction
+
+image::answerManifesto.png[link="{agileManifesto}",width=100%]
+ifdef::slides[NOTE: [detail]#{agileMoocUrl}#]
+
+endif::slides[]
+
+//----------------------------- les "values" ------------------
+[{topic}]
+== Les valeurs agiles
+
+Idées générales, qui précèdent aux principes.
+
+ifdef::slides[== !]
+
+Du {agileManifesto}[manifesto] lui-même :
+
+[{incremental}]
+- Les individus et leurs interactions [detail]#plus que les processus et les outils#
+- Du logiciel qui fonctionne [detail]#plus qu’une documentation exhaustive#
+- La collaboration avec les clients [detail]#plus que la négociation contractuelle#
+- L’adaptation au changement [detail]#plus que le suivi d’un plan#
+
+[WARNING]
+=====
+Ne pas oublier la petite phrase qui va avec :
+[quote,{agileManifesto}]
+*Nous reconnaissons la valeur des seconds* éléments, mais privilégions les premiers.
+=====
+
+ifdef::slides[== !]
+
+Du {agileMoocUrl}[MOOC Agile] :
+
+[{incremental}]
+- Nouveau rôle pour le _manager_ [detail]#(rôle réduit)#
+- Pas d'étapes trop tôt ou trop _importante_ [detail]#(longues)#
+- Développement itératifs [detail]#(et donc continu)#
+- Nouvelle façon de _négocier_ [detail]#(trade off)#
+- Focus sur la qualité [detail]#(et donc les tests)#
+
+
+//----------------------------- les principes actuels ------------------
+[{topic}]
+== Les principes
+
+Plusieurs types :
+
+- Organisationnels / Managériaux
+- Techniques
+
+ifdef::slides[:leveloffset: -1]
+
+[{topic}]
+=== Les bons principes NON AGILES!
+
+- Process, procédure et méthodes
+[detail]#(critique => statique, imposée, ruptures entre phases)#
+- Insister sur les exigences et leur qualités
+[detail]#(critiques => ils évoluent, on ne les livrent pas,
+ils sont souvent des solutions plus que des besoins)#
+
+[{topic}]
+=== Les principes organisationnels
+
+[{incremental}]
+- Le client au centre
+- Accepte le changement
+- Laisser l'équipe s'organiser
+- Maintenir un rythme durable
+- Produire du logiciel "minimaliste"
+** Les fonctionalités requises
+** et uniquement elles
+** ne développer que le code et les tests
+
+[{topic}]
+=== Les principes techniques
+
+[{incremental}]
+- Développer itérativement
+- Mettre en avant les tests (TDD)
+- Exprimer les exigences comme des scénarios
+
+ifdef::slides[:leveloffset: +1]
+
+//----------------------------- les "roles" ------------------
+[{topic}]
+== Les rôles
+
+- Product Owner
+- SCRUM Master
+- Team
+
+//----------------------------- les "practices" ------------------
+[{topic}]
+== Les pratiques
+
+- Plannings
+- Meetings & Scrums
+- Retrospectives
+- TDD
+
+//----------------------------- les "artefacts" ------------------
+[{topic}]
+== Les artefacts
+
+- Product Backlog
+- User stories
+- Sprint Backlog
+- Burdown
+
+ifdef::slides[:leveloffset: -1]
+
+[{topic}]
+=== Product Backlog
+
+[{topic}]
+=== User stories
+
+ifdef::slides[=== !]
+
+Caractéristiques (XP => INVEST) :
+
+[{incremental}]
+- Indépendante des autres histoires d’utilisateur
+[detail]#(dans la mesure du possible)#
+- Négociable [detail]#(discutée avec l’équipe, notamment lors de
+l’estimation)#
+- Source de valeur [detail]#(porteuse d’une
+valeur pour le client)#
+- Estimable [detail]#(elle peut être estimée par l’équipe)#
+- Courte [detail]#(généralement une ou trois phrases environ)#
+- D’une taille appropriée [detail]#(pouvoir être développée
+et testée au sein d’une itération)#
+
+ifdef::slides[=== !]
+
+Attributs :
+
+- Un numéro
+- Une importance/priorité client
+- Une estimation du coût (en points, temps, ...)
+- Une expression de la forme "En tant que ... je souhaite ... pour pouvoir ...
+
+ifdef::slides[=== !]
+
+:thisref: http://www.agiliste.fr/guide-de-demarrage-scrum/
+ifndef::slides[.Exemple de carte pour User Story ({thisref})]
+image::US.jpg[width=100%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[=== !]
+
+Une activité populaire consiste à organiser les Stories sous forme
+d'une matrice et non d'une simple liste : c'est le *Story Mapping*.
+
+**M**ust, **S**hould, **C**ould, **W**ont
+=> *MoSCoW*
+
+:thisref: http://www.agilegarden.fr/un-lancement-de-projet-ludique-et-productif/
+ifndef::slides[.Exemple de Story Map ({thisref})]
+image::storymap.png[width=50%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[=== !]
+
+L'autre dimenstion de la matrice :
+
+- par flot (par dépendances entre stories)
+
+:thisref: http://blog.cayenneapps.com/2014/11/25/5-steps-to-building-minimum-viable-product-with-story-mapping/
+ifndef::slides[.Exemple de Story Map par flot ({thisref})]
+image::mvp-priorities.png[width=80%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[{topic}]
+=== Sprint Backlog
+
+Juste un regroupement de User Stories, prisent dans le Product Backlog
+et traitées pour ce Sprint là.
+
+[{topic}]
+=== Burndown
+
+:thisref: http://www.agiliste.fr/instruments-pilotage-projet/
+ifndef::slides[.Exemple d'inputs pour mon Burn-down ({thisref})]
+image::burndown-inputs.png[width=50%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifndef::slides[.Exemple de Burn-down résultant ({thisref})]
+image::burndown.png[width=50%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifndef::slides[NOTE: Pour tester vous-mêmes : [detail]#https://docs.google.com/spreadsheets/d/17bppZL6IQoHXKHm0Cr5Q5yYrQivA9oTSB5fmo6ECsJs/edit#gid=6#]
+
+ifdef::slides[:leveloffset: +1]
+
+//----------------------------- process ------------------
+[{topic}]
+== Le déroulement
+
+:thisref: http://scrumprimer.org
+ifndef::slides[.Déroulement type d'une approche agile ({thisref})]
+image::anime_scrum_overview_blue.png[width=100%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+//----------------------------- Quizz ------------------
+
+ifdef::slides[]
+
+[{topic}]
+== Ready for a quizz?
+
+image::icons/tuxteacher.png[]
+
+== !
+
+endif::slides[]
+
+ifndef::slides[]
+:numbered!:
+== Quizz
+endif::slides[]
+
+.*QUESTION*
+[WARNING]
+====
+
+- Connectez-vous sur : http://www.socrative.com/ (*student login*)
+- Ou téléchargez l'application pour étudiant image:socrative2.png[width=10%]
+- Choisissez la room *44918d67*
+====
+
+image::socrative1.png[width=50%,link=http://www.socrative.com/]

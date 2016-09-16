@@ -1,0 +1,460 @@
+:moduleTitle: MPA
+:authorDefault:  DUT-Info-S3/M3301
+// include::lib/globals.asc[] // temporairement
+:tdnum: Sprint0
+include::../definitions.txt[]
+:weekNumber: 37
+
+:doctitle:  {moduleTitle} - Sujet {tdnum} (semaine {weekNumber})
+ifdef::prof[]
+:doctitle: {moduleTitle} - Support {tdnum} (semaine {weekNumber})
+endif::prof[]
+
+= {doctitle}
+{authorDefault}, v1.0, {localdate}
+:lang: fr
+:incremental:
+:icons: font
+:imagesdir: images
+:experimental:
+
+//----------- définitions --------------
+:sitecours: http://webetud.iut-blagnac.fr/[Support de Cours]
+:pre: Pré-Requis
+:objtd: Objectif
+:duree: Durée
+:depot: À rendre
+:lien: Lien
+:img: img
+:tuleapVersion: 6.0
+
+
+//-------------------- Warning si correction -----------
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Version corrigée - Support du prof
+=====
+Cette version comporte des indications pour les
+réponses aux exercices, ainsi que des consignes pour les
+enseignants.
+=====
+
+:numbered!:
+== icon:graduation-cap[] Penser à faire l'appel!
+:numbered:
+endif::prof[]
+
+//-------------------- Cartouche d'en-tête -----------
+[[cartouche]]
+[align="left",cols="2,10",width="90%"]
+|======================
+| {pre}		|
+1.	Je connais les concepts principaux de {scrum}
+2.  J'ai configuré mon environnement de travail (tuleap, gitlab, eclipse, etc.)
+| {objtd}	| Mettre en place les outils de documentation et de build.
+| {duree}	| *1 ou 2 séance(s)* de 1,5h (selon ce qu'il vous reste)
+|======================
+
+//----------------------------------------------------- Correction ------------
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Version corrigée - Support du prof
+=====
+- Parcourir avec eux les différents outils.
+- Pour chaque technique, demander si un étudiant la maîtrise et peut faire une démo
+- N'hésitez pas à mettre en avant celle que vous préférez. Comme rien n'est imposé aux groupes
+autant que vos groupes utilisent une techno que vous maîtrisez.
+- Les scripts et exemples marchent souvent sous Mac OS X, mais pas sur Linux ou
+Windows car je ne les teste pas sur l'environnement étudiant (flemme ou manque de temps).
+Donc n'hésitez pas à faire remonter les erreurs éventuelles.
+=====
+
+endif::prof[]
+//----------------------------------------------------- fin Correction --------
+
+
+== Construire ses applications
+
+Pour générer un programme, une documentation, à partir des sources, on peut :
+
+- Soit utiliser un environnement intégré comme {eclipse}
+- Soit construire les sorties (on parle de *_Build_*) à partir des sources
+
+Nous nous intéressons dans cette section à cette deuxième catégorie, car le
+client n'est pas sensé disposer d'{eclipse} ou du même environnement de développement
+que nous.
+
+ifdef::slides[== Construire ses applications (suite)]
+Il existe plusieurs outils :
+
+[%step]
+- les scripts (`shell` Unix et `.bat` Windows)
+- <<make>>
+- <<ant>>
+- <<Maven>>
+- <<Ivy>>
+- <<Graddle>>
+
+ifdef::slides[:leveloffset: -1]
+
+=== Les scripts
+
+[source,shell]
+.Un script shell
+-----
+include::util/plantuml.sh[]
+-----
+
+ifdef::slides[=== Les scripts (suite)]
+
+[source,shell]
+.Un script batch Windows
+-----
+include::util/plantuml.bat[]
+-----
+
+ifdef::slides[=== Les scripts (suite)]
+
+Avantages::
+- Faciles
+- Rapides
+- Beaucoup d'exemples
+Inconvénients::
+- Pas portables sur d'autres systèmes (no comment ;-)
+- Peu lisibles
+- Peu évolutifs
+
+[[make]]
+=== make
+
+[source,shell,linenums]
+.Un Makefile pour générer ces cours
+-----
+#-----------------------------------------------------
+ICONSDIR=images/icons
+IMAGESDIR=images
+STYLE=/Users/bruel/Dropbox/Public/dev/asciidoc/stylesheets/golo-jmb.css
+DOCTOR=asciidoctor -a icons -a iconsdir=$(ICONSDIR) -a images=$(IMAGESDIR) -a source-highlighter=$(HIGHLIGHT)
+DECK=swiss
+EXT=asc
+PANDOC=pandoc
+OUTPUT=.
+DEP=definitions.txt glossaire.txt refs.txt
+#-----------------------------------------------------
+
+all: $(OUTPUT)/*.html
+
+images/%.png: images/%.plantuml
+@echo '==> Compiling plantUML files to generate PNG'
+java -jar plantuml.jar $<
+
+%.html: %.$(EXT) $(DEP)
+@echo '==> Compiling asciidoc files with Asciidoctor to generate HTML'
+$(DOCTOR) -a toc2 -b html5 -a numbered -a eleve $<
+
+%.deckjs.html: %.$(EXT)  $(DEP)
+@echo '==> Compiling asciidoc files to generate Deckjs'
+$(DOCTOR) -T /Users/bruel/dev/asciidoctor-backends/haml/deckjs/ -a slides \
+-a data-uri -a deckjs_theme=$(DECK) \
+-a icons -a iconsdir=$(ICONSDIR) \
+-a images=$(IMAGESDIR) -a prof -o $@ $<
+
+%-sujet.html: %.$(EXT) $(DEP)
+@echo '==> Compiling asciidoc files with Asciidoctor to generate HTML'
+$(DOCTOR) -a compact -a theme=compact -b html5 -a numbered -a eleve \
+-a data-uri $< -o $@
+
+%-prof.html: %.$(EXT) $(DEP)
+@echo '==> Compiling asciidoc files with Asciidoctor to generate HTML'
+$(DOCTOR) -a prof -a correction -a theme=compact -b html5 -a numbered \
+-a data-uri $< -o $@
+
+%.html: %.$(EXT) $(DEP)
+@echo '==> Compiling asciidoc files with Asciidoctor to generate HTML'
+$(DOCTOR) -a toc2 -b html5 -a numbered -a eleve $<
+-----
+
+Exemple d'utilisation :
+
+.........
+$ make wip.html
+==> Compiling asciidoc files with Asciidoctor to generate HTML
+asciidoctor -a icons -a iconsdir=images/icons -a images=images -a source-highlighter=pygments -a toc2 -b html5 -a numbered -a eleve wip.asc
+...
+$ make wip.html
+make: 'wip.html' is up to date.
+.........
+
+Mêmes avantages et inconvénients que précédemment (en plus facile d'utilisation tout de même).
+
+[[ant]]
+=== ant
+
+[source,xml]
+.build.xml
+------
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="main" name="EssaiBuild">
+  <target name="main">
+    <echo message="Version d'Ant utilisée: ${ant.version}"/>
+    <javadoc doclet="de.mallox.doclet.PlantUMLDoclet"
+    docletpath="plantUmlDoclet.jar"
+    access="private"
+    additionalparam=
+    "-encoding utf-8 -J-DdestinationFile=uml.txt -J-DcreatePackages=false -J-DshowPublicMethods=true -J-DshowPublicConstructors=false -J-DshowPublicFields=true"
+    >
+      <packageset dir="../src">
+        <include name="**"/>
+      </packageset>
+    </javadoc>
+
+    <java jar="plantuml.jar" fork="true" maxmemory="128m">
+      <arg value="uml.txt"/>
+    </java>
+  </target>
+</project>
+------
+
+ifdef::slides[=== ant (suite)]
+
+Exemple d'utilisation :
+
+.........
+$ ant main
+Buildfile: build.xml
+main:
+[javadoc] Generating Javadoc
+[javadoc] Javadoc execution
+[javadoc] Loading source files for package pizzeriafactorysample...
+[javadoc] Constructing Javadoc information...
+[javadoc] PlantUMLDoclet.createPlantUml() -  start
+[javadoc] open outputfile: uml.txt
+[javadoc] write interfaces/ abstract classes...
+[javadoc] write content...
+...
+[javadoc] skip association for Pizza --> java.lang.String
+[javadoc] skip association for Pizza --> java.lang.String
+[javadoc] skip association for Pizza --> java.lang.String
+[javadoc] skip association for Pizza --> java.util.ArrayList
+[javadoc] PlantUMLDoclet.createPlantUml() -  end
+BUILD SUCCESSFUL
+Total time: 9 seconds
+.........
+
+ifdef::slides[=== ant (suite)]
+
+Exemple d'tilisation dans {eclipse} pour la génération de fichier
+du type `TD.uml` :
+
+1. Créer un répertoire tools et mettre dedans :
+*	`Plantuml.jar`
+*	`Plantumldoclet.jar`
+* `build.xml`
+
+2. Faire un btn:[Click_Droit] sur `build.xml` et chosir menu:Run_As[Ant Build ...]
++
+[WARNING]
+=====
+Bien choisir celui avec les points de suspensions.
+
+image::build.png[]
+=====
++
+3. Dans l'onglet `Environment` :
+* Créer une nouvelle variable de nom `Path`
+et de valeur : le répertoire de la JDK (où se trouve `javadoc` ou `javadoc.exe`)
+4. Exécuter btn:[Run]
++
+TIP: Faire Refresh dans le navigateur pour voir les 2 fichiers générés
+(`uml.txt` et `uml.png`).
++
+5. Il suffit de faire un btn:[Click_Droit] sur `build.xml` et chosir menu:Run_As[Ant Build ...]
+(*SANS* les 3 points de suspensions) pour relancer la génération du diagramme.
+
+[[maven]]
+=== Maven
+
+WARNING: {Maven} est un outil {Java}.
+
+[quote]
+____
+Convention over Configuration
+____
+
+Exemples de conventions :
+
+- le code source est supposé se trouver dans `${basedir}/src/main/java`
+- les différentes ressources dans `${basedir}/src/main/resources`
+- les tests dans `${basedir}/src/test`
+- un projet est supposé produire un fichier `JAR`
+- {Maven} suppose que vous voulez compiler en bytecode dans `${basedir}/target/classes`
+- et ensuite créer votre fichier `JAR` distribuable dans `${basedir}/target`
+
+ifdef::slides[=== Maven (suite)]
+
+[source,xml]
+.Exemple de fichier `pom.xml`
+------
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.sonatype.mavenbook</groupId>
+  <artifactId>my-project</artifactId>
+  <version>1.0</version>
+</project>
+------
+
+La commande :
+.........
+$ mvn install
+.........
+
+- va traiter les ressources,
+- compiler le source,
+- exécuter les tests unitaires,
+- créer un JAR, et
+- installer ce JAR dans le dépôt local.
+
+La commande :
+.........
+$ mvn site
+.........
+
+va créer un fichier `index.html` dans `target/site` contenant des liens vers
+la JavaDoc et quelques rapports sur votre code source.
+
+ifdef::slides[=== Maven (suite)]
+
+[NOTE]
+======
+Pour comparer, voici l'équivalent {ant} :
+
+[source,xml]
+-------
+<project name="my-project" default="dist" basedir=".">
+  <description>
+    simple example build file
+  </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src/main/java"/>
+  <property name="build" location="target/classes"/>
+  <property name="dist"  location="target"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+    description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="dist" depends="compile"
+    description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/lib"/>
+
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    <jar jarfile="${dist}/lib/MyProject-${DSTAMP}.jar" basedir="${build}"/>
+  </target>
+
+  <target name="clean"
+    description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>
+-------
+======
+
+N'hésitez pas à suivre http://www.vogella.com/tutorials/EclipseMaven/article.html[ce tuto]
+pour configurer correctement un projet {maven} sous {eclipse}.
+
+[[Ivy]]
+=== Ivy
+
+[source,xml]
+.ivy.xml
+-------
+<ivy-module version="2.0">
+  <info organisation="org.apache" module="hello-ivy"/>
+  <dependencies>
+    <dependency org="commons-lang" name="commons-lang" rev="2.0"/>
+    <dependency org="commons-cli" name="commons-cli" rev="1.0"/>
+  </dependencies>
+</ivy-module>
+-------
+
+[source,xml]
+.build.xml
+-------
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="hello-ivy" default="run">
+
+  ...
+
+  <!-- =================================
+  target: resolve
+  ================================= -->
+  <target name="resolve" description="--> retrieve dependencies with ivy">
+    <ivy:retrieve />
+  </target>
+</project>
+-------
+
+=== Graddle
+
+{gradle} combine la flexibilité de {ant} avec les conventions de {maven} mais
+évite les inconvénients de `XML`.
+
+[source,gradle]
+.build.gradle
+-------
+task hello {
+  doLast {
+    println 'Hello world!'
+  }
+}
+-------
+
+.......
+$ gradle hello
+:hello
+Hello world!
+
+BUILD SUCCESSFUL
+
+Total time: 3.486 secs
+.......
+
+== YaPlusKa!
+
+=== Mise en pratique
+
+. Testez le build d'application par script
+. Testez le build d'application par ant
+. Testez le build d'application par maven
+
+=== Choix pour votre projet
+
+Vous pouvez choisir n'importe quel outil de build parmi ceux vu ci-dessus
+(à part les script et makefile, trop peu portables).
+Décidez au niveau de l'équipe, mettez en place vos règles et procédures et testez
+une livraison auprès du prof.
+
+WARNING: Le minimum exigé sera <<ant>>.
+
+:numbered!:
+
+== Liens utiles
+
+- https://technologyconversations.com/2014/06/18/build-tools/
+- image:icons/fr.svg[width=30] http://linsolas.developpez.com/articles/java/outils/builds/
+
+== Contact
+
+En cas de soucis, n'hésitez pas à poser vos questions sur le forum {tuleapIUT}
+ou en dernier recours à {jmb}.
