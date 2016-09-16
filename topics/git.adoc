@@ -118,8 +118,10 @@ Mais vous pouvez bien sûr utiliser un client graphique (comme https://www.sourc
 
 endif::slides[]
 
-ifndef::slides[.Client graphique (https://www.sourcetreeapp.com/)]
-image::sourcetree.png[link="https://www.sourcetreeapp.com/",width=49%]
+:thisref: {sourcetreeurl}
+ifndef::slides[.Client graphique ({thisref})]
+image::sourcetree.png[width=50%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifndef::slides[.Lignes de commande]
 image::git-term.png[width=49%]
@@ -127,7 +129,7 @@ image::git-term.png[width=49%]
 ifndef::slides[]
 [NOTE]
 ====
-Je vous reommande tout de même de connaître les commandes en ligne, c'est souvent utile!
+Je vous recommande tout de même de connaître les commandes en ligne, c'est souvent utile!
 Pour vous familiariser avec les commandes {git} en ligne, ne pas hésiter à utiliser le site http://try.github.com/levels/1/challenges/1[http://try.github.com].
 ====
 endif::slides[]
@@ -136,13 +138,16 @@ endif::slides[]
 [{topic}]
 == Principes généraux
 
-ifndef::slides[.Usage classique de git (http://nvie.com/posts/a-successful-git-branching-model/)]
-image::git-branching.png[width="70%",link="http://nvie.com/posts/a-successful-git-branching-model/",window="_blank"]
+:thisref: http://nvie.com/posts/a-successful-git-branching-model/
+ifndef::slides[.Usage classique de git ({thisref})]
+image::git-branching.png[width=70%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
 
 ifndef::slides[]
 [NOTE]
 ====
-Ce modèle est controversé et ne fait pas l'hunanimité.
+Ce modèle est controversé et ne fait pas l'unanimité.
 Nous verrons dans la suite qu'il y a plus simple.
 ====
 endif::slides[]
@@ -167,7 +172,7 @@ ifdef::slides[== !]
 ====
 Ces informations sont stockées dans le fichier `~/.gitcongif`.
 
-Voici un extrait du mien :
+Voici un extrait link:util/.gitconfig[du mien] :
 
 [source]
 ----------------------------------------------------------------------
