@@ -110,11 +110,8 @@
 :sirius: link:https://www.eclipse.org/proposals/modeling.sirius/[Sirius]
 :slidy2: http://www.w3.org/Talks/Tools/Slidy2/[W3C HTML Slidy]
 :sosym: http://www.sosym.org/[SoSyM]
-<<<<<<< HEAD
 :sourcetreeURL: https://www.sourcetreeapp.com
 :sourcetree: {sourcetreeurl}[SourceTree]
-=======
->>>>>>> gh-pages
 :svn: link:https://subversion.apache.org/[Subversion]
 :sym: http://www.omg.org/spec/SyM/[SysML-Modelica]
 :sysml: link:http://www.omgsysml.org/[SysML(TM)]indexterm:[SysML]
