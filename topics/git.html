@@ -42,19 +42,45 @@
 <li><a href="#_etape_5_suite_utilisation_des_branches">4.12. Etape 5 (suite) : utilisation des branches</a></li>
 <li><a href="#_etape_5_suite_merge">4.13. Etape 5 (suite) : merge</a></li>
 <li><a href="#_etape_6_push">4.14. Etape 6 : push</a></li>
-<li><a href="#_dépôts_existants">4.15. Dépôts existants</a></li>
-<li><a href="#_illustration_des_branches">4.16. Illustration des branches</a></li>
-<li><a href="#_bonne_utilisation">4.17. Bonne utilisation</a></li>
-<li><a href="#_la_gestion_de_version_n_est_pas_un_long_fleuve_tranquille">4.18. La gestion de version n&#8217;est pas un long fleuve tranquille</a></li>
-<li><a href="#_gestion_des_branches">4.19. Gestion des branches</a></li>
-<li><a href="#_les_différents_code_merge_code">4.20. Les différents <code>merge</code></a></li>
-<li><a href="#conflits">4.21. Gestion des conflits</a></li>
-<li><a href="#_git_avancé_git_flow">4.22. Git avancé : Git-Flow</a></li>
-<li><a href="#_résumé_des_commandes">4.23. Résumé des commandes</a></li>
-<li><a href="#_liens_utiles">4.24. Liens utiles</a></li>
-<li><a href="#_glossaire">4.25. Glossaire</a></li>
+<li><a href="#pull-request">4.15. Etape 6 : pull request</a></li>
 </ul>
 </li>
+<li><a href="#_dépôts_existants">5. Dépôts existants</a></li>
+<li><a href="#_illustration_des_branches">6. Illustration des branches</a></li>
+<li><a href="#_bonne_utilisation">7. Bonne utilisation</a>
+<ul class="sectlevel2">
+<li><a href="#_avoir_une_procédure_concertée">7.1. Avoir une procédure concertée</a></li>
+<li><a href="#_ne_pas_versionner_n_importe_quoi">7.2. Ne pas versionner n&#8217;importe quoi!</a></li>
+<li><a href="#_les_releases">7.3. Les "releases"</a></li>
+</ul>
+</li>
+<li><a href="#_la_gestion_de_version_n_est_pas_un_long_fleuve_tranquille">8. La gestion de version n&#8217;est pas un long fleuve tranquille</a>
+<ul class="sectlevel2">
+<li><a href="#_oups_j_ai_oublié_un_truc">8.1. Oups! j&#8217;ai oublié un truc</a></li>
+<li><a href="#_oups_j_ai_mis_trop_de_truc">8.2. Oups! j&#8217;ai mis trop de truc</a></li>
+<li><a href="#_ctrl_z">8.3. CTRL+Z</a></li>
+<li><a href="#_où_j_en_suis">8.4. Où j&#8217;en suis</a></li>
+</ul>
+</li>
+<li><a href="#_gestion_des_branches">9. Gestion des branches</a></li>
+<li><a href="#_les_différents_strong_merge_strong">10. Les différents <strong>merge</strong></a>
+<ul class="sectlevel2">
+<li><a href="#_explicit_code_merge_code">10.1. Explicit <code>merge</code></a></li>
+<li><a href="#_implicit_code_merge_code_via_code_rebase_code_or_code_fast_forward_code">10.2. Implicit <code>merge</code> via <code>rebase</code> or <code>fast-forward</code></a></li>
+<li><a href="#_implicit_code_merge_code_via_code_fast_forward_code">10.3. Implicit <code>merge</code> via <code>fast-forward</code></a></li>
+<li><a href="#_squash_on_code_merge_code">10.4. Squash on <code>merge</code></a></li>
+</ul>
+</li>
+<li><a href="#conflits">11. Gestion des conflits</a>
+<ul class="sectlevel2">
+<li><a href="#_À_la_main">11.1. À la main</a></li>
+<li><a href="#_avec_un_peu_d_aide">11.2. Avec un peu d&#8217;aide</a></li>
+</ul>
+</li>
+<li><a href="#_git_avancé_git_flow">12. Git avancé : Git-Flow</a></li>
+<li><a href="#_résumé_des_commandes">13. Résumé des commandes</a></li>
+<li><a href="#_liens_utiles">14. Liens utiles</a></li>
+<li><a href="#_glossaire">15. Glossaire</a></li>
 </ul>
 </div>
 </div>
@@ -556,7 +582,19 @@ To git@github.com:jmbruel/first_app.git
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dépôts_existants">4.15. Dépôts existants</h3>
+<h3 id="pull-request">4.15. Etape 6 : pull request</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code>$ git push origin develop
+$ git request-pull v1.0 origin develop</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dépôts_existants">5. Dépôts existants</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Si vous devez partir d&#8217;un dépôt existant :</p>
 </div>
@@ -587,8 +625,10 @@ To git@github.com:jmbruel/first_app.git
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_illustration_des_branches">4.16. Illustration des branches</h3>
+</div>
+<div class="sect1">
+<h2 id="_illustration_des_branches">6. Illustration des branches</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Voici une illustration de l&#8217;utilisation des branches (tirée de <a href="http://git-scm.com/book">git-scm</a>).</p>
 </div>
@@ -785,10 +825,12 @@ les branches (les commits feuilles) une par une et vérifier les conflits par it
 </table>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_bonne_utilisation">7. Bonne utilisation</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="_bonne_utilisation">4.17. Bonne utilisation</h3>
-<div class="sect3">
-<h4 id="_avoir_une_procédure_concertée">4.17.1. Avoir une procédure concertée</h4>
+<h3 id="_avoir_une_procédure_concertée">7.1. Avoir une procédure concertée</h3>
 <div class="paragraph">
 <p>Revenons sur l&#8217;exemple type :</p>
 </div>
@@ -799,21 +841,101 @@ les branches (les commits feuilles) une par une et vérifier les conflits par it
 <div class="title">Figure 12. Usage classique de git (<a href="http://nvie.com/posts/a-successful-git-branching-model/" class="bare">http://nvie.com/posts/a-successful-git-branching-model/</a>)</div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_ne_pas_versionner_n_importe_quoi">4.17.2. Ne pas versionner n&#8217;importe quoi!</h4>
+<div class="sect2">
+<h3 id="_ne_pas_versionner_n_importe_quoi">7.2. Ne pas versionner n&#8217;importe quoi!</h3>
 <div class="paragraph">
-<p>Ce qu&#8217;il ne faut pas versionner :
-- les exécutables
-- les zip dont le contenu change sans arrêt
-- les images générées
-- tous les binaires en général!</p>
+<p>Ce qu&#8217;il ne faut pas versionner :</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>les exécutables</p>
+</li>
+<li>
+<p>les zip dont le contenu change sans arrêt</p>
+</li>
+<li>
+<p>les images générées</p>
+</li>
+<li>
+<p>tous les binaires en général!</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_la_gestion_de_version_n_est_pas_un_long_fleuve_tranquille">4.18. La gestion de version n&#8217;est pas un long fleuve tranquille</h3>
-<div class="sect3">
-<h4 id="_oups_j_ai_oublié_un_truc">4.18.1. Oups! j&#8217;ai oublié un truc</h4>
+<h3 id="_les_releases">7.3. Les "releases"</h3>
+<div class="paragraph">
+<p>En <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> on peut <em>taguer</em> des branches et c&#8217;est ce mécanisme qui
+permet de gérer simplement les <em>releases</em>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code>$ git tag -a v1.0 -m "Release 1.0 as required by client"
+$ git tag
+v1.0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut voir les détails d&#8217;un commit tagué :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code>$ git show v1.0
+tag v1.0
+Tagger: Jean-Michel Bruel &lt;jbruel@gmail.com&gt;
+Date:   Fri Sep 16 14:27:20 2016 +0200
+
+Release 1.0 as required by client
+
+commit 47da474098d95f8ef5c3ca838be8b87d7a7ed729
+Author: Jean-Michel Bruel &lt;jbruel@gmail.com&gt;
+Date:   Fri Sep 16 12:38:20 2016 +0200</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On peut aussi taguer a posteriori :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code>$ git tag -a v1.2 9fceb02 <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>ajoute le tag <code>v1.2</code> au commit dont le <a href="#SHA-1">[SHA-1]</a> commence par <code>9fceb02</code></td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Par défaut les tags ne sont pas poussés sur le dépôt distant.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code>$ git push origin v1.5</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_la_gestion_de_version_n_est_pas_un_long_fleuve_tranquille">8. La gestion de version n&#8217;est pas un long fleuve tranquille</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_oups_j_ai_oublié_un_truc">8.1. Oups! j&#8217;ai oublié un truc</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code>$ git commit -m 'initial commit'
@@ -822,8 +944,8 @@ $ git commit --amend</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_oups_j_ai_mis_trop_de_truc">4.18.2. Oups! j&#8217;ai mis trop de truc</h4>
+<div class="sect2">
+<h3 id="_oups_j_ai_mis_trop_de_truc">8.2. Oups! j&#8217;ai mis trop de truc</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code>$ git add *.*
@@ -843,8 +965,8 @@ Aucun danger
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_ctrl_z">4.18.3. CTRL+Z</h4>
+<div class="sect2">
+<h3 id="_ctrl_z">8.3. CTRL+Z</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code>$ working on some file README.adoc ...
@@ -864,8 +986,8 @@ Danger!
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_où_j_en_suis">4.18.4. Où j&#8217;en suis</h4>
+<div class="sect2">
+<h3 id="_où_j_en_suis">8.4. Où j&#8217;en suis</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code>$ git status</code></pre>
@@ -893,14 +1015,89 @@ Danger!
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_gestion_des_branches">4.19. Gestion des branches</h3>
+</div>
+<div class="sect1">
+<h2 id="_gestion_des_branches">9. Gestion des branches</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>La principale difficulté de <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> vient de la liberté en termes de branches.</p>
 </div>
+<div class="paragraph">
+<p>Pour faire simple, je vous conseille une gestion qui marche bien pour les petites équipes,
+tiré de l&#8217;excellent livre <a href="https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows">Pro Git</a> :</p>
 </div>
-<div class="sect2">
-<h3 id="_les_différents_code_merge_code">4.20. Les différents <code>merge</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Deux branches seulement: <code>master</code> et <code>develop</code>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code>$ git branch
+* develop     <i class="conum" data-value="1"></i><b>(1)</b>
+  master      <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>develop</code> est la branche de travail qui contient la dernière version des codages en cours.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>master</code> est toujours stable et sert au déploiement</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>On fork <code>develop</code> pour traiter un <em>bug</em> ou une <em>feature</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>On merge dans <code>develop</code></p>
+</li>
+<li>
+<p>On détruit la branche devenue inutile</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ce qui donne le flot suivant dès que vous devez faire une amélioration (corriger un bug ou ajouter une fonctionnalités) :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Créer une branche (e.g., <code>fix-451</code>)</p>
+</li>
+<li>
+<p>Travailler sur cette branche</p>
+</li>
+<li>
+<p>Merger cette branche dans <code>develop</code></p>
+</li>
+<li>
+<p>Rejouer les tests</p>
+</li>
+<li>
+<p>Régler les conflits éventuels</p>
+</li>
+<li>
+<p>Quand tout fonctionne &#8658; <a href="#pull-request">Etape 6 : pull request</a></p>
+</li>
+<li>
+<p>On peut livrer à partir de <code>master</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_différents_strong_merge_strong">10. Les différents <strong>merge</strong></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Les exemples suivants sont tirés de :</p>
 </div>
@@ -916,32 +1113,32 @@ Danger!
 </tr>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_explicit_code_merge_code">4.20.1. Explicit <code>merge</code></h4>
+<div class="sect2">
+<h3 id="_explicit_code_merge_code">10.1. Explicit <code>merge</code></h3>
 <div class="imageblock">
 <div class="content">
 <a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-merge.gif" alt="what is a merge" width="95%"></a>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_implicit_code_merge_code_via_code_rebase_code_or_code_fast_forward_code">4.20.2. Implicit <code>merge</code> via <code>rebase</code> or <code>fast-forward</code></h4>
+<div class="sect2">
+<h3 id="_implicit_code_merge_code_via_code_rebase_code_or_code_fast_forward_code">10.2. Implicit <code>merge</code> via <code>rebase</code> or <code>fast-forward</code></h3>
 <div class="imageblock">
 <div class="content">
 <a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-rebase.gif" alt="what is a rebase" width="95%"></a>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_implicit_code_merge_code_via_code_fast_forward_code">4.20.3. Implicit <code>merge</code> via <code>fast-forward</code></h4>
+<div class="sect2">
+<h3 id="_implicit_code_merge_code_via_code_fast_forward_code">10.3. Implicit <code>merge</code> via <code>fast-forward</code></h3>
 <div class="imageblock">
 <div class="content">
 <a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-fast-forward.gif" alt="what is a fast forward" width="95%"></a>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_squash_on_code_merge_code">4.20.4. Squash on <code>merge</code></h4>
+<div class="sect2">
+<h3 id="_squash_on_code_merge_code">10.4. Squash on <code>merge</code></h3>
 <div class="imageblock">
 <div class="content">
 <a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/squash-on-merge.gif" alt="squash on merge" width="95%"></a>
@@ -949,13 +1146,15 @@ Danger!
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="conflits">4.21. Gestion des conflits</h3>
+</div>
+<div class="sect1">
+<h2 id="conflits">11. Gestion des conflits</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>La principale activité du programmeur qui utilise <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> en équipe vient de la gestion des <strong>conflits</strong>.</p>
 </div>
-<div class="sect3">
-<h4 id="_À_la_main">4.21.1. À la main</h4>
+<div class="sect2">
+<h3 id="_À_la_main">11.1. À la main</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code>$ git checkout master
@@ -1013,8 +1212,8 @@ dans le fichier&#8230;&#8203;
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_avec_un_peu_d_aide">4.21.2. Avec un peu d&#8217;aide</h4>
+<div class="sect2">
+<h3 id="_avec_un_peu_d_aide">11.2. Avec un peu d&#8217;aide</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1037,14 +1236,18 @@ dans le fichier&#8230;&#8203;
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_git_avancé_git_flow">4.22. Git avancé : Git-Flow</h3>
+</div>
+<div class="sect1">
+<h2 id="_git_avancé_git_flow">12. Git avancé : Git-Flow</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><a href="http://danielkummer.github.io/git-flow-cheatsheet/" class="bare">http://danielkummer.github.io/git-flow-cheatsheet/</a></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_résumé_des_commandes">4.23. Résumé des commandes</h3>
+</div>
+<div class="sect1">
+<h2 id="_résumé_des_commandes">13. Résumé des commandes</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Voici un schéma pour résumer la philosophie (tiré de <a href="http://osteele.com" class="bare">http://osteele.com</a>) :</p>
 </div>
@@ -1055,8 +1258,10 @@ dans le fichier&#8230;&#8203;
 <div class="title">Figure 13. Résumé des commandes git (<a href="http://osteele.com" class="bare">http://osteele.com</a>)</div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_liens_utiles">4.24. Liens utiles</h3>
+</div>
+<div class="sect1">
+<h2 id="_liens_utiles">14. Liens utiles</h2>
+<div class="sectionbody">
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Le site de référence</dt>
@@ -1104,8 +1309,10 @@ dans le fichier&#8230;&#8203;
 </dl>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_glossaire">4.25. Glossaire</h3>
+</div>
+<div class="sect1">
+<h2 id="_glossaire">15. Glossaire</h2>
+<div class="sectionbody">
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><em>fast_forward</em></dt>
@@ -1115,6 +1322,13 @@ Il s&#8217;agit donc pour <a href="http://git-scm.com/"><span class="icon"><i cl
 </dd>
 </dl>
 </div>
+<div id="SHA-1" class="dlist">
+<dl>
+<dt class="hdlist1">SHA-1</dt>
+<dd>
+<p><a href="https://fr.wikipedia.org/wiki/SHA-1" class="bare">https://fr.wikipedia.org/wiki/SHA-1</a></p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -1122,7 +1336,7 @@ Il s&#8217;agit donc pour <a href="http://git-scm.com/"><span class="icon"><i cl
 <div id="footer">
 <div id="footer-text">
 Version 2.0 2016-09-16<br>
-Last updated 2016-09-16 12:35:14 CEST
+Last updated 2016-09-16 15:17:48 CEST
 </div>
 </div>
 </body>

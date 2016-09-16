@@ -987,49 +987,20 @@ section {
   -ms-transition: opacity 450ms ease-out 0ms;
   transition: opacity 450ms ease-out 0ms;
 }
-</style></head><body id="git"><section class="title"><h1>Gestion de version avec <strong>git</strong></h1><footer><span class="author">J.-M. Bruel</span> <span class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span></footer></section><p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-:sourcetreeURL: <a href="https://www.sourcetreeapp.com" class="bare">https://www.sourcetreeapp.com</a>
-:sourcetree: {sourcetreeurl}[SourceTree]</p>
-<div class="exampleblock"><div class="content"><p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; gh-pages
-:svn: <a href="https://subversion.apache.org/">Subversion</a>
-:sym: <a href="http://www.omg.org/spec/SyM/">SysML-Modelica</a>
-:sysml: <a href="http://www.omgsysml.org/">SysML&#8482;</a>
-:sysmltrends: <a href="http://www.google.fr/trends/explore#q=sysml">SysML Trends</a>
-:topcased: <a href="http://www.topcased.org">TOPCASED</a>
-:travis: <a href="https://travis-ci.org/">Travis</a>
-:tuleapurl: <a href="https://www.tuleap.org" class="bare">https://www.tuleap.org</a>
-:tuleap: <a href="{tuleapurl}">tuleap</a>
-:tuleapIUT: <a href="http://tuleap.iut-blagnac.fr">tuleap.iut-blagnac.fr</a>
-:tuleapcampus: <a href="https://tuleap-campus.org/">Tuleap-Campus</a>
-:tuleapMPA: <a href="http://tuleap.iut-blagnac.fr/projects/mpa2016/" class="bare">http://tuleap.iut-blagnac.fr/projects/mpa2016/</a>
-:uml: <a href="http://www.uml.org/">UML&#8482;</a>
-:duml: <a href="http://www.uml.org/">d&#8217;UML&#8482;</a>
-:umlspec: <a href="http://www.omg.org/spec/UML/2.4.1/Infrastructure/PDF/">UML 2.4.2 Specifictation</a>
-:umple: <a href="http://cruise.eecs.uottawa.ca/umple/">Umple</a>
-:visualSNI: <a href="http://sourceforge.net/projects/visual-sni/">VisualSNI</a>
-:vle: <a href="http://www.vle-project.org/wiki/Main_Page">VLE</a>
-:wikirover: <a href="https://polarsys.org/wiki/Rover_Demo_Master_DL_UPS">Rover Demo Wiki</a>
-:xtext: <a href="http://www.eclipse.org/Xtext/">Xtext</a>
-:yuml: <a href="http://yuml.me/">yuml</a></p>
-<p class="topic intro">== Avant-propos</p>
-<p class="topic">== Pour suivre en live&#8230;&#8203; <span class="icon"><i class="fa fa-mobile"></i></span> <span class="icon"><i class="fa fa-tablet"></i></span> <span class="icon"><i class="fa fa-laptop"></i></span></p>
-<p class="topic statement"><a href="http://bit.ly/jmb-git" class="bare">http://bit.ly/jmb-git</a></p>
-<p><a href="http://jmbhome.github.io/teaching/topics/git.html" class="bare">http://jmbhome.github.io/teaching/topics/git.html</a></p>
-<p class="topic">== Environnement</p>
-<ul><li><a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> <span class="detail">(v.<code>2.9.2</code>)</span></li><li><a href="http://git-scm.com/" class="bare">http://git-scm.com/</a></li></ul>
-<a class="image" href="{sourcetreeurl}"><img src="images/sourcetree.png" alt="sourcetree" width="50%" /></a>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail">{sourcetreeurl}</span></td></tr></table></div>
-<img src="images/git-term.png" alt="git term" width="49%" />
-<p class="topic">== Principes généraux</p>
-<a class="image" href="http://nvie.com/posts/a-successful-git-branching-model/"><img src="images/git-branching.png" alt="git branching" width="70%" /></a>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail"><a href="http://nvie.com/posts/a-successful-git-branching-model/" class="bare">http://nvie.com/posts/a-successful-git-branching-model/</a></span></td></tr></table></div>
-<p class="topic">== Avant de commencer</p>
-<p>On initialise certaine variables (une fois pour toute en général) :</p>
+</style></head><body id="git"><section class="title"><h1>Gestion de version avec <strong>git</strong></h1><footer><span class="author">J.-M. Bruel</span> <span class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span></footer></section><section class="topic intro"><h2>Avant-propos</h2></section>
+<section class="topic"><h2>Pour suivre en live&#8230;&#8203; <span class="icon"><i class="fa fa-mobile"></i></span> <span class="icon"><i class="fa fa-tablet"></i></span> <span class="icon"><i class="fa fa-laptop"></i></span></h2><p class="topic statement"><a href="http://bit.ly/jmb-git" class="bare">http://bit.ly/jmb-git</a></p>
+<p><a href="http://jmbhome.github.io/teaching/topics/git.html" class="bare">http://jmbhome.github.io/teaching/topics/git.html</a></p></section>
+<section class="topic"><h2>Environnement</h2><ul><li><a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> <span class="detail">(v.<code>2.9.2</code>)</span></li><li><a href="http://git-scm.com/" class="bare">http://git-scm.com/</a></li></ul>
+<a class="image" href="https://www.sourcetreeapp.com"><img src="images/sourcetree.png" alt="sourcetree" width="50%" /></a>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail"><a href="https://www.sourcetreeapp.com" class="bare">https://www.sourcetreeapp.com</a></span></td></tr></table></div>
+<img src="images/git-term.png" alt="git term" width="49%" /></section>
+<section class="topic"><h2>Principes généraux</h2><a class="image" href="http://nvie.com/posts/a-successful-git-branching-model/"><img src="images/git-branching.png" alt="git branching" width="70%" /></a>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail"><a href="http://nvie.com/posts/a-successful-git-branching-model/" class="bare">http://nvie.com/posts/a-successful-git-branching-model/</a></span></td></tr></table></div></section>
+<section class="topic"><h2>Avant de commencer</h2><p>On initialise certaine variables (une fois pour toute en général) :</p>
 <div class="listingblock"><pre>$ git config --global user.name "JM Bruel"
 $ git config --global user.email jbruel@gmail.com
-$ git config --global alias.co checkout</pre></div>
-<p>== !</p>
-<div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><p>Ces informations sont stockées dans le fichier <code>~/.gitcongif</code>.</p>
+$ git config --global alias.co checkout</pre></div></section>
+<section><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><p>Ces informations sont stockées dans le fichier <code>~/.gitcongif</code>.</p>
 <p>Voici un extrait <a href="util/.gitconfig">du mien</a> :</p>
 <div class="listingblock"><pre>[user]
         name = Jean-Michel Bruel
@@ -1043,10 +1014,9 @@ Your branch is ahead of 'origin/master' by 1 commit.
   (use "git push" to publish your local commits)
 $ git checkout
 Your branch is ahead of 'origin/master' by 1 commit.
-  (use "git push" to publish your local commits)</pre></div></td></tr></table></div>
-<p class="topic intro">== Scénario <strong>classique</strong> (et idéal)</p>
-<p class="topic">== Etape 1 : création du <em>repository</em> local</p>
-<p>On démarre la gestion de version :</p>
+  (use "git push" to publish your local commits)</pre></div></td></tr></table></div></section>
+<section class="topic intro"><h2>Scénario <strong>classique</strong> (et idéal)</h2></section>
+<section class="topic"><h2>Etape 1 : création du <em>repository</em> local</h2><p>On démarre la gestion de version :</p>
 <div class="listingblock"><pre>$ git init</pre></div>
 <div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><p>Génération d&#8217;un répertoire <code>.git</code> dans le répertoire courant.</p>
 <div class="listingblock"><pre>$ git init
@@ -1056,14 +1026,12 @@ $ ll
 total 0
 drwxr-xr-x   3 bruel  admin   102 21 jul 17:29 ./
 drwxr-xr-x  35 bruel  admin  1190 21 jul 17:29 ../
-drwxr-xr-x  10 bruel  admin   340 21 jul 17:29 .git/</pre></div></td></tr></table></div>
-<p class="topic">== Etape 2 : ajout des fichiers</p>
-<p>On ajoute les fichiers courants au dépôt :</p>
+drwxr-xr-x  10 bruel  admin   340 21 jul 17:29 .git/</pre></div></td></tr></table></div></section>
+<section class="topic"><h2>Etape 2 : ajout des fichiers</h2><p>On ajoute les fichiers courants au dépôt :</p>
 <div class="listingblock"><pre>$ git add .</pre></div>
 <div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li>Ne pas forcément tout ajouter (<code>git add *.c</code> par exemple pour ne versionner que les sources).</li></ul></td></tr></table></div>
-<div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><ul class="incremental"><li>Pensez à créer un fichier <code>.gitignore</code> pour éviter d&#8217;ajouter les fichiers indésirables (comme les fichiers de <code>log</code>).</li></ul></td></tr></table></div>
-<p class="topic">== Etape 2 (suite) : vérification</p>
-<p>On peut visualiser les actions en vérifiant l'<strong>état courant</strong> du dépôt :</p>
+<div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><ul class="incremental"><li>Pensez à créer un fichier <code>.gitignore</code> pour éviter d&#8217;ajouter les fichiers indésirables (comme les fichiers de <code>log</code>).</li></ul></td></tr></table></div></section>
+<section class="topic"><h2>Etape 2 (suite) : vérification</h2><p>On peut visualiser les actions en vérifiant l'<strong>état courant</strong> du dépôt :</p>
 <div class="listingblock"><pre>$ git status
 # On branch master
 # Your branch is ahead of 'origin/master' by 1 commit.
@@ -1074,17 +1042,15 @@ drwxr-xr-x  10 bruel  admin   340 21 jul 17:29 .git/</pre></div></td></tr></tabl
 #
 #	modified:   Generalites.txt
 #	deleted:    S3/128056_56.d
-...</pre></div>
-<p class="topic">== Etape 3 : Commit</p>
-<p>Pour entériner les changements :</p>
+...</pre></div></section>
+<section class="topic"><h2>Etape 3 : Commit</h2><p>Pour entériner les changements :</p>
 <div class="listingblock"><pre>$ git commit -m "First draft"
 [master (root-commit) 4f40f5d] First draft
  0 files changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 titi.txt
  create mode 100644 toto.txt</pre></div>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li>Retenez que le <code>commit</code> est uniquement local!</li><li>Mais même en local, il est bien utile en cas de problème.</li></ul></td></tr></table></div>
-<p class="topic">== Etape 3 (suite) : Gestion "locale"</p>
-<p>Exemple de scénario type (suppression exceptionnelle et rattrapage) :</p>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li>Retenez que le <code>commit</code> est uniquement local!</li><li>Mais même en local, il est bien utile en cas de problème.</li></ul></td></tr></table></div></section>
+<section class="topic"><h2>Etape 3 (suite) : Gestion "locale"</h2><p>Exemple de scénario type (suppression exceptionnelle et rattrapage) :</p>
 <div class="listingblock"><pre>$ rm titi.txt
 $ git status
 # On branch master
@@ -1098,13 +1064,11 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 $ git checkout -f
 $ ls titi.txt
-titi.txt</pre></div>
-<p class="topic">== Etape 4 : Trouver un hébergement distant</p>
-<p>Il existe de nombreux endroits disponibles pour héberger du code libre.
+titi.txt</pre></div></section>
+<section class="topic"><h2>Etape 4 : Trouver un hébergement distant</h2><p>Il existe de nombreux endroits disponibles pour héberger du code libre.
 Les plus connus sont <a href="https://github.com/">GitHub</a> et <span class="icon"><i class="fa fa-gitlab"></i></span><a href="https://gitlab.com/">GitLab</a>.</p>
-<img src="images/github.png" alt="github" width="70%" />
-<p class="topic">== Etape 4 (suite) : déclarer le dépôt distant</p>
-<p>Après avoir créé un dépôt distant, il n&#8217;y a plus qu&#8217;à associer ce
+<img src="images/github.png" alt="github" width="70%" /></section>
+<section class="topic"><h2>Etape 4 (suite) : déclarer le dépôt distant</h2><p>Après avoir créé un dépôt distant, il n&#8217;y a plus qu&#8217;à associer ce
 dépôt distant avec le notre.</p>
 <div class="listingblock"><pre>$ git remote add origin git@github.com:jmbruel/first_app.git <i class="conum" data-value="1"></i><b>(1)</b>
 $ git push -u origin master <i class="conum" data-value="2"></i><b>(2)</b>
@@ -1117,21 +1081,18 @@ To git@github.com:jmbruel/first_app.git
  * [new branch]      master -&gt; master
 Branch master set up to track remote branch master from origin.</pre></div>
 <div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Il est possible d&#8217;avoir plusieurs dépôts distants, celui-ci sera référencé par <code>origin</code>.</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>L&#8217;option <code>-u origin master</code> permet d&#8217;associer une fois pour toute les <code>git push</code> suivants au fait
-de "pousser" sur la branche <code>master</code> du dépôt <code>origin</code> (comme l&#8217;indique la dernière ligne).</td></tr></table></div>
-<p class="topic">== Etape 5 : branch, edit, commit, merge</p>
-<p>En cas d&#8217;édition et de commit local :</p>
+de "pousser" sur la branche <code>master</code> du dépôt <code>origin</code> (comme l&#8217;indique la dernière ligne).</td></tr></table></div></section>
+<section class="topic"><h2>Etape 5 : branch, edit, commit, merge</h2><p>En cas d&#8217;édition et de commit local :</p>
 <div class="listingblock"><pre>$ git checkout
-Your branch is ahead of 'origin/master' by 1 commit.</pre></div>
-<p class="topic">== Etape 5 (suite) : branching</p>
-<p><a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> est très bon pour créer des branches :</p>
+Your branch is ahead of 'origin/master' by 1 commit.</pre></div></section>
+<section class="topic"><h2>Etape 5 (suite) : branching</h2><p><a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> est très bon pour créer des branches :</p>
 <div class="listingblock"><pre>$ git checkout -b testModifTiti
 Switched to a new branch 'testModifTiti'
 $ git branch
   master
 * testModifTiti <i class="conum" data-value="1"></i><b>(1)</b></pre></div>
-<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>La branche courante est repérée par un <code>*</code>.</td></tr></table></div>
-<p class="topic">== Etape 5 (suite) : edit</p>
-<p>Après modification :</p>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>La branche courante est repérée par un <code>*</code>.</td></tr></table></div></section>
+<section class="topic"><h2>Etape 5 (suite) : edit</h2><p>Après modification :</p>
 <div class="listingblock"><pre>$ git status
 # On branch testModifTiti
 # Changes not staged for commit:
@@ -1140,15 +1101,13 @@ $ git branch
 #
 #	modified:   titi.txt
 #
-no changes added to commit (use "git add" and/or "git commit -a")</pre></div>
-<p class="topic">== Etape 5 (suite) : commit</p>
-<p>On "sauvegarde" les changements :</p>
+no changes added to commit (use "git add" and/or "git commit -a")</pre></div></section>
+<section class="topic"><h2>Etape 5 (suite) : commit</h2><p>On "sauvegarde" les changements :</p>
 <div class="listingblock"><pre>$ git commit -am "modif de titi"
 [testModifTiti 4515b5d] modif de titi
  1 files changed, 7 insertions(+), 0 deletions(-)</pre></div>
-<div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa icon-warning" title="Warning"></i></td><td class="content"><ul class="incremental"><li>On ne "sauvegarde" qu&#8217;en local!</li></ul></td></tr></table></div>
-<p class="topic">== Etape 5 (suite) : utilisation des branches</p>
-<p>On peut "zapper" d&#8217;une branche à l&#8217;autre à volonté :</p>
+<div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa icon-warning" title="Warning"></i></td><td class="content"><ul class="incremental"><li>On ne "sauvegarde" qu&#8217;en local!</li></ul></td></tr></table></div></section>
+<section class="topic"><h2>Etape 5 (suite) : utilisation des branches</h2><p>On peut "zapper" d&#8217;une branche à l&#8217;autre à volonté :</p>
 <div class="listingblock"><pre>$ ll titi*
 -rw-rw-r--    1 bruel  staff   331 12 nov 12:39 titi.txt
 
@@ -1157,9 +1116,8 @@ Switched to branch 'master'
 Your branch is ahead of 'origin/master' by 1 commit.
 
 $ ll titi*
--rw-rw-r--    1 bruel  staff     0 12 nov 12:40 titi.txt</pre></div>
-<p class="topic">== Etape 5 (suite) : merge</p>
-<p>Maintenant que la branche a été développée (testée, etc.) on peut
+-rw-rw-r--    1 bruel  staff     0 12 nov 12:40 titi.txt</pre></div></section>
+<section class="topic"><h2>Etape 5 (suite) : merge</h2><p>Maintenant que la branche a été développée (testée, etc.) on peut
 l&#8217;intégrer à la branche principale :</p>
 <div class="listingblock"><pre>$ git co master
 Switched to branch 'master'
@@ -1167,11 +1125,9 @@ Switched to branch 'master'
 $ git merge testModifTiti
 Merge made by recursive.
  titi.txt |    7 +++++++
- 1 files changed, 7 insertions(+), 0 deletions(-)</pre></div>
-<p>== !</p>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li>On peut ensuite détruire la branche devenue inutile <code>git branch -d testModifTiti</code>.</li><li>C&#8217;est une bonne habitude à prendre.</li><li>Notez que l&#8217;historique des modifications (ainsi que les messages de commits successifs ne sont pas perdus).</li></ul></td></tr></table></div>
-<p class="topic">== Etape 6 : push</p>
-<p>Maintenant que notre dépôt est satisfaisant, on peut le synchroniser avec le dépôt distant :</p>
+ 1 files changed, 7 insertions(+), 0 deletions(-)</pre></div></section>
+<section><div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li>On peut ensuite détruire la branche devenue inutile <code>git branch -d testModifTiti</code>.</li><li>C&#8217;est une bonne habitude à prendre.</li><li>Notez que l&#8217;historique des modifications (ainsi que les messages de commits successifs ne sont pas perdus).</li></ul></td></tr></table></div></section>
+<section class="topic"><h2>Etape 6 : push</h2><p>Maintenant que notre dépôt est satisfaisant, on peut le synchroniser avec le dépôt distant :</p>
 <div class="listingblock"><pre>$ git push
 Counting objects: 11, done.
 Delta compression using up to 2 threads.
@@ -1179,116 +1135,116 @@ Compressing objects: 100% (9/9), done.
 Writing objects: 100% (9/9), 977 bytes, done.
 Total 9 (delta 2), reused 0 (delta 0)
 To git@github.com:jmbruel/first_app.git
-   6103463..3aae48a  master -&gt; master</pre></div>
-<p class="topic">== Dépôts existants</p>
-<p>Si vous devez partir d&#8217;un dépôt existant :</p>
+   6103463..3aae48a  master -&gt; master</pre></div></section>
+<section class="topic"><h2>Dépôts existants</h2><p>Si vous devez partir d&#8217;un dépôt existant :</p>
 <div class="listingblock"><pre>$ git clone git@github.com:jmbruel/first_app.git</pre></div>
-<div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><ul class="incremental"><li>Pour obtenir le nom du dépôt distant : <code>git remote -v</code>.</li><li>Vous avez aussi le nom du dépôt distant dans le fichier <code>.git/config</code>.</li></ul></td></tr></table></div>
-<p class="topic">== Illustration des branches</p>
-<p>Voici une illustration de l&#8217;utilisation des branches (tirée de <a href="http://git-scm.com/book">git-scm</a>).</p>
+<div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><ul class="incremental"><li>Pour obtenir le nom du dépôt distant : <code>git remote -v</code>.</li><li>Vous avez aussi le nom du dépôt distant dans le fichier <code>.git/config</code>.</li></ul></td></tr></table></div></section>
+<section class="topic"><h2>Illustration des branches</h2><p>Voici une illustration de l&#8217;utilisation des branches (tirée de <a href="http://git-scm.com/book">git-scm</a>).</p>
 <p>On part d&#8217;une situation type :</p>
-<img src="images/gf1.svg" alt="gf1" width="50%" />
-<p class="topic">== Illustration des branches (suite)</p>
-<p>On crée une branche (appelée <code>iss53</code> ici pour indiquer qu&#8217;elle traite de l'<em>issue</em> numéro 53) :</p>
+<img src="images/gf1.svg" alt="gf1" width="50%" /></section>
+<section class="topic"><h2>Illustration des branches (suite)</h2><p>On crée une branche (appelée <code>iss53</code> ici pour indiquer qu&#8217;elle traite de l'<em>issue</em> numéro 53) :</p>
 <div class="listingblock"><pre>$ git checkout -b iss53</pre></div>
 <img src="images/gf2.svg" alt="gf2" width="40%" />
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li><a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> n&#8217;a créé qu&#8217;un pointeur &#8658; aucun espace mémoire perdu.</li></ul></td></tr></table></div>
-<p class="topic">== Illustration des branches (suite)</p>
-<p>On modifie et on commit :</p>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li><a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> n&#8217;a créé qu&#8217;un pointeur &#8658; aucun espace mémoire perdu.</li></ul></td></tr></table></div></section>
+<section class="topic"><h2>Illustration des branches (suite)</h2><p>On modifie et on commit :</p>
 <div class="listingblock"><pre>$ edit ...
 $ git commit -m " blabla iss53"</pre></div>
 <img src="images/gf3.svg" alt="gf3" width="50%" />
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">On commence à diverger de <code>master</code></td></tr></table></div>
-<p class="topic">== Illustration des branches (suite)</p>
-<p>On revient à la branche maître pour tester une autre solution :</p>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">On commence à diverger de <code>master</code></td></tr></table></div></section>
+<section class="topic"><h2>Illustration des branches (suite)</h2><p>On revient à la branche maître pour tester une autre solution :</p>
 <div class="listingblock"><pre>$ git checkout master
 $ git checkout -b hotfix
 $ edit ...
 $ git commit -m " blabla hotfix"</pre></div>
-<img src="images/gf4.svg" alt="gf4" width="50%" />
-<p class="topic">== Illustration des branches (suite)</p>
-<p>On intègre cette solution à la branche principale :</p>
+<img src="images/gf4.svg" alt="gf4" width="50%" /></section>
+<section class="topic"><h2>Illustration des branches (suite)</h2><p>On intègre cette solution à la branche principale :</p>
 <div class="listingblock"><pre>$ git checkout master
 $ git merge hotfix</pre></div>
 <img src="images/gf5.svg" alt="gf5" width="40%" />
 <div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">Il manque le pointeur <strong>HEAD</strong> sur mes illustrations</td></tr></table></div>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li><a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> utilise ici le <strong>fast-forward</strong></li></ul></td></tr></table></div>
-<p class="topic">== Illustration des branches (suite)</p>
-<p>On continue à travailler sur la branche <code>iss53</code> :</p>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li><a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> utilise ici le <strong>fast-forward</strong></li></ul></td></tr></table></div></section>
+<section class="topic"><h2>Illustration des branches (suite)</h2><p>On continue à travailler sur la branche <code>iss53</code> :</p>
 <div class="listingblock"><pre>$ git branch -d hotfix <i class="conum" data-value="1"></i><b>(1)</b>
 $ git checkout iss53
 $ edit ...
 $ git commit -m " blabla iss53"</pre></div>
 <div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Destruction de la branche devenue redondante avec <code>master</code>.</td></tr></table></div>
 <img src="images/gf6.svg" alt="gf6" width="50%" />
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">On retravaille sur <code>iss53</code></td></tr></table></div>
-<p class="topic">== Illustration des branches (suite)</p>
-<p>On intègre cette branche :</p>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">On retravaille sur <code>iss53</code></td></tr></table></div></section>
+<section class="topic"><h2>Illustration des branches (suite)</h2><p>On intègre cette branche :</p>
 <div class="listingblock"><pre>$ git checkout master
 $ git merge iss53</pre></div>
 <img src="images/gf7.svg" alt="gf7" width="50%" />
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">Merge sans <em>fast-forward</em></td></tr></table></div>
-<p class="topic">== Illustration des branches (suite)</p>
-<img src="images/gf8.svg" alt="gf8" width="50%" />
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">Merge sans <em>fast-forward</em></td></tr></table></div></section>
+<section class="topic"><h2>Illustration des branches (suite)</h2><img src="images/gf8.svg" alt="gf8" width="50%" />
 <div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">Situation finale</td></tr></table></div>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li>On part du principe qu&#8217;il n&#8217;y a pas eu de <a class="xref" href="#conflits">[conflits]</a></li><li>On peut maintenant supprimer <code>iss53</code></li></ul></td></tr></table></div>
-<p class="topic">== Bonne utilisation</p>
-<p class="topic">=== Avoir une procédure concertée</p>
-<p>Revenons sur l&#8217;exemple type :</p>
-<a class="image" href="http://nvie.com/posts/a-successful-git-branching-model/"><img src="images/git-branching.png" alt="git branching" width="70%" /></a>
-<p class="topic">=== Ne pas versionner n&#8217;importe quoi!</p>
-<p>Ce qu&#8217;il ne faut pas versionner :
-- les exécutables
-- les zip dont le contenu change sans arrêt
-- les images générées
-- tous les binaires en général!</p>
-<p class="topic intro">== La gestion de version n&#8217;est pas un long fleuve tranquille</p>
-<p class="topic">=== Oups! j&#8217;ai oublié un truc</p>
-<div class="listingblock"><pre>$ git commit -m 'initial commit'
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><ul class="incremental"><li>On part du principe qu&#8217;il n&#8217;y a pas eu de <a class="xref" href="#conflits">Gestion des conflits</a></li><li>On peut maintenant supprimer <code>iss53</code></li></ul></td></tr></table></div></section>
+<section class="topic"><h2>Bonne utilisation</h2></section>
+<section class="topic"><h2>Avoir une procédure concertée</h2><p>Revenons sur l&#8217;exemple type :</p>
+<a class="image" href="http://nvie.com/posts/a-successful-git-branching-model/"><img src="images/git-branching.png" alt="git branching" width="70%" /></a></section>
+<section class="topic"><h2>Ne pas versionner n&#8217;importe quoi!</h2><p>Ce qu&#8217;il ne faut pas versionner :</p>
+<ul><li>les exécutables</li><li>les zip dont le contenu change sans arrêt</li><li>les images générées</li><li>tous les binaires en général!</li></ul></section>
+<section class="topic"><h2>Les "releases"</h2><p>En <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> on peut <em>taguer</em> des branches et c&#8217;est ce mécanisme qui
+permet de gérer simplement les <em>releases</em>.</p>
+<div class="listingblock"><pre>$ git tag -a v1.0 -m "Release 1.0 as required by client"
+$ git tag
+v1.0</pre></div></section>
+<section><p>On peut voir les détails d&#8217;un commit tagué :</p>
+<div class="listingblock"><pre>$ git show v1.0
+tag v1.0
+Tagger: Jean-Michel Bruel &lt;jbruel@gmail.com&gt;
+Date:   Fri Sep 16 14:27:20 2016 +0200
+
+Release 1.0 as required by client
+
+commit 47da474098d95f8ef5c3ca838be8b87d7a7ed729
+Author: Jean-Michel Bruel &lt;jbruel@gmail.com&gt;
+Date:   Fri Sep 16 12:38:20 2016 +0200</pre></div></section>
+<section><p>On peut aussi taguer a posteriori :</p>
+<div class="listingblock"><pre>$ git tag -a v1.2 9fceb02 <i class="conum" data-value="1"></i><b>(1)</b></pre></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>ajoute le tag <code>v1.2</code> au commit dont le <a class="xref" href="#SHA-1">[SHA-1]</a> commence par <code>9fceb02</code></td></tr></table></div>
+<div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa icon-warning" title="Warning"></i></td><td class="content"><p>Par défaut les tags ne sont pas poussés sur le dépôt distant.</p>
+<div class="listingblock"><pre>$ git push origin v1.5</pre></div></td></tr></table></div></section>
+<section class="topic intro"><h2>La gestion de version n&#8217;est pas un long fleuve tranquille</h2></section>
+<section class="topic"><h2>Oups! j&#8217;ai oublié un truc</h2><div class="listingblock"><pre>$ git commit -m 'initial commit'
 $ git add forgotten_file
-$ git commit --amend</pre></div>
-<p class="topic">=== Oups! j&#8217;ai mis trop de truc</p>
-<div class="listingblock"><pre>$ git add *.*
+$ git commit --amend</pre></div></section>
+<section class="topic"><h2>Oups! j&#8217;ai mis trop de truc</h2><div class="listingblock"><pre>$ git add *.*
 $ git reset *.class</pre></div>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">Aucun danger</td></tr></table></div>
-<p class="topic">=== CTRL+Z</p>
-<div class="listingblock"><pre>$ working on some file README.adoc ...
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">Aucun danger</td></tr></table></div></section>
+<section class="topic"><h2>CTRL+Z</h2><div class="listingblock"><pre>$ working on some file README.adoc ...
 $ git checkout -- REAME.adoc</pre></div>
-<div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa icon-warning" title="Warning"></i></td><td class="content">Danger!</td></tr></table></div>
-<p class="topic">=== Où j&#8217;en suis</p>
-<div class="listingblock"><pre>$ git status</pre></div>
-<p>=== !</p>
-<img src="images/gitbash1.png" alt="gitbash1" width="95%" />
-<p>=== !</p>
-<img src="images/gitbash2.png" alt="gitbash2" width="95%" />
-<p>=== !</p>
-<img src="images/gitbash3.png" alt="gitbash3" width="95%" />
-<p>=== !</p>
-<img src="images/gitbash4.png" alt="gitbash4" width="95%" />
-<p class="topic intro">== Gestion des branches</p>
-<p>== !</p>
-<p>La principale difficulté de <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> vient de la liberté en termes de branches.</p>
-<p class="topic">== Les différents <code>merge</code></p>
-<p>== !</p>
-<p>Les exemples suivants sont tirés de :</p>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">{compMergeURL}</td></tr></table></div>
-<p class="topic">=== Explicit <code>merge</code></p>
-<a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-merge.gif" alt="what is a merge" width="95%" /></a>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail">{compMergeURL}</span></td></tr></table></div>
-<p class="topic">=== Implicit <code>merge</code> via <code>rebase</code> or <code>fast-forward</code></p>
-<a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-rebase.gif" alt="what is a rebase" width="95%" /></a>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail">{compMergeURL}</span></td></tr></table></div>
-<p class="topic">=== Implicit <code>merge</code> via <code>fast-forward</code></p>
-<a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-fast-forward.gif" alt="what is a fast forward" width="95%" /></a>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail">{compMergeURL}</span></td></tr></table></div>
-<p class="topic">=== Squash on <code>merge</code></p>
-<a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/squash-on-merge.gif" alt="squash on merge" width="95%" /></a>
-<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail">{compMergeURL}</span></td></tr></table></div>
-<p class="topic intro">== Gestion des conflits</p>
-<p>== !</p>
-<p>La principale activité du programmeur qui utilise <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> en équipe vient de la gestion des <strong>conflits</strong>.</p>
-<p class="topic">=== À la main</p>
-<div class="listingblock"><pre>$ git checkout master
+<div class="admonitionblock warning"><table><tr><td class="icon"><i class="fa icon-warning" title="Warning"></i></td><td class="content">Danger!</td></tr></table></div></section>
+<section class="topic"><h2>Où j&#8217;en suis</h2><div class="listingblock"><pre>$ git status</pre></div></section>
+<section><img src="images/gitbash1.png" alt="gitbash1" width="95%" /></section>
+<section><img src="images/gitbash2.png" alt="gitbash2" width="95%" /></section>
+<section><img src="images/gitbash3.png" alt="gitbash3" width="95%" /></section>
+<section><img src="images/gitbash4.png" alt="gitbash4" width="95%" /></section>
+<section class="topic intro"><h2>Gestion des branches</h2></section>
+<section><p>La principale difficulté de <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> vient de la liberté en termes de branches.</p>
+<p>Pour faire simple, je vous conseille une gestion qui marche bien pour les petites équipes,
+tiré de l&#8217;excellent livre <a href="https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows">Pro Git</a> :</p></section>
+<section><ul><li>Deux branches seulement: <code>master</code> et <code>develop</code>.<div class="listingblock"><pre>$ git branch
+* develop     <i class="conum" data-value="1"></i><b>(1)</b>
+  master      <i class="conum" data-value="2"></i><b>(2)</b></pre></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>develop</code> est la branche de travail qui contient la dernière version des codages en cours.</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>master</code> est toujours stable et sert au déploiement</td></tr></table></div></li></ul></section>
+<section><ul><li>On fork <code>develop</code> pour traiter un <em>bug</em> ou une <em>feature</em>.<ul><li>On merge dans <code>develop</code></li><li>On détruit la branche devenue inutile</li></ul></li></ul></section>
+<section><p>Ce qui donne le flot suivant dès que vous devez faire une amélioration (corriger un bug ou ajouter une fonctionnalités) :</p>
+<ul class="incremental"><li>Créer une branche (e.g., <code>fix-451</code>)</li><li>Travailler sur cette branche</li><li>Merger cette branche dans <code>develop</code></li><li>Rejouer les tests</li><li>Régler les conflits éventuels</li><li>Quand tout fonctionne &#8658; pull-request</li><li>On peut livrer à partir de <code>master</code></li></ul></section>
+<section class="topic"><h2>Les différents <code>merge</code></h2></section>
+<section><p>Les exemples suivants sont tirés de :</p>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><a href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate" class="bare">https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate</a></td></tr></table></div></section>
+<section class="topic"><h2>Explicit <code>merge</code></h2><a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-merge.gif" alt="what is a merge" width="95%" /></a>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail"><a href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate" class="bare">https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate</a></span></td></tr></table></div></section>
+<section class="topic"><h2>Implicit <code>merge</code> via <code>rebase</code> or <code>fast-forward</code></h2><a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-rebase.gif" alt="what is a rebase" width="95%" /></a>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail"><a href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate" class="bare">https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate</a></span></td></tr></table></div></section>
+<section class="topic"><h2>Implicit <code>merge</code> via <code>fast-forward</code></h2><a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-fast-forward.gif" alt="what is a fast forward" width="95%" /></a>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail"><a href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate" class="bare">https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate</a></span></td></tr></table></div></section>
+<section class="topic"><h2>Squash on <code>merge</code></h2><a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/squash-on-merge.gif" alt="squash on merge" width="95%" /></a>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><span class="detail"><a href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate" class="bare">https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate</a></span></td></tr></table></div></section>
+<section class="topic intro"><h2>Gestion des conflits</h2></section>
+<section><p>La principale activité du programmeur qui utilise <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> en équipe vient de la gestion des <strong>conflits</strong>.</p></section>
+<section class="topic"><h2>À la main</h2><div class="listingblock"><pre>$ git checkout master
 $ git merge other_branch
 Auto-merging toto.txt
 CONFLICT (content): Merge conflict in toto.txt
@@ -1305,16 +1261,13 @@ $ git commit <i class="conum" data-value="5"></i><b>(5)</b></pre></div>
 <div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Voilà où commence la différence entre la branche courante (<code>HEAD</code>)
 et la branche qu&#8217;on essaye de merger (<code>other_branch</code>)</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>Séparation</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>Voilà où se termine cette différence</td></tr><tr><td><i class="conum" data-value="4"></i><b>4</b></td><td>on édite le fichier à la main pour choisir la bonne version</td></tr><tr><td><i class="conum" data-value="5"></i><b>5</b></td><td>on commit pour valider la modif</td></tr></table></div>
 <div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content">Il est déconseillé d&#8217;en profiter pour faire une nouvelle modif
-dans le fichier&#8230;&#8203;</td></tr></table></div>
-<p class="topic">=== Avec un peu d&#8217;aide</p>
-<ul><li><code>git diff</code></li><li><code>git difftool</code><ul><li><a href="https://sourcegear.com/diffmerge/">DiffMerge</a></li><li>&#8230;&#8203;</li></ul></li></ul>
-<p class="topic intro">== Git avancé : Git-Flow</p>
-<p>== !</p>
-<p><a href="http://danielkummer.github.io/git-flow-cheatsheet/" class="bare">http://danielkummer.github.io/git-flow-cheatsheet/</a></p>
-<p class="topic intro">== Wrap-up</p>
-<p class="topic">== Résumé des commandes</p>
-<p>Voici un schéma pour résumer la philosophie (tiré de <a href="http://osteele.com" class="bare">http://osteele.com</a>) :</p>
-<a class="image" href="http://osteele.com"><img src="images/git-resume.png" alt="git resume" width="50%" /></a></div></div><script>
+dans le fichier&#8230;&#8203;</td></tr></table></div></section>
+<section class="topic"><h2>Avec un peu d&#8217;aide</h2><ul><li><code>git diff</code></li><li><code>git difftool</code><ul><li><a href="https://sourcegear.com/diffmerge/">DiffMerge</a></li><li>&#8230;&#8203;</li></ul></li></ul></section>
+<section class="topic intro"><h2>Git avancé : Git-Flow</h2></section>
+<section><p><a href="http://danielkummer.github.io/git-flow-cheatsheet/" class="bare">http://danielkummer.github.io/git-flow-cheatsheet/</a></p></section>
+<section class="topic intro"><h2>Wrap-up</h2></section>
+<section class="topic"><h2>Résumé des commandes</h2><p>Voici un schéma pour résumer la philosophie (tiré de <a href="http://osteele.com" class="bare">http://osteele.com</a>) :</p>
+<a class="image" href="http://osteele.com"><img src="images/git-resume.png" alt="git resume" width="50%" /></a></section><script>
 //   __  __  __       .  __   ___  __
 //  |  \  / /__` |    | |  \ |__  /__`
 //  |__/ /_ .__/ |___ | |__/ |___ .__/ core :€
