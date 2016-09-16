@@ -10,57 +10,51 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <link rel="stylesheet" href="./asciidoctor.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./pygments-default.css">
 </head>
-<body id="git" class="article toc2 toc-left">
+<body id="git" class="article">
 <div id="header">
 <h1>Gestion de version avec <strong>git</strong></h1>
 <div class="details">
 <span id="author" class="author">J.-M. Bruel</span><br>
 <span id="email" class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span><br>
-<span id="revnumber">version 2.0 2016-09-15</span>
-</div>
-<div id="toc" class="toc2">
-<div id="toctitle">Table des matières</div>
-<ul class="sectlevel1">
-<li><a href="#_environnement">1. Environnement</a></li>
-<li><a href="#_principes_généraux">2. Principes généraux</a></li>
-<li><a href="#_avant_de_commencer">3. Avant de commencer</a></li>
-<li><a href="#_scénario_strong_classique_strong_et_idéal">4. Scénario <strong>classique</strong> (et idéal)</a>
-<ul class="sectlevel2">
-<li><a href="#_etape_1_création_du_em_repository_em_local">4.1. Etape 1 : création du <em>repository</em> local</a></li>
-<li><a href="#_etape_2_ajout_des_fichiers">4.2. Etape 2 : ajout des fichiers</a></li>
-<li><a href="#_etape_2_suite_vérification">4.3. Etape 2 (suite) : vérification</a></li>
-<li><a href="#_etape_3_commit">4.4. Etape 3 : Commit</a></li>
-<li><a href="#_etape_3_suite_gestion_locale">4.5. Etape 3 (suite) : Gestion "locale"</a></li>
-<li><a href="#_etape_4_trouver_un_hébergement_distant">4.6. Etape 4 : Trouver un hébergement distant</a></li>
-<li><a href="#_etape_4_suite_déclarer_le_dépôt_distant">4.7. Etape 4 (suite) : déclarer le dépôt distant</a></li>
-<li><a href="#_etape_5_branch_edit_commit_merge">4.8. Etape 5 : branch, edit, commit, merge</a></li>
-<li><a href="#_etape_5_suite_branching">4.9. Etape 5 (suite) : branching</a></li>
-<li><a href="#_etape_5_suite_edit">4.10. Etape 5 (suite) : edit</a></li>
-<li><a href="#_etape_5_suite_commit">4.11. Etape 5 (suite) : commit</a></li>
-<li><a href="#_etape_5_suite_utilisation_des_branches">4.12. Etape 5 (suite) : utilisation des branches</a></li>
-<li><a href="#_etape_5_suite_merge">4.13. Etape 5 (suite) : merge</a></li>
-<li><a href="#_etape_6_push">4.14. Etape 6 : push</a></li>
-<li><a href="#_dépôts_existants">4.15. Dépôts existants</a></li>
-<li><a href="#_illustration_des_branches">4.16. Illustration des branches</a></li>
-<li><a href="#_bonne_utilisation">4.17. Bonne utilisation</a></li>
-<li><a href="#_la_gestion_de_version_n_est_pas_un_long_fleuve_tranquille">4.18. La gestion de version n&#8217;est pas un long fleuve tranquille</a></li>
-<li><a href="#_gestion_des_branches">4.19. Gestion des branches</a></li>
-<li><a href="#_les_différents_code_merge_code">4.20. Les différents <code>merge</code></a></li>
-<li><a href="#conflits">4.21. Gestion des conflits</a></li>
-<li><a href="#_git_avancé_git_flow">4.22. Git avancé : Git-Flow</a></li>
-<li><a href="#_résumé_des_commandes">4.23. Résumé des commandes</a></li>
-<li><a href="#_liens_utiles">4.24. Liens utiles</a></li>
-<li><a href="#_glossaire">4.25. Glossaire</a></li>
-</ul>
-</li>
-</ul>
+<span id="revnumber">version 2.0 2016-09-16</span>
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_environnement">1. Environnement</h2>
-<div class="sectionbody">
+<div class="paragraph">
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+:sourcetreeURL: <a href="https://www.sourcetreeapp.com" class="bare">https://www.sourcetreeapp.com</a>
+:sourcetree: {sourcetreeurl}[SourceTree]</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; gh-pages
+:svn: <a href="https://subversion.apache.org/">Subversion</a>
+:sym: <a href="http://www.omg.org/spec/SyM/">SysML-Modelica</a>
+:sysml: <a href="http://www.omgsysml.org/">SysML&#8482;</a>
+:sysmltrends: <a href="http://www.google.fr/trends/explore#q=sysml">SysML Trends</a>
+:topcased: <a href="http://www.topcased.org">TOPCASED</a>
+:travis: <a href="https://travis-ci.org/">Travis</a>
+:tuleapurl: <a href="https://www.tuleap.org" class="bare">https://www.tuleap.org</a>
+:tuleap: <a href="{tuleapurl}">tuleap</a>
+:tuleapIUT: <a href="http://tuleap.iut-blagnac.fr">tuleap.iut-blagnac.fr</a>
+:tuleapcampus: <a href="https://tuleap-campus.org/">Tuleap-Campus</a>
+:tuleapMPA: <a href="http://tuleap.iut-blagnac.fr/projects/mpa2016/" class="bare">http://tuleap.iut-blagnac.fr/projects/mpa2016/</a>
+:uml: <a href="http://www.uml.org/">UML&#8482;</a>
+:duml: <a href="http://www.uml.org/">d&#8217;UML&#8482;</a>
+:umlspec: <a href="http://www.omg.org/spec/UML/2.4.1/Infrastructure/PDF/">UML 2.4.2 Specifictation</a>
+:umple: <a href="http://cruise.eecs.uottawa.ca/umple/">Umple</a>
+:visualSNI: <a href="http://sourceforge.net/projects/visual-sni/">VisualSNI</a>
+:vle: <a href="http://www.vle-project.org/wiki/Main_Page">VLE</a>
+:wikirover: <a href="https://polarsys.org/wiki/Rover_Demo_Master_DL_UPS">Rover Demo Wiki</a>
+:xtext: <a href="http://www.eclipse.org/Xtext/">Xtext</a>
+:yuml: <a href="http://yuml.me/">yuml</a></p>
+</div>
+<div class="paragraph">
+<p>== Environnement</p>
+</div>
 <div class="paragraph">
 <p>Vous pouvez installer <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> depuis le site officiel.
 Nous utilisons ici la version <code>2.9.2</code> en ligne de commande.
@@ -68,9 +62,9 @@ Mais vous pouvez bien sûr utiliser un client graphique (comme <a href="https://
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://www.sourcetreeapp.com/"><img src="images/sourcetree.png" alt="sourcetree" width="49%"></a>
+<a class="image" href="{sourcetreeurl}"><img src="images/sourcetree.png" alt="sourcetree" width="50%"></a>
 </div>
-<div class="title">Figure 1. Client graphique (<a href="https://www.sourcetreeapp.com/" class="bare">https://www.sourcetreeapp.com/</a>)</div>
+<div class="title">Figure 1. Client graphique ({sourcetreeurl})</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -86,23 +80,21 @@ Mais vous pouvez bien sûr utiliser un client graphique (comme <a href="https://
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Je vous reommande tout de même de connaître les commandes en ligne, c&#8217;est souvent utile!
+<p>Je vous recommande tout de même de connaître les commandes en ligne, c&#8217;est souvent utile!
 Pour vous familiariser avec les commandes <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> en ligne, ne pas hésiter à utiliser le site <a href="http://try.github.com/levels/1/challenges/1">http://try.github.com</a>.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Principes généraux</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_principes_généraux">2. Principes généraux</h2>
-<div class="sectionbody">
 <div class="imageblock">
 <div class="content">
 <a class="image" href="http://nvie.com/posts/a-successful-git-branching-model/"><img src="images/git-branching.png" alt="git branching" width="70%"></a>
 </div>
-<div class="title">Figure 3. Usage classique de git (<a href="http://nvie.com/posts/a-successful-git-branching-model/" class="bare">http://nvie.com/posts/a-successful-git-branching-model/</a>)</div>
+<div class="title">Figure 3. Usage classique de git (http://nvie.com/posts/a-successful-git-branching-model/)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -112,24 +104,22 @@ Pour vous familiariser avec les commandes <a href="http://git-scm.com/"><span cl
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Ce modèle est controversé et ne fait pas l&#8217;hunanimité.
+<p>Ce modèle est controversé et ne fait pas l&#8217;unanimité.
 Nous verrons dans la suite qu&#8217;il y a plus simple.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Avant de commencer</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_avant_de_commencer">3. Avant de commencer</h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>On initialise certaine variables (une fois pour toute en général) :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git config --global user.name "JM Bruel"
+<pre class="pygments highlight"><code>$ git config --global user.name "JM Bruel"
 $ git config --global user.email jbruel@gmail.com
 $ git config --global alias.co checkout</code></pre>
 </div>
@@ -145,11 +135,11 @@ $ git config --global alias.co checkout</code></pre>
 <p>Ces informations sont stockées dans le fichier <code>~/.gitcongif</code>.</p>
 </div>
 <div class="paragraph">
-<p>Voici un extrait du mien :</p>
+<p>Voici un extrait <a href="util/.gitconfig">du mien</a> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>[user]
+<pre class="pygments highlight"><code>[user]
         name = Jean-Michel Bruel
         email = jbruel@gmail.com
 [alias]
@@ -162,7 +152,7 @@ $ git config --global alias.co checkout</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git co
+<pre class="pygments highlight"><code>$ git co
 Your branch is ahead of 'origin/master' by 1 commit.
   (use "git push" to publish your local commits)
 $ git checkout
@@ -174,19 +164,18 @@ Your branch is ahead of 'origin/master' by 1 commit.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Scénario <strong>classique</strong> (et idéal)</p>
 </div>
+<div class="paragraph">
+<p>== Etape 1 : création du <em>repository</em> local</p>
 </div>
-<div class="sect1">
-<h2 id="_scénario_strong_classique_strong_et_idéal">4. Scénario <strong>classique</strong> (et idéal)</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_etape_1_création_du_em_repository_em_local">4.1. Etape 1 : création du <em>repository</em> local</h3>
 <div class="paragraph">
 <p>On démarre la gestion de version :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git init</code></pre>
+<pre class="pygments highlight"><code>$ git init</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -201,7 +190,7 @@ Your branch is ahead of 'origin/master' by 1 commit.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git init
+<pre class="pygments highlight"><code>$ git init
 Initialized empty Git repository in /tmp/.git/
 
 $ ll
@@ -215,15 +204,15 @@ drwxr-xr-x  10 bruel  admin   340 21 jul 17:29 .git/</code></pre>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Etape 2 : ajout des fichiers</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_2_ajout_des_fichiers">4.2. Etape 2 : ajout des fichiers</h3>
 <div class="paragraph">
 <p>On ajoute les fichiers courants au dépôt :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git add .</code></pre>
+<pre class="pygments highlight"><code>$ git add .</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -262,15 +251,15 @@ drwxr-xr-x  10 bruel  admin   340 21 jul 17:29 .git/</code></pre>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Etape 2 (suite) : vérification</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_2_suite_vérification">4.3. Etape 2 (suite) : vérification</h3>
 <div class="paragraph">
 <p>On peut visualiser les actions en vérifiant l'<strong>état courant</strong> du dépôt :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git status
+<pre class="pygments highlight"><code>$ git status
 # On branch master
 # Your branch is ahead of 'origin/master' by 1 commit.
 #
@@ -283,15 +272,15 @@ drwxr-xr-x  10 bruel  admin   340 21 jul 17:29 .git/</code></pre>
 ...</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>== Etape 3 : Commit</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_3_commit">4.4. Etape 3 : Commit</h3>
 <div class="paragraph">
 <p>Pour entériner les changements :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git commit -m "First draft"
+<pre class="pygments highlight"><code>$ git commit -m "First draft"
 [master (root-commit) 4f40f5d] First draft
  0 files changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 titi.txt
@@ -319,15 +308,15 @@ drwxr-xr-x  10 bruel  admin   340 21 jul 17:29 .git/</code></pre>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Etape 3 (suite) : Gestion "locale"</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_3_suite_gestion_locale">4.5. Etape 3 (suite) : Gestion "locale"</h3>
 <div class="paragraph">
 <p>Exemple de scénario type (suppression exceptionnelle et rattrapage) :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ rm titi.txt
+<pre class="pygments highlight"><code>$ rm titi.txt
 $ git status
 # On branch master
 # Changes not staged for commit:
@@ -343,9 +332,9 @@ $ ls titi.txt
 titi.txt</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>== Etape 4 : Trouver un hébergement distant</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_4_trouver_un_hébergement_distant">4.6. Etape 4 : Trouver un hébergement distant</h3>
 <div class="paragraph">
 <p>Il existe de nombreux endroits disponibles pour héberger du code libre.
 Les plus connus sont <a href="https://github.com/">GitHub</a> et <span class="icon"><i class="fa fa-gitlab"></i></span><a href="https://gitlab.com/">GitLab</a>.</p>
@@ -355,16 +344,16 @@ Les plus connus sont <a href="https://github.com/">GitHub</a> et <span class="ic
 <img src="images/github.png" alt="github" width="70%">
 </div>
 </div>
+<div class="paragraph">
+<p>== Etape 4 (suite) : déclarer le dépôt distant</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_4_suite_déclarer_le_dépôt_distant">4.7. Etape 4 (suite) : déclarer le dépôt distant</h3>
 <div class="paragraph">
 <p>Après avoir créé un dépôt distant, il n&#8217;y a plus qu&#8217;à associer ce
 dépôt distant avec le notre.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git remote add origin git@github.com:jmbruel/first_app.git <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="pygments highlight"><code>$ git remote add origin git@github.com:jmbruel/first_app.git <i class="conum" data-value="1"></i><b>(1)</b>
 $ git push -u origin master <i class="conum" data-value="2"></i><b>(2)</b>
 Counting objects: 3, done.
 Delta compression using up to 2 threads.
@@ -389,27 +378,27 @@ de "pousser" sur la branche <code>master</code> du dépôt <code>origin</code> (
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Etape 5 : branch, edit, commit, merge</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_5_branch_edit_commit_merge">4.8. Etape 5 : branch, edit, commit, merge</h3>
 <div class="paragraph">
 <p>En cas d&#8217;édition et de commit local :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git checkout
+<pre class="pygments highlight"><code>$ git checkout
 Your branch is ahead of 'origin/master' by 1 commit.</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>== Etape 5 (suite) : branching</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_5_suite_branching">4.9. Etape 5 (suite) : branching</h3>
 <div class="paragraph">
 <p><a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> est très bon pour créer des branches :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git checkout -b testModifTiti
+<pre class="pygments highlight"><code>$ git checkout -b testModifTiti
 Switched to a new branch 'testModifTiti'
 $ git branch
   master
@@ -424,15 +413,15 @@ $ git branch
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Etape 5 (suite) : edit</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_5_suite_edit">4.10. Etape 5 (suite) : edit</h3>
 <div class="paragraph">
 <p>Après modification :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git status
+<pre class="pygments highlight"><code>$ git status
 # On branch testModifTiti
 # Changes not staged for commit:
 #   (use "git add &lt;file&gt;..." to update what will be committed)
@@ -443,15 +432,15 @@ $ git branch
 no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>== Etape 5 (suite) : commit</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_5_suite_commit">4.11. Etape 5 (suite) : commit</h3>
 <div class="paragraph">
 <p>On "sauvegarde" les changements :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git commit -am "modif de titi"
+<pre class="pygments highlight"><code>$ git commit -am "modif de titi"
 [testModifTiti 4515b5d] modif de titi
  1 files changed, 7 insertions(+), 0 deletions(-)</code></pre>
 </div>
@@ -474,15 +463,15 @@ no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Etape 5 (suite) : utilisation des branches</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_5_suite_utilisation_des_branches">4.12. Etape 5 (suite) : utilisation des branches</h3>
 <div class="paragraph">
 <p>On peut "zapper" d&#8217;une branche à l&#8217;autre à volonté :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ ll titi*
+<pre class="pygments highlight"><code>$ ll titi*
 -rw-rw-r--    1 bruel  staff   331 12 nov 12:39 titi.txt
 
 $ git co master
@@ -493,16 +482,16 @@ $ ll titi*
 -rw-rw-r--    1 bruel  staff     0 12 nov 12:40 titi.txt</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>== Etape 5 (suite) : merge</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_5_suite_merge">4.13. Etape 5 (suite) : merge</h3>
 <div class="paragraph">
 <p>Maintenant que la branche a été développée (testée, etc.) on peut
 l&#8217;intégrer à la branche principale :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git co master
+<pre class="pygments highlight"><code>$ git co master
 Switched to branch 'master'
 
 $ git merge testModifTiti
@@ -535,15 +524,15 @@ Merge made by recursive.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Etape 6 : push</p>
 </div>
-<div class="sect2">
-<h3 id="_etape_6_push">4.14. Etape 6 : push</h3>
 <div class="paragraph">
 <p>Maintenant que notre dépôt est satisfaisant, on peut le synchroniser avec le dépôt distant :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git push
+<pre class="pygments highlight"><code>$ git push
 Counting objects: 11, done.
 Delta compression using up to 2 threads.
 Compressing objects: 100% (9/9), done.
@@ -553,15 +542,15 @@ To git@github.com:jmbruel/first_app.git
    6103463..3aae48a  master -&gt; master</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>== Dépôts existants</p>
 </div>
-<div class="sect2">
-<h3 id="_dépôts_existants">4.15. Dépôts existants</h3>
 <div class="paragraph">
 <p>Si vous devez partir d&#8217;un dépôt existant :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git clone git@github.com:jmbruel/first_app.git</code></pre>
+<pre class="pygments highlight"><code>$ git clone git@github.com:jmbruel/first_app.git</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -585,9 +574,9 @@ To git@github.com:jmbruel/first_app.git
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Illustration des branches</p>
 </div>
-<div class="sect2">
-<h3 id="_illustration_des_branches">4.16. Illustration des branches</h3>
 <div class="paragraph">
 <p>Voici une illustration de l&#8217;utilisation des branches (tirée de <a href="http://git-scm.com/book">git-scm</a>).</p>
 </div>
@@ -605,7 +594,7 @@ To git@github.com:jmbruel/first_app.git
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git checkout -b iss53</code></pre>
+<pre class="pygments highlight"><code>$ git checkout -b iss53</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -637,7 +626,7 @@ To git@github.com:jmbruel/first_app.git
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ edit ...
+<pre class="pygments highlight"><code>$ edit ...
 $ git commit -m " blabla iss53"</code></pre>
 </div>
 </div>
@@ -652,7 +641,7 @@ $ git commit -m " blabla iss53"</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git checkout master
+<pre class="pygments highlight"><code>$ git checkout master
 $ git checkout -b hotfix
 $ edit ...
 $ git commit -m " blabla hotfix"</code></pre>
@@ -669,7 +658,7 @@ $ git commit -m " blabla hotfix"</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git checkout master
+<pre class="pygments highlight"><code>$ git checkout master
 $ git merge hotfix</code></pre>
 </div>
 </div>
@@ -702,7 +691,7 @@ $ git merge hotfix</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git branch -d hotfix <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="pygments highlight"><code>$ git branch -d hotfix <i class="conum" data-value="1"></i><b>(1)</b>
 $ git checkout iss53
 $ edit ...
 $ git commit -m " blabla iss53"</code></pre>
@@ -727,7 +716,7 @@ $ git commit -m " blabla iss53"</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git checkout master
+<pre class="pygments highlight"><code>$ git checkout master
 $ git merge iss53</code></pre>
 </div>
 </div>
@@ -772,7 +761,7 @@ les branches (les commits feuilles) une par une et vérifier les conflits par it
 <div class="ulist">
 <ul>
 <li>
-<p>On part du principe qu&#8217;il n&#8217;y a pas eu de <a href="#conflits">Gestion des conflits</a></p>
+<p>On part du principe qu&#8217;il n&#8217;y a pas eu de <a href="#conflits">[conflits]</a></p>
 </li>
 <li>
 <p>On peut maintenant supprimer <code>iss53</code></p>
@@ -783,11 +772,12 @@ les branches (les commits feuilles) une par une et vérifier les conflits par it
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>== Bonne utilisation</p>
 </div>
-<div class="sect2">
-<h3 id="_bonne_utilisation">4.17. Bonne utilisation</h3>
-<div class="sect3">
-<h4 id="_avoir_une_procédure_concertée">4.17.1. Avoir une procédure concertée</h4>
+<div class="paragraph">
+<p>=== Avoir une procédure concertée</p>
+</div>
 <div class="paragraph">
 <p>Revenons sur l&#8217;exemple type :</p>
 </div>
@@ -797,9 +787,9 @@ les branches (les commits feuilles) une par une et vérifier les conflits par it
 </div>
 <div class="title">Figure 12. Usage classique de git (<a href="http://nvie.com/posts/a-successful-git-branching-model/" class="bare">http://nvie.com/posts/a-successful-git-branching-model/</a>)</div>
 </div>
+<div class="paragraph">
+<p>=== Ne pas versionner n&#8217;importe quoi!</p>
 </div>
-<div class="sect3">
-<h4 id="_ne_pas_versionner_n_importe_quoi">4.17.2. Ne pas versionner n&#8217;importe quoi!</h4>
 <div class="paragraph">
 <p>Ce qu&#8217;il ne faut pas versionner :
 - les exécutables
@@ -807,25 +797,25 @@ les branches (les commits feuilles) une par une et vérifier les conflits par it
 - les images générées
 - tous les binaires en général!</p>
 </div>
+<div class="paragraph">
+<p>== La gestion de version n&#8217;est pas un long fleuve tranquille</p>
 </div>
+<div class="paragraph">
+<p>=== Oups! j&#8217;ai oublié un truc</p>
 </div>
-<div class="sect2">
-<h3 id="_la_gestion_de_version_n_est_pas_un_long_fleuve_tranquille">4.18. La gestion de version n&#8217;est pas un long fleuve tranquille</h3>
-<div class="sect3">
-<h4 id="_oups_j_ai_oublié_un_truc">4.18.1. Oups! j&#8217;ai oublié un truc</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git commit -m 'initial commit'
+<pre class="pygments highlight"><code>$ git commit -m 'initial commit'
 $ git add forgotten_file
 $ git commit --amend</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>=== Oups! j&#8217;ai mis trop de truc</p>
 </div>
-<div class="sect3">
-<h4 id="_oups_j_ai_mis_trop_de_truc">4.18.2. Oups! j&#8217;ai mis trop de truc</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git add *.*
+<pre class="pygments highlight"><code>$ git add *.*
 $ git reset *.class</code></pre>
 </div>
 </div>
@@ -841,12 +831,12 @@ Aucun danger
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>=== CTRL+Z</p>
 </div>
-<div class="sect3">
-<h4 id="_ctrl_z">4.18.3. CTRL+Z</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ working on some file README.adoc ...
+<pre class="pygments highlight"><code>$ working on some file README.adoc ...
 $ git checkout -- REAME.adoc</code></pre>
 </div>
 </div>
@@ -862,12 +852,12 @@ Danger!
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>=== Où j&#8217;en suis</p>
 </div>
-<div class="sect3">
-<h4 id="_où_j_en_suis">4.18.4. Où j&#8217;en suis</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git status</code></pre>
+<pre class="pygments highlight"><code>$ git status</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -890,16 +880,15 @@ Danger!
 <img src="images/gitbash4.png" alt="gitbash4" width="95%">
 </div>
 </div>
+<div class="paragraph">
+<p>== Gestion des branches</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_gestion_des_branches">4.19. Gestion des branches</h3>
 <div class="paragraph">
 <p>La principale difficulté de <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> vient de la liberté en termes de branches.</p>
 </div>
+<div class="paragraph">
+<p>== Les différents <code>merge</code></p>
 </div>
-<div class="sect2">
-<h3 id="_les_différents_code_merge_code">4.20. Les différents <code>merge</code></h3>
 <div class="paragraph">
 <p>Les exemples suivants sont tirés de :</p>
 </div>
@@ -910,54 +899,55 @@ Danger!
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate" class="bare">https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate</a>
+{compMergeURL}
 </td>
 </tr>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_explicit_code_merge_code">4.20.1. Explicit <code>merge</code></h4>
+<div class="paragraph">
+<p>=== Explicit <code>merge</code></p>
+</div>
 <div class="imageblock">
 <div class="content">
 <a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-merge.gif" alt="what is a merge" width="95%"></a>
 </div>
 </div>
+<div class="paragraph">
+<p>=== Implicit <code>merge</code> via <code>rebase</code> or <code>fast-forward</code></p>
 </div>
-<div class="sect3">
-<h4 id="_implicit_code_merge_code_via_code_rebase_code_or_code_fast_forward_code">4.20.2. Implicit <code>merge</code> via <code>rebase</code> or <code>fast-forward</code></h4>
 <div class="imageblock">
 <div class="content">
 <a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-rebase.gif" alt="what is a rebase" width="95%"></a>
 </div>
 </div>
+<div class="paragraph">
+<p>=== Implicit <code>merge</code> via <code>fast-forward</code></p>
 </div>
-<div class="sect3">
-<h4 id="_implicit_code_merge_code_via_code_fast_forward_code">4.20.3. Implicit <code>merge</code> via <code>fast-forward</code></h4>
 <div class="imageblock">
 <div class="content">
 <a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-fast-forward.gif" alt="what is a fast forward" width="95%"></a>
 </div>
 </div>
+<div class="paragraph">
+<p>=== Squash on <code>merge</code></p>
 </div>
-<div class="sect3">
-<h4 id="_squash_on_code_merge_code">4.20.4. Squash on <code>merge</code></h4>
 <div class="imageblock">
 <div class="content">
 <a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/squash-on-merge.gif" alt="squash on merge" width="95%"></a>
 </div>
 </div>
+<div id="conflits" class="paragraph">
+<p>== Gestion des conflits</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="conflits">4.21. Gestion des conflits</h3>
 <div class="paragraph">
 <p>La principale activité du programmeur qui utilise <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> en équipe vient de la gestion des <strong>conflits</strong>.</p>
 </div>
-<div class="sect3">
-<h4 id="_À_la_main">4.21.1. À la main</h4>
+<div class="paragraph">
+<p>=== À la main</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ git checkout master
+<pre class="pygments highlight"><code>$ git checkout master
 $ git merge other_branch
 Auto-merging toto.txt
 CONFLICT (content): Merge conflict in toto.txt
@@ -1011,9 +1001,9 @@ dans le fichier&#8230;&#8203;
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>=== Avec un peu d&#8217;aide</p>
 </div>
-<div class="sect3">
-<h4 id="_avec_un_peu_d_aide">4.21.2. Avec un peu d&#8217;aide</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1034,16 +1024,15 @@ dans le fichier&#8230;&#8203;
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== Git avancé : Git-Flow</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_git_avancé_git_flow">4.22. Git avancé : Git-Flow</h3>
 <div class="paragraph">
 <p><a href="http://danielkummer.github.io/git-flow-cheatsheet/" class="bare">http://danielkummer.github.io/git-flow-cheatsheet/</a></p>
 </div>
+<div class="paragraph">
+<p>== Résumé des commandes</p>
 </div>
-<div class="sect2">
-<h3 id="_résumé_des_commandes">4.23. Résumé des commandes</h3>
 <div class="paragraph">
 <p>Voici un schéma pour résumer la philosophie (tiré de <a href="http://osteele.com" class="bare">http://osteele.com</a>) :</p>
 </div>
@@ -1053,9 +1042,9 @@ dans le fichier&#8230;&#8203;
 </div>
 <div class="title">Figure 13. Résumé des commandes git (<a href="http://osteele.com" class="bare">http://osteele.com</a>)</div>
 </div>
+<div class="paragraph">
+<p>== Liens utiles</p>
 </div>
-<div class="sect2">
-<h3 id="_liens_utiles">4.24. Liens utiles</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Le site de référence</dt>
@@ -1098,13 +1087,13 @@ dans le fichier&#8230;&#8203;
 </dd>
 <dt class="hdlist1">Comparaison entre merge/rebase/etc.</dt>
 <dd>
-<p><a href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate" class="bare">https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate</a></p>
+<p>{compmergeURL}</p>
 </dd>
 </dl>
 </div>
+<div class="paragraph">
+<p>== Glossaire</p>
 </div>
-<div class="sect2">
-<h3 id="_glossaire">4.25. Glossaire</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><em>fast_forward</em></dt>
@@ -1117,11 +1106,10 @@ Il s&#8217;agit donc pour <a href="http://git-scm.com/"><span class="icon"><i cl
 </div>
 </div>
 </div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Version 2.0 2016-09-15<br>
-Last updated 2016-09-15 11:52:56 UTC
+Version 2.0 2016-09-16<br>
+Last updated 2016-09-16 12:20:23 CEST
 </div>
 </div>
 </body>

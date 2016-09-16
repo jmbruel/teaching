@@ -1,0 +1,129 @@
+//---------------------------------
+// Cours sur Tuleap
+// (c) JMB - 2016
+//---------------------------------
+[[git]]
+= Gestion de projet avec *Tuleap*
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:git-version: 2.9.2
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: http://jmbhome.github.io/teaching/git.html
+//------------------------------------ Slides uniquement
+ifdef::slides[]
+//--------------------- dzslides slides
+ifdef::dzslides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+endif::dzslides[]
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+
+ifdef::slides[]
+// ------------------------------------------ disclaimer
+:numbered!:
+[{intro}]
+== Avant-propos
+
+[{topic}]
+== Pour suivre en live... icon:mobile[] icon:tablet[] icon:laptop[]
+
+[{statement}]
+{siteurl}
+
+/////
+//image::qrcode.png[role="middle stretch-y"]
+[qrcode, target='presentation-qrcode.png', size=20, alt='{slidesurl}', role='middle stretch-y']
+----
+{siteurl}
+----
+
+[geb]
+....
+go "http://google.com"
+$("input", name: "q").value("asciidoctor")
+Tread.sleep(5000)
+....
+
+.Google Landing page
+screenshot::http://google.com[google]
+/////
+
+endif::slides[]
+
+// ------
+[{topic}]
+== Environnement
+
+ifdef::slides[]
+- {tuleap} [detail]#(v.`{git-version}`)#
+endif::slides[]
+
+Tutoriel en français : http://tuleap.developpez.com/tutoriels/presentation-tuleap/
+
+// ------
+[{topic}]
+== Liens utiles
+
+Le site de référence::
+  {tuleapurl}
+Tutoriel en français::
+  http://tuleap.developpez.com/tutoriels/presentation-tuleap/
+
+/////
+// ------
+[{topic}]
+== Glossaire
+
+_fast_forward_::
+Quand on merge une branche depuis un noeud situé  sur le même "historique".
+Il s'agit donc pour {git} d'un simple déplacement de pointeur!
+/////

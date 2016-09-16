@@ -1,0 +1,107 @@
+// ------------------------------------------
+//  Created by Jean-Michel Bruel on 2014-11.
+//  Copyright (c) 2014 IRIT/U. Toulouse. All rights reserved.
+// ------------------------------------------
+= DUT-Info/S3/M3105 (CPOA)
+Jean-Michel Bruel <jbruel@gmail.com>
+v1.3, {localdate} - First draft
+:status: bottom
+:inclusion:
+:experimental:
+
+// ------------------------------------------
+include::definitions.txt[]
+include::asciidoc.conf[]
+
+ifdef::slides[]
+
+== Suivre ces slides sur Internet...
+
+image::qrcode.png[link="qrcode.png",alt="http://bit.ly/jmb_cpoa",width=40%]
+
+.........
+http://bit.ly/jmb_cpoa
+http://iut-blagnac.github.io/cpoa/
+.........
+
+endif::slides[]
+
+/////
+include::introduction.txt[]
+
+== Rappels sur des éléments Java importants
+
+ifdef::slides[]
+include::typage.asc[]
+endif::slides[]
+ifndef::slides[]
+include::typage.asc[leveloffset=+1]
+endif::slides[]
+
+ifdef::slides[]
+include::visibilite.asc[]
+endif::slides[]
+ifndef::slides[]
+include::visibilite.asc[leveloffset=+1]
+endif::slides[]
+
+ifdef::slides[]
+include::static.asc[]
+endif::slides[]
+ifndef::slides[]
+include::static.asc[leveloffset=+1]
+endif::slides[]
+
+ifdef::slides[]
+include::enum.asc[]
+endif::slides[]
+ifndef::slides[]
+include::enum.asc[leveloffset=+1]
+endif::slides[]
+
+
+include::build.asc[]
+
+//----------------
+include::patterns.asc[leveloffset=+1]
+
+include::fabrique.asc[]
+
+include::machine-a-etat.asc[]
+
+include::etat.asc[]
+
+include::sonar.asc[]
+
+include::codingDojo.asc[]
+
+include::observer.asc[]
+
+include::JTable.asc[]
+
+include::adapteur.asc[]
+
+include::visiteur.asc[]
+
+include::proxy.asc[]
+
+include::iterateur.asc[]
+
+include::composite.asc[]
+
+include::refactoringBanque.txt[]
+
+include::patterns4.asc[]
+/////
+== OO or not OO
+
+Un peu de contreverse...
+
+https://medium.com/@cscalfani/goodbye-object-oriented-programming-a59cda4c0e53#.g5y9w0a9l
+
+/////
+:numbered!:
+include::glossaire.txt[]
+
+include::refs.txt[]
+/////

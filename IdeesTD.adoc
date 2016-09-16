@@ -1,0 +1,73 @@
+= TD1
+
+== La communication
+
+=== Rôle de l'équipe :
+
+- Un dessinateur
+- Une MOA (qui va exprimer le besoin) du dessinateur
+- Une MOE (qui va réaliser le dessin)
+
+NOTE: Il est important que la "MOE" ne voit pas le dessin réalisé.
+
+=== Etape 1
+
+Donc dans un coin, le dessinateur dessine :
+
+-    un triangle,
+-    un carré,
+-    un rectangle,
+-    un cercle,
+-    une maison,
+-    un arbre,
+-    et un oiseau.
+
+
+Il n'y a aucune contrainte dans le choix :
+
+-    des couleurs,
+-    la taille,
+-    la position,
+-    etc.
+
+
+=== Etape 2
+
+La MOA découvre le dessin et dicte à la MOE ce qu'il doit faire.
+Point important :
+
+-    La MOE ne voit pas le dessin d'origine.
+-    La MOA ne voit pas ce que dessine la MOE.
+
+
+=== Etape 3
+
+On compare le dessin d'origine et le dessin de la MOE :-)
+
+== Le bambou à porter
+
+=== La mise en place
+
+Pour chaque équipe :
+- une tige légère
+- un contrôleur
+
+=> besoin d'un leader
+=> besoin d'une organisation
+
+== Les legos à reproduire
+
+=> mise en place originale au départ
+=> fixer les règles de communication ("petit", "gros")
+=> rôles de chacun
+
+== Story MatriceEntierPreconditionsTest
+
+https://idetido.wordpress.com/2014/06/04/exercice-de-story-mapping/
+
+=== **M**o**SC**o**W*
+
+- **M**ust have (or Minimum Usable Subset)
+- **S**hould have
+- **C**ould have
+- **W**on’t have (but Would like in future)
