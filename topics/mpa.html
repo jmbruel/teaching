@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="author" content="J.-M. Bruel">
+<title>Méthodologie de la production d'applications – MPA (M3301)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body id="MPA" class="article toc2 toc-left">
+<div id="header">
+<h1><strong>M</strong>éthodologie de la <strong>p</strong>roduction d'<strong>a</strong>pplications – MPA (M3301)</h1>
+<div class="details">
+<span id="author" class="author">J.-M. Bruel</span><br>
+<span id="email" class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span><br>
+<span id="revnumber">version 1.0 2016-09-15</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matières</div>
+<ul class="sectlevel1">
+<li><a href="#_avant_propos">1. Avant-propos</a></li>
+<li><a href="#__span_class_icon_i_class_fa_fa_home_i_span_principes">2. <span class="icon"><i class="fa fa-home"></i></span> Principes</a></li>
+<li><a href="#_contenu_et_progression">3. Contenu et Progression</a>
+<ul class="sectlevel2">
+<li><a href="#_organisation_et_emploi_du_temps">3.1. Organisation et emploi du temps</a></li>
+<li><a href="#_projet_fil_rouge">3.2. Projet fil rouge</a></li>
+<li><a href="#_développer_une_application_java_web">3.3. Développer une application java/web</a></li>
+</ul>
+</li>
+<li><a href="#_les_différents_cycles">4. Les différents cycles</a>
+<ul class="sectlevel2">
+<li><a href="#_cycle_0">4.1. Cycle 0</a></li>
+<li><a href="#_cycle_1_et_suivants">4.2. Cycle 1 et suivants&#8230;&#8203;</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>À l&#8217;initiateur de ce cours, Jean-Michel Inglebert&#8230;&#8203;</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/blasonJMI.png" alt="blasonJMI" width="50%">
+</div>
+<div class="title">Figure 1. Blason des étudiants DUT Info 2016</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_avant_propos">1. Avant-propos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nous allons nous intéresser dans ce cours aux
+<strong>M</strong>éthodologies de la <strong>P</strong>roduction d'<strong>A</strong>pplications.</p>
+</div>
+<div class="paragraph">
+<p>Ce module, qui fait suite aux modules de :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>programmation (M2103),</p>
+</li>
+<li>
+<p>conception (M2104) et</p>
+</li>
+<li>
+<p>d&#8217;IHM (M2105).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Il est fortement corrélé au module de conception avancé (M3105).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Nous suivons (comme tous les DUT informatique) le programme pédagogique national (PPN - disponible <a href="http://www.iut.univ-paris8.fr/files/webfm/administration/com/PPNinformatique.pdf">ici</a>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.iut.univ-paris8.fr/files/webfm/administration/com/PPNinformatique.pdf"><img src="images/M3301.png" alt="M3301" width="80%"></a>
+</div>
+<div class="title">Figure 2. Le contenu officiel</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__span_class_icon_i_class_fa_fa_home_i_span_principes">2. <span class="icon"><i class="fa fa-home"></i></span> Principes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ce module s&#8217;intéresse aux <strong>M</strong>éthodes et outils de la <strong>P</strong>roduction d'<strong>A</strong>pplications (MPA).</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Application</dt>
+<dd>
+<p>Dans notre cas, du logiciel.</p>
+</dd>
+<dt class="hdlist1">Production</dt>
+<dd>
+<p>Cela signifie que c&#8217;est le résultat d&#8217;une fabrication &#8658; <strong>build</strong></p>
+</dd>
+<dt class="hdlist1">Méthodes</dt>
+<dd>
+<p>On illustrera certaines méthodes et on travaillera <a href="http://fr.wikipedia.org/wiki/Scrum_(m%C3%A9thode)">Scrum</a> en particulier</p>
+</dd>
+<dt class="hdlist1">Outils</dt>
+<dd>
+<p>On continuera l&#8217;apprentissage des outils de base</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contenu_et_progression">3. Contenu et Progression</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Cours SCRUM, Cycle -1 et Cycle 0, Tests</p>
+</li>
+<li>
+<p>Cours Gestion des Modèles au cours du développement et à la livraison</p>
+</li>
+<li>
+<p>Cours Intégration continue, documentation</p>
+</li>
+<li>
+<p>Cours Modèles UML complémentaire (Activité, État)</p>
+</li>
+<li>
+<p>Cours Maintenance, refactoring, évolutions</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_organisation_et_emploi_du_temps">3.1. Organisation et emploi du temps</h3>
+<div class="paragraph">
+<p>Au lieu de faire 2 modules en // (comme POO et COO l&#8217;an dernier), vous aurez ce semestre 2 fois plus d&#8217;heures,
+mais d&#8217;un seul module, l&#8217;un après l&#8217;autre (MPA puis CPOA).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_projet_fil_rouge">3.2. Projet fil rouge</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>TD1 : Comprendre l&#8217;objectif, planifier les tâches</p>
+</li>
+<li>
+<p>TD2 : Développer à plusieurs et intégrer</p>
+</li>
+<li>
+<p>TP1 : Développer seul et intégrer</p>
+</li>
+<li>
+<p>TP2 : Développer à plusieurs et intégrer</p>
+</li>
+<li>
+<p>TD3 : Evaluer le travail restant et les améliorations possibles de l&#8217;équipe, planifier les tâches</p>
+</li>
+<li>
+<p>etc.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_développer_une_application_java_web">3.3. Développer une application java/web</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Analyse</p>
+</li>
+<li>
+<p>Conception ou évolution</p>
+</li>
+<li>
+<p>Cycle de vie complet dont maintenance et exploitation</p>
+</li>
+<li>
+<p>Normes logicielle/métriques qualité</p>
+</li>
+<li>
+<p>Mise en production, documentation</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_différents_cycles">4. Les différents cycles</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_cycle_0">4.1. Cycle 0</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Saisir le Backlog initial de Produit</p>
+</li>
+<li>
+<p>Organiser l&#8217;arborescence des sources <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> (branches, tags)</p>
+</li>
+<li>
+<p>Organiser les répertoires du projet (data,lib,test,doc)</p>
+</li>
+<li>
+<p>Produire l&#8217;IHM V0</p>
+</li>
+<li>
+<p>Produire la librairie V0</p>
+</li>
+<li>
+<p>Produire la documentation utilisateur V0</p>
+</li>
+<li>
+<p>Produire la documentation technique V0</p>
+</li>
+<li>
+<p>Fin TPs : livraisons (IHM, Doc U., Doc T.)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cycle_1_et_suivants">4.2. Cycle 1 et suivants&#8230;&#8203;</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Produire l&#8217;IHM V1</p>
+</li>
+<li>
+<p>Produire la librairie V1</p>
+</li>
+<li>
+<p>Produire la documentation utilisateur V1</p>
+</li>
+<li>
+<p>Produire la documentation technique V1 (dont les scénarios de test d&#8217;IHM)</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_backlog_du_cycle_1">4.2.1. Backlog du Cycle 1</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>En tant que &#8230;&#8203;, je peux &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Par exemple :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>En tant que <strong>gestionnaire</strong>, je peux <strong>afficher la liste des étudiants</strong></p>
+</li>
+<li>
+<p>En tant qu' <strong>administrateur</strong>, je peux <strong>afficher la liste des intervenants</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_td_tp">4.2.2. TD/TP</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>TD1 : organisation, analyse</p>
+</li>
+<li>
+<p>TD2 : conception sur feuille</p>
+</li>
+<li>
+<p>TPs : codage et gestion de projet</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0 2016-09-15<br>
+Last updated 2016-09-15 11:52:56 UTC
+</div>
+</div>
+</body>
+</html>
