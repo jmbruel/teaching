@@ -739,19 +739,19 @@ WARNING: Danger!
 $ git status
 ----------------------------------------------------------
 
-ifdef::slides[== !]
+ifdef::slides[=== !]
 
 image::gitbash1.png[width=95%]
 
-ifdef::slides[== !]
+ifdef::slides[=== !]
 
 image::gitbash2.png[width=95%]
 
-ifdef::slides[== !]
+ifdef::slides[=== !]
 
 image::gitbash3.png[width=95%]
 
-ifdef::slides[== !]
+ifdef::slides[=== !]
 
 image::gitbash4.png[width=95%]
 
