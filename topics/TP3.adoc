@@ -38,11 +38,12 @@ Cette version comporte des indications pour les
 réponses aux exercices, ainsi que des consignes pour les
 enseignants.
 =====
-endif::prof[]
 
 :numbered!:
 == icon:graduation-cap[] Penser à faire l'appel!
 :numbered:
+
+endif::prof[]
 
 //-------------------- Cartouche d'en-tête -----------
 [[cartouche]]

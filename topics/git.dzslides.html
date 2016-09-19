@@ -1136,6 +1136,13 @@ Writing objects: 100% (9/9), 977 bytes, done.
 Total 9 (delta 2), reused 0 (delta 0)
 To git@github.com:jmbruel/first_app.git
    6103463..3aae48a  master -&gt; master</pre></div></section>
+<section class="topic"><h2>Etape 7 : pull request (demande)</h2></section>
+<section class="topic"><h2>Etape 7 (suite) : pull request (acceptation)</h2><div class="listingblock"><pre>$ git checkout -b develop origin/develop
+$ ...                       <i class="conum" data-value="1"></i><b>(1)</b>
+$ git checkout master
+$ git merge --no-ff develop <i class="conum" data-value="2"></i><b>(2)</b>
+$ git push origin master    <i class="conum" data-value="3"></i><b>(3)</b></pre></div>
+<div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td>Vérifiez ce qui va être intégré</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td>On merge localement pour gérer les problèmes</td></tr><tr><td><i class="conum" data-value="3"></i><b>3</b></td><td>On pousse sur master</td></tr></table></div></section>
 <section class="topic"><h2>Dépôts existants</h2><p>Si vous devez partir d&#8217;un dépôt existant :</p>
 <div class="listingblock"><pre>$ git clone git@github.com:jmbruel/first_app.git</pre></div>
 <div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip" title="Tip"></i></td><td class="content"><ul class="incremental"><li>Pour obtenir le nom du dépôt distant : <code>git remote -v</code>.</li><li>Vous avez aussi le nom du dépôt distant dans le fichier <code>.git/config</code>.</li></ul></td></tr></table></div></section>
@@ -1230,8 +1237,8 @@ tiré de l&#8217;excellent livre <a href="https://git-scm.com/book/en/v2/Git-Bra
 <div class="colist arabic"><table><tr><td><i class="conum" data-value="1"></i><b>1</b></td><td><code>develop</code> est la branche de travail qui contient la dernière version des codages en cours.</td></tr><tr><td><i class="conum" data-value="2"></i><b>2</b></td><td><code>master</code> est toujours stable et sert au déploiement</td></tr></table></div></li></ul></section>
 <section><ul><li>On fork <code>develop</code> pour traiter un <em>bug</em> ou une <em>feature</em>.<ul><li>On merge dans <code>develop</code></li><li>On détruit la branche devenue inutile</li></ul></li></ul></section>
 <section><p>Ce qui donne le flot suivant dès que vous devez faire une amélioration (corriger un bug ou ajouter une fonctionnalités) :</p>
-<ul class="incremental"><li>Créer une branche (e.g., <code>fix-451</code>)</li><li>Travailler sur cette branche</li><li>Merger cette branche dans <code>develop</code></li><li>Rejouer les tests</li><li>Régler les conflits éventuels</li><li>Quand tout fonctionne &#8658; pull-request</li><li>On peut livrer à partir de <code>master</code></li></ul></section>
-<section class="topic"><h2>Les différents <code>merge</code></h2></section>
+<ul class="incremental"><li>Créer une branche (e.g., <code>fix-451</code>)</li><li>Travailler sur cette branche</li><li>Merger cette branche dans <code>develop</code></li><li>Rejouer les tests</li><li>Régler les conflits éventuels</li><li>Quand tout fonctionne &#8658; <a class="xref" href="#pull-request">Etape 7 : pull request (demande)</a></li><li>On peut livrer à partir de <code>master</code></li></ul></section>
+<section class="topic intro"><h2>Les différents <strong>merge</strong></h2></section>
 <section><p>Les exemples suivants sont tirés de :</p>
 <div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note" title="Note"></i></td><td class="content"><a href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate" class="bare">https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate</a></td></tr></table></div></section>
 <section class="topic"><h2>Explicit <code>merge</code></h2><a class="image" href="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&amp;utm_medium=social&amp;utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate"><img src="images/what-is-a-merge.gif" alt="what is a merge" width="95%" /></a>
