@@ -488,6 +488,29 @@ To git@github.com:jmbruel/first_app.git
    6103463..3aae48a  master -> master
 ----------------------------------------------------------------------
 
+[[pull-request]]
+// ------
+[{topic}]
+== Etape 7 : pull request (demande)
+
+// ------
+[{topic}]
+== Etape 7 (suite) : pull request (acceptation)
+
+[source]
+----------------------------------------------------------------------
+$ git checkout -b develop origin/develop
+$ ...                       <1>
+$ git checkout master
+$ git merge --no-ff develop <2>
+$ git push origin master    <3>
+----------------------------------------------------------------------
+<1> Vérifiez ce qui va être intégré
+<2> On merge localement pour gérer les problèmes
+<3> On pousse sur master
+
+ifndef::slides[:leveloffset: 0]
+
 // ------
 [{topic}]
 == Dépôts existants
@@ -686,13 +709,65 @@ image::git-branching.png[width="70%",link="http://nvie.com/posts/a-successful-gi
 === Ne pas versionner n'importe quoi!
 
 Ce qu'il ne faut pas versionner :
+
 - les exécutables
 - les zip dont le contenu change sans arrêt
 - les images générées
 - tous les binaires en général!
 
+// ------
+[{topic}]
+=== Les "releases"
+
+En {git} on peut _taguer_ des branches et c'est ce mécanisme qui
+permet de gérer simplement les _releases_.
+
+[source]
+----------------------------------------------------------------------
+$ git tag -a v1.0 -m "Release 1.0 as required by client"
+$ git tag
+v1.0
+----------------------------------------------------------------------
+
+ifdef::slides[=== !]
+
+On peut voir les détails d'un commit tagué :
+
+[source]
+----------------------------------------------------------------------
+$ git show v1.0
+tag v1.0
+Tagger: Jean-Michel Bruel <jbruel@gmail.com>
+Date:   Fri Sep 16 14:27:20 2016 +0200
+
+Release 1.0 as required by client
+
+commit 47da474098d95f8ef5c3ca838be8b87d7a7ed729
+Author: Jean-Michel Bruel <jbruel@gmail.com>
+Date:   Fri Sep 16 12:38:20 2016 +0200
+----------------------------------------------------------------------
+
+ifdef::slides[=== !]
+
+On peut aussi taguer a posteriori :
+
+[source]
+----------------------------------------------------------------------
+$ git tag -a v1.2 9fceb02 <1>
+----------------------------------------------------------------------
+<1> ajoute le tag `v1.2` au commit dont le <<SHA-1>> commence par `9fceb02`
 
 ifdef::slides[:leveloffset: +1]
+
+[WARNING]
+====
+Par défaut les tags ne sont pas poussés sur le dépôt distant.
+
+[source]
+----------------------------------------------------------------------
+$ git push origin v1.5
+----------------------------------------------------------------------
+====
 
 // ------
 [{intro}]
@@ -770,9 +845,45 @@ ifdef::slides[== !]
 
 La principale difficulté de {git} vient de la liberté en termes de branches.
 
+Pour faire simple, je vous conseille une gestion qui marche bien pour les petites équipes,
+tiré de l'excellent livre https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows[Pro Git] :
+
+ifdef::slides[== !]
+
+* Deux branches seulement: `master` et `develop`.
++
+[source]
+----------------------------------------------------------
+$ git branch
+* develop     <1>
+  master      <2>
+----------------------------------------------------------
+<1> `develop` est la branche de travail qui contient la dernière version des codages en cours.
+<2> `master` est toujours stable et sert au déploiement
+
+ifdef::slides[== !]
+
+* On fork `develop` pour traiter un _bug_ ou une _feature_.
+** On merge dans `develop`
+** On détruit la branche devenue inutile
+
+ifdef::slides[== !]
+
+Ce qui donne le flot suivant dès que vous devez faire une amélioration (corriger un bug ou ajouter une fonctionnalités) :
+
+[{incremental}]
+- Créer une branche (e.g., `fix-451`)
+-  Travailler sur cette branche
+- Merger cette branche dans `develop`
+- Rejouer les tests
+- Régler les conflits éventuels
+- Quand tout fonctionne => <<pull-request>>
+- On peut livrer à partir de `master`
+
+
 // ------
-[{topic}]
-== Les différents `merge`
+[{intro}]
+== Les différents *merge*
 
 ifdef::slides[== !]
 
@@ -915,5 +1026,9 @@ Comparaison entre merge/rebase/etc.::
 _fast_forward_::
 Quand on merge une branche depuis un noeud situé  sur le même "historique".
 Il s'agit donc pour {git} d'un simple déplacement de pointeur!
+
+[[SHA-1]]
+SHA-1::
+https://fr.wikipedia.org/wiki/SHA-1
 
 endif::slides[]
