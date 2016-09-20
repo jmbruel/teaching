@@ -98,11 +98,28 @@ Il n'y a aucune contrainte dans le choix :
 -    la position,
 -    etc.
 
+image::photos/dessinateurs.jpg[width=50%,link=images/photos/dessinateurs.jpg]
+
 *Penser à prendre en photo le dessin d'origine* (pour Moodle ;-)
+
+Florilège 2016 :
+
+|====
+| image:photos/dessin1.jpg[link=images/photos/dessin1.jpg] |
+image:photos/dessin2.jpg[link=images/photos/dessin2.jpg] |
+image:photos/dessin3.jpg[link=images/photos/dessin3.jpg] |
+image:photos/dessin4.jpg[link=images/photos/dessin4.jpg] |
+image:photos/dessin5.jpg[link=images/photos/dessin5.jpg] |
+image:photos/dessin6.jpg[link=images/photos/dessin6.jpg]
+|====
+
+
 =====
 endif::prof[]
 +
 . La MOA découvre le dessin de son dessinateur et dicte à la MOE ce qu'ils doivent faire (chronométré à 3 minutes).
++
+image::photos/description.jpg[width=50%,link=images/photos/description.jpg]
 +
 [NOTE]
 =====
@@ -121,6 +138,11 @@ ifdef::prof[]
 [IMPORTANT]
 .icon:graduation-cap[] Version corrigée
 =====
+
+Exemple de comparaison :
+
+image::photos/original-resultat.jpg[width=50%,link=images/photos/original-resultat.jpg]
+
 - Voir qu'au 2ème exercice les dessins sont biens mieux
 - Demander comment les étudiants expliquent ça
 => bien meilleures consignes (plus précises) de la part du MOA.
@@ -219,7 +241,17 @@ les user stories du client. En l'occurence elles sont mal formulées (le but
   est absent par exemple).
 
 Normalement tout le monde est parti sur une voiture (grâce à l'ancre mentale
-réalisée plus tôt), mais en fait le client veut ça :
+réalisée plus tôt).
+
+Florilège 2016 :
+
+|====
+| image:photos/voiture1.jpg[link=images/photos/voiture1.jpg] |
+image:photos/voiture2.jpg[link=images/photos/voiture2.jpg] |
+image:photos/voiture3.jpg[link=images/photos/voiture3.jpg] 
+|====
+
+Mais en fait le client veut ça :
 
 .Ce qu'attendait vraiment le client
 image::tondeuse.jpg[width=70%]
