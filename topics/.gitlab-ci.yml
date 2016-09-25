@@ -1,0 +1,33 @@
+before_script:
+  - apt-get update
+  - apt-get install --yes asciidoctor
+
+variables:
+  NO_VENV: "true"
+
+ci_test:
+  script:
+    - ./test.sh
+  except:
+    - master
+
+# Build but don't deploy
+pages-build:
+  script:
+    - ./build-docs.sh
+  artifacts:
+    paths:
+    - public
+  except:
+    - master
+
+# Build and deploy
+pages:
+  stage: deploy
+  script:
+    - ./build-docs.sh
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
