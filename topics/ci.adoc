@@ -86,29 +86,165 @@ ifdef::slides[]
 endif::slides[]
 
 // ------
+[{intro}]
+== Objectifs
+
+ifndef::slides[:leveloffset: +1]
+
+// ------
 [{topic}]
 == Environnement
 
+// ------
+[{topic}]
+== e**X**treme **P**rogramming
+
 [quote,Martin Fowler]
-Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day.
+Continuous Integration is a software development practice where members of a team integrate their work frequently, [...] leading to multiple integrations per day.
+
+// ------
+[{topic}]
+== Principe général
+
+:thisref: https://about.gitlab.com/gitlab-ci/
+ifndef::slides[.Architecture GitLab-CI ({thisref})]
+image::arch1.jpg[width=80%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+// ------
+[{topic}]
+== YAML
+:yaml: http://yaml.org/[YAML]
+
+{yaml}: **Y**AML **A**in't **M**arkup **L**anguage
+
+.Exemple de fihier `.yml`
+.............
+---
+receipt:     Oz-Ware Purchase Invoice
+date:        2012-08-06
+customer:
+    first_name:   Dorothy
+    family_name:  Gale
+.............
+
+NOTE: Utiliser des espaces et non des tabulations.
+
+ifndef::slides[:leveloffset: 0]
+
+// ------
+[{topic}]
+== Utilisation
+
+Un serveur d’intégration continue peut permettre de :
+
+[{incremental}]
+-  Faire les opérations type git [detail]#(pull, checkout, push)#
+-  Compiler du code source => *build*
+-  Créer des archives
+-  Déployer du code sur une machine de test
+-  Exécuter une suite de *tests* [detail]#(Junit, Audit de code source, test IHM, ...)#
+-  Notifier des résultats [detail]#(mail, RSS)#
+-  etc.
+
+// ------
+[{topic}]
+== Services connus
+
+Les serveurs d’intégration les plus connus (https://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software[Wikipedia] en compte plus de 40!) :
+
+-    http://cruisecontrol.sourceforge.net/[Cruise Control]
+-    http://hudson-ci.org/[Hudson]
+-   https://travis-ci.org/[Travis CI]
+-   https://jenkins.io/[Jenkins]
+-   https://about.gitlab.com/gitlab-ci/[Gitlab CI]
+
+
+// --------------------------------------------------------------------
+[{intro}]
+== Pour notre environnement (GitLab)
+
+ifndef::slides[:leveloffset: +1]
+
+// ------
+[{topic}]
+== Processus type
+
+[{incremental}]
+. Créer à la racine du projet un fichier `.gitlab-ci.yml`
+. Y décrire ce que l'on souhaite réaliser
+. "Pousser" dans le dépôt {gitlab} ses modifications
+. Contrôler les résultats
+
+
+// ------
+[{topic}]
+== Exemple (MPA2016-1B2)
+
+..........
+image: node:4.2.2   <1>
+
+all_tests:
+  script:           <2>
+   - npm install express --save
+   - node ./myapp.js
+..........
+<1> Nom du "runner"
+<2> Instructions à réaliser sur la machine
+
+ifdef::slides[== !]
+
+Résultat avec le fichier `.gitlab-ci.yml` précédent :
+
+ifndef::slides[.Attention au code infini]
+image::gitlabCI-1B2-1.png[width=50%]
+ifdef::slides[NOTE: [detail]#Attention au code infini#]
+
+ifdef::slides[== !]
+
+Avec un fichier `.gitlab-ci.yml` plus conforme (exécution de tests) :
+
+..........
+   - npm install express --save
+   - node ./specs/start.js ./specs/async.spec.js
+..........
+
+ifndef::slides[.Le build est un succès]
+image::gitlabCI-1B2-2.png[width=50%]
+ifdef::slides[NOTE: [detail]#Le build est un succès#]
+
+test_async:   stage: test   script:    - npm install    - node ./specs/start.js ./specs/async.spec.js
+
+ifndef::slides[:leveloffset: 0]
+
+// --------------------------------------------------------------------
+[{intro}]
+== Divers
+
+ifndef::slides[:leveloffset: +1]
+
+// ------
+[{topic}]
+== Quand on ne veux pas lancer l'IC
 
 [source]
 ------
 git commit -m "Blabla... [ci skip]"
 ------
 
+// ------
+[{topic}]
+== Pour vérifier la syntaxe de son fichier YAML
+
 Possibilité de tester son fichier `gitlab-ci.yml` :
 
 https://gitlab.com/ci/lint
 
+ifndef::slides[.Validation de son code YAML]
+image::lint.png[width=50%]
+ifdef::slides[NOTE: [detail]#Validation de son code YAML#]
 
-
-
-
-
-
-
-
+ifndef::slides[:leveloffset: 0]
 
 ifndef::slides[]
 
@@ -118,5 +254,6 @@ ifndef::slides[]
 
 Le site de référence::
   https://about.gitlab.com/gitlab-ci/
+
 
 endif::slides[]

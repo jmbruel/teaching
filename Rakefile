@@ -1,29 +1,19 @@
-desc "Install necessary pdf, epub3 asciidoctor gems"
-task :default do
-  install_plugin("asciidoctor-epub3")
-  install_plugin("asciidoctor-pdf")
+require 'rake/testtask'
+
+#---------------------------------------------------
+# Launching tests
+#---------------------------------------------------
+Rake::TestTask.new do |t|
+  t.libs.push "lib"
+  t.test_files = FileList['test/*_test.rb']
+  t.verbose = true
 end
 
-desc "Create different file outputs"
-task :master  do
-  system("asciidoctor -o output/master.html master.adoc")
-  system("asciidoctor-epub3 -D output master.adoc")
-
-  system("asciidoctor-pdf -o output/master.pdf master.adoc ")
-end
-
-def install_plugin(name)
-  git_clone("https://github.com/asciidoctor/#{name}")
-  cd(name) do
-    build_gem
-  end
-end
-
-def git_clone(repo)
-  sh("git", "clone", repo)
-end
-def build_gem
-  sh('bundle')
-  sh('rake', 'build')
-  system('gem install pkg/*.gem')
+#---------------------------------------------------
+# Checkin URLs
+#---------------------------------------------------
+desc "Check all external links"
+task :check_links do
+ require 'link_checker'
+ LinkChecker.new(:target => 'html').check_uris
 end

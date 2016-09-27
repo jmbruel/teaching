@@ -39,6 +39,10 @@ Visionner et discuter la video suivante (même pour le groupe non anglais!) :
 
 https://www.youtube.com/watch?v=XU0llRltyFM
 
+ou celle-ci si vous avez plus de temps (26') :
+
+https://www.youtube.com/watch?v=VWhLcgo9z74
+
 ifdef::prof[]
 [IMPORTANT]
 .icon:graduation-cap[] Version corrigée
@@ -248,7 +252,7 @@ Florilège 2016 :
 |====
 | image:photos/voiture1.jpg[link=images/photos/voiture1.jpg] |
 image:photos/voiture2.jpg[link=images/photos/voiture2.jpg] |
-image:photos/voiture3.jpg[link=images/photos/voiture3.jpg] 
+image:photos/voiture3.jpg[link=images/photos/voiture3.jpg]
 |====
 
 Mais en fait le client veut ça :
