@@ -132,7 +132,7 @@ NOTE: Utiliser des espaces et non des tabulations.
 
 ifndef::slides[:leveloffset: 0]
 
-// ------
+// --------------------------------------------------------------------
 [{topic}]
 == Utilisation
 
@@ -147,7 +147,7 @@ Un serveur d’intégration continue peut permettre de :
 -  Notifier des résultats [detail]#(mail, RSS)#
 -  etc.
 
-// ------
+// --------------------------------------------------------------------
 [{topic}]
 == Services connus
 
@@ -214,6 +214,32 @@ image::gitlabCI-1B2-2.png[width=50%]
 ifdef::slides[NOTE: [detail]#Le build est un succès#]
 
 test_async:   stage: test   script:    - npm install    - node ./specs/start.js ./specs/async.spec.js
+
+// ------
+[{topic}]
+== Exemple HelloWorld
+
+. Code java
+. Compilation manuelle
+. Build ant
+. Eclipse
+. Amélioration
+. Tests
+. Intégration continue
+
+ifndef::slides[:leveloffset: +1]
+
+// ------
+[{topic}]
+== Code java
+
+NOTE: Consultez le tutoriel {ant} : https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
+
+[source,java]
+-----
+include::src/HelloWorld.java[]
+-----
+
 
 ifndef::slides[:leveloffset: 0]
 
