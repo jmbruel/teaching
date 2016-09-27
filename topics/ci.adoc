@@ -18,8 +18,8 @@ ifndef::jmbtopic[]
 :toc: left
 :numbered:
 :status:
-:siteurl: http://jmbhome.github.io/teaching/topics/git.html
-:bitlysiteurl: http://bit.ly/jmb-git
+:siteurl: http://jmbhome.github.io/teaching/topics/ci.html
+:bitlysiteurl: http://bit.ly/jmb-ci
 //------------------------------------ Slides uniquement
 ifdef::slides[]
 //--------------------- dzslides slides
@@ -93,7 +93,17 @@ ifndef::slides[:leveloffset: +1]
 
 // ------
 [{topic}]
+== Une vérification *systématique* de l'état du code
+
+ifndef::slides[.Résultats visibles et tracés]
+image::builds_status.png[width=100%]
+ifdef::slides[NOTE: [detail]#Résultats visibles et tracés#]
+
+// ------
+[{topic}]
 == Environnement
+
+On utilise gitlab-ci-multi-runner `1.6.0`.
 
 // ------
 [{topic}]
@@ -105,6 +115,12 @@ Continuous Integration is a software development practice where members of a tea
 // ------
 [{topic}]
 == Principe général
+
+ifndef::slides[.Exemple d'Intégration Continue (github-travis)]
+image::travis.png[width=100%]
+ifdef::slides[NOTE: [detail]#Exemple d'Intégration Continue (github-travis)#]
+
+ifdef::slides[== !]
 
 :thisref: https://about.gitlab.com/gitlab-ci/
 ifndef::slides[.Architecture GitLab-CI ({thisref})]
@@ -220,11 +236,12 @@ test_async:   stage: test   script:    - npm install    - node ./specs/start.js 
 == Exemple HelloWorld
 
 . Code java
+. Petit `main` de test (pas unitaire)
 . Compilation manuelle
 . Build ant
-. Eclipse
-. Amélioration
+. Améliorations
 . Tests
+. Eclipse
 . Intégration continue
 
 ifndef::slides[:leveloffset: +1]
@@ -235,11 +252,212 @@ ifndef::slides[:leveloffset: +1]
 
 NOTE: Consultez le tutoriel {ant} : https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
 
+ifndef::slides[]
+.src/HelloWorld.java
 [source,java]
+endif::slides[]
 -----
-include::src/HelloWorld.java[]
+include::HelloWorld/src/HelloWorld.java[]
 -----
 
+// ------
+[{topic}]
+== Petit `main` de test (pas unitaire)
+
+ifndef::slides[]
+.src/Main.java
+[source,java]
+endif::slides[]
+-----
+include::HelloWorld/src/Main.java[]
+-----
+
+// ------
+[{topic}]
+== Compilation manuelle
+
+[source]
+-----
+$ javac -sourcepath src -d bin/ src/Main.java
+$ ls bin
+HelloWorld.class	Main.class
+$ java -cp bin Main
+Hello JMB!
+-----
+
+// ------
+[{topic}]
+== Build ant
+
+.build.xml
+[source,xml]
+-----
+include::HelloWorld/build.xml[]
+-----
+
+ifdef::slides[== Exécution manuelle du build]
+
+[source]
+-----
+$ ant clean build jar
+$ ant run
+Buildfile: /Users/bruel/HelloWorld/build.xml
+
+run:
+     [java] Hello JMB!
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+-----
+
+// ------
+[{topic}]
+== Améliorations
+
+.build.xml (amélioré)
+[source,xml]
+-----
+include::HelloWorld/build1.xml[]
+-----
+
+ifdef::slides[== Exécution manuelle du build]
+
+[source]
+-----
+$ ant
+Buildfile: /Users/bruel/HelloWorld/build.xml
+
+clean:
+   [delete] Deleting directory /Users/bruel/HelloWorld/bin
+
+compile:
+    [mkdir] Created dir: /Users/bruel/HelloWorld/bin/classes
+    [javac] Compiling 2 source files to /Users/bruel/HelloWorld/bin/classes
+
+jar:
+    [mkdir] Created dir: /Users/bruel/HelloWorld/bin/jar
+      [jar] Building jar: /Users/bruel/HelloWorld/bin/jar/HelloWorld.jar
+
+run:
+     [java] Hello JMB!
+
+main:
+
+BUILD SUCCESSFUL
+Total time: 1 second
+-----
+
+// ------
+[{topic}]
+== Tests
+
+ifndef::slides[]
+.src/TestHelloWorld.java (failing)
+[source,java]
+endif::slides[]
+-----
+include::HelloWorld/src/TestHelloWorld.java[]
+-----
+
+ifdef::slides[== !]
+
+.build.xml (librairies extérieures)
+[source,xml]
+-----
+include::HelloWorld/build2.xml[]
+-----
+
+ifdef::slides[== Exécution manuelle du build]
+
+[source]
+-----
+$ ant junit
+Buildfile: /Users/bruel/HelloWorld/build.xml
+
+compile:
+
+jar:
+
+junit:
+    [junit] Running TestHelloWorld
+    [junit] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0,003 sec
+    [junit] Test TestHelloWorld FAILED
+
+BUILD SUCCESSFUL
+Total time: 1 second
+-----
+
+ifdef::slides[== !]
+
+ifndef::slides[]
+.src/TestHelloWorld.java (un vrai ce coup-ci)
+[source,java]
+endif::slides[]
+-----
+include::HelloWorld/src/TestHelloWorldReal.java[]
+-----
+
+ifdef::slides[== !]
+
+ifndef::slides[.Un test exécuté sous eclipse]
+image::eclipseTest.png[width=90%]
+ifdef::slides[NOTE: [detail]#Un test exécuté sous eclipse#]
+
+ifdef::slides[== !]
+
+[NOTE]
+======
+Ne pas hésiter à utiliser le plugin http://infinitest.github.io/[infinitest].
+
+ifndef::slides[.Utilisation d'infinitest sous eclipse]
+image::infinitest.png[width=90%]
+ifdef::slides[NOTE: [detail]#Utilisation d'infinitest sous eclipse#]
+
+======
+
+// ------
+[{topic}]
+== Eclipse
+
+Profiter de la génération de fichier de build {ant} par {eclipse}!
+
+ifndef::slides[.Export du bild ant sous eclipse]
+image::exportAnt.png[width=100%]
+ifdef::slides[NOTE: [detail]#Utilisation d'infinitest sous eclipse#]
+
+ifdef::slides[== !]
+
+.build.xml (généré par eclipse)
+[source,xml]
+-----
+include::HelloWorld/buildEclipse.xml[]
+-----
+
+ifdef::slides[== !]
+
+ifndef::slides[.Run de ant sous eclipse]
+image::runAnt.png[width=100%]
+ifdef::slides[NOTE: [detail]#Run de ant sous eclipse#]
+
+ifdef::slides[== !]
+
+Autre avantage de junit, la génération de pages web (répertoire `junit`, ouvrir `index.html`).
+
+ifndef::slides[.Présentation des résultats de test]
+image::junitreport.png[width=90%]
+ifdef::slides[NOTE: [detail]#Présentation des résultats de test#]
+
+// ------
+[{topic}]
+== Integration Continue
+
+.{nbsp}.gitlab-ci.yml (ajouté à la racine du projet git)
+[source,yml]
+-----
+include::.gitlab-ci.yml[]
+-----
+
+WARNING: Il faut modifier éventuellement le `build.xml`, souvent trop lié à {eclipse}.
 
 ifndef::slides[:leveloffset: 0]
 
