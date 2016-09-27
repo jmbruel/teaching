@@ -13,6 +13,7 @@ script:
   - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-topic1-to-html asciidoctor/docker-asciidoctor asciidoctor -D /documents/output topics/git.adoc
   - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-topic2-to-html asciidoctor/docker-asciidoctor asciidoctor -D /documents/output topics/mpa.adoc
   - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-topic3-to-html asciidoctor/docker-asciidoctor asciidoctor -D /documents/output topics/agile.adoc
+  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-topic4-to-html asciidoctor/docker-asciidoctor asciidoctor -D /documents/output topics/ci.adoc
 #  - docker run -v $TRAVIS_BUILD_DIR:/documents/ --name asciidoc-to-pdf asciidoctor/docker-asciidoctor asciidoctor-pdf -D /documents/output master.adoc
 
 after_error:
@@ -31,6 +32,7 @@ after_success:
   - mv git.html topics/
   - mv mpa.html topics/
   - mv agile.html topics/
+  - mv ci.html topics/
   - cp -R ../images images
 #  - cp -R ../topics/*.html topics
   - ls -al

@@ -1,28 +1,24 @@
-public class HelloWorld 
+package org.jmb;
+public class HelloWorld
 {
-	
    private String name = "";
-
-   public String getName() 
+   public String getName()
    {
       return name;
    }
-
-   public String getMessage() 
+   public String getMessage()
    {
-      if (name == "") 
+      if (name == "")
       {
          return "Hello!";
       }
-      else 
+      else
       {
          return "Hello " + name + "!";
       }
    }
-
-   public void setName(String name) 
+   public void setName(String name)
    {
       this.name = name;
    }
-		
 }

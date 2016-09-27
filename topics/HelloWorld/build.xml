@@ -1,0 +1,24 @@
+<project>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+
+    <target name="build">
+        <mkdir dir="bin"/>
+        <javac srcdir="src" destdir="bin"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="bin/jar"/>
+        <jar destfile="bin/jar/HelloWorld.jar" basedir="bin">
+            <manifest>
+                <attribute name="Main-Class" value="Main"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="bin/jar/HelloWorld.jar" fork="true"/>
+    </target>
+
+</project>
