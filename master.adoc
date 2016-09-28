@@ -53,9 +53,13 @@ Courses with icon:graduation-cap[] are more theoretical than those with icon:cog
 
 I teach the following courses in the _DUT Informatique_ at {iut} :
 
-* icon:cogs[] image:icons/fr.svg[width=20] link:mpa2016.html[Méthodologie de Production d'Application (MPA - M3301)] (L2 level)
-** icon:cogs[] Cours sur l'approche Agile (et {scrum} en particulier) (link:{website}/topics/agile.html[HTML], link:{website}/topics/agile.dzslides.html[Slides])
-** icon:cogs[] Cours sur {git} (link:{website}/topics/git.html[HTML], link:{website}/topics/git.dzslides.html[Slides])
+* icon:cogs[] image:icons/fr.svg[width=20] Méthodologie de Production d'Application (MPA - M3301) (L2 level)
+** icon:graduation-cap[]Contenu du module (link:{website}/topics/mpa.html[HTML], link:{website}/topics/mpa.dzslides.html[Slides]) => Cours 1 du 5/9/2016
+** icon:cogs[] Conduite de projet, Tests, Agilité (et {scrum} en particulier) (link:{website}/topics/agile.html[HTML], link:{website}/topics/agile.dzslides.html[Slides]) => Cours 1 du 5/9/2016
+** icon:cogs[] Cours sur l'approche Agile (et {scrum} en particulier) (link:{website}/topics/agile.html[HTML], link:{website}/topics/agile.dzslides.html[Slides]) => Cours 2 du 9/9/2016
+** icon:cogs[] Cours sur {git} (link:{website}/topics/git.html[HTML], link:{website}/topics/git.dzslides.html[Slides]) => Cours 3 du 19/9/2016
+** icon:cogs[] Cours sur l'intégration continue (link:{website}/topics/ci.html[HTML], link:{website}/topics/ci.dzslides.html[Slides]) => Cours 4 du 27/9/2016
+
 * icon:cogs[] image:icons/fr.svg[width=20] Conception et Programmation Objet Avancées (CPOA - M3105) (L2 level)
 
 [NOTE]
