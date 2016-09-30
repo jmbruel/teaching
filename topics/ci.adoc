@@ -498,5 +498,7 @@ ifndef::slides[]
 Le site de référence::
   https://about.gitlab.com/gitlab-ci/
 
+Un tuto en français sur l'IC sous {gitlab} (merci icon:twitter[] @npm_kader)::
+  https://www.grafikart.fr/tutoriels/divers/gitlab-ci-docker-808
 
 endif::slides[]
