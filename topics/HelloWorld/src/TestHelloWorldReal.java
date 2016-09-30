@@ -7,12 +7,12 @@ import org.junit.Test;
 
 public class TestHelloWorldReal {
 
-   private HelloWorld h;
+   private org.jmb.HelloWorld h;
 
    @Before
    public void setUp() throws Exception
    {
-      h = new HelloWorld();
+      h = new org.jmb.HelloWorld();
    }
 
    @Test
