@@ -131,6 +131,19 @@ image::cap14.png[]
 .Class Diagram menu
 image::cap15.png[]
 
+=== Logical View
+
+No time...
+
+=== Physical View
+
+No time...
+
+=== Viewpoints
+
+No time...
+
+
 :numbered!:
 == References
 
