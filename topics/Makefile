@@ -18,7 +18,7 @@ MAIN=TD1
 
 all: $(OUTPUT)/$(MAIN).html $(OUTPUT)/$(MAIN).dzslides.html $(OUTPUT)/$(MAIN).teacher.html
 
-support: ci.adoc
+support: capella.adoc
 	@echo '==> Compiling asciidoc files to generate HTML'
 	$(ASCIIDOCTOR) -b html5 \
 		-a numbered \
@@ -27,7 +27,7 @@ support: ci.adoc
 		-r asciidoctor-diagram \
 		-a source-highlighter=$(HIGHLIGHT) \
 		-o $@ $<
-		
+
 $(OUTPUT)/%.html: %.$(EXT)
 	@echo '==> Compiling asciidoc files to generate HTML'
 	$(ASCIIDOCTOR) -b html5 \
