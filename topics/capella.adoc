@@ -1,0 +1,137 @@
+= Arcadia / Capella
+Jean-Michel Bruel <bruel@irit.fr>, v1.0, {localdate}
+
+:numbered:
+:capellaversion: 1.0.2
+:imagesdir: images
+:experimental:
+
+include::../definitions.txt[]
+
+== Environment & context
+
+- Tutorial at {models16} from {prfc}.
+- Version of {capella} for these notes: `{capellaversion}`.
++
+WARNING: For MAC OS you need to `chmod +x` the eclipse exe file.
+
+
+== History
+
+- {capella} started by the method ({arcadia})
+- In Thales, the method is called Melody Advance
+
+== ARCADIA
+
+:thisref: https://www.polarsys.org/capella/arcadia.html
+ifndef::slides[.Arcadia layers ({thisref})]
+image::phases_arcadia.png[width=100%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[[requirements]]
+.About requirements
+[NOTE]
+=====
+In {arcadia} => use of {reqtify} and {doors}.
+=====
+
+== Capella
+
+=== Capella basics
+
+:thisref: https://www.polarsys.org/capella/images/capella_big_picture.png
+ifndef::slides[.Capella big picture ({thisref})]
+image::capella_big_picture.png[width=100%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[NOTE]
+.Color conventions
+=====
+- functions => [green]#green#
+- external functions => [blue]#blue#
+- activitie => [orange]#orange#
+=====
+
+=== Operational Analysis
+
+. menu:New[File->New Capella Project]
++
+.Organisation of a Capella Project
+image::cap1.png[]
++
+. Define an `Operational Capabilities` diagram
++
+.An OCB
+image::cap3.png[]
++
+NOTE: The `B`ending of the diagrams (e.g., "OCB" in the previous figure) means "Blank", meaning you can add information instead. They don't update.
++
+. Define a `Operational Entity Breakown` diagram
++
+.New mission menu
+image::cap4.png[]
+
+=== System Analysis
+
+. Define a new mission
++
+image::cap5.png[]
++
+[TIP]
+=====
+You can also create the system elements (actros, missions, etc.) from the OA.
+
+.MCB menu
+image::cap6.png[]
+=====
++
+. Create a `Mission Blank` diagram
++
+.An MCB
+image::cap7.png[]
++
+. Select a capability
+. Right click and choose menu:New[System Data Flow Blank]
++
+.An SDFB
+image::cap8.png[]
++
+. Create a `System Architecture` diagram
++
+.SAB menu
+image::cap9.png[]
++
+.An SAB
+image::cap10.png[]
++
+. Define Component Exchange
++
+.Final SAB
+image::cap11.png[]
++
+. Use `Accelerator`
+. Clone complex diagrams to do more simple ones
++
+.Right click on the Diagrams Viewer
+image::cap12.png[]
++
+. Use filters on cloned diagrams
++
+.Filter options
+image::cap13.png[]
++
+.Result of filtering
+image::cap14.png[]
++
+. Create a Functional Scenario (close to sequence diagram)
+. Create an Exchange Scenario (closer to sequence diagram)
+
+:numbered!:
+== References
+
+ARCADIA::
+- **ARC**hitecture **A**nalysis and **D**esign **I**ntegrated **A**pproach
+- http://www.icas.org/ICAS_ARCHIVE/ICAS2010/PAPERS/172.PDF[Arcadia reference]
+
+Capella::
+- {capella} web site

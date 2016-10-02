@@ -42,6 +42,8 @@
 :ea: http://www.sparxsystems.com.au/products/mdg/tech/sysml/index.html[Enterprise Architect]
 :eclipse: http://www.eclipse.org[Eclipse]indexterm:[Eclipse]
 :eclipseDocStyleGuide: https://wiki.eclipse.org/Eclipse_Doc_Style_Guide[Eclipse Doc Style Guide]
+:eiffel: https://www.eiffel.org/documentation[Eiffel]
+:eiffelStudio: https://www.eiffel.com[Eiffel Studio]
 :emf: https://www.eclipse.org/modeling/emf/[EMF]
 :form-l: http://www.ep.liu.se/ecp/096/130/ecp14096130.pdf[FORM-L]
 :foundation: http://foundation.zurb.com/[Foundation]
@@ -74,6 +76,7 @@
 :modelica: https://www.modelica.org/[Modelica(R)]
 :modelio: http://www.modeliosoft.com/[Modelio]
 :models: http://www.modelsconference.org/[MODELS]
+:models16: http://models2016.irisa.fr/[MODELS'2016]
 :moodle: http://webetud.iut-blagnac.fr[Moodle]
 :mps: http://www.jetbrains.com/mps/[MPS]
 :n2i: http://www.nuitdelinfo.com/[Nuit de l'Info]
@@ -139,10 +142,12 @@
 :agusti: Agusti Canals
 :ambler: http://www.agilemodeling.com/[Scott W. Ambler]
 :ap: André Péninou
+:arcadia: https://www.polarsys.org/capella/arcadia.html[Arcadia]
 :bc: mailto:benoit.combemale@irisa.fr[Benoît Combemale]
 :bh: mailto:brahim.haimd@irit.fr[Brahim Hamid]
 :bm: mailto:bertrand.meyer@inf.ethz.ch[Bertrand Meyer]
 :cabot: http://jordicabot.com/[Jordi Cabot]
+:capella: http://polarsys.org/capella/index.html[Capella]
 :cb: mailto:cedric.brun@obeo.fr[Cédric Brun]
 :cealist: http://www-list.cea.fr/[CEA Tech List]
 :chantalMorand: mailto:morand@irit.fr[Chantal Morand]
@@ -180,6 +185,7 @@
 :phoenix: http://www.phoenix-int.com/[Phoenix Integration]
 :prfc: http://www.dotnetguru2.org/proques/index.php[Pascal Roques]
 :pdss:  Pierre de Saqui Sannes
+:reqtify: https://fr.wikipedia.org/wiki/Reqtify[Reqtify] 
 :reveal: link:http://lab.hakim.se/reveal-js[reveal.js]
 :rf: mailto:raphael.faudou@atos.net[Raphaël Faudou]
 :rdp: Réseaux de Petri
