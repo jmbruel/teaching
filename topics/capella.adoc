@@ -124,7 +124,12 @@ image::cap13.png[]
 image::cap14.png[]
 +
 . Create a Functional Scenario (close to sequence diagram)
-. Create an Exchange Scenario (closer to sequence diagram)
+. Create an Exchange Scenario (close to sequence diagram)
+
+=== Data modelling
+
+.Class Diagram menu
+image::cap15.png[]
 
 :numbered!:
 == References
