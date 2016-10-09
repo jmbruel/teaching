@@ -1,0 +1,84 @@
+//---------------------------------
+// Note of Doctoral Symposium
+// (c) JMB - 2016
+//---------------------------------
+= DS@MODELS'2016
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+//------------------------------------ variables de configuration
+:linkcss:
+:icons: font
+:experimental:
+:numbered!:
+:status:
+
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+
+[.topic]
+== Access to protected data
+
+[quote]
+What advice would you give to academic researchers who struggle with getting access to industrial data, people, and systems (esp. protected and critical ones)?
+
+[NOTE]
+====
+[.incremental]
+- Your institution "technology transfer" team
+- Set up a template agreement for collaboration (no money)
+====
+
+[.topic]
+== Effective use
+
+[quote]
+To what extent, model-based analysis/testing is applied/used by practitioners in the industry?
+
+[NOTE]
+====
+Close to 0 !
+====
+
+[.topic]
+== "After" career
+
+[quote]
+What are the career paths after PhD (something between industry and academia)?
+
+[NOTE]
+====
+Mainly engineering in very technical, advanced (often small) companies
+====
+
+[.topic]
+== Publication strategy
+
+[quote]
+Any advice on publication strategies for PhD students doing research in the modeling area?
+
+[NOTE]
+====
+- Don't forget domain specific conferences and journals
+- Try tough, serious-in-reviews, conferences and journals
+====
+
+[.topic]
+== Human aspects
+
+[quote]
+Advice on how to manage your supervisor?
+
+[NOTE]
+====
+[.incremental]
+- Don't wait to raise issues
+- DRY (**D**on't **R**epeat **Y**our same mistakes again)
+- Rephrase (make sure you get her right)
+- Get him involved in your work (collaborative work)
+====

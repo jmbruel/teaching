@@ -1,0 +1,13 @@
+= Model/Software/Hardware in the loop
+:imagesdir: images
+
+
+- image:mil.png[width=10%] MIL
+- image:sil.png[width=10%] SIL
+- image:pil.png[width=10%] PIL
+- image:hil.png[width=10%] HIL
+
+:numbered!
+== Credits
+
+- `\[M|S|P|H]IL\` drawings taken from https://www.piketec.com/en/2/test_execution_mil_sil_hil/75.html

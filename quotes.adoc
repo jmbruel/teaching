@@ -1,0 +1,13 @@
+//-----------------
+// https://www.researchgate.net/publication/3207453
+//-----------------
+[quote, Bran Selic, Using models in real-time software design - 2003]
+[...] the inability of real-time software to meet its primary non-functional requirements becomes apparent only in the later
+stages of development. When this happens, the design may have to be heavily and hurriedly modified [...]
+
+//-----------------
+// https://en.wikiquote.org/wiki/George_E._P._Box
+// https://www.instagram.com/p/BGL5CLZQPWF/
+//-----------------
+[quote,G. E. P. Box and N. R. Draper, 1987]
+Essentially, all models are wrong, but some are useful.

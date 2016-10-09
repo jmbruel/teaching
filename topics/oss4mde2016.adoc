@@ -1,0 +1,116 @@
+//---------------------------------
+// Notes from OSS4MDE workshop
+// (c) JMB - 2016
+//---------------------------------
+= *OSS4MDE* 2016
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: http://mase.cs.queensu.ca/oss4mde/
+:bitlysiteurl: http://bit.ly/jmb-ci
+//------------------------------------ Slides uniquement
+ifdef::slides[]
+//--------------------- dzslides slides
+ifdef::dzslides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+endif::dzslides[]
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+:compMergeURL: https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&utm_medium=social&utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate
+
+// ------------------------------------------ disclaimer
+:numbered!:
+[{intro}]
+== Introduction
+
+[{topic}]
+== Workshop link
+
+{siteurl}
+
+[{topic}]
+== Quotes aggregated by Juergen
+
+[quote,Wired, September 6 2015]
+Open sourcing is no longer optional, not even for Apple.
+
+
+[quote,CACM, August 2016]
+Open source software no longer optional.
+
+
+[quote, The New York Times, G.E. - The 124-Year-Old Software Start-UpAugust 27 2016]
+And while the instincts of the industrial world are proprietary, G.E. is following an open-source model with Predix, providing a basic design, but one open to outside contributors — more like Android from Google than Windows from Microsoft.
+
+[quote,Diarmuid Corcoran, Ericsson]
+'Work-in-progress' open source tools are favored.
+Company strategy veers towards favoring open source tools.
+80% (+) of our software is currently open source.
+
+== SAAB
+
+Anders Eriksson, SAAB
+
+https://itea3.org/project/opencps.html[open CPS] project (EUREKA/ITEA3)
+
+== Jordi
+
+[quote,Wikipedia]
+The bus factor: the number of team members that can be unexpectedly lost from a project ("hit by a bus", as it were) before the project collapses due to lack of knowledgeable or competent personnel.
+
+[quote,Jordi CAbot, OSS4MDE'2016 workshop]
+Occasional contributors focus on the most frequently modified files
+
+
+Make the life of first contributors easy, even use gamification
+
+Alvin Roth "Who gets What and why"
