@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="author" content="J.-M. Bruel">
+<title>Tests en intégration continue</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./pygments-default.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1><strong>Tests</strong> en intégration continue</h1>
+<div class="details">
+<span id="author" class="author">J.-M. Bruel</span><br>
+<span id="email" class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span><br>
+<span id="revnumber">version 1.0 2016-10-08</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matières</div>
+<ul class="sectlevel1">
+<li><a href="#__strong_pourquoi_strong_tester">1. <strong>Pourquoi</strong> tester ?</a>
+<ul class="sectlevel2">
+<li><a href="#_pour_livrer_le_strong_bon_produit_strong">1.1. Pour livrer le <strong>bon produit</strong></a></li>
+<li><a href="#_ce_qui_marche_pour_strong_1_strong_ne_marche_pas_nécessairement_pour_strong_100_strong">1.2. Ce qui marche pour <strong>1</strong> ne marche pas nécessairement pour <strong>100</strong></a></li>
+<li><a href="#_la_loi_de_strong_murphy_strong">1.3. La loi de <strong>Murphy</strong></a></li>
+<li><a href="#_différents_strong_os_strong_ou_différents_strong_terminaux_strong">1.4. Différents <strong>OS</strong> ou différents <strong>terminaux</strong></a></li>
+<li><a href="#_pour_donner_strong_le_meilleur_strong">1.5. Pour donner <strong>le meilleur</strong></a></li>
+</ul>
+</li>
+<li><a href="#_un_exemple_concret_de_test_strong_obligatoire_strong">2. Un exemple concret de test <strong>obligatoire</strong></a></li>
+<li><a href="#_un_exemple_concret_de_strong_documentation_strong_obligatoire">3. Un exemple concret de <strong>documentation</strong> obligatoire</a></li>
+<li><a href="#_typologie_des_tests">4. Typologie des tests</a></li>
+<li><a href="#_junit_etc">5. JUnit etc.</a>
+<ul class="sectlevel2">
+<li><a href="#_quoi_tester">5.1. Quoi tester ?</a></li>
+<li><a href="#_assertions">5.2. Assertions</a></li>
+<li><a href="#_stratégie_de_tests">5.3. Stratégie de tests</a></li>
+<li><a href="#_l_ordre_des_tests">5.4. L&#8217;ordre des tests</a></li>
+<li><a href="#_sous_eclipse">5.5. Sous Eclipse</a></li>
+<li><a href="#_et_pour_les_interfaces_graphiques">5.6. Et pour les interfaces graphiques?</a></li>
+</ul>
+</li>
+<li><a href="#_application_concrète_pour_mpa2016">6. Application concrète pour MPA2016</a>
+<ul class="sectlevel2">
+<li><a href="#_de_code_to_be_done_code_à_code_on_going_code">6.1. De <code>To Be Done</code> à <code>On going</code></a></li>
+<li><a href="#_créer_une_branche_spécifique_si_nouvelle_em_feature_em">6.2. Créer une branche spécifique (si nouvelle <em>feature</em>)</a></li>
+<li><a href="#_ecrire_un_test_qui_échoue">6.3. Ecrire un test qui échoue</a></li>
+<li><a href="#_essai_de_merge_pour_voir_si_tout_le_reste_marche_encore">6.4. Essai de merge pour voir si tout le reste marche encore</a></li>
+<li><a href="#_commit_push_dans_code_devs_code">6.5. Commit &amp; Push dans <code>devs</code></a></li>
+<li><a href="#_de_code_on_going_code_à_code_review_code">6.6. De <code>On going</code> à <code>Review</code></a></li>
+</ul>
+</li>
+<li><a href="#_pour_aller_plus_loin">Pour aller plus loin&#8230;&#8203;</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="__strong_pourquoi_strong_tester">1. <strong>Pourquoi</strong> tester ?</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+A majority of the production failures (77%) can be reproduced by a unit test.
+</blockquote>
+<div class="attribution">
+&#8212; Yuan et al. OSDI 2014
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tweet-tests.png" alt="tweet tests" width="30%">
+</div>
+<div class="title">Figure 1. Un tweet récent!</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Pour lire l&#8217;article en question : <a href="https://blog.acolyer.org/2016/10/06/simple-testing-can-prevent-most-critical-failures/amp/" class="bare">https://blog.acolyer.org/2016/10/06/simple-testing-can-prevent-most-critical-failures/amp/</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_pour_livrer_le_strong_bon_produit_strong">1.1. Pour livrer le <strong>bon produit</strong></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/why1.png" alt="why1" width="50%">
+</div>
+<div class="title">Figure 2. Un produit qui fait ce qu&#8217;il est censé faire (crédit photo http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/)</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ce_qui_marche_pour_strong_1_strong_ne_marche_pas_nécessairement_pour_strong_100_strong">1.2. Ce qui marche pour <strong>1</strong> ne marche pas nécessairement pour <strong>100</strong></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/why2.jpg" alt="why2" width="50%">
+</div>
+<div class="title">Figure 3. Passage à l&#8217;échelle (crédit photo http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/)</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_la_loi_de_strong_murphy_strong">1.3. La loi de <strong>Murphy</strong></h3>
+<div class="quoteblock">
+<blockquote>
+Tout ce qui est susceptible de mal tourner tournera nécessairement mal.
+</blockquote>
+<div class="attribution">
+&#8212; Edward A. Murphy Jr.
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/why3.jpg" alt="why3" width="50%">
+</div>
+<div class="title">Figure 4. Murphy&#8217;s law (crédit photo http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/)</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_différents_strong_os_strong_ou_différents_strong_terminaux_strong">1.4. Différents <strong>OS</strong> ou différents <strong>terminaux</strong></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/why4.png" alt="why4" width="50%">
+</div>
+<div class="title">Figure 5. Diversité (crédit photo http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/)</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pour_donner_strong_le_meilleur_strong">1.5. Pour donner <strong>le meilleur</strong></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/why5.jpg" alt="why5" width="50%">
+</div>
+<div class="title">Figure 6. Faire de son mieux (crédit photo http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_un_exemple_concret_de_test_strong_obligatoire_strong">2. Un exemple concret de test <strong>obligatoire</strong></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/asciidoctor/asciidoctor/blob/master/CONTRIBUTING.adoc">Asciidoctor Contribution</a></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/danAllen.png" alt="danAllen" width="80%">
+</div>
+<div class="title">Figure 7. Autour d'une bière avec Dan Allen, à Denver, Colorado #ILoveMyJob</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fork the repository.</p>
+</li>
+<li>
+<p>Run <code>bundle</code> to install development dependencies.</p>
+</li>
+<li>
+<p>Create a topic branch</p>
+</li>
+<li>
+<p>Add tests for your unimplemented feature or bug fix. (See <a href="#writing-and-executing-tests">[writing-and-executing-tests]</a>)</p>
+</li>
+<li>
+<p>Run <code>bundle exec rake</code> to run the tests.
+If your tests pass, return to step 4.</p>
+</li>
+<li>
+<p>Implement your feature or bug fix.</p>
+</li>
+<li>
+<p>Run <code>bundle exec rake</code> to run the tests.
+If your tests fail, return to step 6.</p>
+</li>
+<li>
+<p>Add documentation for your feature or bug fix.</p>
+</li>
+<li>
+<p>If your changes are not 100% documented, go back to step 8.</p>
+</li>
+<li>
+<p>Add, commit, and push your changes.</p>
+</li>
+<li>
+<p>Submit a pull request.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_un_exemple_concret_de_strong_documentation_strong_obligatoire">3. Un exemple concret de <strong>documentation</strong> obligatoire</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/gaelBlondelle.jpg" alt="gaelBlondelle" width="80%">
+</div>
+<div class="title">Figure 8. Après un footing avec Gaël Blondel, à Saint-Malo  #ILoveMyJob</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+[&#8230;&#8203;] an Eclipse project is providing extensible frameworks and applications accessible via documented APIs.
+</blockquote>
+<div class="attribution">
+&#8212; Eclipse Development Process
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_typologie_des_tests">4. Typologie des tests</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Différences entre Vérification et Validation (source https://www.tutorialspoint.com/software_testing/software_testing_quick_guide.htm)</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vérification</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Validation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le produit est-il <strong>bon</strong> ?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le produit est-il <strong>le bon</strong> ?</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Are you building it right?</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Are you building the right thing?</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Réalisée par le <strong>développeur</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Réalisée par le <strong>testeur</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">En premier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Après la vérification</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_junit_etc">5. JUnit etc.</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_quoi_tester">5.1. Quoi tester ?</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 71.4286%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Les exceptions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="detail"><code>@Test (expected = Exception.class)</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Le temps d&#8217;exécution</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="detail"><code>@Test(timeout=100)</code></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uniquement certains environnement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="detail"><code>System.getProperty("os.name").contains("Linux"));</code></span>
+Attention cette instruction n&#8217;est pas une annotation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S&#8217;exécute avant les autres tests (e.g., accès à une base)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="detail"><code>@BeforeClass public static void method()</code></span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_assertions">5.2. Assertions</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="detail"><code>fail([message])</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">On force le test à échouer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="detail"><code>assertTrue([message,] condition)</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La condition est vraie</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="detail"><code>assertFalse([message,] condition)</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">La condition est fausse</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="detail"><code>assertEquals([message,] attendu, actuel)</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Les deux valeurs sont égales</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="detail"><code>assertNull([message,] object)</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Objet nul</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="detail"><code>assertSame([message,] expected, actual)</code></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Objets identiques (même réf.)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_stratégie_de_tests">5.3. Stratégie de tests</h3>
+<div class="paragraph">
+<p>Considérons une fonction <code>int add(int,int);</code> d&#8217;une classe <code>myClass</code>.</p>
+</div>
+<div class="paragraph">
+<p>Définir le comportement normal de la fonction (sortie normale pour des paramètres corrects).</p>
+</div>
+<div class="listingblock">
+<div class="title">(source : <a href="http://stackoverflow.com/questions/8751553/how-to-write-a-unit-test" class="bare">http://stackoverflow.com/questions/8751553/how-to-write-a-unit-test</a>)</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-c1">//for normal addition</span>
+<span class="tok-nd">@Test</span>
+<span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">testAdd1Plus1</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+  <span class="tok-kt">int</span> <span class="tok-n">x</span>  <span class="tok-o">=</span> <span class="tok-mi">1</span> <span class="tok-o">;</span> <span class="tok-kt">int</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">1</span><span class="tok-o">;</span>
+  <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span> <span class="tok-n">myClass</span><span class="tok-o">.</span><span class="tok-na">add</span><span class="tok-o">(</span><span class="tok-n">x</span><span class="tok-o">,</span><span class="tok-n">y</span><span class="tok-o">));</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ajouter des tests pour les cas particuliers :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>aucune exception non capturée en cas d'<em>overflow</em></p>
+</li>
+<li>
+<p>les paramètres <code>null</code> sont gérés, e.g., :</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">(source : <a href="http://stackoverflow.com/questions/8751553/how-to-write-a-unit-test" class="bare">http://stackoverflow.com/questions/8751553/how-to-write-a-unit-test</a>)</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-c1">//if you are using 0 as default for null, make sure your class works in that case.</span>
+<span class="tok-nd">@Test</span>
+<span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">testAdd1Plus1</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+  <span class="tok-kt">int</span> <span class="tok-n">y</span> <span class="tok-o">=</span> <span class="tok-mi">1</span><span class="tok-o">;</span>
+  <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-mi">0</span><span class="tok-o">,</span> <span class="tok-n">myClass</span><span class="tok-o">.</span><span class="tok-na">add</span><span class="tok-o">(</span><span class="tok-kc">null</span><span class="tok-o">,</span><span class="tok-n">y</span><span class="tok-o">));</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ça marche avec les paramètres négatifs, etc.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_l_ordre_des_tests">5.4. L&#8217;ordre des tests</h3>
+<div class="paragraph">
+<p>Surtout aucun!!</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+JUnit assumes that all test methods can be executed in an arbitrary order. Well-written test code should not assume any order, i.e., tests should not depend on other tests.
+</blockquote>
+<div class="attribution">
+&#8212; JUnit manual
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sous_eclipse">5.5. Sous Eclipse</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Pour une classe existante : <b class="button">Right-click</b> (dans le <code>Package Explorer</code> et <span class="menuseq"><span class="menu">New</span>&#160;&#9656; <span class="menuitem">JUnit Test Case</span></span>).</p>
+</li>
+<li>
+<p>Utiliser le <code>JUnit wizards</code> (<span class="menuseq"><span class="menu">File</span>&#160;&#9656; <span class="submenu">New</span>&#160;&#9656; <span class="submenu">Other&#8230;&#8203;</span>&#160;&#9656; <span class="submenu">Java</span>&#160;&#9656; <span class="menuitem">JUnit</span></span>).</p>
+</li>
+<li>
+<p>Il n&#8217;y a plus qu&#8217;à faire <span class="menuseq"><span class="menu">Run-as</span>&#160;&#9656; <span class="menuitem">JUnit Test</span></span>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pensez à utiliser le plug-in <a href="http://infinitest.github.io/">infinitest</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_et_pour_les_interfaces_graphiques">5.6. Et pour les interfaces graphiques?</h3>
+<div class="paragraph">
+<p>Exemple de la librairie <code>Robot</code> :</p>
+</div>
+<div class="listingblock">
+<div class="title">(source : <a href="http://stackoverflow.com/questions/16411823/junit-tests-for-gui-in-java" class="bare">http://stackoverflow.com/questions/16411823/junit-tests-for-gui-in-java</a>)</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-n">Robot</span> <span class="tok-n">bot</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">Robot</span><span class="tok-o">();</span>
+<span class="tok-n">bot</span><span class="tok-o">.</span><span class="tok-na">mouseMove</span><span class="tok-o">(</span><span class="tok-mi">10</span><span class="tok-o">,</span><span class="tok-mi">10</span><span class="tok-o">);</span>
+<span class="tok-n">bot</span><span class="tok-o">.</span><span class="tok-na">mousePress</span><span class="tok-o">(</span><span class="tok-n">InputEvent</span><span class="tok-o">.</span><span class="tok-na">BUTTON1_MASK</span><span class="tok-o">);</span>
+<span class="tok-c1">//add time between press and release or the input event system may</span>
+<span class="tok-c1">//not think it is a click</span>
+<span class="tok-k">try</span><span class="tok-o">{</span><span class="tok-n">Thread</span><span class="tok-o">.</span><span class="tok-na">sleep</span><span class="tok-o">(</span><span class="tok-mi">250</span><span class="tok-o">);}</span><span class="tok-k">catch</span><span class="tok-o">(</span><span class="tok-n">InterruptedException</span> <span class="tok-n">e</span><span class="tok-o">){}</span>
+<span class="tok-n">bot</span><span class="tok-o">.</span><span class="tok-na">mouseRelease</span><span class="tok-o">(</span><span class="tok-n">InputEvent</span><span class="tok-o">.</span><span class="tok-na">BUTTON1_MASK</span><span class="tok-o">);</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_application_concrète_pour_mpa2016">6. Application concrète pour MPA2016</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_de_code_to_be_done_code_à_code_on_going_code">6.1. De <code>To Be Done</code> à <code>On going</code></h3>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Mettre à jour Tuleap</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/tuleap1.png" alt="tuleap1" width="90%"></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="image"><img src="images/tuleap2.png" alt="tuleap2" width="90%"></span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock">
+<div class="content">
+<img src="images/tuleap3.png" alt="tuleap3" width="80%">
+</div>
+<div class="title">Figure 9. Confirmation par email</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_créer_une_branche_spécifique_si_nouvelle_em_feature_em">6.2. Créer une branche spécifique (si nouvelle <em>feature</em>)</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell">bruel (master) $ git checkout -b US-15378
+Switched to a new branch &#39;US-15378&#39;
+bruel (US-15378) $</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ecrire_un_test_qui_échoue">6.3. Ecrire un test qui échoue</h3>
+<div class="sect3">
+<h4 id="_etape_0_bien_comprendre_ce_qu_on_doit_faire">6.3.1. Etape 0 : Bien comprendre ce qu&#8217;on doit faire</h4>
+<div class="paragraph">
+<p>Objectif de la tâche : créer une classe <code>Pile</code>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Rappels sur les propriétés d&#8217;une <code>Pile</code> (opérations)</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Opérations</dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>CréerPile :  -&gt; Pile
+estVide   :  Pile -&gt;  Booléen
+Empiler   :  Pile * Elément -&gt; Pile
+Dépiler   :  Pile -&gt; Pile
+Sommet     :  Pile -&gt;  Elément</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Rappels sur les propriétés d&#8217;une <code>Pile</code> (préconditions)</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Préconditions</dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Sommet(p) valide Si et Seulement Si estVide(p) == FAUX
+Dépiler(p) valide Si et Seulement Si estVide(p) == FAUX</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Rappels sur les propriétés d&#8217;une <code>Pile</code> (axiomes)</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Axiomes</dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(1) estVide(CréerPile())
+(2) estVide(Empiler(p,e)) == FAUX
+(3) estVide(Dépiler(Empiler(p,e))) Si et Seulement Si estVide(p)
+(4) Sommet(Empiler(p,e)) == e
+(5) !estVide(p) =&gt; Sommet(Dépiler(Empiler(p,e))) == Sommet(p)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>L’axiome suivant résume à lui seul les axiomes (3) et (5) :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Dépiler(Empiler(p,e)) == p</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_etape_1_ecrire_un_test_simple">6.3.2. Etape 1 : Ecrire un test simple</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kn">import</span> <span class="tok-nn">junit.textui.TestRunner</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestSuite</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestCase</span><span class="tok-o">;</span>
+
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">PileTest</span> <span class="tok-kd">extends</span> <span class="tok-n">TestCase</span> <span class="tok-o">{</span>
+
+        <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_type_new_Pile</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+                <span class="tok-n">Pile</span> <span class="tok-n">pile</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">Pile</span><span class="tok-o">()</span> <span class="tok-o">;</span>
+
+                <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;new Pile() retourne une Pile&quot;</span><span class="tok-o">,</span> <span class="tok-s">&quot;Pile&quot;</span><span class="tok-o">,</span> <span class="tok-n">pile</span><span class="tok-o">.</span><span class="tok-na">getClass</span><span class="tok-o">().</span><span class="tok-na">getName</span><span class="tok-o">());</span>
+        <span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pile2.png" alt="pile2" width="80%">
+</div>
+<div class="title">Figure 10. Oups, JUnit n'est pas dans le path...</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pile3.png" alt="pile3" width="90%">
+</div>
+<div class="title">Figure 11. Création rapide de la classe `Pile`</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pile1.png" alt="pile1" width="60%">
+</div>
+<div class="title">Figure 12. Run as JUnit Tests</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_etape_1_amériorer_avec_un_code_main_code">6.3.3. Etape 1' : amériorer avec un <code>main</code></h4>
+<div class="paragraph">
+<p>Pour ceux qui veulent vraiment un <code>main</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">PileTest</span> <span class="tok-kd">extends</span> <span class="tok-n">TestCase</span> <span class="tok-o">{</span>
+        <span class="tok-kd">static</span> <span class="tok-kt">int</span> <span class="tok-n">totalAssertions</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+        <span class="tok-kd">static</span> <span class="tok-kt">int</span> <span class="tok-n">bilanAssertions</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+
+        <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_type_new_Pile</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+                <span class="tok-n">Pile</span> <span class="tok-n">pile</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">Pile</span><span class="tok-o">()</span> <span class="tok-o">;</span>
+
+                <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+                <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;new Pile() retourne une Pile&quot;</span><span class="tok-o">,</span> <span class="tok-s">&quot;Pile&quot;</span><span class="tok-o">,</span> <span class="tok-n">pile</span><span class="tok-o">.</span><span class="tok-na">getClass</span><span class="tok-o">().</span><span class="tok-na">getName</span><span class="tok-o">());</span>
+                <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+        <span class="tok-o">}</span>
+
+        <span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kt">void</span> <span class="tok-nf">main</span><span class="tok-o">(</span><span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">args</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+                <span class="tok-n">junit</span><span class="tok-o">.</span><span class="tok-na">textui</span><span class="tok-o">.</span><span class="tok-na">TestRunner</span><span class="tok-o">.</span><span class="tok-na">run</span><span class="tok-o">(</span><span class="tok-k">new</span> <span class="tok-nf">TestSuite</span><span class="tok-o">(</span><span class="tok-n">PileTest</span><span class="tok-o">.</span><span class="tok-na">class</span><span class="tok-o">));</span>
+                <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">bilanAssertions</span> <span class="tok-o">==</span> <span class="tok-n">totalAssertions</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">print</span><span class="tok-o">(</span><span class="tok-s">&quot;Bravo !&quot;</span><span class="tok-o">);</span> <span class="tok-o">}</span>
+                <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-s">&quot; &quot;</span><span class="tok-o">+</span><span class="tok-n">bilanAssertions</span><span class="tok-o">+</span><span class="tok-s">&quot;/&quot;</span><span class="tok-o">+</span><span class="tok-n">totalAssertions</span><span class="tok-o">+</span><span class="tok-s">&quot; assertions vérifiées&quot;</span><span class="tok-o">);</span>
+        <span class="tok-o">}</span> <span class="tok-c1">// fin main</span>
+
+<span class="tok-o">}</span> <span class="tok-c1">// fin PileTest</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si vous utilisez SciTE au lieu de <a href="http://www.eclipse.org">Eclipse</a>, pour compiler le programme de Test n&#8217;oubliez pas de placer les fichiers
+<code>SciTE.properties</code> et <code>junit.jar</code> dans le répertoire de vos sources (avant d&#8217;ouvrir SciTE) ou
+bien exécutez ceci :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>javac -cp .;junit.jar PileTest.java</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_etape_2_écrire_un_test_qui_passe">6.3.4. Etape 2 : écrire un test qui passe</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_type_empiler</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+  <span class="tok-n">Pile</span> <span class="tok-n">pile</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">Pile</span><span class="tok-o">()</span> <span class="tok-o">;</span>
+
+  <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;empiler(pile,&#39;XXX&#39;) retourne une Pile&quot;</span><span class="tok-o">,</span> <span class="tok-s">&quot;Pile&quot;</span><span class="tok-o">,</span> <span class="tok-n">pile</span><span class="tok-o">.</span><span class="tok-na">empiler</span><span class="tok-o">(</span><span class="tok-s">&quot;XXX&quot;</span><span class="tok-o">).</span><span class="tok-na">getClass</span><span class="tok-o">().</span><span class="tok-na">getName</span><span class="tok-o">());</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pile4.png" alt="pile4" width="60%">
+</div>
+<div class="title">Figure 13. Erreur de syntaxe</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Pile</span> <span class="tok-o">{</span>
+
+	<span class="tok-kd">public</span> <span class="tok-n">Object</span> <span class="tok-nf">empiler</span><span class="tok-o">(</span><span class="tok-n">String</span> <span class="tok-n">string</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+		<span class="tok-c1">// TODO Auto-generated method stub</span>
+		<span class="tok-k">return</span> <span class="tok-k">this</span><span class="tok-o">;</span>
+	<span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+La méthode générée par défaut retourne <code>null</code> ce qui provoque une <code>NullPointerException</code>. Nous avons modifié la méthode en conséquence.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pile5.png" alt="pile5" width="90%">
+</div>
+<div class="title">Figure 14. Ajout simple de la méthode manquante</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pile6.png" alt="pile6" width="80%">
+</div>
+<div class="title">Figure 15. Passage du test</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_etape_2_écrire_un_test_qui_échoue">6.3.5. Etape 2 : écrire un test qui échoue</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_axiome1</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+  <span class="tok-n">Pile</span> <span class="tok-n">pile</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">Pile</span><span class="tok-o">()</span> <span class="tok-o">;</span>
+
+  <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;Une nouvelle pile est vide&quot;</span><span class="tok-o">,</span> <span class="tok-n">pile</span><span class="tok-o">.</span><span class="tok-na">estVide</span><span class="tok-o">(</span><span class="tok-n">pile</span><span class="tok-o">));</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Méthode ajoutée par défaut</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kd">public</span> <span class="tok-kt">boolean</span> <span class="tok-nf">estVide</span><span class="tok-o">(</span><span class="tok-n">Pile</span> <span class="tok-n">pile</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-c1">// TODO Auto-generated method stub</span>
+  <span class="tok-k">return</span> <span class="tok-kc">false</span><span class="tok-o">;</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pile7.png" alt="pile7" width="100%">
+</div>
+<div class="title">Figure 16. Passage du test</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Junit n&#8217;exécute que les fonctions qui commencent pas <code>test</code>.
+Le code suivant n&#8217;est par exemple pas exécuté!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">XXXtest_axiome1</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+  <span class="tok-o">...</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Plus récemment, on utilise l&#8217;annotation <code>@Test</code> devant les tests, comme dans l&#8217;exemple ci-dessous :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-nd">@Test</span>
+<span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">constructeur_correct</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+  <span class="tok-o">...</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_etape_3_on_fait_passer_le_test">6.3.6. Etape 3 : On fait passer le test</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kd">public</span> <span class="tok-kt">boolean</span> <span class="tok-nf">estVide</span><span class="tok-o">(</span><span class="tok-n">Pile</span> <span class="tok-n">pile</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+  <span class="tok-c1">// Smartly modified by JMB to pass the test!</span>
+  <span class="tok-k">return</span> <span class="tok-kc">true</span><span class="tok-o">;</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pile8.png" alt="pile8" width="100%">
+</div>
+<div class="title">Figure 17. Passage du test</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Bien sûr le code n&#8217;est pas correcte pour l&#8217;instant
+(on s&#8217;en rendra compte dès les tests suivants)! Une meilleure solution pourrait être :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Pile</span> <span class="tok-o">{</span>
+	<span class="tok-kt">int</span> <span class="tok-n">count</span><span class="tok-o">;</span>
+  <span class="tok-o">...</span>
+	<span class="tok-kd">public</span> <span class="tok-kt">boolean</span> <span class="tok-nf">estVide</span><span class="tok-o">(</span><span class="tok-n">Pile</span> <span class="tok-n">pile</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+		<span class="tok-k">return</span> <span class="tok-o">(</span><span class="tok-n">count</span> <span class="tok-o">==</span> <span class="tok-mi">0</span><span class="tok-o">);</span>
+	<span class="tok-o">}</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_essai_de_merge_pour_voir_si_tout_le_reste_marche_encore">6.4. Essai de merge pour voir si tout le reste marche encore</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell">bruel (US-15378) $ git commit -am &quot;Adding push feature. Tests OK&quot;
+[US-15378 78f3242] Adding push feature. Tests OK
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+bruel (US-15378) $ git checkout devs
+Switched to branch &#39;devs&#39;
+bruel (devs) $ git merge US-15378</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_commit_push_dans_code_devs_code">6.5. Commit &amp; Push dans <code>devs</code></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell">bruel (devs) $ git commit -am &quot;...&quot;
+...
+bruel (devs) $ git push origin devs
+...
+bruel (devs) $ git branch -D US-15378
+Deleted branch US-15378 (was f392a73).</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_de_code_on_going_code_à_code_review_code">6.6. De <code>On going</code> à <code>Review</code></h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pour_aller_plus_loin">Pour aller plus loin&#8230;&#8203;</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://rpouiller.developpez.com/tutoriels/java/tests-unitaires-junit4/" class="bare">http://rpouiller.developpez.com/tutoriels/java/tests-unitaires-junit4/</a></p>
+</li>
+<li>
+<p><a href="https://jmbruel.github.io/teaching/topics/agile.html#_les_tests" class="bare">https://jmbruel.github.io/teaching/topics/agile.html#_les_tests</a></p>
+</li>
+<li>
+<p><a href="http://www.vogella.com/tutorials/JUnit/article.html" class="bare">http://www.vogella.com/tutorials/JUnit/article.html</a></p>
+</li>
+<li>
+<p><a href="http://junit.org" class="bare">http://junit.org</a></p>
+</li>
+<li>
+<p><a href="http://stackoverflow.com/questions/8751553/how-to-write-a-unit-test" class="bare">http://stackoverflow.com/questions/8751553/how-to-write-a-unit-test</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0 2016-10-08<br>
+Last updated 2016-10-08 23:46:16 CEST
+</div>
+</div>
+</body>
+</html>
