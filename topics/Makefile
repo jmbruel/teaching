@@ -12,13 +12,13 @@ SITE=../jmbruel.github.io/teaching
 THEME=riak
 #The valid options are coderay, highlightjs, prettify, and pygments.
 HIGHLIGHT=pygments
-MAIN=TD1
+MAIN=testingCI
 
 #-----------------------------------------------------
 
 all: $(OUTPUT)/$(MAIN).html $(OUTPUT)/$(MAIN).dzslides.html $(OUTPUT)/$(MAIN).teacher.html
 
-support: capella.adoc
+support: $(MAIN).adoc
 	@echo '==> Compiling asciidoc files to generate HTML'
 	$(ASCIIDOCTOR) -b html5 \
 		-a numbered \
