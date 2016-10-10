@@ -16,8 +16,8 @@ ifndef::jmbtopic[]
 :toc: left
 :numbered:
 :status:
-:siteurl: http://jmbhome.github.io/teaching/topics/testingCI.html
-:bitlysiteurl: http://bit.ly/jmb-testingCI
+:siteurl: https://jmbruel.github.io/teaching/topics/testingCI.html
+:bitlysiteurl: http://bit.ly/jmb-testing
 //------------------------------------ Slides uniquement
 ifdef::slides[]
 //--------------------- dzslides slides
@@ -727,7 +727,7 @@ image::review.jpg[width=90%]
 ifdef::slides[NOTE: [detail]#Penser à mettre à jour le tableau de bord#]
 
 
-ifdef::slides[:leveloffset: 0]
+ifndef::slides[]
 
 :numbered!:
 [{topic}]
@@ -740,7 +740,14 @@ ifdef::slides[:leveloffset: 0]
 - http://stackoverflow.com/questions/8751553/how-to-write-a-unit-test
 - https://www.quora.com/How-do-you-get-developers-to-love-testing-their-code
 
+endif::slides[]
+
 ifdef::slides[]
+
+:leveloffset: 0
+
+[{intro}]
+== Projet MPA : *Sprint 2*
 
 [{topic}]
 == Statistiques Sprint 2
@@ -759,7 +766,7 @@ ifdef::slides[== !]
 |=====
 | Groupe | # classes de test | # tests | Status
 | 2A1 | 0 | 0 | image:buildOK.png[width=30%]
-| 2A2 | 1 | ~10 | image:buildNOK.png[width=30%]
+| 2A2 | 1 | ~10 | image:buildOK.png[width=30%]
 | 2B1 | 2 | ~10 | image:buildOK.png[width=30%]
 | 2B2 | 0 | 0 | image:buildOK.png[width=30%]
 |=====
@@ -769,7 +776,7 @@ ifdef::slides[== !]
 
 |=====
 | Groupe | # classes de test | # tests | Status
-| 3A1 | ? | ? | ???
+| 3A1 | 0 | 0 | image:buildNOK.png[width=30%]
 | 3A2 | 1 | 0 | image:buildNOK.png[width=30%]
 | 3B1 | 0 | 0 | image:buildOK.png[width=30%]
 | 3B2 | 0 | 0 | image:buildNOK.png[width=30%]
@@ -809,5 +816,8 @@ Buildfile: build.xml does not exist!
 ----
 
 image::why3.jpg[width=30%]
+
+[{intro}]
+== *The End* {nbsp}{nbsp}{nbsp}(for me)
 
 endif::slides[]
