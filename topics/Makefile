@@ -3,8 +3,8 @@ DZSLIDES=../../asciidoctor-backends/slim/dzslides
 DECKJS=../..asciidoctor-deck.js/templates/haml/
 #STYLE=../POO/COO/stylesheets/golo-jmb.css
 STYLE=../../asciidoctor-stylesheet-factory/stylesheets/jmb.css
-#ASCIIDOCTOR=asciidoctor
-ASCIIDOCTOR=asciidoctor -a icons=font -a linkcss! --trace
+#ASCIIDOCTOR=asciidoctor  -a icons=font -a linkcss! -a data-uri
+ASCIIDOCTOR=asciidoctor -a icons=font
 EXT=adoc
 OUTPUT=.
 SITE=../jmbruel.github.io/teaching
@@ -18,11 +18,20 @@ MAIN=TD1
 
 all: $(OUTPUT)/$(MAIN).html $(OUTPUT)/$(MAIN).dzslides.html $(OUTPUT)/$(MAIN).teacher.html
 
+support: ci.adoc
+	@echo '==> Compiling asciidoc files to generate HTML'
+	$(ASCIIDOCTOR) -b html5 \
+		-a numbered \
+		-a data-uri -a linkcss \
+		-a toc2 \
+		-r asciidoctor-diagram \
+		-a source-highlighter=$(HIGHLIGHT) \
+		-o $@ $<
+		
 $(OUTPUT)/%.html: %.$(EXT)
 	@echo '==> Compiling asciidoc files to generate HTML'
 	$(ASCIIDOCTOR) -b html5 \
 		-a numbered \
-		-a data-uri \
 		-a toc2 \
 		-r asciidoctor-diagram \
 		-a source-highlighter=$(HIGHLIGHT) \
@@ -34,7 +43,6 @@ $(OUTPUT)/%.dzslides.html: %.$(EXT)
 		-T $(DZSLIDES) -E slim \
 		-a slides -a dzslides \
 		-r asciidoctor-diagram \
-		-a data-uri \
 		-a styledir=. \
 		-a stylesheet=$(STYLE) \
 		-a source-highlighter=$(HIGHLIGHT) \
@@ -45,7 +53,6 @@ $(OUTPUT)/%.teacher.html: %.$(EXT)
 	$(ASCIIDOCTOR) -b html5 \
 		-a prof \
 		-a numbered \
-		-a data-uri \
 		-a toc2 \
 		-r asciidoctor-diagram \
 		-a source-highlighter=$(HIGHLIGHT) \
@@ -55,7 +62,6 @@ $(OUTPUT)/%.sujet.html: %.$(EXT)
 	@echo '==> Compiling asciidoc files to generate subject for student'
 	$(ASCIIDOCTOR) -b html5 \
 		-a numbered \
-		-a data-uri \
 		-r asciidoctor-diagram \
 		-a source-highlighter=$(HIGHLIGHT) \
 		-o $@ $<

@@ -1,0 +1,28 @@
+digraph G {
+  graph[
+    label="Module dependencies"
+    labelloc=t
+    labeljust=c
+    fontpath="."
+    fontsize=12
+    fontname="SF_Cartoonist_Hand"
+  ]
+  node [
+    shape=rectangle
+    style=filled
+    color=beige
+  ]
+  edge[
+    style=dashed
+  ]
+  subgraph {
+    {rank=same; POO BCOO PTUT}
+  }
+  MPA -> POO
+  MPA -> PTUT
+  CPOA -> MPA
+  CPOA -> BCOO
+  POO -> Algo;
+  PTUT -> BCOO;
+  {rank=same; MPA CPOA}
+}

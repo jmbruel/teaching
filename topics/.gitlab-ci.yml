@@ -1,0 +1,22 @@
+image: openjdk:8
+
+before_script:
+  - apt-get update
+  - apt-get -y install ant
+
+stages:
+  - build
+  - test
+
+ci_build:
+  stage: build
+  script:
+    - cd HelloWorld
+    - ant clean
+    - ant build
+
+ci_test:
+  stage: test
+  script:
+    - cd HelloWorld
+    - ant clean build TestHelloWorld
