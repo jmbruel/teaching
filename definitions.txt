@@ -133,6 +133,7 @@
 :visualSNI: http://sourceforge.net/projects/visual-sni/[VisualSNI]
 :vle: http://www.vle-project.org/wiki/Main_Page[VLE]
 :wikirover: https://polarsys.org/wiki/Rover_Demo_Master_DL_UPS[Rover Demo Wiki]
+:mediawiki: https://www.mediawiki.org/wiki/MediaWiki[MediaWiki]
 :xtext: http://www.eclipse.org/Xtext/[Xtext]
 :yuml: http://yuml.me/[yuml]
 
