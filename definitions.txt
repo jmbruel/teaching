@@ -45,6 +45,7 @@
 :eiffel: https://www.eiffel.org/documentation[Eiffel]
 :eiffelStudio: https://www.eiffel.com[Eiffel Studio]
 :emf: https://www.eclipse.org/modeling/emf/[EMF]
+:emfcompare: https://www.eclipse.org/emf/compare/[EMFCompare]
 :form-l: http://www.ep.liu.se/ecp/096/130/ecp14096130.pdf[FORM-L]
 :foundation: http://foundation.zurb.com/[Foundation]
 :gemoc: http://gemoc.org/[GEMOC]
@@ -133,7 +134,6 @@
 :visualSNI: http://sourceforge.net/projects/visual-sni/[VisualSNI]
 :vle: http://www.vle-project.org/wiki/Main_Page[VLE]
 :wikirover: https://polarsys.org/wiki/Rover_Demo_Master_DL_UPS[Rover Demo Wiki]
-:mediawiki: https://www.mediawiki.org/wiki/MediaWiki[MediaWiki]
 :xtext: http://www.eclipse.org/Xtext/[Xtext]
 :yuml: http://yuml.me/[yuml]
 
