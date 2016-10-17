@@ -1,0 +1,39 @@
+<!-- stylesheets -->
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="Fonts/Insolent/stylesheet.css" type="text/css">
+    <link rel="stylesheet" href="Fonts/BorisBlackBloxx/stylesheet.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+    <!-- Tangle -->
+    <script type="text/javascript" src="Tangle.js"></script>
+
+    <!-- TangleKit -->
+    <link rel="stylesheet" href="TangleKit/TangleKit.css" type="text/css">
+    <script type="text/javascript" src="TangleKit/mootools.js"></script>
+    <script type="text/javascript" src="TangleKit/sprintf.js"></script>
+    <script type="text/javascript" src="TangleKit/BVTouchable.js"></script>
+    <script type="text/javascript" src="TangleKit/TangleKit.js"></script>
+
+    <!-- examples -->
+    <script type="text/javascript" src="Examples/CookieExample.js"></script>
+    <script type="text/javascript" src="Examples/ParkExample.js"></script>
+    <script type="text/javascript" src="Examples/FilterExample.js"></script>
+    <script type="text/javascript" src="Examples/FilterExampleDSP.js"></script>
+<!-- Change some CSS. -->
+<style>
+/* Change CSS overflow for table of contents. */
+#toc.toc2, #toc { overflow: scroll; }
+
+/* Change styling for footer text. */
+.footer-text { color: rgba(255,255,255,.8); }
+</style>
+
+
+<!-- We could also include Javascript
+     for example in this document. -->
+<script>
+     var tangle = new Tangle(document, {
+         initialize: function () { this.cookies = 3; },
+         update:     function () { this.calories = this.cookies * 50; }
+     });
+</script>

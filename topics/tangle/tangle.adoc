@@ -1,0 +1,16 @@
+= Test de tangle
+:docinfo2:
+
+== Context
+
+http://worrydream.com/#!/Tangle
+
+== Essai
+
+++++
+<p>When you eat
+<span data-var="cookies" class="TKAdjustableNumber" data-min="2" data-max="100"> cookies</span>,
+you consume <span data-var="calories"></span> calories.</p>
+++++
+
+So?
