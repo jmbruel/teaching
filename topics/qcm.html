@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="author" content="Jean-Michel Bruel">
+<title>QCM à correction automatiques</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="./pygments-default.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1><strong>QCM</strong> à correction automatiques <span class="icon"><i class="fa fa-check-square-o"></i></span></h1>
+<div class="details">
+<span id="author" class="author">Jean-Michel Bruel</span><br>
+<span id="email" class="email"><a href="mailto:bruel@irit.fr">bruel@irit.fr</a></span><br>
+<span id="revnumber">version .1.0 - 2016-10-24</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matières</div>
+<ul class="sectlevel1">
+<li><a href="#_avantages_span_class_icon_i_class_fa_fa_thumbs_o_up_i_span">1. Avantages <span class="icon"><i class="fa fa-thumbs-o-up"></i></span></a></li>
+<li><a href="#_install_span_class_icon_i_class_fa_fa_gears_i_span">2. Install <span class="icon"><i class="fa fa-gears"></i></span></a></li>
+<li><a href="#_exemple_span_class_icon_i_class_fa_fa_pencil_square_o_i_span">3. Exemple <span class="icon"><i class="fa fa-pencil-square-o"></i></span></a>
+<ul class="sectlevel2">
+<li><a href="#_etape_1_créer_un_nouveau_projet">3.1. Etape 1 : Créer un nouveau projet</a></li>
+<li><a href="#_etape_2_chosir_le_type_de_qcm">3.2. Etape 2 : Chosir le type de QCM</a></li>
+<li><a href="#_etape_3_c_est_parti">3.3. Etape 3 : C&#8217;est parti</a></li>
+<li><a href="#_etape_4_rédaction_des_questions">3.4. Etape 4 : Rédaction des questions</a></li>
+<li><a href="#_etape_5_le_pdf_à_imprimer">3.5. Etape 5 : Le PDF à imprimer</a></li>
+<li><a href="#_etape_6_scan_des_copies">3.6. Etape 6 : Scan des copies</a></li>
+<li><a href="#_etape_7_traitement_des_scans">3.7. Etape 7 : Traitement des Scans</a></li>
+<li><a href="#_etape_7_récupérer_les_notes">3.8. Etape 7 : Récupérer les notes</a></li>
+<li><a href="#_etape_8_exporter_les_notes">3.9. Etape 8 : Exporter les notes</a></li>
+<li><a href="#_etape_9_annoter_les_scans">3.10. Etape 9 : Annoter les scans!</a></li>
+</ul>
+</li>
+<li><a href="#_conclusion_span_class_icon_i_class_fa_fa_bar_chart_i_span">4. Conclusion <span class="icon"><i class="fa fa-bar-chart"></i></span></a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_avantages_span_class_icon_i_class_fa_fa_thumbs_o_up_i_span">1. Avantages <span class="icon"><i class="fa fa-thumbs-o-up"></i></span></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Facilité, réutilisation, syntaxe facile</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/simple.png" alt="simple" width="40%">
+</div>
+</div>
+</li>
+<li>
+<p>Mélange de réponses et de questions <span class="detail">(si besoin)</span></p>
+</li>
+<li>
+<p>Correction automatique</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/auto.png" alt="auto" width="40%">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install_span_class_icon_i_class_fa_fa_gears_i_span">2. Install <span class="icon"><i class="fa fa-gears"></i></span></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="http://home.gna.org/auto-qcm/" class="bare">http://home.gna.org/auto-qcm/</a></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="shell">$ port install auto-multiple-choice</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>AMC est un logiciel libre pour machine à base de Linux <span class="icon"><i class="fa fa-linux"></i></span>.</p>
+</div>
+<div class="paragraph">
+<p>Pour les Windowsiens <span class="icon"><i class="fa fa-windows"></i></span> &#8658; Machine virtuelle!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemple_span_class_icon_i_class_fa_fa_pencil_square_o_i_span">3. Exemple <span class="icon"><i class="fa fa-pencil-square-o"></i></span></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_etape_1_créer_un_nouveau_projet">3.1. Etape 1 : Créer un nouveau projet</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/sc1.png" alt="sc1" width="70%">
+</div>
+<div class="title">Figure 1. `Projet -&gt; Nouveau`</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_etape_2_chosir_le_type_de_qcm">3.2. Etape 2 : Chosir le type de QCM</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">modèle</dt>
+<dd>
+<p>Pour ceux qui sont à l&#8217;aise avec <a href="https://fr.wikipedia.org/wiki/LaTeX">LaTeX</a></p>
+</dd>
+<dt class="hdlist1">fichier</dt>
+<dd>
+<p>Pour reprendre un QCM existant</p>
+</dd>
+<dt class="hdlist1">vide</dt>
+<dd>
+<p>Pour démarrer un nouveau QCM</p>
+</dd>
+<dt class="hdlist1">archive</dt>
+<dd>
+<p>Pour récupérer un fichier d&#8217;archive</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/sc2.png" alt="sc2" width="70%">
+</div>
+<div class="title">Figure 2. Type de projet</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_etape_3_c_est_parti">3.3. Etape 3 : C&#8217;est parti</h3>
+<div class="paragraph">
+<p>On choisit le nombre de copies, puis
+<b class="button">Mettre à jour les documents</b></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/sc3.png" alt="sc3" width="70%">
+</div>
+<div class="title">Figure 3. Interface de base</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_etape_4_rédaction_des_questions">3.4. Etape 4 : Rédaction des questions</h3>
+<div class="listingblock">
+<div class="title">Exemple de fichier de base</div>
+<div class="content">
+<pre class="pygments highlight"><code># AMC-TXT source
+PaperSize: A4
+Lang: FR
+Title: Mon premier questionnaire
+
+Presentation: Veuillez répondre aux questions
+ci-dessous du mieux que vous pouvez.
+
+* Quelle est la capitale du Cameroun ? <i class="conum" data-value="1"></i><b>(1)</b>
++ Yaoundé <i class="conum" data-value="2"></i><b>(2)</b>
+- Douala  <i class="conum" data-value="3"></i><b>(3)</b>
+- Kribi
+
+** Parmi les nombres suivants, <i class="conum" data-value="4"></i><b>(4)</b>
+lesquels sont positifs ?
++ 2
+- -2
++ 10</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Une <code>*</code> &#8658; Une seule réponse</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Un <code>+</code> &#8658; Bonne réponse</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Un <code>-</code> &#8658; Mauvaise réponse</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Deux <code>*</code> &#8658; Réponses multiples</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_etape_5_le_pdf_à_imprimer">3.5. Etape 5 : Le PDF à imprimer</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/sc4.png" alt="sc4" width="70%">
+</div>
+<div class="title">Figure 4. Le résultat PDF</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_etape_6_scan_des_copies">3.6. Etape 6 : Scan des copies</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/scan.png" alt="scan" width="70%">
+</div>
+<div class="title">Figure 5. Un scan de copie</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>On peut scanner par paquet de 20 copies pour éviter les <code>.pdf</code> trop volumineux.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_etape_7_traitement_des_scans">3.7. Etape 7 : Traitement des Scans</h3>
+<div class="paragraph">
+<p>On place les fichiers de scan <code>.pdf</code> dans le répertoire <code>VotreProjet/scans</code>.</p>
+</div>
+<div class="paragraph">
+<p>On prépare AMC au traitement des copies (bouton
+<b class="button">Calculer les mises en page</b>
+)</p>
+</div>
+<div class="paragraph">
+<p>On va dans l&#8217;onglet <code>Saisie</code> et on sélectionne le bouton
+<b class="button">Automatique</b>
+.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/autom.png" alt="autom" width="70%">
+</div>
+<div class="title">Figure 6. Correction automatique</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_etape_7_récupérer_les_notes">3.8. Etape 7 : Récupérer les notes</h3>
+<div class="paragraph">
+<p>Simplement en utilisant le bouton
+<b class="button">Corriger</b>
+.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/assoc.png" alt="assoc" width="70%">
+</div>
+<div class="title">Figure 7. Association noms/scans</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Ça semble fastidueux, mais c&#8217;est en fait très rapide.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_etape_8_exporter_les_notes">3.9. Etape 8 : Exporter les notes</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/notes.png" alt="notes" width="70%">
+</div>
+<div class="title">Figure 8. Fichier de notes exporté automatiquement</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_etape_9_annoter_les_scans">3.10. Etape 9 : Annoter les scans!</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/andre.png" alt="andre" width="70%">
+</div>
+<div class="title">Figure 9. Scan de copie annotée par sa correction</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion_span_class_icon_i_class_fa_fa_bar_chart_i_span">4. Conclusion <span class="icon"><i class="fa fa-bar-chart"></i></span></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><span class="icon"><i class="fa fa-plus-square-o"></i></span> Très très utile pour les grosses promos</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-plus-square-o"></i></span> Très complet</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-minus-square-o"></i></span> Demande un peu de pratique</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-minus-square-o"></i></span> Pas de compatibilité avec les QCM Moodle</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-minus-square-o"></i></span> A déconseiller aux allergiques à l&#8217;ordinateur</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version .1.0 - 2016-10-24<br>
+Last updated 2016-10-24 10:05:58 CEST
+</div>
+</div>
+</body>
+</html>
