@@ -1006,6 +1006,7 @@ ifndef::slides[]
 [{topic}]
 == Liens utiles
 
+
 Le site de référence::
   http://git-scm.com/
 Les "hébergeurs"::
@@ -1018,6 +1019,8 @@ Un excellent livre en ligne sur {Git}::
   http://git-scm.com/book
 Comparaison entre merge/rebase/etc.::
   {compmergeURL}
+Un excellent tutoriel en Français et dynamique :
+  http://learngitbranching.js.org/
 
 // ------
 [{topic}]

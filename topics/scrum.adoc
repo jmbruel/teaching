@@ -1,3 +1,4 @@
+:imagesdir: images
 // ------
 [{intro}]
 == La méthode Agile *SCRUM*
@@ -374,6 +375,10 @@ Le programme de test fourni est :
 [{topic}]
 === Tests d'intégration
 
+image::titanic.jpg[width=100%]
+
+ifdef::slides[=== Test d'intégration]
+
 Plus délicat, il s'agit :
 
 [{incremental}]
@@ -459,6 +464,11 @@ public void test_dates_invalides() {
 - Ajouter un test et intégrer la fonctionnalité correspondante (TDD)
 - Retrouver l'équilibre du couple Programme / Programme de Test
 ====
+
+[{topic}]
+=== Les erreurs les plus courantes
+
+http://blog.takipi.com/the-top-10-exceptions-types-in-production-java-applications-based-on-1b-events/?utm_content=buffer0c58b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
 
 ifdef::slides[:leveloffset: +1]
 

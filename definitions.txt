@@ -45,6 +45,7 @@
 :eiffel: https://www.eiffel.org/documentation[Eiffel]
 :eiffelStudio: https://www.eiffel.com[Eiffel Studio]
 :emf: https://www.eclipse.org/modeling/emf/[EMF]
+:emfcompare: https://www.eclipse.org/emf/compare/[EMFCompare]
 :form-l: http://www.ep.liu.se/ecp/096/130/ecp14096130.pdf[FORM-L]
 :foundation: http://foundation.zurb.com/[Foundation]
 :gemoc: http://gemoc.org/[GEMOC]
