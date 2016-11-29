@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="generator" content="Asciidoctor 1.5.5">
 <meta name="author" content="J.-M. Bruel">
 <title>Teaching materials</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -18,7 +18,6 @@ audio:not([controls]){display:none;height:0}
 [hidden],template{display:none}
 script{display:none!important}
 html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
-body{margin:0}
 a{background:transparent}
 a:focus{outline:thin dotted}
 a:active,a:hover{outline:0}
@@ -53,7 +52,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -65,7 +64,6 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-body{-webkit-font-smoothing:antialiased}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
@@ -120,13 +118,16 @@ table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
-body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
 .clearfix:after,.float-group:after{clear:both}
-*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
 .keyseq{color:rgba(51,51,51,.8)}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
@@ -417,7 +418,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
@@ -425,8 +426,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">J.-M. Bruel</span><br>
 <span id="email" class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span><br>
-<span id="revnumber">version 0.9,</span>
-<span id="revdate">2016-09-28</span>
+<span id="revnumber">version 1.0,</span>
+<span id="revdate">2016-11-29</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table des matières</div>
@@ -449,10 +450,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_master_dl">2.2. Master DL</a></li>
 </ul>
 </li>
-<li><a href="#__span_class_icon_i_class_fa_fa_star_i_span_advanced">3. <span class="icon"><i class="fa fa-star"></i></span> Advanced</a>
+<li><a href="#__span_class_icon_i_class_fa_fa_star_i_span_advanced_international">3. <span class="icon"><i class="fa fa-star"></i></span> Advanced &amp; International</a>
 <ul class="sectlevel2">
 <li><a href="#_du_plm">3.1. DU PLM</a></li>
-<li><a href="#_old_stuff_2">3.2. Old stuff</a></li>
+<li><a href="#_engineering_diploma">3.2. Engineering Diploma</a></li>
+<li><a href="#_old_stuff_2">3.3. Old stuff</a></li>
 </ul>
 </li>
 <li><a href="#__span_class_icon_i_class_fa_fa_dollar_i_span_academic_partnerships">4. <span class="icon"><i class="fa fa-dollar"></i></span> Academic partnerships</a></li>
@@ -512,23 +514,14 @@ Site under construction!!
 <div class="ulist">
 <ul>
 <li>
-<p><span class="icon"><i class="fa fa-cogs"></i></span> <span class="image"><img src="images/icons/fr.svg" alt="fr" width="20"></span> Méthodologie de Production d&#8217;Application (MPA - M3301) (L2 level)</p>
+<p><span class="icon"><i class="fa fa-cogs"></i></span> <span class="image"><img src="images/icons/fr.svg" alt="fr" width="20"></span> <a href="mpa2016.html">Méthodologie de Production d&#8217;Application (MPA - M3301)</a> (L2 level)</p>
 <div class="ulist">
 <ul>
 <li>
-<p><span class="icon"><i class="fa fa-graduation-cap"></i></span>Contenu du module (<a href="http://jmbruel.github.io/teaching/topics/mpa.html">HTML</a>, <a href="http://jmbruel.github.io/teaching/topics/mpa.dzslides.html">Slides</a>) &#8658; Cours 1 du 5/9/2016</p>
+<p><span class="icon"><i class="fa fa-cogs"></i></span> Cours sur l&#8217;approche Agile (et <a href="http://fr.wikipedia.org/wiki/Scrum_(m%C3%A9thode)">Scrum</a> en particulier) (<a href="http://jmbruel.github.io/teaching/topics/agile.html">HTML</a>, <a href="http://jmbruel.github.io/teaching/topics/agile.dzslides.html">Slides</a>)</p>
 </li>
 <li>
-<p><span class="icon"><i class="fa fa-cogs"></i></span> Conduite de projet, Tests, Agilité (et <a href="http://fr.wikipedia.org/wiki/Scrum_(m%C3%A9thode)">Scrum</a> en particulier) (<a href="http://jmbruel.github.io/teaching/topics/agile.html">HTML</a>, <a href="http://jmbruel.github.io/teaching/topics/agile.dzslides.html">Slides</a>) &#8658; Cours 1 du 5/9/2016</p>
-</li>
-<li>
-<p><span class="icon"><i class="fa fa-cogs"></i></span> Cours sur l&#8217;approche Agile (et <a href="http://fr.wikipedia.org/wiki/Scrum_(m%C3%A9thode)">Scrum</a> en particulier) (<a href="http://jmbruel.github.io/teaching/topics/agile.html">HTML</a>, <a href="http://jmbruel.github.io/teaching/topics/agile.dzslides.html">Slides</a>) &#8658; Cours 2 du 9/9/2016</p>
-</li>
-<li>
-<p><span class="icon"><i class="fa fa-cogs"></i></span> Cours sur <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> (<a href="http://jmbruel.github.io/teaching/topics/git.html">HTML</a>, <a href="http://jmbruel.github.io/teaching/topics/git.dzslides.html">Slides</a>) &#8658; Cours 3 du 19/9/2016</p>
-</li>
-<li>
-<p><span class="icon"><i class="fa fa-cogs"></i></span> Cours sur l&#8217;intégration continue (<a href="http://jmbruel.github.io/teaching/topics/ci.html">HTML</a>, <a href="http://jmbruel.github.io/teaching/topics/ci.dzslides.html">Slides</a>) &#8658; Cours 4 du 27/9/2016</p>
+<p><span class="icon"><i class="fa fa-cogs"></i></span> Cours sur <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> (<a href="http://jmbruel.github.io/teaching/topics/git.html">HTML</a>, <a href="http://jmbruel.github.io/teaching/topics/git.dzslides.html">Slides</a>)</p>
 </li>
 </ul>
 </div>
@@ -564,7 +557,7 @@ Site under construction!!
 <div class="ulist">
 <ul>
 <li>
-<p><span class="icon"><i class="fa fa-graduation-cap"></i></span> <a href="http://jmbruel.github.io/MobileModeling/">Mobile Modeling</a> (L3 level)</p>
+<p><span class="icon"><i class="fa fa-graduation-cap"></i></span> <a href="http://jmbruel.github.io/teaching/MobileModeling">Mobile Modeling</a> (L3 level)</p>
 </li>
 </ul>
 </div>
@@ -613,12 +606,12 @@ Site under construction!!
 </div>
 </div>
 <div class="sect1">
-<h2 id="__span_class_icon_i_class_fa_fa_star_i_span_advanced">3. <span class="icon"><i class="fa fa-star"></i></span> Advanced</h2>
+<h2 id="__span_class_icon_i_class_fa_fa_star_i_span_advanced_international">3. <span class="icon"><i class="fa fa-star"></i></span> Advanced &amp; International</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_du_plm">3.1. DU PLM</h3>
 <div class="paragraph">
-<p>I teach the following courses in the {duplm} at <a href="http://www.univ-tlse3.fr">UPS</a> :</p>
+<p>I teach the following courses in the <a href="https://www.phosforea.com/ups-du/du-plm.php">DU PLM</a> at <a href="http://www.univ-tlse3.fr">UPS</a>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -629,7 +622,23 @@ Site under construction!!
 </div>
 </div>
 <div class="sect2">
-<h3 id="_old_stuff_2">3.2. Old stuff</h3>
+<h3 id="_engineering_diploma">3.2. Engineering Diploma</h3>
+<div class="paragraph">
+<p>I gave an introduction to modeling in the <a href="http://www.it-tallaght.ie/index.cfm/page/course?id=128">Masters of Engineering in Electronic Engineering in Electronic System Design</a> at <a href="http://www.it-tallaght.ie/">ITT Dublin</a>, Ireland:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="icon"><i class="fa fa-star-o"></i></span> <a href="http://bit.ly/jmb-dublin16">Introduction to modeling</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/ITTDublin2016.jpg" alt="2016 students" width="40%"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_old_stuff_2">3.3. Old stuff</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -638,7 +647,7 @@ Site under construction!!
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/guadalajara.jpg" alt="2012 students" width="50%"></span></p>
+<p><span class="image"><img src="images/guadalajara.jpg" alt="2012 students" width="40%"></span></p>
 </div>
 </div>
 </div>
@@ -709,8 +718,8 @@ My dear students are more than welcome to contribute!
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.9<br>
-Last updated 2016-09-28 18:50:51 CEST
+Version 1.0<br>
+Last updated 2016-11-29 17:51:54 GMT
 </div>
 </div>
 </body>
