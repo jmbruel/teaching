@@ -1,6 +1,6 @@
 = Teaching materials image:https://travis-ci.org/jmbruel/teaching.svg?branch=master["Build Status", link="https://travis-ci.org/jmbruel/teaching"]
 J.-M. Bruel <jbruel@gmail.com>
-V0.9, {localdate}
+V1.0, {localdate}
 //:doctype: book
 :toc-title: Table des matières
 :toc: left
@@ -15,6 +15,7 @@ V0.9, {localdate}
 
 include::definitions.txt[]
 
+:duplm: link:https://www.phosforea.com/ups-du/du-plm.php[DU PLM]
 :vpuml: link:http://www.visual-paradigm.com/product/vpuml[VP-UML]
 :nomagic: link:http://www.nomagic.com/[No Magic]
 :magicdraw: link:http://www.nomagic.com/products/magicdraw.html/[MagicDraw]
@@ -26,6 +27,8 @@ include::definitions.txt[]
 :apsio: link:http://www.iut-blagnac.fr/spip.php?mot1&id_article=2[Licence APSIO]
 :ice: link:http://mathsinfo.univ-tlse2.fr/accueil/formations/master-ice/[Master ICE]
 :ntie: Master NTIE
+:ittdublin: http://www.it-tallaght.ie/[ITT Dublin]
+:masterITT: http://www.it-tallaght.ie/index.cfm/page/course?id=128[Masters of Engineering in Electronic Engineering in Electronic System Design]
 
 :numbered!:
 == About this document / Avant-Propos
@@ -68,7 +71,7 @@ image::dut-modules.svg[]
 
 I teach the following courses in the {apsio} at {iut}:
 
-* icon:graduation-cap[] link:http://jmbruel.github.io/MobileModeling/[Mobile Modeling] (L3 level)
+* icon:graduation-cap[] link:http://jmbruel.github.io/teaching/MobileModeling[Mobile Modeling] (L3 level)
 
 === Old stuff
 
@@ -88,19 +91,27 @@ I teach the following course at {dl} of {ups}:
 
 * icon:graduation-cap[] {sysml} (M2 level)
 
-== icon:star[] Advanced
+== icon:star[] Advanced & International
 
 === DU PLM
 
-I teach the following courses in the {duplm} at {ups} :
+I teach the following courses in the {duplm} at {ups}:
 
 * icon:graduation-cap[] Introduction à {sysml} (M1 level)
 
+=== Engineering Diploma
+
+I gave an introduction to modeling in the {masteritt} at {ittdublin}, Ireland:
+
+* icon:star-o[] http://bit.ly/jmb-dublin16[Introduction to modeling]
+
+image:ITTDublin2016.jpg[2016 students,width=40%]
+
 === Old stuff
 
-- icon:cogs[] Advanced {sysML} at {uag}, Mexico
+- icon:star[] icon:cogs[] Advanced {sysML} at {uag}, Mexico
 
-image:guadalajara.jpg[2012 students,width=50%]
+image:guadalajara.jpg[2012 students,width=40%]
 
 == icon:dollar[] Academic partnerships
 
