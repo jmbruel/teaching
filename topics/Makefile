@@ -1,6 +1,9 @@
 #-----------------------------------------------------
 DZSLIDES=../../asciidoctor-backends/slim/dzslides
 DECKJS=../..asciidoctor-deck.js/templates/haml/
+DECK=swiss
+#DECK=neon
+#DECK=beamer
 #STYLE=../POO/COO/stylesheets/golo-jmb.css
 STYLE=../../asciidoctor-stylesheet-factory/stylesheets/jmb.css
 #ASCIIDOCTOR=asciidoctor  -a icons=font -a linkcss! -a data-uri
@@ -46,6 +49,14 @@ $(OUTPUT)/%.dzslides.html: %.$(EXT)
 		-a styledir=. \
 		-a stylesheet=$(STYLE) \
 		-a source-highlighter=$(HIGHLIGHT) \
+		-o $@ $<
+
+$(OUTPUT)/%.deckjs.html: %.$(EXT)
+	@echo '==> Compiling asciidoc files to generate Deckjs'
+	$(ASCIIDOCTOR) -T ../../asciidoctor-deck.js/templates/haml/ \
+		-a slides \
+		-a deckjs_theme=$(DECK) \
+		-a prof \
 		-o $@ $<
 
 $(OUTPUT)/%.teacher.html: %.$(EXT)
