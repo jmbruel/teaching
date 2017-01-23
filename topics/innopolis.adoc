@@ -40,3 +40,20 @@ Methods::
   Focus on the {scrum} method
 Tools::
   We will combine modern production tools
+
+== Content and progression
+
+[{incremental}]
+- SCRUM, Cycle -1 and Cycle 0, Tests
+- Tools, versioning, building
+- Continuous Integration, documentation
+- Cours Maintenance, refactoring, evolutions
+
+== Time schedule
+
+[{incremental}]
+* 4 periods of 2 days courses
+** January 27-28
+** March 3-4
+** March 17-18
+** April 14-15
