@@ -13,7 +13,8 @@ v1.0 {localdate}
 :toc: left
 :numbered:
 :status:
-:siteurl: http://jmbhome.github.io/teaching/topics/map.html
+:base: http://jmbhome.github.io/teaching/topics
+:siteurl: {base}/map.html
 :bitlysiteurl: http://bit.ly/jmb-map
 :incremental: %step
 
@@ -54,7 +55,7 @@ Tools::
 |===
 | # | Date | Topic
 
-| 1 | Jan. 27th | Introduction
+| 1 | Jan. 27th | link:{base}/inno-1-Intro.html[Introduction]
 | 2 | Jan. 27th | Agile methods
 | 3 | Jan. 27th | Project setup
 | 4 | Jan. 28th | Scrum practice
