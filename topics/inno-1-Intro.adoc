@@ -13,7 +13,7 @@ v1.0 {localdate}
 :toc: left
 :numbered:
 :status:
-:base: http://jmbhome.github.io/teaching/topics
+:base: http://jmbruel.github.io/teaching/topics
 :siteurl: {base}/map.html
 :bitlysiteurl: http://bit.ly/jmb-map
 :incremental: %step
@@ -56,12 +56,12 @@ Tools::
 | # | Date | Topic
 
 | 1 | Jan. 27th | link:{base}/inno-1-Intro.html[Introduction]
-| 2 | Jan. 27th | Agile methods
+| 2 | Jan. 27th | link:{base}/inno-2-Agile.html[Agile methods]
 | 3 | Jan. 27th | Project setup
-| 4 | Jan. 28th | Scrum practice
-| 5 | Jan. 28th | Coding Dojo
-| 6 | Jan. 28th | Team building
-| 7 | Jan. 28th | Sprint 0
+| 4 | Jan. 28th | link:{base}/inno-3-Manifesto.html[Agile Manifesto]
+| 5 | Jan. 28th | link:{base}/inno-4-Scrum.html[Scrum practice]
+| 6 | Jan. 28th | link:{base}/inno-5-tests.html[Tests] & Coding Dojo
+| 7 | Jan. 28th | Team building & Sprint 0
 
 | 8-15 | Mar. 3-4 | Feedbacks on self-practice; Build techniques
 | 16-23 | Mar. 17-18 | Continuous Integration; Demo and presentations
