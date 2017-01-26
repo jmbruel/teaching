@@ -53,7 +53,8 @@ $(OUTPUT)/%.dzslides.html: %.$(EXT)
 
 $(OUTPUT)/%.deckjs.html: %.$(EXT)
 	@echo '==> Compiling asciidoc files to generate Deckjs'
-	$(ASCIIDOCTOR) -T ../../asciidoctor-deck.js/templates/haml/ \
+	$(ASCIIDOCTOR) -b deckjs \
+		-T ../../asciidoctor-deck.js/templates/haml/ \
 		-a slides \
 		-a deckjs_theme=$(DECK) \
 		-a prof \

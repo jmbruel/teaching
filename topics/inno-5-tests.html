@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="author" content="J.-M. Bruel">
+<title>Tests</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="./pygments-default.css">
+</head>
+<body id="MPA" class="article toc2 toc-left">
+<div id="header">
+<h1>Tests</h1>
+<div class="details">
+<span id="author" class="author">J.-M. Bruel</span><br>
+<span id="email" class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span><br>
+<span id="revnumber">version 1.0 2017-01-26</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matières</div>
+<ul class="sectlevel1">
+<li><a href="#_unit_tests">1. Unit Tests</a></li>
+<li><a href="#_integration_tests">2. Integration Tests</a></li>
+<li><a href="#_tests_implement_simple_algorithms">3. Tests implement simple algorithms</a></li>
+<li><a href="#_can_everything_be_tested">4. Can everything be tested ?</a></li>
+<li><a href="#_all_the_strategies_are_exploitable">5. All the strategies are exploitable</a></li>
+<li><a href="#_most_common_mistakes_in_programming">6. Most common mistakes in programming</a></li>
+<li><a href="#_quizz">Quizz</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Whatever development method you apply, tests are <strong>the only way to ensure</strong>
+that the delivered product <strong>conforms to the client&#8217;s requirements</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_unit_tests">1. Unit Tests</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>They are the simplest.
+But hence it is needed to &#8230;&#8203;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>forget 'manual' approaches</p>
+</li>
+<li>
+<p>explore their 'limitations'</p>
+</li>
+<li>
+<p>treate both the 'qualitative' and 'quantitative' aspects</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s consider the implementation of an abstract type: <code>MatrixInt</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Operations</p>
+<div class="ulist">
+<ul>
+<li>
+<p>createMatrix : Int * Int &#8594; MatrixInt</p>
+</li>
+<li>
+<p>getNbLines : MatrixInt &#8594; Int</p>
+</li>
+<li>
+<p>getNbColumns : MatrixInt &#8594; Int</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Preconditions</p>
+<div class="ulist">
+<ul>
+<li>
+<p>createMatrix(l,c) valid IF and ONLY IF ( l &gt; 0 ) AND ( c &gt; 0 )</p>
+</li>
+<li>
+<p>getElement(m,i,j) valid IF and ONLY IF ( 0 &lt; = i &lt; getNbLines(m) ) AND ( 0 &lt; = j &lt; getNbColumns(m))</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Axioms</p>
+<div class="ulist">
+<ul>
+<li>
+<p>getNbLines(createMatrix(l,c)) = l</p>
+</li>
+<li>
+<p>getNbColumns(createMatrix(l,c)) = c</p>
+</li>
+<li>
+<p>getElement(createMatrix(l,c),i,j) = 0</p>
+</li>
+<li>
+<p>isSquared(createMatrix(l,c)) IF and ONLY IF l = c</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Spécifications</div>
+<div class="openblock">
+<div class="title">Opérations</div>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>createMatrix : Int * Int &#8594; MatrixInt</code></p>
+</li>
+<li>
+<p><code>getNbLines : MatrixInt &#8594; Int</code></p>
+</li>
+<li>
+<p><code>getNbColumns : MatrixInt &#8594; Int</code></p>
+</li>
+<li>
+<p><code>getElement : MatrixInt * Int * Int &#8594; Int</code></p>
+</li>
+<li>
+<p><code>somLine : MatrixInt * Int &#8594; Int</code></p>
+</li>
+<li>
+<p><code>somColumn : MatriceColumn * Int &#8594; Int</code></p>
+</li>
+<li>
+<p><code>isSquared : MatrixInt &#8594; Boolean</code></p>
+</li>
+<li>
+<p><code>isDiagonal : MatrixInt &#8594; Boolean</code></p>
+</li>
+<li>
+<p><code>setElement : MatrixInt * Int * Int * Int &#8594; MatrixInt</code></p>
+</li>
+<li>
+<p><code>setFirstDiagonal : MatrixInt * Int &#8594; MatrixInt</code></p>
+</li>
+<li>
+<p><code>setSecondDiagonal : MatrixInt * Int &#8594; MatrixInt</code></p>
+</li>
+<li>
+<p><code>mulMatNombre : MatrixInt * Int &#8594; MatrixInt</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="title">Preconditions</div>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>createMatrix(l,c) valid IF and ONLY IF ( l &gt; 0 ) AND ( c &gt; 0 )</code></p>
+</li>
+<li>
+<p><code>getElement(m,i,j) valid IF and ONLY IF ( 0 &lt; = i &lt; getNbLines(m) ) AND ( 0 &lt; = j &lt; getNbColumns(m))</code></p>
+</li>
+<li>
+<p><code>setElement(m,i,j,n) valid IF and ONLY IF ( 0 &lt; = i &lt; getNbLines(m) ) AND ( 0 &lt; = j &lt; getNbColumns(m))</code></p>
+</li>
+<li>
+<p><code>somLine(m,i) valid IF and ONLY IF 0 &lt; = i &lt; getNbLines(m)</code></p>
+</li>
+<li>
+<p><code>somColumn(m,j) valid IF and ONLY IF  0 &lt; = j &lt; getNbColumns(m)</code></p>
+</li>
+<li>
+<p><code>setFirstDiagonal(m,n) valid IF and ONLY IF isSquared(m)</code></p>
+</li>
+<li>
+<p><code>setSecondDiagonal(m,n) valid IF and ONLY IF isSquared(m)</code></p>
+</li>
+<li>
+<p><code>isDiagonal(m) valid IF and ONLY IF isSquared(m)</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>getNbLines(createMatrix(l,c)) = l</code></p>
+</li>
+<li>
+<p><code>getNbColumns(createMatrix(l,c)) = c</code></p>
+</li>
+<li>
+<p><code>getElement(createMatrix(l,c),i,j) = 0</code></p>
+</li>
+<li>
+<p><code>somLine(createMatrix(l,c),i) = 0</code></p>
+</li>
+<li>
+<p><code>somColumn(createMatrix(l,c),j) = 0</code></p>
+</li>
+<li>
+<p><code>isSquared(createMatrix(l,c)) IF and ONLY IF l = c</code></p>
+</li>
+<li>
+<p><code>isDiagonal(createMatrix(lc,lc)) = VRAI</code></p>
+</li>
+<li>
+<p><code>getNbLines(setFirstDiagonal(m,n)) = getNbLines(m)</code></p>
+</li>
+<li>
+<p><code>getNbColumns(setFirstDiagonal(m,n)) = getNbColumns(m)</code></p>
+</li>
+<li>
+<p><code>getElement(setFirstDiagonal(m,n),ij,ij) = n</code></p>
+</li>
+<li>
+<p><code>getElement(setFirstDiagonal(m,n),i,j) = getElement(m,i,j)</code></p>
+</li>
+<li>
+<p><code>somLine(setFirstDiagonal(m,n),i) = somLine(m,i) ` n - getElement(m,i,i)</code></p>
+</li>
+<li>
+<p><code>somColumn(setFirstDiagonal(m,n),j) = somColumn(m,j) ` n - getElement(m,j,j)</code></p>
+</li>
+<li>
+<p><code>somLine(setSecondDiagonal(m,n),i) = somLine(m,i) ` n - getElement(m,i,getNbColumns(m) - 1 - i)</code></p>
+</li>
+<li>
+<p><code>somColumn(setSecondDiagonal(m,n),j) = somColumn(m,j) ` n - getElement(m,j,getNbLines(m) -1 - j)</code></p>
+</li>
+<li>
+<p><code>somLine(mulMatNombre(setFirstDiagonal(m,1),n),i) = somLine(m,i) ` n - getElement(m,i,i)</code></p>
+</li>
+<li>
+<p><code>somColumn(mulMatNombre(setFirstDiagonal(m,1),n),j) = somColumn(m,j) ` n - getElement(m,j,j)</code></p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Testing program for Operations</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kn">import</span> <span class="tok-nn">junit.textui.TestRunner</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestSuite</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestCase</span><span class="tok-o">;</span>
+
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">MatriceEntierOperationsTest</span> <span class="tok-kd">extends</span> <span class="tok-n">TestCase</span> <span class="tok-o">{</span>
+  <span class="tok-kd">static</span> <span class="tok-kt">int</span> <span class="tok-n">totalAssertions</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+  <span class="tok-kd">static</span> <span class="tok-kt">int</span> <span class="tok-n">bilanAssertions</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+
+  <span class="tok-cm">/*</span>
+<span class="tok-cm">   Types des opérations du type MatriceEntier</span>
+<span class="tok-cm">  */</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_type_new_MatriceEntier</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;new MatriceEntier(3,3) retourne une MatriceEntier&quot;</span><span class="tok-o">,</span> <span class="tok-s">&quot;MatriceEntier&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getClass</span><span class="tok-o">().</span><span class="tok-na">getName</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_type_get</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">4</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;getNbLignes() &gt; 0&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">()</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;getNbColonnes() &gt; 0&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbColonnes</span><span class="tok-o">()</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">i</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">i</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+     <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">j</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">j</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbColonnes</span><span class="tok-o">();</span> <span class="tok-n">j</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;getElement() retourne un entier&quot;</span><span class="tok-o">,</span> <span class="tok-o">(</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">,</span><span class="tok-n">j</span><span class="tok-o">)</span> <span class="tok-o">&gt;=</span> <span class="tok-mi">0</span><span class="tok-o">)</span> <span class="tok-o">||</span> <span class="tok-o">(</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">,</span><span class="tok-n">j</span><span class="tok-o">)</span> <span class="tok-o">&lt;</span> <span class="tok-mi">0</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+     <span class="tok-o">}</span>
+    <span class="tok-o">}</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_type_som</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">4</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">i</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">i</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;somLigne(&quot;</span><span class="tok-o">+</span><span class="tok-n">i</span><span class="tok-o">+</span><span class="tok-s">&quot;) &gt;= 0&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somLigne</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">)</span> <span class="tok-o">&gt;=</span> <span class="tok-mi">0</span><span class="tok-o">);</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">j</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">j</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbColonnes</span><span class="tok-o">();</span> <span class="tok-n">j</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;somColonne(&quot;</span><span class="tok-o">+</span><span class="tok-n">j</span><span class="tok-o">+</span><span class="tok-s">&quot;) &gt;= 0&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somColonne</span><span class="tok-o">(</span><span class="tok-n">j</span><span class="tok-o">)</span> <span class="tok-o">&gt;=</span> <span class="tok-mi">0</span><span class="tok-o">);</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_type_est</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;estCarree() retourne un booleen&quot;</span><span class="tok-o">,</span> <span class="tok-o">(</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estCarree</span><span class="tok-o">()</span> <span class="tok-o">==</span> <span class="tok-kc">true</span><span class="tok-o">)</span> <span class="tok-o">||</span> <span class="tok-o">(</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estCarree</span><span class="tok-o">()</span> <span class="tok-o">==</span> <span class="tok-kc">false</span><span class="tok-o">));</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;estDiagonale() retourne un booleen&quot;</span><span class="tok-o">,</span> <span class="tok-o">(</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estDiagonale</span><span class="tok-o">()</span> <span class="tok-o">==</span> <span class="tok-kc">true</span><span class="tok-o">)</span> <span class="tok-o">||</span> <span class="tok-o">(</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estDiagonale</span><span class="tok-o">()</span> <span class="tok-o">==</span> <span class="tok-kc">false</span><span class="tok-o">));</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setElement</span><span class="tok-o">(</span><span class="tok-mi">0</span><span class="tok-o">,</span><span class="tok-mi">0</span><span class="tok-o">,</span><span class="tok-mi">1</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;estDiagonale() retourne un booleen&quot;</span><span class="tok-o">,</span> <span class="tok-o">(</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estDiagonale</span><span class="tok-o">()</span> <span class="tok-o">==</span> <span class="tok-kc">true</span><span class="tok-o">)</span> <span class="tok-o">||</span> <span class="tok-o">(</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estDiagonale</span><span class="tok-o">()</span> <span class="tok-o">==</span> <span class="tok-kc">false</span><span class="tok-o">));</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">4</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;estCarree() retourne un booleen&quot;</span><span class="tok-o">,</span> <span class="tok-o">(</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estCarree</span><span class="tok-o">()</span> <span class="tok-o">==</span> <span class="tok-kc">true</span><span class="tok-o">)</span> <span class="tok-o">||</span> <span class="tok-o">(</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estCarree</span><span class="tok-o">()</span> <span class="tok-o">==</span> <span class="tok-kc">false</span><span class="tok-o">));</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_type_set_mul</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">i</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">i</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+     <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">j</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">j</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbColonnes</span><span class="tok-o">();</span> <span class="tok-n">j</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setElement() retourne une MatriceEntier&quot;</span><span class="tok-o">,</span> <span class="tok-s">&quot;MatriceEntier&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setElement</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">,</span><span class="tok-n">j</span><span class="tok-o">,</span><span class="tok-n">i</span><span class="tok-o">+</span><span class="tok-n">j</span><span class="tok-o">).</span><span class="tok-na">getClass</span><span class="tok-o">().</span><span class="tok-na">getName</span><span class="tok-o">());</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+     <span class="tok-o">}</span>
+    <span class="tok-o">}</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setPremiereDiagonale(99) retourne une MatriceEntier&quot;</span><span class="tok-o">,</span> <span class="tok-s">&quot;MatriceEntier&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setPremiereDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">).</span><span class="tok-na">getClass</span><span class="tok-o">().</span><span class="tok-na">getName</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setSecondeDiagonale(99) retourne une MatriceEntier&quot;</span><span class="tok-o">,</span> <span class="tok-s">&quot;MatriceEntier&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setSecondeDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">).</span><span class="tok-na">getClass</span><span class="tok-o">().</span><span class="tok-na">getName</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;mulMatNombre() retourne une MatriceEntier&quot;</span><span class="tok-o">,</span> <span class="tok-s">&quot;MatriceEntier&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">mulMatNombre</span><span class="tok-o">(</span><span class="tok-mi">33</span><span class="tok-o">).</span><span class="tok-na">getClass</span><span class="tok-o">().</span><span class="tok-na">getName</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-cm">/*</span>
+<span class="tok-cm">   main() de la classe de Test</span>
+<span class="tok-cm">  */</span>
+  <span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kt">void</span> <span class="tok-nf">main</span><span class="tok-o">(</span><span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">args</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">junit</span><span class="tok-o">.</span><span class="tok-na">textui</span><span class="tok-o">.</span><span class="tok-na">TestRunner</span><span class="tok-o">.</span><span class="tok-na">run</span><span class="tok-o">(</span><span class="tok-k">new</span> <span class="tok-nf">TestSuite</span><span class="tok-o">(</span><span class="tok-n">MatriceEntierOperationsTest</span><span class="tok-o">.</span><span class="tok-na">class</span><span class="tok-o">));</span>
+    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">bilanAssertions</span> <span class="tok-o">==</span> <span class="tok-n">totalAssertions</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">print</span><span class="tok-o">(</span><span class="tok-s">&quot;Bravo !&quot;</span><span class="tok-o">);</span> <span class="tok-o">}</span>
+    <span class="tok-k">else</span>  <span class="tok-o">{</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">print</span><span class="tok-o">(</span><span class="tok-s">&quot;OUPS !&quot;</span><span class="tok-o">);</span> <span class="tok-o">}</span>
+    <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-s">&quot; &quot;</span><span class="tok-o">+</span><span class="tok-n">bilanAssertions</span><span class="tok-o">+</span><span class="tok-s">&quot;/&quot;</span><span class="tok-o">+</span><span class="tok-n">totalAssertions</span><span class="tok-o">+</span><span class="tok-s">&quot; assertions verifiees&quot;</span><span class="tok-o">);</span>
+  <span class="tok-o">}</span> <span class="tok-c1">// fin main</span>
+
+<span class="tok-o">}</span> <span class="tok-c1">// fin MatriceEntierOperationsTest</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Testing program for Preconditions</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kn">import</span> <span class="tok-nn">junit.textui.TestRunner</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestSuite</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestCase</span><span class="tok-o">;</span>
+
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">MatriceEntierPreconditionsTest</span> <span class="tok-kd">extends</span> <span class="tok-n">TestCase</span> <span class="tok-o">{</span>
+  <span class="tok-kd">static</span> <span class="tok-kt">int</span> <span class="tok-n">totalAssertions</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+  <span class="tok-kd">static</span> <span class="tok-kt">int</span> <span class="tok-n">bilanAssertions</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+
+  <span class="tok-cm">/*</span>
+<span class="tok-cm">   Préconditions du type Pile</span>
+<span class="tok-cm">  */</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_precondition1</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">;</span>
+    <span class="tok-kt">boolean</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">0</span><span class="tok-o">,</span><span class="tok-mi">1</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;new MatriceEntier(0,1) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">0</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;new MatriceEntier(1,0) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">0</span><span class="tok-o">,</span><span class="tok-mi">0</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;new MatriceEntier(0,0) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_precondition2</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">);</span>
+    <span class="tok-kt">boolean</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(-</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">1</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;getElement(-1,1) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">2</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;getElement(2,2) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(</span><span class="tok-mi">1</span><span class="tok-o">,-</span><span class="tok-mi">1</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;getElement(1,-1) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;getElement(1,3) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_precondition3</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">);</span>
+    <span class="tok-kt">boolean</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setElement</span><span class="tok-o">(-</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;setElement(-1,1,99) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setElement</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;setElement(2,2,99) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setElement</span><span class="tok-o">(</span><span class="tok-mi">1</span><span class="tok-o">,-</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;setElement(1,-1,99) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setElement</span><span class="tok-o">(</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;setElement(1,3,99) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_precondition4</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">);</span>
+    <span class="tok-kt">boolean</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somLigne</span><span class="tok-o">(-</span><span class="tok-mi">1</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;somLigne(-1) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somLigne</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;somLigne(2) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_precondition5</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">);</span>
+    <span class="tok-kt">boolean</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somColonne</span><span class="tok-o">(-</span><span class="tok-mi">1</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;somColonne(-1) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somColonne</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;somColonne(3) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_precondition6</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">);</span>
+    <span class="tok-kt">boolean</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setPremiereDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;setPremiereDiagonale(99) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_precondition7</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">);</span>
+    <span class="tok-kt">boolean</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setSecondeDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;setSecondeDiagonale(99) leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_precondition8</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">);</span>
+    <span class="tok-kt">boolean</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">false</span> <span class="tok-o">;</span>
+    <span class="tok-k">try</span> <span class="tok-o">{</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estDiagonale</span><span class="tok-o">()</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-k">catch</span> <span class="tok-o">(</span><span class="tok-n">Exception</span> <span class="tok-n">e</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">exception</span> <span class="tok-o">=</span> <span class="tok-kc">true</span> <span class="tok-o">;</span> <span class="tok-o">};</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;estDiagonale() leve une exception&quot;</span><span class="tok-o">,</span> <span class="tok-n">exception</span><span class="tok-o">);</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-cm">/*</span>
+<span class="tok-cm">   main() de la classe de Test</span>
+<span class="tok-cm">  */</span>
+  <span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kt">void</span> <span class="tok-nf">main</span><span class="tok-o">(</span><span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">args</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">junit</span><span class="tok-o">.</span><span class="tok-na">textui</span><span class="tok-o">.</span><span class="tok-na">TestRunner</span><span class="tok-o">.</span><span class="tok-na">run</span><span class="tok-o">(</span><span class="tok-k">new</span> <span class="tok-nf">TestSuite</span><span class="tok-o">(</span><span class="tok-n">MatriceEntierPreconditionsTest</span><span class="tok-o">.</span><span class="tok-na">class</span><span class="tok-o">));</span>
+    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">bilanAssertions</span> <span class="tok-o">==</span> <span class="tok-n">totalAssertions</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">print</span><span class="tok-o">(</span><span class="tok-s">&quot;Bravo !&quot;</span><span class="tok-o">);</span> <span class="tok-o">}</span>
+    <span class="tok-k">else</span>  <span class="tok-o">{</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">print</span><span class="tok-o">(</span><span class="tok-s">&quot;OUPS !&quot;</span><span class="tok-o">);</span> <span class="tok-o">}</span>
+    <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-s">&quot; &quot;</span><span class="tok-o">+</span><span class="tok-n">bilanAssertions</span><span class="tok-o">+</span><span class="tok-s">&quot;/&quot;</span><span class="tok-o">+</span><span class="tok-n">totalAssertions</span><span class="tok-o">+</span><span class="tok-s">&quot; assertions verifiees&quot;</span><span class="tok-o">);</span>
+  <span class="tok-o">}</span> <span class="tok-c1">// fin main</span>
+
+<span class="tok-o">}</span> <span class="tok-c1">// fin MatriceEntierPreconditionsTest</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Testing program for Axioms</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kn">import</span> <span class="tok-nn">junit.textui.TestRunner</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestSuite</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestCase</span><span class="tok-o">;</span>
+
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">MatriceEntierAxiomesTest</span> <span class="tok-kd">extends</span> <span class="tok-n">TestCase</span> <span class="tok-o">{</span>
+  <span class="tok-kd">static</span> <span class="tok-kt">int</span> <span class="tok-n">totalAssertions</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+  <span class="tok-kd">static</span> <span class="tok-kt">int</span> <span class="tok-n">bilanAssertions</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+
+  <span class="tok-cm">/*</span>
+<span class="tok-cm">   Axiomes du type MatriceEntier</span>
+<span class="tok-cm">  */</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_get</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">4</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;getNbLignes() == 3&quot;</span><span class="tok-o">,</span> <span class="tok-mi">3</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;getNbColonnes() == 4&quot;</span><span class="tok-o">,</span> <span class="tok-mi">4</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbColonnes</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">i</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">i</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+     <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">j</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">j</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbColonnes</span><span class="tok-o">();</span> <span class="tok-n">j</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;getElement(&quot;</span><span class="tok-o">+</span><span class="tok-n">i</span><span class="tok-o">+</span><span class="tok-s">&quot;,&quot;</span><span class="tok-o">+</span><span class="tok-n">j</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 0&quot;</span><span class="tok-o">,</span> <span class="tok-mi">0</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">,</span><span class="tok-n">j</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+     <span class="tok-o">}</span>
+    <span class="tok-o">}</span>
+
+    <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setPremiereDiagonale(99).getNbLignes() == getNbLignes()&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setPremiereDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">).</span><span class="tok-na">getNbLignes</span><span class="tok-o">(),</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setSecondeDiagonale(99).getNbLignes() == getNbLignes()&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setSecondeDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">).</span><span class="tok-na">getNbLignes</span><span class="tok-o">(),</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setPremiereDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">i</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">i</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+     <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">j</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">j</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbColonnes</span><span class="tok-o">();</span> <span class="tok-n">j</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-k">if</span> <span class="tok-o">(</span> <span class="tok-n">i</span> <span class="tok-o">==</span> <span class="tok-n">j</span> <span class="tok-o">)</span> <span class="tok-o">{</span>
+        <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;getElement(&quot;</span><span class="tok-o">+</span><span class="tok-n">i</span><span class="tok-o">+</span><span class="tok-s">&quot;,&quot;</span><span class="tok-o">+</span><span class="tok-n">i</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 99&quot;</span><span class="tok-o">,</span> <span class="tok-mi">99</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">,</span><span class="tok-n">i</span><span class="tok-o">));</span>
+      <span class="tok-o">}</span> <span class="tok-k">else</span> <span class="tok-o">{</span>
+        <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;getElement(&quot;</span><span class="tok-o">+</span><span class="tok-n">i</span><span class="tok-o">+</span><span class="tok-s">&quot;,&quot;</span><span class="tok-o">+</span><span class="tok-n">j</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 0&quot;</span><span class="tok-o">,</span> <span class="tok-mi">0</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">,</span><span class="tok-n">j</span><span class="tok-o">));</span>
+      <span class="tok-o">}</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+     <span class="tok-o">}</span>
+    <span class="tok-o">}</span>
+
+  <span class="tok-o">}</span> <span class="tok-c1">// fin test_get</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_som</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">4</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">i</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">i</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;somLigne(&quot;</span><span class="tok-o">+</span><span class="tok-n">i</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 0&quot;</span><span class="tok-o">,</span> <span class="tok-mi">0</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somLigne</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">j</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">j</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbColonnes</span><span class="tok-o">();</span> <span class="tok-n">j</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;somColonne(&quot;</span><span class="tok-o">+</span><span class="tok-n">j</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 0&quot;</span><span class="tok-o">,</span> <span class="tok-mi">0</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somColonne</span><span class="tok-o">(</span><span class="tok-n">j</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+
+    <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setPremiereDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">ij</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">ij</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">ij</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span> <span class="tok-o">=</span> <span class="tok-n">totalAssertions</span> <span class="tok-o">+</span> <span class="tok-mi">2</span> <span class="tok-o">;</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setPremiereDiagonale(99).somLigne(&quot;</span><span class="tok-o">+</span><span class="tok-n">ij</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 99&quot;</span><span class="tok-o">,</span> <span class="tok-mi">99</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somLigne</span><span class="tok-o">(</span><span class="tok-n">ij</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setPremiereDiagonale(99).somColonne(&quot;</span><span class="tok-o">+</span><span class="tok-n">ij</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 99&quot;</span><span class="tok-o">,</span> <span class="tok-mi">99</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somColonne</span><span class="tok-o">(</span><span class="tok-n">ij</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+
+    <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setSecondeDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">ij</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">ij</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">ij</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span> <span class="tok-o">=</span> <span class="tok-n">totalAssertions</span> <span class="tok-o">+</span> <span class="tok-mi">2</span> <span class="tok-o">;</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setSecondeDiagonale(99).somLigne(&quot;</span><span class="tok-o">+</span><span class="tok-n">ij</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 99&quot;</span><span class="tok-o">,</span> <span class="tok-mi">99</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somLigne</span><span class="tok-o">(</span><span class="tok-n">ij</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setSecondeDiagonale(99).somColonne(&quot;</span><span class="tok-o">+</span><span class="tok-n">ij</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 99&quot;</span><span class="tok-o">,</span> <span class="tok-mi">99</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somColonne</span><span class="tok-o">(</span><span class="tok-n">ij</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+
+  <span class="tok-o">}</span> <span class="tok-c1">// fin test_som</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_est</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;estCarree() == true&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estCarree</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertFalse</span><span class="tok-o">(</span><span class="tok-s">&quot;estCarree() == false&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estCarree</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;estDiagonale() == true&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estDiagonale</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setPremiereDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">);</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertTrue</span><span class="tok-o">(</span><span class="tok-s">&quot;setPremiereDiagonale(99).estDiagonale() == true&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estDiagonale</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setSecondeDiagonale</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">);</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertFalse</span><span class="tok-o">(</span><span class="tok-s">&quot;setSecondeDiagonale(99).estDiagonale() == false&quot;</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">estDiagonale</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+
+  <span class="tok-o">}</span> <span class="tok-c1">// fin test_est</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_mul</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setPremiereDiagonale</span><span class="tok-o">(</span><span class="tok-mi">1</span><span class="tok-o">).</span><span class="tok-na">mulMatNombre</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">ij</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">ij</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">ij</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span> <span class="tok-o">=</span> <span class="tok-n">totalAssertions</span> <span class="tok-o">+</span> <span class="tok-mi">2</span> <span class="tok-o">;</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setPremiereDiagonale(1).mulMatNombre(99).somLigne(&quot;</span><span class="tok-o">+</span><span class="tok-n">ij</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 99&quot;</span><span class="tok-o">,</span> <span class="tok-mi">99</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somLigne</span><span class="tok-o">(</span><span class="tok-n">ij</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setPremiereDiagonale(1).mulMatNombre(99).somColonne(&quot;</span><span class="tok-o">+</span><span class="tok-n">ij</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 99&quot;</span><span class="tok-o">,</span> <span class="tok-mi">99</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somColonne</span><span class="tok-o">(</span><span class="tok-n">ij</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+
+    <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setSecondeDiagonale</span><span class="tok-o">(</span><span class="tok-mi">1</span><span class="tok-o">).</span><span class="tok-na">mulMatNombre</span><span class="tok-o">(</span><span class="tok-mi">99</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">ij</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">ij</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">ij</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span> <span class="tok-o">=</span> <span class="tok-n">totalAssertions</span> <span class="tok-o">+</span> <span class="tok-mi">2</span> <span class="tok-o">;</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setSecondeDiagonale(1).mulMatNombre(99).somLigne(&quot;</span><span class="tok-o">+</span><span class="tok-n">ij</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 99&quot;</span><span class="tok-o">,</span> <span class="tok-mi">99</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somLigne</span><span class="tok-o">(</span><span class="tok-n">ij</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;setSecondeDiagonale(1).mulMatNombre(99).somColonne(&quot;</span><span class="tok-o">+</span><span class="tok-n">ij</span><span class="tok-o">+</span><span class="tok-s">&quot;) == 99&quot;</span><span class="tok-o">,</span> <span class="tok-mi">99</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">somColonne</span><span class="tok-o">(</span><span class="tok-n">ij</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-o">}</span>
+
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m_init</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-c1">// Initialise m_init et m à {{0,1,2}{3,4,5}{6,7,8}}</span>
+    <span class="tok-kt">int</span> <span class="tok-n">k</span> <span class="tok-o">=</span> <span class="tok-mi">0</span> <span class="tok-o">;</span>
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">i</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">i</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+     <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">j</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">j</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbColonnes</span><span class="tok-o">();</span> <span class="tok-n">j</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+	<span class="tok-n">m_init</span><span class="tok-o">.</span><span class="tok-na">setElement</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">,</span><span class="tok-n">j</span><span class="tok-o">,</span><span class="tok-n">k</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+	<span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setElement</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">,</span><span class="tok-n">j</span><span class="tok-o">,</span><span class="tok-n">k</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+	<span class="tok-n">k</span> <span class="tok-o">=</span> <span class="tok-n">k</span> <span class="tok-o">+</span> <span class="tok-mi">1</span> <span class="tok-o">;</span>
+     <span class="tok-o">}</span>
+    <span class="tok-o">}</span>
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">mulMatNombre</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">i</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">i</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbLignes</span><span class="tok-o">();</span> <span class="tok-n">i</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+     <span class="tok-k">for</span> <span class="tok-o">(</span><span class="tok-kt">int</span> <span class="tok-n">j</span><span class="tok-o">=</span><span class="tok-mi">0</span><span class="tok-o">;</span> <span class="tok-n">j</span><span class="tok-o">&lt;</span><span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getNbColonnes</span><span class="tok-o">();</span> <span class="tok-n">j</span><span class="tok-o">++)</span> <span class="tok-o">{</span>
+      <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+      <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;m.mulMatNombre(3).getElement(&quot;</span><span class="tok-o">+</span><span class="tok-n">i</span><span class="tok-o">+</span><span class="tok-s">&quot;,&quot;</span><span class="tok-o">+</span><span class="tok-n">j</span><span class="tok-o">+</span><span class="tok-s">&quot;) == m.getElement(&quot;</span><span class="tok-o">+</span><span class="tok-n">i</span><span class="tok-o">+</span><span class="tok-s">&quot;,&quot;</span><span class="tok-o">+</span><span class="tok-n">j</span><span class="tok-o">+</span><span class="tok-s">&quot;) * 3&quot;</span><span class="tok-o">,</span> <span class="tok-n">m_init</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">,</span><span class="tok-n">j</span><span class="tok-o">)</span> <span class="tok-o">*</span> <span class="tok-mi">3</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">getElement</span><span class="tok-o">(</span><span class="tok-n">i</span><span class="tok-o">,</span><span class="tok-n">j</span><span class="tok-o">));</span>
+      <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+     <span class="tok-o">}</span>
+    <span class="tok-o">}</span>
+
+  <span class="tok-o">}</span> <span class="tok-c1">// fin test_mul</span>
+
+  <span class="tok-cm">/*</span>
+<span class="tok-cm">   main() de la classe de Test</span>
+<span class="tok-cm">  */</span>
+  <span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kt">void</span> <span class="tok-nf">main</span><span class="tok-o">(</span><span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">args</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">junit</span><span class="tok-o">.</span><span class="tok-na">textui</span><span class="tok-o">.</span><span class="tok-na">TestRunner</span><span class="tok-o">.</span><span class="tok-na">run</span><span class="tok-o">(</span><span class="tok-k">new</span> <span class="tok-nf">TestSuite</span><span class="tok-o">(</span><span class="tok-n">MatriceEntierAxiomesTest</span><span class="tok-o">.</span><span class="tok-na">class</span><span class="tok-o">));</span>
+    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">bilanAssertions</span> <span class="tok-o">==</span> <span class="tok-n">totalAssertions</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">print</span><span class="tok-o">(</span><span class="tok-s">&quot;Bravo !&quot;</span><span class="tok-o">);</span> <span class="tok-o">}</span>
+    <span class="tok-k">else</span>  <span class="tok-o">{</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">print</span><span class="tok-o">(</span><span class="tok-s">&quot;OUPS !&quot;</span><span class="tok-o">);</span> <span class="tok-o">}</span>
+    <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-s">&quot; &quot;</span><span class="tok-o">+</span><span class="tok-n">bilanAssertions</span><span class="tok-o">+</span><span class="tok-s">&quot;/&quot;</span><span class="tok-o">+</span><span class="tok-n">totalAssertions</span><span class="tok-o">+</span><span class="tok-s">&quot; assertions verifiees&quot;</span><span class="tok-o">);</span>
+  <span class="tok-o">}</span> <span class="tok-c1">// fin main</span>
+
+<span class="tok-o">}</span> <span class="tok-c1">// fin MatriceEntierAxiomesTest</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Testing program for Additional Operations</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kn">import</span> <span class="tok-nn">junit.textui.TestRunner</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestSuite</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestCase</span><span class="tok-o">;</span>
+
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">MatriceEntierOpSupTest</span> <span class="tok-kd">extends</span> <span class="tok-n">TestCase</span> <span class="tok-o">{</span>
+  <span class="tok-kd">static</span> <span class="tok-kt">int</span> <span class="tok-n">totalAssertions</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+  <span class="tok-kd">static</span> <span class="tok-kt">int</span> <span class="tok-n">bilanAssertions</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">;</span>
+
+  <span class="tok-cm">/*</span>
+<span class="tok-cm">   Opérations supplémentaires du type MatriceEntier</span>
+<span class="tok-cm">  */</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_toString</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setPremiereDiagonale</span><span class="tok-o">(</span><span class="tok-mi">1</span><span class="tok-o">).</span><span class="tok-na">setSecondeDiagonale</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">String</span> <span class="tok-n">ln</span> <span class="tok-o">=</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">getProperty</span><span class="tok-o">(</span><span class="tok-s">&quot;line.separator&quot;</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">String</span> <span class="tok-n">attendu</span> <span class="tok-o">=</span> <span class="tok-s">&quot;1 0 2 &quot;</span> <span class="tok-o">+</span> <span class="tok-n">ln</span> <span class="tok-o">+</span> <span class="tok-s">&quot;0 2 0 &quot;</span> <span class="tok-o">+</span> <span class="tok-n">ln</span> <span class="tok-o">+</span> <span class="tok-s">&quot;2 0 1 &quot;</span> <span class="tok-o">+</span> <span class="tok-n">ln</span> <span class="tok-o">;</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;toString() == &quot;</span><span class="tok-o">,</span> <span class="tok-n">attendu</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">toString</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_toHTML</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">Exception</span> <span class="tok-o">{</span>
+    <span class="tok-n">MatriceEntier</span> <span class="tok-n">m</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">MatriceEntier</span><span class="tok-o">(</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">setPremiereDiagonale</span><span class="tok-o">(</span><span class="tok-mi">1</span><span class="tok-o">).</span><span class="tok-na">setSecondeDiagonale</span><span class="tok-o">(</span><span class="tok-mi">2</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">String</span> <span class="tok-n">ln</span> <span class="tok-o">=</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">getProperty</span><span class="tok-o">(</span><span class="tok-s">&quot;line.separator&quot;</span><span class="tok-o">)</span> <span class="tok-o">;</span>
+    <span class="tok-n">String</span> <span class="tok-n">attendu</span> <span class="tok-o">=</span> <span class="tok-s">&quot;&lt;table border=\&quot;1\&quot;&gt;&quot;</span> <span class="tok-o">+</span> <span class="tok-n">ln</span> <span class="tok-o">;</span>
+    <span class="tok-n">attendu</span> <span class="tok-o">+=</span> <span class="tok-s">&quot;&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;&quot;</span> <span class="tok-o">+</span> <span class="tok-n">ln</span> <span class="tok-o">+</span> <span class="tok-s">&quot;&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;&quot;</span> <span class="tok-o">+</span> <span class="tok-n">ln</span> <span class="tok-o">+</span> <span class="tok-s">&quot;&lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;&quot;</span> <span class="tok-o">+</span> <span class="tok-n">ln</span> <span class="tok-o">;</span>
+    <span class="tok-n">attendu</span> <span class="tok-o">+=</span> <span class="tok-s">&quot;&lt;/table&gt;&quot;</span> <span class="tok-o">+</span> <span class="tok-n">ln</span> <span class="tok-o">;</span>
+    <span class="tok-n">totalAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;toHTML() == &quot;</span><span class="tok-o">,</span> <span class="tok-n">attendu</span><span class="tok-o">,</span> <span class="tok-n">m</span><span class="tok-o">.</span><span class="tok-na">toHTML</span><span class="tok-o">());</span>
+    <span class="tok-n">bilanAssertions</span><span class="tok-o">++</span> <span class="tok-o">;</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-cm">/*</span>
+<span class="tok-cm">   main() de la classe de Test</span>
+<span class="tok-cm">  */</span>
+  <span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kt">void</span> <span class="tok-nf">main</span><span class="tok-o">(</span><span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">args</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-n">junit</span><span class="tok-o">.</span><span class="tok-na">textui</span><span class="tok-o">.</span><span class="tok-na">TestRunner</span><span class="tok-o">.</span><span class="tok-na">run</span><span class="tok-o">(</span><span class="tok-k">new</span> <span class="tok-nf">TestSuite</span><span class="tok-o">(</span><span class="tok-n">MatriceEntierOpSupTest</span><span class="tok-o">.</span><span class="tok-na">class</span><span class="tok-o">));</span>
+    <span class="tok-k">if</span> <span class="tok-o">(</span><span class="tok-n">bilanAssertions</span> <span class="tok-o">==</span> <span class="tok-n">totalAssertions</span><span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">print</span><span class="tok-o">(</span><span class="tok-s">&quot;Bravo !&quot;</span><span class="tok-o">);</span> <span class="tok-o">}</span>
+    <span class="tok-k">else</span>  <span class="tok-o">{</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">print</span><span class="tok-o">(</span><span class="tok-s">&quot;OUPS !&quot;</span><span class="tok-o">);</span> <span class="tok-o">}</span>
+    <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-s">&quot; &quot;</span><span class="tok-o">+</span><span class="tok-n">bilanAssertions</span><span class="tok-o">+</span><span class="tok-s">&quot;/&quot;</span><span class="tok-o">+</span><span class="tok-n">totalAssertions</span><span class="tok-o">+</span><span class="tok-s">&quot; assertions verifiees&quot;</span><span class="tok-o">);</span>
+  <span class="tok-o">}</span> <span class="tok-c1">// fin main</span>
+
+<span class="tok-o">}</span> <span class="tok-c1">// fin PileTest</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The testing program is :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a <strong>regression</strong> detection tool</p>
+<div class="ulist">
+<ul>
+<li>
+<p>that should be run on each modification of the <code>MatrixInt</code> class</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>a <strong>specification</strong> <em>documentation</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p>precise AND concise</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>a programmers' <em>documentation</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p>operational</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_integration_tests">2. Integration Tests</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/titanic.jpg" alt="titanic" width="100%">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/no-integration-testing.jpg" alt="no integration testing">
+</div>
+</div>
+<div class="paragraph">
+<p>It a more complicated activity.
+It is required to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>test the client&#8217;s expectations/requirements</p>
+</li>
+<li>
+<p>test systems' interactions</p>
+</li>
+<li>
+<p>no redo the unit tests</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Testing program of <code>JourSuivantAvecLibDate.class</code></div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kn">import</span> <span class="tok-nn">junit.textui.TestRunner</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestSuite</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">junit.framework.TestCase</span><span class="tok-o">;</span>
+<span class="tok-kn">import</span> <span class="tok-nn">java.io.*</span><span class="tok-o">;</span>
+
+<span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">JourSuivantAvecLibDateTest</span> <span class="tok-kd">extends</span> <span class="tok-n">TestCase</span> <span class="tok-o">{</span>
+  <span class="tok-kd">static</span> <span class="tok-n">String</span> <span class="tok-n">programmeATester</span> <span class="tok-o">=</span> <span class="tok-s">&quot;JourSuivantAvecLibDate&quot;</span> <span class="tok-o">;</span>  <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="tok-n">Process</span> <span class="tok-n">executionProgrammeATester</span> <span class="tok-o">;</span>                          <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="tok-n">BufferedReader</span> <span class="tok-n">ecranProgrammeATester</span> <span class="tok-o">;</span>                       <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="tok-n">BufferedWriter</span> <span class="tok-n">clavierProgrammeATester</span> <span class="tok-o">;</span>                     <i class="conum" data-value="4"></i><b>(4)</b>
+
+  <span class="tok-n">String</span> <span class="tok-n">finDeLigne</span> <span class="tok-o">=</span> <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">getProperty</span><span class="tok-o">(</span><span class="tok-s">&quot;line.separator&quot;</span><span class="tok-o">)</span> <span class="tok-o">;</span>   <i class="conum" data-value="5"></i><b>(5)</b>
+
+  <span class="tok-kd">public</span> <span class="tok-kd">static</span> <span class="tok-kt">void</span> <span class="tok-nf">main</span><span class="tok-o">(</span><span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">args</span><span class="tok-o">)</span> <span class="tok-o">{</span>
+    <span class="tok-k">if</span> <span class="tok-o">(</span> <span class="tok-n">args</span><span class="tok-o">.</span><span class="tok-na">length</span> <span class="tok-o">&gt;</span> <span class="tok-mi">0</span> <span class="tok-o">)</span> <span class="tok-o">{</span> <span class="tok-n">programmeATester</span> <span class="tok-o">=</span> <span class="tok-n">args</span><span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">]</span> <span class="tok-o">;</span> <span class="tok-o">}</span>
+    <span class="tok-n">System</span><span class="tok-o">.</span><span class="tok-na">out</span><span class="tok-o">.</span><span class="tok-na">println</span><span class="tok-o">(</span><span class="tok-s">&quot;Tests du programme : &quot;</span> <span class="tok-o">+</span> <span class="tok-n">programmeATester</span><span class="tok-o">);</span>
+    <span class="tok-n">junit</span><span class="tok-o">.</span><span class="tok-na">textui</span><span class="tok-o">.</span><span class="tok-na">TestRunner</span><span class="tok-o">.</span><span class="tok-na">run</span><span class="tok-o">(</span><span class="tok-k">new</span> <span class="tok-nf">TestSuite</span><span class="tok-o">(</span><span class="tok-n">JourSuivantAvecLibDateTest</span><span class="tok-o">.</span><span class="tok-na">class</span><span class="tok-o">));</span> <i class="conum" data-value="6"></i><b>(6)</b>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">protected</span> <span class="tok-kt">void</span> <span class="tok-nf">setUp</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">IOException</span> <span class="tok-o">{</span>  <i class="conum" data-value="7"></i><b>(7)</b>
+    <span class="tok-n">executionProgrammeATester</span> <span class="tok-o">=</span> <span class="tok-n">Runtime</span><span class="tok-o">.</span><span class="tok-na">getRuntime</span><span class="tok-o">().</span><span class="tok-na">exec</span><span class="tok-o">(</span><span class="tok-s">&quot;java -cp . &quot;</span><span class="tok-o">+</span><span class="tok-n">programmeATester</span><span class="tok-o">);</span> <i class="conum" data-value="8"></i><b>(8)</b>
+    <span class="tok-n">ecranProgrammeATester</span> <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">BufferedReader</span><span class="tok-o">(</span><span class="tok-k">new</span>  <span class="tok-nf">InputStreamReader</span><span class="tok-o">(</span> <span class="tok-n">executionProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">getInputStream</span><span class="tok-o">()</span> <span class="tok-o">));</span> <i class="conum" data-value="9"></i><b>(9)</b>
+    <span class="tok-n">clavierProgrammeATester</span>  <span class="tok-o">=</span> <span class="tok-k">new</span> <span class="tok-nf">BufferedWriter</span><span class="tok-o">(</span><span class="tok-k">new</span> <span class="tok-nf">OutputStreamWriter</span><span class="tok-o">(</span> <span class="tok-n">executionProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">getOutputStream</span><span class="tok-o">()</span> <span class="tok-o">));</span> <i class="conum" data-value="10"></i><b>(10)</b>
+  <span class="tok-o">}</span>
+
+  <span class="tok-c1">// Saisies valides</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_31_1_2013</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">IOException</span> <span class="tok-o">{</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &#39;Saisir une date : jour mois annee ? &#39;&quot;</span><span class="tok-o">,</span><span class="tok-s">&quot;Saisir une date : jour mois annee ? &quot;</span><span class="tok-o">,</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span> <i class="conum" data-value="11"></i><b>(11)</b>
+    <span class="tok-n">clavierProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">write</span><span class="tok-o">(</span><span class="tok-s">&quot;31 1 2013&quot;</span><span class="tok-o">+</span><span class="tok-n">finDeLigne</span><span class="tok-o">);</span> <i class="conum" data-value="12"></i><b>(12)</b>
+    <span class="tok-n">clavierProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">flush</span><span class="tok-o">();</span>                       <i class="conum" data-value="13"></i><b>(13)</b>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &#39;Le lendemain du 31/1/2013&#39;&quot;</span><span class="tok-o">,</span><span class="tok-s">&quot;Le lendemain du 31/1/2013&quot;</span><span class="tok-o">,</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &#39;sera le 1/2/2013.&#39;&quot;</span><span class="tok-o">,</span><span class="tok-s">&quot;sera le 1/2/2013.&quot;</span><span class="tok-o">,</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span> <i class="conum" data-value="14"></i><b>(14)</b>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_28_2_2013</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">IOException</span> <span class="tok-o">{</span>
+    <span class="tok-n">String</span> <span class="tok-n">messageSaisie</span> <span class="tok-o">=</span> <span class="tok-s">&quot;Saisir une date : jour mois annee ? &quot;</span> <span class="tok-o">;</span>
+    <span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">ligneJeuDEssai</span> <span class="tok-o">=</span> <span class="tok-o">{</span><span class="tok-s">&quot;28 2 2013&quot;</span><span class="tok-o">,</span><span class="tok-s">&quot;Le lendemain du 28/2/2013&quot;</span><span class="tok-o">,</span><span class="tok-s">&quot;sera le 1/3/2013.&quot;</span><span class="tok-o">}</span> <span class="tok-o">;</span>
+
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &quot;</span><span class="tok-o">+</span><span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span>
+    <span class="tok-n">clavierProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">write</span><span class="tok-o">(</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">]+</span><span class="tok-n">finDeLigne</span><span class="tok-o">);</span> <span class="tok-n">clavierProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">flush</span><span class="tok-o">();</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &quot;</span><span class="tok-o">+</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-o">],</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-o">],</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span>
+    <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &quot;</span><span class="tok-o">+</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">2</span><span class="tok-o">],</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">2</span><span class="tok-o">],</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">protected</span> <span class="tok-kt">void</span> <span class="tok-nf">assertsPourSaisieValide</span><span class="tok-o">(</span><span class="tok-n">String</span> <span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">String</span> <span class="tok-n">saisie</span><span class="tok-o">,</span><span class="tok-n">String</span> <span class="tok-n">affichage1</span><span class="tok-o">,</span><span class="tok-n">String</span> <span class="tok-n">affichage2</span><span class="tok-o">)</span> <span class="tok-kd">throws</span> <span class="tok-n">IOException</span> <span class="tok-o">{</span>
+     <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &quot;</span><span class="tok-o">+</span><span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span>
+     <span class="tok-n">clavierProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">write</span><span class="tok-o">(</span><span class="tok-n">saisie</span><span class="tok-o">+</span><span class="tok-n">finDeLigne</span><span class="tok-o">);</span> <span class="tok-n">clavierProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">flush</span><span class="tok-o">();</span>
+     <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &quot;</span><span class="tok-o">+</span><span class="tok-n">affichage1</span><span class="tok-o">,</span><span class="tok-n">affichage1</span><span class="tok-o">,</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span>
+     <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &quot;</span><span class="tok-o">+</span><span class="tok-n">affichage2</span><span class="tok-o">,</span><span class="tok-n">affichage2</span><span class="tok-o">,</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span>
+  <span class="tok-o">}</span>
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_31_3_2013</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">IOException</span> <span class="tok-o">{</span>
+    <span class="tok-n">String</span> <span class="tok-n">messageSaisie</span> <span class="tok-o">=</span> <span class="tok-s">&quot;Saisir une date : jour mois annee ? &quot;</span> <span class="tok-o">;</span>
+    <span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">ligneJeuDEssai</span> <span class="tok-o">=</span> <span class="tok-o">{</span><span class="tok-s">&quot;31 3 2013&quot;</span><span class="tok-o">,</span><span class="tok-s">&quot;Le lendemain du 31/3/2013&quot;</span><span class="tok-o">,</span><span class="tok-s">&quot;sera le 1/4/2013.&quot;</span><span class="tok-o">}</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertsPourSaisieValide</span><span class="tok-o">(</span><span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">],</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-o">],</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">2</span><span class="tok-o">]);</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-c1">// Saisies invalides</span>
+  <span class="tok-kd">protected</span> <span class="tok-kt">void</span> <span class="tok-nf">assertsPourSaisieInvalide</span><span class="tok-o">(</span><span class="tok-n">String</span> <span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">String</span> <span class="tok-n">saisie</span><span class="tok-o">,</span><span class="tok-n">String</span> <span class="tok-n">affichage</span><span class="tok-o">)</span> <span class="tok-kd">throws</span> <span class="tok-n">IOException</span> <span class="tok-o">{</span>
+     <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &quot;</span><span class="tok-o">+</span><span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span>
+     <span class="tok-n">clavierProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">write</span><span class="tok-o">(</span><span class="tok-n">saisie</span><span class="tok-o">+</span><span class="tok-n">finDeLigne</span><span class="tok-o">);</span> <span class="tok-n">clavierProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">flush</span><span class="tok-o">();</span>
+     <span class="tok-n">assertEquals</span><span class="tok-o">(</span><span class="tok-s">&quot;Affiche : &quot;</span><span class="tok-o">+</span><span class="tok-n">affichage</span><span class="tok-o">,</span><span class="tok-n">affichage</span><span class="tok-o">,</span><span class="tok-n">ecranProgrammeATester</span><span class="tok-o">.</span><span class="tok-na">readLine</span><span class="tok-o">());</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_1_1_1581</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">IOException</span> <span class="tok-o">{</span>
+    <span class="tok-n">String</span> <span class="tok-n">messageSaisie</span> <span class="tok-o">=</span> <span class="tok-s">&quot;Saisir une date : jour mois annee ? &quot;</span> <span class="tok-o">;</span>
+    <span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">ligneJeuDEssai</span> <span class="tok-o">=</span> <span class="tok-o">{</span><span class="tok-s">&quot;1 1 1581&quot;</span><span class="tok-o">,</span><span class="tok-s">&quot;La date du 1/1/1581 n&#39;est pas une date valide.&quot;</span><span class="tok-o">}</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertsPourSaisieInvalide</span><span class="tok-o">(</span><span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">],</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-o">]);</span>
+  <span class="tok-o">}</span>
+
+  <span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_32_1_2013</span><span class="tok-o">()</span> <span class="tok-kd">throws</span> <span class="tok-n">IOException</span> <span class="tok-o">{</span>
+    <span class="tok-n">String</span> <span class="tok-n">messageSaisie</span> <span class="tok-o">=</span> <span class="tok-s">&quot;Saisir une date : jour mois annee ? &quot;</span> <span class="tok-o">;</span>
+    <span class="tok-n">String</span><span class="tok-o">[]</span> <span class="tok-n">ligneJeuDEssai</span> <span class="tok-o">=</span> <span class="tok-o">{</span><span class="tok-s">&quot;32 1 2013&quot;</span><span class="tok-o">,</span><span class="tok-s">&quot;La date du 32/1/2013 n&#39;est pas une date valide.&quot;</span><span class="tok-o">}</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertsPourSaisieInvalide</span><span class="tok-o">(</span><span class="tok-n">messageSaisie</span><span class="tok-o">,</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">],</span><span class="tok-n">ligneJeuDEssai</span><span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-o">]);</span>
+  <span class="tok-o">}</span>
+
+<span class="tok-o">}</span> <span class="tok-c1">// fin class</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>name of the app to be tested</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Process = the running program</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>link to the display of the running program</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>link to the keyboard of the running program</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><strong>portable</strong> carrier return</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>launching of all the functions starting by 'test'</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>function (re-)executed before each testing function AND launch the program to be tested</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>launching of the program</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>connect to the display</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td>connect to the keyboard</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="11"></i><b>11</b></td>
+<td>read a line on the display</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="12"></i><b>12</b></td>
+<td>send a line to the keyboard</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="13"></i><b>13</b></td>
+<td>force the keyboard flush</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="14"></i><b>14</b></td>
+<td>read another line on the display</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tests_implement_simple_algorithms">3. Tests implement simple algorithms</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">given/when/then</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kd">public</span> <span class="tok-kt">void</span> <span class="tok-nf">test_dates_invalids</span><span class="tok-o">()</span> <span class="tok-o">{</span>
+  <span class="tok-kt">int</span><span class="tok-o">[][]</span> <span class="tok-n">tabJeuDEssaiDatesInvalids</span> <span class="tok-o">=</span> <span class="tok-o">{</span>  <i class="conum" data-value="1"></i><b>(1)</b>
+      <span class="tok-o">{</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">1581</span><span class="tok-o">},{</span><span class="tok-mi">0</span><span class="tok-o">,</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},{</span><span class="tok-mi">99</span><span class="tok-o">,</span><span class="tok-mi">99</span><span class="tok-o">,</span><span class="tok-mi">2099</span><span class="tok-o">},</span>
+      <span class="tok-o">{</span><span class="tok-mi">32</span><span class="tok-o">,</span><span class="tok-mi">1</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},{</span><span class="tok-mi">29</span><span class="tok-o">,</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},{</span><span class="tok-mi">32</span><span class="tok-o">,</span><span class="tok-mi">3</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},</span>
+      <span class="tok-o">{</span><span class="tok-mi">31</span><span class="tok-o">,</span><span class="tok-mi">4</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},{</span><span class="tok-mi">32</span><span class="tok-o">,</span><span class="tok-mi">5</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},{</span><span class="tok-mi">31</span><span class="tok-o">,</span><span class="tok-mi">6</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},</span>
+      <span class="tok-o">{</span><span class="tok-mi">32</span><span class="tok-o">,</span><span class="tok-mi">7</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},{</span><span class="tok-mi">32</span><span class="tok-o">,</span><span class="tok-mi">8</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},{</span><span class="tok-mi">31</span><span class="tok-o">,</span><span class="tok-mi">9</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},</span>
+      <span class="tok-o">{</span><span class="tok-mi">32</span><span class="tok-o">,</span><span class="tok-mi">10</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},{</span><span class="tok-mi">31</span><span class="tok-o">,</span><span class="tok-mi">11</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},{</span><span class="tok-mi">32</span><span class="tok-o">,</span><span class="tok-mi">12</span><span class="tok-o">,</span><span class="tok-mi">2013</span><span class="tok-o">},</span>
+      <span class="tok-o">{</span><span class="tok-mi">29</span><span class="tok-o">,</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">1900</span><span class="tok-o">},{</span><span class="tok-mi">30</span><span class="tok-o">,</span><span class="tok-mi">2</span><span class="tok-o">,</span><span class="tok-mi">2000</span><span class="tok-o">}</span>
+  <span class="tok-o">}</span> <span class="tok-o">;</span>
+  <span class="tok-k">for</span> <span class="tok-o">(</span> <span class="tok-kt">int</span> <span class="tok-n">indice</span> <span class="tok-o">=</span> <span class="tok-mi">0</span><span class="tok-o">,</span> <span class="tok-n">taille</span> <span class="tok-o">=</span> <span class="tok-n">tabJeuDEssaiDatesInvalids</span><span class="tok-o">.</span><span class="tok-na">length</span><span class="tok-o">;</span>
+        <span class="tok-n">indice</span> <span class="tok-o">&lt;</span> <span class="tok-n">taille</span> <span class="tok-o">;</span>
+        <span class="tok-n">indice</span> <span class="tok-o">=</span> <span class="tok-n">indice</span> <span class="tok-o">+</span> <span class="tok-mi">1</span><span class="tok-o">){</span>
+    <span class="tok-kt">int</span><span class="tok-o">[]</span> <span class="tok-n">date</span> <span class="tok-o">=</span> <span class="tok-n">tabJeuDEssaiDatesInvalids</span><span class="tok-o">[</span><span class="tok-n">indice</span><span class="tok-o">]</span> <span class="tok-o">;</span>
+    <span class="tok-n">assertFalse</span><span class="tok-o">(</span><span class="tok-n">date</span><span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">]+</span><span class="tok-s">&quot;/&quot;</span><span class="tok-o">+</span><span class="tok-n">date</span><span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-o">]+</span><span class="tok-s">&quot;/&quot;</span><span class="tok-o">+</span><span class="tok-n">date</span><span class="tok-o">[</span><span class="tok-mi">2</span><span class="tok-o">]+</span><span class="tok-s">&quot; est invalid&quot;</span>
+    <span class="tok-o">,</span> <span class="tok-n">LibDate</span><span class="tok-o">.</span><span class="tok-na">datevalid</span><span class="tok-o">(</span><span class="tok-n">date</span><span class="tok-o">[</span><span class="tok-mi">0</span><span class="tok-o">],</span><span class="tok-n">date</span><span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-o">],</span><span class="tok-n">date</span><span class="tok-o">[</span><span class="tok-mi">2</span><span class="tok-o">]));</span>  <i class="conum" data-value="2"></i><b>(2)</b> <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="tok-o">}</span>
+  <span class="tok-n">bilanAssertions</span> <span class="tok-o">=</span> <span class="tok-n">bilanAssertions</span> <span class="tok-o">+</span> <span class="tok-n">tabJeuDEssaiDatesInvalids</span><span class="tok-o">.</span><span class="tok-na">length</span> <span class="tok-o">;</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><strong>given</strong>: in the following situations</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><strong>when</strong>: when we check the validity of a date</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><strong>then</strong>: we should get <code>false</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_can_everything_be_tested">4. Can everything be tested ?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>librairies</p>
+</li>
+<li>
+<p>system interactions (concurrency, etc.)</p>
+</li>
+<li>
+<p>network services</p>
+</li>
+<li>
+<p>graphical interfaces (html, java, flash, etc.)</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+<li>
+<p>MAY BE NOT, but try anyway!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_all_the_strategies_are_exploitable">5. All the strategies are exploitable</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Write a program that run the tests</p>
+</li>
+<li>
+<p>Write the tests of a given program</p>
+</li>
+<li>
+<p>Code a feature AND add the corresponding test</p>
+</li>
+<li>
+<p>Add a test AND integrate the corresponding functionnality (TDD)</p>
+</li>
+<li>
+<p>Find back the balance between Program / Tesing Program</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_most_common_mistakes_in_programming">6. Most common mistakes in programming</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="http://blog.takipi.com/the-top-10-exceptions-types-in-production-java-applications-based-on-1b-events/?utm_content=buffer0c58b&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer" class="bare">http://blog.takipi.com/the-top-10-exceptions-types-in-production-java-applications-based-on-1b-events/?utm_content=buffer0c58b&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quizz">Quizz</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title"><strong>QUESTION</strong></div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect on: <a href="http://www.socrative.com/" class="bare">http://www.socrative.com/</a> (<strong>student login</strong>)</p>
+</li>
+<li>
+<p>Or download the student app <span class="image"><img src="images/socrative2.png" alt="socrative2" width="10%"></span></p>
+</li>
+<li>
+<p>Choose room # <strong>44918d67</strong></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.socrative.com/"><img src="images/socrative1.png" alt="socrative1" width="50%"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0 2017-01-26<br>
+Last updated 2017-01-25 21:35:54 CET
+</div>
+</div>
+</body>
+</html>

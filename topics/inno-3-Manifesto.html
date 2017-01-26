@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="author" content="J.-M. Bruel">
+<title>Agile principles</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="./pygments-default.css">
+</head>
+<body id="MPA" class="article toc2 toc-left">
+<div id="header">
+<h1><strong>Agile</strong> principles</h1>
+<div class="details">
+<span id="author" class="author">J.-M. Bruel</span><br>
+<span id="email" class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span><br>
+<span id="revnumber">version 1.0 2017-01-25</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of content</div>
+<ul class="sectlevel1">
+<li><a href="#_the_agile_manifesto">1. The Agile Manifesto</a></li>
+<li><a href="#_17_authors">2. 17 authors</a></li>
+<li><a href="#_the_12_principles">3. The 12 principles</a></li>
+<li><a href="#_the_agile_values">4. The agile values</a></li>
+<li><a href="#_the_principles">5. The principles</a>
+<ul class="sectlevel2">
+<li><a href="#_good_non_agile_principles">5.1. Good NON AGILE principles!</a></li>
+<li><a href="#_organizational_principles">5.2. Organizational principles</a></li>
+<li><a href="#_more_organizational_principles">5.3. More Organizational principles</a></li>
+<li><a href="#_more_organizational_principles_the_lean_view">5.4. More Organizational principles: the LEAN view</a></li>
+<li><a href="#_technical_principles">5.5. Technical principles</a></li>
+</ul>
+</li>
+<li><a href="#_roles">6. Roles</a>
+<ul class="sectlevel2">
+<li><a href="#_the_self_organizing_team">6.1. The (self-organizing) Team</a></li>
+<li><a href="#_product_owner">6.2. Product Owner</a></li>
+<li><a href="#_scrum_master">6.3. Scrum master</a></li>
+</ul>
+</li>
+<li><a href="#_practices">7. Practices</a>
+<ul class="sectlevel2">
+<li><a href="#_plannings_managements">7.1. Plannings &amp; managements</a></li>
+<li><a href="#_meetings">7.2. Meetings</a></li>
+<li><a href="#_focus_on_the_daily_meeting">7.3. Focus on the Daily meeting</a></li>
+<li><a href="#_development">7.4. Development</a></li>
+<li><a href="#_release">7.5. Release</a></li>
+<li><a href="#_tests">7.6. Tests</a></li>
+</ul>
+</li>
+<li><a href="#_artifacts">8. Artifacts</a>
+<ul class="sectlevel2">
+<li><a href="#_product_backlog">8.1. Product Backlog</a></li>
+<li><a href="#_user_stories">8.2. User stories</a></li>
+<li><a href="#_storyboard">8.3. Storyboard</a></li>
+<li><a href="#_velocity">8.4. Velocity</a></li>
+<li><a href="#_sprint_backlog">8.5. Sprint Backlog</a></li>
+<li><a href="#_burndown">8.6. Burndown</a></li>
+</ul>
+</li>
+<li><a href="#_classical_process">9. Classical process</a></li>
+<li><a href="#_quizz">Quizz</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This part of the course is inspired by the <a href="https://www.edx.org/course/agile-software-development-ethx-asd-1x">Agile MOOC</a>
+from <a href="mailto:bertrand.meyer@inf.ethz.ch">Bertrand Meyer</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_agile_manifesto">1. The Agile Manifesto</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://agilemanifesto.org/"><img src="images/manifesto.png" alt="manifesto" width="100%"></a>
+</div>
+<div class="title">Figure 1. Le manifeste Agile (http://agilemanifesto.org/)</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+February 2001!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_17_authors">2. 17 authors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Famous ones:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ward Cunningham (Wiki)</p>
+</li>
+<li>
+<p>Kent Beck (XP, JUnit)</p>
+</li>
+<li>
+<p>Ken Schwaber et Jeff Sutherland (<a href="http://fr.wikipedia.org/wiki/Scrum_(m%C3%A9thode)">Scrum</a>)</p>
+</li>
+<li>
+<p>Alistair Cockburn</p>
+</li>
+<li>
+<p>Martin Fowler</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_12_principles">3. The 12 principles</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://agilemanifesto.org/"><img src="images/12principles.jpg" alt="12principles" width="90%"></a>
+</div>
+</div>
+<div class="paragraph">
+<p>You will find an update version of the principles on Wikipedia:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://en.wikipedia.org/wiki/Agile_software_development" class="bare">https://en.wikipedia.org/wiki/Agile_software_development</a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Customer satisfaction by early and continuous delivery of valuable software</p>
+</li>
+<li>
+<p>Welcome changing requirements, even in late development</p>
+</li>
+<li>
+<p>Working software is delivered frequently (weeks rather than months)</p>
+</li>
+<li>
+<p>Close, daily cooperation between business people and developers</p>
+</li>
+<li>
+<p>Projects are built around motivated individuals, who should be trusted</p>
+</li>
+<li>
+<p>Face-to-face conversation is the best form of communication (co-location)</p>
+</li>
+<li>
+<p>Working software is the principal measure of progress</p>
+</li>
+<li>
+<p>Sustainable development, able to maintain a constant pace</p>
+</li>
+<li>
+<p>Continuous attention to technical excellence and good design</p>
+</li>
+<li>
+<p>Simplicity - the art of maximizing the amount of work not done - is essential</p>
+</li>
+<li>
+<p>Best architectures, requirements, and designs emerge from self-organizing teams</p>
+</li>
+<li>
+<p>Regularly, the team reflects on how to become more effective, and adjusts accordingly</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_agile_values">4. The agile values</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>General ideas that precede the principles.</p>
+</div>
+<div class="paragraph">
+<p>From the <a href="http://agilemanifesto.org/">manifesto</a> itself:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Individuals and interactions over processes and tools</p>
+</li>
+<li>
+<p>Working software over comprehensive documentation</p>
+</li>
+<li>
+<p>Customer collaboration over contract negotiation</p>
+</li>
+<li>
+<p>Responding to change over following a plan</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not forget the quote that goes with:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+while there is value in the items on the right, we value the items on the left more.
+</blockquote>
+<div class="attribution">
+&#8212; http://agilemanifesto.org/
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>From the <a href="https://www.edx.org/course/agile-software-development-ethx-asd-1x">Agile MOOC</a>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>New, reduced role for manager</p>
+</li>
+<li>
+<p>No "Big Upfront" steps</p>
+</li>
+<li>
+<p>Iterative development</p>
+</li>
+<li>
+<p>Limited, negociated scope</p>
+</li>
+<li>
+<p>Focus on quality, achieved through testing</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_principles">5. The principles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Several types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Organizational / Managerial</p>
+</li>
+<li>
+<p>Technical</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_good_non_agile_principles">5.1. Good NON AGILE principles!</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Process, procedure and methods</p>
+</li>
+<li>
+<p>Insist on requirements and their quality</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_organizational_principles">5.2. Organizational principles</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Put the customer at the centre</p>
+</li>
+<li>
+<p>Accept change</p>
+</li>
+<li>
+<p>Let the team self-organize</p>
+</li>
+<li>
+<p>Maintain a sustainable pace</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_more_organizational_principles">5.3. More Organizational principles</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Produce "minimalist" software</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Develop required features</p>
+</li>
+<li>
+<p>and only those</p>
+</li>
+<li>
+<p>develop only code and tests</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<strong>YAGNI</strong>: <strong>Y</strong>ou <strong>A</strong>in&#8217;t <strong>G</strong>onna <strong>N</strong>eed <strong>I</strong>t
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_more_organizational_principles_the_lean_view">5.4. More Organizational principles: the LEAN view</h3>
+<div class="paragraph">
+<p>7 waste of software dev. (M. Poppendieck):
+- Overproduction: extra/unused features
+- Inventory: partially developed work not released
+- Extra processing: unused artifacts
+- Motion: seeking information
+- Defects: escaped defects not caugth by tests
+- Waiting
+- Transportation: handoffs</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_technical_principles">5.5. Technical principles</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Develop iteratively</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Frequent working iterations</p>
+</li>
+<li>
+<p>Closed-window rule</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Treat tests as a key resource</p>
+<div class="ulist">
+<ul>
+<li>
+<p>All tests must pass (regression)</p>
+</li>
+<li>
+<p>Test first (TDD)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Express requirements through scenarios</p>
+<div class="ulist">
+<ul>
+<li>
+<p>User stories</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_roles">6. Roles</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>What happens to the manager?</p>
+</li>
+<li>
+<p>Scrum Roles</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Product Owner</p>
+</li>
+<li>
+<p>SCRUM Master</p>
+</li>
+<li>
+<p>Team</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other roles</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+In Scrum &#8658; no manager!
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_the_self_organizing_team">6.1. The (self-organizing) Team</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Specialists but no specific domain</p>
+</li>
+<li>
+<p>Cross-functional: anyone able to take any task</p>
+</li>
+<li>
+<p>Select the major goals for the iteration</p>
+</li>
+<li>
+<p>Assign tasks</p>
+</li>
+<li>
+<p>Demonstrate results</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_product_owner">6.2. Product Owner</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Interface with the Customer</p>
+</li>
+<li>
+<p>Defines the product features</p>
+</li>
+<li>
+<p>Prioritizes features</p>
+</li>
+<li>
+<p>Allows release presentation</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scrum_master">6.3. Scrum master</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>makes sure that the team properly applies the methodology</p>
+</li>
+<li>
+<p>ensures that the team is functional</p>
+</li>
+<li>
+<p>enables cooperation</p>
+</li>
+<li>
+<p>protect the team</p>
+</li>
+<li>
+<p>helping remove impediments</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_practices">7. Practices</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Plannings &amp; management</p>
+</li>
+<li>
+<p>Meetings &amp; Scrums</p>
+</li>
+<li>
+<p>Development &amp; releases</p>
+</li>
+<li>
+<p>Retrospectives</p>
+</li>
+<li>
+<p>Tests</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_plannings_managements">7.1. Plannings &amp; managements</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Planning poker</p>
+</li>
+<li>
+<p>Scrum of Scrums</p>
+</li>
+<li>
+<p>Storyboards</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_meetings">7.2. Meetings</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Daily meetings</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Morning</p>
+</li>
+<li>
+<p>"Stand-up" (&lt;15')</p>
+</li>
+<li>
+<p>Everybody participate</p>
+</li>
+<li>
+<p>Commitments/Impediments</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Planning meetings</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sprint Backlog</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Retrospective meeetings</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What went right?</p>
+</li>
+<li>
+<p>What could be improved?</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Review meetings</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Customers involved</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_focus_on_the_daily_meeting">7.3. Focus on the Daily meeting</h3>
+<div class="paragraph">
+<p>The 3 classical questions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What did you do yesterday?</p>
+</li>
+<li>
+<p>What will you do today?</p>
+</li>
+<li>
+<p>Are there any impediments in your way?</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_development">7.4. Development</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Pair programming</p>
+</li>
+<li>
+<p>Mentoring</p>
+</li>
+<li>
+<p>Single code base (vs. branching)</p>
+</li>
+<li>
+<p>Shared code</p>
+</li>
+<li>
+<p>Leave optimization till last</p>
+</li>
+<li>
+<p>Simple design</p>
+</li>
+<li>
+<p>Incremental design</p>
+</li>
+<li>
+<p>Refactoring</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_release">7.5. Release</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Early and often</p>
+</li>
+<li>
+<p>Continuous Integration</p>
+</li>
+<li>
+<p>Small, Incremental</p>
+</li>
+<li>
+<p>Weekly cycles</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tests">7.6. Tests</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Coding standards</p>
+</li>
+<li>
+<p>Systematic Unit Tests</p>
+</li>
+<li>
+<p>TDD</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_artifacts">8. Artifacts</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Product Backlog</p>
+</li>
+<li>
+<p>User stories</p>
+</li>
+<li>
+<p>Sprint Backlog</p>
+</li>
+<li>
+<p>Burdown</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_product_backlog">8.1. Product Backlog</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Property of the Product Owner</p>
+</li>
+<li>
+<p>Maintained throughout the project</p>
+</li>
+<li>
+<p>Open</p>
+</li>
+<li>
+<p>Contains backlog items</p>
+</li>
+<li>
+<p>Includes estimates of business value</p>
+</li>
+<li>
+<p>Includes estimates of dev. effort</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_user_stories">8.2. User stories</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">As a</dt>
+<dd>
+<p>&#8230;&#8203;</p>
+</dd>
+<dt class="hdlist1">I want to</dt>
+<dd>
+<p>&#8230;&#8203;</p>
+</dd>
+<dt class="hdlist1">So that</dt>
+<dd>
+<p>&#8230;&#8203;</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<div class="title">Example of Story Card (source: https://mazoea.wordpress.com/agile/)</div>
+<p><span class="image"><a class="image" href="https://mazoea.wordpress.com/agile/"><img src="images/storycard.png" alt="storycard"></a></span></p>
+</div>
+<div class="paragraph">
+<p>Good features (XP &#8658; <a href="https://en.wikipedia.org/wiki/INVEST_(mnemonic)">INVEST</a>):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>I</strong>ndependent (from other stories)</p>
+</li>
+<li>
+<p><strong>N</strong>egociable</p>
+</li>
+<li>
+<p><strong>V</strong>aluable (for the stakeholders)</p>
+</li>
+<li>
+<p><strong>E</strong>stimable</p>
+</li>
+<li>
+<p><strong>S</strong>mall</p>
+</li>
+<li>
+<p><strong>T</strong>estable</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Id</p>
+</li>
+<li>
+<p>Client priority</p>
+</li>
+<li>
+<p>Cost estimation (points, time, &#8230;&#8203;)</p>
+</li>
+<li>
+<p>Formulation "As a &#8230;&#8203;"</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.agiliste.fr/guide-de-demarrage-scrum/"><img src="images/US.jpg" alt="US" width="100%"></a>
+</div>
+<div class="title">Figure 2. Card example (http://www.agiliste.fr/guide-de-demarrage-scrum/)</div>
+</div>
+<div class="paragraph">
+<p>Organizing Stories as matrix instead of simple list: <strong>Story Mapping</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>M</strong>ust, <strong>S</strong>hould, <strong>C</strong>ould, <strong>W</strong>ont
+&#8658; <strong>MoSCoW</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.agilegarden.fr/un-lancement-de-projet-ludique-et-productif/"><img src="images/storymap.png" alt="storymap" width="50%"></a>
+</div>
+<div class="title">Figure 3. Exemple de Story Map (http://www.agilegarden.fr/un-lancement-de-projet-ludique-et-productif/)</div>
+</div>
+<div class="paragraph">
+<p>Another way of presenting:
+by flow (dependencies between stories)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://blog.cayenneapps.com/2014/11/25/5-steps-to-building-minimum-viable-product-with-story-mapping/"><img src="images/mvp-priorities.png" alt="mvp priorities" width="80%"></a>
+</div>
+<div class="title">Figure 4. Example of Story Map by flow (http://blog.cayenneapps.com/2014/11/25/5-steps-to-building-minimum-viable-product-with-story-mapping/)</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_storyboard">8.3. Storyboard</h3>
+<div class="paragraph">
+<div class="title">Example of storyboard  (https://www.vikingcodeschool.com/software-engineering-basics/agile-development-with-xp-and-scrum)</div>
+<p><span class="image"><a class="image" href="https://www.vikingcodeschool.com/software-engineering-basics/agile-development-with-xp-and-scrum"><img src="images/agile_story_board.jpg" alt="agile story board"></a></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_velocity">8.4. Velocity</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Not progess over time
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Number of items delivered</p>
+</li>
+<li>
+<p>Burndown chart</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sprint_backlog">8.5. Sprint Backlog</h3>
+<div class="paragraph">
+<p>Group of User Stories, taken from the Product Backlog
+and treated in a specific sprint.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_burndown">8.6. Burndown</h3>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.agiliste.fr/instruments-pilotage-projet/"><img src="images/burndown-inputs.png" alt="burndown inputs" width="50%"></a>
+</div>
+<div class="title">Figure 5. Exemple d&#8217;inputs pour mon Burn-down (http://www.agiliste.fr/instruments-pilotage-projet/)</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.agiliste.fr/instruments-pilotage-projet/"><img src="images/burndown.png" alt="burndown" width="50%"></a>
+</div>
+<div class="title">Figure 6. Exemple de Burn-down résultant (http://www.agiliste.fr/instruments-pilotage-projet/)</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To test yourself: <span class="detail"><a href="https://docs.google.com/spreadsheets/d/17bppZL6IQoHXKHm0Cr5Q5yYrQivA9oTSB5fmo6ECsJs/edit#gid=6" class="bare">https://docs.google.com/spreadsheets/d/17bppZL6IQoHXKHm0Cr5Q5yYrQivA9oTSB5fmo6ECsJs/edit#gid=6</a></span>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_classical_process">9. Classical process</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://scrumprimer.org"><img src="images/scrum_overview.png" alt="scrum overview" width="100%"></a>
+</div>
+<div class="title">Figure 7. Agile process (http://scrumprimer.org)</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quizz">Quizz</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title"><strong>QUESTION</strong></div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect on: <a href="http://www.socrative.com/" class="bare">http://www.socrative.com/</a> (<strong>student login</strong>)</p>
+</li>
+<li>
+<p>Or download the student app <span class="image"><img src="images/socrative2.png" alt="socrative2" width="10%"></span></p>
+</li>
+<li>
+<p>Choose room # <strong>44918d67</strong></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.socrative.com/"><img src="images/socrative1.png" alt="socrative1" width="50%"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0 2017-01-25<br>
+Last updated 2017-01-25 16:52:07 CET
+</div>
+</div>
+</body>
+</html>

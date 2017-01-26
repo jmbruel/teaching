@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=" http-equiv="Content-Type" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content="Asciidoctor 1.5.5" name="generator" />
+<meta content="J.-M. Bruel" name="author" />
+<title>Agile principles</title>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+<style>
+.conum { display: inline-block; color: white !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 1.2em; height: 1.2em; font-size: 0.9em; font-weight: bold; line-height: 1.2; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -0.1em; }
+.conum * { color: white !important; }
+.conum + b { display: none; }
+.conum:after { content: attr(data-value); }
+.conum:not([data-value]):empty { display: none; }
+.colist table td:first-of-type { padding-right: 0.25em; }
+</style>
+<link href="deck.js/core/deck.core.css" rel="stylesheet" />
+<link href="deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet" />
+<link href="deck.js/extensions/status/deck.status.css" media="screen" rel="stylesheet" />
+<link href="deck.js/extensions/toc/deck.toc.css" media="screen" rel="stylesheet" />
+<link href="deck.js/themes/style/swiss.css" media="screen" rel="stylesheet" />
+<link href="deck.js/themes/transition/fade.css" media="screen" rel="stylesheet" />
+<link href="deck.js/core/print.css" media="print" rel="stylesheet" />
+<script src="deck.js/modernizr.custom.js"></script>
+</head>
+<body class="article" id="MPA">
+<div class="deck-container">
+<section class="slide" id="title-slide">
+<h1><strong>Agile</strong> principles</h1>
+<span id="author">J.-M. Bruel</span>
+<br />
+<span id="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span>
+<br />
+<span id="revnumber">version 1.0 2017-01-26</span>
+</section>
+<section class="slide" id="_materials_in_live_span_class_icon_i_class_icon_mobile_i_span_span_class_icon_i_class_icon_tablet_i_span_span_class_icon_i_class_icon_laptop_i_span">
+<h2>Materials in live&#8230;&#8203; <span class="icon"><i class="icon-mobile"></i></span> <span class="icon"><i class="icon-tablet"></i></span> <span class="icon"><i class="icon-laptop"></i></span></h2>
+<div class="paragraph"><p><a class="bare" href="http://bit.ly/jmb-agile">http://bit.ly/jmb-agile</a></p></div>
+<div class="paragraph"><p><a class="bare" href="http://jmbhome.github.io/teaching/topics/agile.html">http://jmbhome.github.io/teaching/topics/agile.html</a></p></div>
+<div class="paragraph"><p>This part of the course is inspired by the <a href="https://www.edx.org/course/agile-software-development-ethx-asd-1x">Agile MOOC</a>
+from <a href="mailto:bertrand.meyer@inf.ethz.ch">Bertrand Meyer</a>.</p></div>
+</section>
+<section class="slide" id="_the_agile_manifesto">
+<h2>The Agile Manifesto</h2>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://agilemanifesto.org/">
+<img alt="manifesto" src="images/manifesto.png" width="100%" />
+</a>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<span class="detail"><a class="bare" href="http://agilemanifesto.org/">http://agilemanifesto.org/</a></span>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+February 2001!
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_17_authors">
+<h2>17 authors</h2>
+<div class="paragraph"><p>Famous ones:</p></div>
+<div class="ulist">
+<ul>
+<li>Ward Cunningham (Wiki)</li>
+<li>Kent Beck (XP, JUnit)</li>
+<li>Ken Schwaber et Jeff Sutherland (<a href="http://fr.wikipedia.org/wiki/Scrum_(m%C3%A9thode)">Scrum</a>)</li>
+<li>Alistair Cockburn</li>
+<li>Martin Fowler</li>
+<li>&#8230;&#8203;</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_the_12_principles">
+<h2>The 12 principles</h2>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://agilemanifesto.org/">
+<img alt="12principles" src="images/12principles.jpg" width="90%" />
+</a>
+</div>
+</div>
+<div class="paragraph"><p>You will find an update version of the principles on Wikipedia:</p></div>
+<div class="paragraph"><p><a class="bare" href="https://en.wikipedia.org/wiki/Agile_software_development">https://en.wikipedia.org/wiki/Agile_software_development</a></p></div>
+</section>
+<section class="slide" id="_the_12_principles_updated">
+<h2>The 12 principles (updated)</h2>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+Customer satisfaction by early and continuous delivery of valuable software
+</li>
+<li>
+Welcome changing requirements, even in late development
+</li>
+<li>
+Working software is delivered frequently (weeks rather than months)
+</li>
+<li>
+Close, daily cooperation between business people and developers
+</li>
+<li>
+Projects are built around motivated individuals, who should be trusted
+</li>
+<li>
+Face-to-face conversation is the best form of communication (co-location)
+</li>
+<li>
+Working software is the principal measure of progress
+</li>
+<li>
+Sustainable development, able to maintain a constant pace
+</li>
+<li>
+Continuous attention to technical excellence and good design
+</li>
+<li>
+Simplicity - the art of maximizing the amount of work not done - is essential
+</li>
+<li>
+Best architectures, requirements, and designs emerge from self-organizing teams
+</li>
+<li>
+Regularly, the team reflects on how to become more effective, and adjusts accordingly
+</li>
+</ol>
+</div>
+</section>
+<section class="slide" id="__span_class_icon_i_class_icon_question_circle_o_i_span_exercise">
+<h2><span class="icon"><i class="icon-question-circle-o"></i></span> Exercise</h2>
+<div class="paragraph"><p>Find in those "12 principles":</p></div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>Which ones are not principles!</li>
+<li>Which ones are in fact <strong>pratices</strong></li>
+<li>Which ones are in fact <strong>assertions</strong></li>
+<li>Which one is even wrong!</li>
+<li>Useless repetitions</li>
+<li>Where is test mentioned?</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_12_principles">
+<h2>12 principles</h2>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://agilemanifesto.org/">
+<img alt="12principles" src="images/12principles.jpg" width="90%" />
+</a>
+</div>
+</div>
+</section>
+<section class="slide" id="_elements_of_solution">
+<h2>Elements of solution</h2>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://agilemanifesto.org/">
+<img alt="answerManifesto" src="images/answerManifesto.png" width="100%" />
+</a>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<span class="detail"><a class="bare" href="https://www.edx.org/course/agile-software-development-ethx-asd-1x">https://www.edx.org/course/agile-software-development-ethx-asd-1x</a></span>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_the_agile_values">
+<h2>The agile values</h2>
+<div class="paragraph"><p>General ideas that precede the principles.</p></div>
+</section>
+<section class="slide" id="_the_agile_values_ctd">
+<h2>The agile values (ctd.)</h2>
+<div class="paragraph"><p>From the <a href="http://agilemanifesto.org/">manifesto</a> itself:</p></div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>Individuals and interactions over processes and tools</li>
+<li>Working software over comprehensive documentation</li>
+<li>Customer collaboration over contract negotiation</li>
+<li>Responding to change over following a plan</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_the_agile_values_ctd_2">
+<h2>The agile values (ctd.)</h2>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph"><p>Do not forget the quote that goes with:</p></div>
+<div class="quoteblock">
+<blockquote>
+while there is value in the items on the right, we value the items on the left more.
+<div class="attribution">
+<cite>http://agilemanifesto.org/</cite>
+</div>
+</blockquote>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_the_agile_values_ctd_3">
+<h2>The agile values (ctd.)</h2>
+<div class="paragraph"><p>From the <a href="https://www.edx.org/course/agile-software-development-ethx-asd-1x">Agile MOOC</a>:</p></div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>New, reduced role for manager</li>
+<li>No "Big Upfront" steps</li>
+<li>Iterative development</li>
+<li>Limited, negociated scope</li>
+<li>Focus on quality, achieved through testing</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_the_principles">
+<h2>The principles</h2>
+<div class="paragraph"><p>Several types:</p></div>
+<div class="ulist">
+<ul>
+<li>Organizational / Managerial</li>
+<li>Technical</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_good_non_agile_principles">
+<h2>Good NON AGILE principles!</h2>
+<div class="ulist">
+<ul>
+<li>Process, procedure and methods</li>
+<li>Insist on requirements and their quality</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_organizational_principles">
+<h2>Organizational principles</h2>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>Put the customer at the centre</li>
+<li>Accept change</li>
+<li>Let the team self-organize</li>
+<li>Maintain a sustainable pace</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_more_organizational_principles">
+<h2>More Organizational principles</h2>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li><p>
+Produce "minimalist" software<div class="ulist">
+<ul>
+<li>Develop required features</li>
+<li>and only those</li>
+<li>develop only code and tests</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<strong>YAGNI</strong>: <strong>Y</strong>ou <strong>A</strong>in&#8217;t <strong>G</strong>onna <strong>N</strong>eed <strong>I</strong>t
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_more_organizational_principles_the_lean_view">
+<h2>More Organizational principles: the LEAN view</h2>
+<div class="paragraph"><p>7 waste of software dev. (M. Poppendieck):
+- Overproduction: extra/unused features
+- Inventory: partially developed work not released
+- Extra processing: unused artifacts
+- Motion: seeking information
+- Defects: escaped defects not caugth by tests
+- Waiting
+- Transportation: handoffs</p></div>
+</section>
+<section class="slide" id="_technical_principles">
+<h2>Technical principles</h2>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li><p>
+Develop iteratively<div class="ulist">
+<ul>
+<li>Frequent working iterations</li>
+<li>Closed-window rule</li>
+</ul>
+</div></p></li>
+<li><p>
+Treat tests as a key resource<div class="ulist">
+<ul>
+<li>All tests must pass (regression)</li>
+<li>Test first (TDD)</li>
+</ul>
+</div></p></li>
+<li><p>
+Express requirements through scenarios<div class="ulist">
+<ul>
+<li>User stories</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_roles">
+<h2>Roles</h2>
+<div class="ulist">
+<ul>
+<li>What happens to the manager?</li>
+<li><p>
+Scrum Roles<div class="ulist">
+<ul>
+<li>Product Owner</li>
+<li>SCRUM Master</li>
+<li>Team</li>
+</ul>
+</div></p></li>
+<li>Other roles</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="__span_class_icon_i_class_icon_question_circle_o_i_span_exercise_2">
+<h2><span class="icon"><i class="icon-question-circle-o"></i></span> Exercise</h2>
+<div class="paragraph"><p>What are the roles of traditionnal team managers?</p></div>
+</section>
+<section class="slide" id="_elements_of_answer">
+<h2>Elements of answer</h2>
+<div class="paragraph"><p>Taken from the <a href="https://www.edx.org/course/agile-software-development-ethx-asd-1x">Agile MOOC</a>:</p></div>
+<div class="ulist">
+<ul>
+<li>Define goals</li>
+<li>Define deadlines</li>
+<li>Assign tasks</li>
+<li>Provide interface with higher management</li>
+<li>Provide interface with Customer</li>
+<li>Validate requirements</li>
+<li>Decide wheterg goals have been met</li>
+<li>Enforce deadlines</li>
+<li>Coach, mentor</li>
+<li>Enforce rules and methodology</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+In Scrum &#8658; no manager!
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_the_self_organizing_team">
+<h2>The (self-organizing) Team</h2>
+<div class="ulist">
+<ul>
+<li>Specialists but no specific domain</li>
+<li>Cross-functional: anyone able to take any task</li>
+<li>Select the major goals for the iteration</li>
+<li>Assign tasks</li>
+<li>Demonstrate results</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_product_owner">
+<h2>Product Owner</h2>
+<div class="ulist">
+<ul>
+<li>Interface with the Customer</li>
+<li>Defines the product features</li>
+<li>Prioritizes features</li>
+<li>Allows release presentation</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_scrum_master">
+<h2>Scrum master</h2>
+<div class="ulist">
+<ul>
+<li>makes sure that the team properly applies the methodology</li>
+<li>ensures that the team is functional</li>
+<li>enables cooperation</li>
+<li>protect the team</li>
+<li>helping remove impediments</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_practices">
+<h2>Practices</h2>
+<div class="ulist">
+<ul>
+<li>Plannings &amp; management</li>
+<li>Meetings &amp; Scrums</li>
+<li>Development &amp; releases</li>
+<li>Retrospectives</li>
+<li>Tests</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_plannings_managements">
+<h2>Plannings &amp; managements</h2>
+<div class="ulist">
+<ul>
+<li>Planning poker</li>
+<li>Scrum of Scrums</li>
+<li>Storyboards</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_meetings">
+<h2>Meetings</h2>
+<div class="ulist">
+<ul>
+<li><p>
+Daily meetings<div class="ulist">
+<ul>
+<li>Morning</li>
+<li>"Stand-up" (&lt;15')</li>
+<li>Everybody participate</li>
+<li>Commitments/Impediments</li>
+</ul>
+</div></p></li>
+<li><p>
+Planning meetings<div class="ulist">
+<ul>
+<li>Sprint Backlog</li>
+</ul>
+</div></p></li>
+<li><p>
+Retrospective meeetings<div class="ulist">
+<ul>
+<li>What went right?</li>
+<li>What could be improved?</li>
+</ul>
+</div></p></li>
+<li><p>
+Review meetings<div class="ulist">
+<ul>
+<li>Customers involved</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_focus_on_the_daily_meeting">
+<h2>Focus on the Daily meeting</h2>
+<div class="paragraph"><p>The 3 classical questions:</p></div>
+<div class="ulist">
+<ul>
+<li>What did you do yesterday?</li>
+<li>What will you do today?</li>
+<li>Are there any impediments in your way?</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_development">
+<h2>Development</h2>
+<div class="ulist">
+<ul>
+<li>Pair programming</li>
+<li>Mentoring</li>
+<li>Single code base (vs. branching)</li>
+<li>Shared code</li>
+<li>Leave optimization till last</li>
+<li>Simple design</li>
+<li>Incremental design</li>
+<li>Refactoring</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_release">
+<h2>Release</h2>
+<div class="ulist">
+<ul>
+<li>Early and often</li>
+<li>Continuous Integration</li>
+<li>Small, Incremental</li>
+<li>Weekly cycles</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_tests">
+<h2>Tests</h2>
+<div class="ulist">
+<ul>
+<li>Coding standards</li>
+<li>Systematic Unit Tests</li>
+<li>TDD</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_artifacts">
+<h2>Artifacts</h2>
+<div class="ulist">
+<ul>
+<li>Product Backlog</li>
+<li>User stories</li>
+<li>Sprint Backlog</li>
+<li>Burdown</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_product_backlog">
+<h2>Product Backlog</h2>
+<div class="ulist">
+<ul>
+<li>Property of the Product Owner</li>
+<li>Maintained throughout the project</li>
+<li>Open</li>
+<li>Contains backlog items</li>
+<li>Includes estimates of business value</li>
+<li>Includes estimates of dev. effort</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_user_stories">
+<h2>User stories</h2>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">As a</dt>
+<dd>
+<p>&#8230;&#8203;</p>
+</dd>
+<dt class="hdlist1">I want to</dt>
+<dd>
+<p>&#8230;&#8203;</p>
+</dd>
+<dt class="hdlist1">So that</dt>
+<dd>
+<p>&#8230;&#8203;</p>
+</dd>
+</dl>
+</div>
+</section>
+<section class="slide" id="_user_stories_cards">
+<h2>User stories (cards)</h2>
+<div class="paragraph"><p><span class="image"><a class="image" href="https://mazoea.wordpress.com/agile/">
+<img alt="storycard" src="images/storycard.png" />
+</a></span></p></div>
+</section>
+<section class="slide" id="_user_stories_vs_uml_use_cases">
+<h2>User stories vs. UML Use Cases</h2>
+
+</section>
+<section class="slide" id="_user_stories_ctd">
+<h2>User stories (ctd.)</h2>
+<div class="paragraph"><p>Good features (XP &#8658; <a href="https://en.wikipedia.org/wiki/INVEST_(mnemonic)">INVEST</a>):</p></div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li><strong>I</strong>ndependent (from other stories)</li>
+<li><strong>N</strong>egociable</li>
+<li><strong>V</strong>aluable (for the stakeholders)</li>
+<li><strong>E</strong>stimable</li>
+<li><strong>S</strong>mall</li>
+<li><strong>T</strong>estable</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_user_stories_ctd_2">
+<h2>User stories (ctd.)</h2>
+<div class="paragraph"><p>Properties:</p></div>
+<div class="ulist">
+<ul>
+<li>Id</li>
+<li>Client priority</li>
+<li>Cost estimation (points, time, &#8230;&#8203;)</li>
+<li>Formulation "As a &#8230;&#8203;"</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_user_stories_ctd_3">
+<h2>User stories (ctd.)</h2>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.agiliste.fr/guide-de-demarrage-scrum/">
+<img alt="US" src="images/US.jpg" width="100%" />
+</a>
+</div>
+</div>
+</section>
+<section class="slide" id="_story_mapping">
+<h2>Story mapping</h2>
+<div class="paragraph"><p>Organizing Stories as matrix instead of simple list: <strong>Story Mapping</strong>.</p></div>
+<div class="paragraph"><p><strong>M</strong>ust, <strong>S</strong>hould, <strong>C</strong>ould, <strong>W</strong>ont
+&#8658; <strong>MoSCoW</strong></p></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.agilegarden.fr/un-lancement-de-projet-ludique-et-productif/">
+<img alt="storymap" src="images/storymap.png" width="50%" />
+</a>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<span class="detail"><a class="bare" href="http://www.agilegarden.fr/un-lancement-de-projet-ludique-et-productif/">http://www.agilegarden.fr/un-lancement-de-projet-ludique-et-productif/</a></span>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_story_mapping_ctd">
+<h2>Story mapping (ctd.)</h2>
+<div class="paragraph"><p>Another way of presenting:
+by flow (dependencies between stories)</p></div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://blog.cayenneapps.com/2014/11/25/5-steps-to-building-minimum-viable-product-with-story-mapping/">
+<img alt="mvp priorities" src="images/mvp-priorities.png" width="80%" />
+</a>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<span class="detail"><a class="bare" href="http://blog.cayenneapps.com/2014/11/25/5-steps-to-building-minimum-viable-product-with-story-mapping/">http://blog.cayenneapps.com/2014/11/25/5-steps-to-building-minimum-viable-product-with-story-mapping/</a></span>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_storyboard">
+<h2>Storyboard</h2>
+<div class="paragraph"><p><span class="image"><a class="image" href="https://www.vikingcodeschool.com/software-engineering-basics/agile-development-with-xp-and-scrum">
+<img alt="agile story board" src="images/agile_story_board.jpg" />
+</a></span></p></div>
+</section>
+<section class="slide" id="_velocity">
+<h2>Velocity</h2>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Not progess over time
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>Number of items delivered</li>
+<li>Burndown chart</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_sprint_backlog">
+<h2>Sprint Backlog</h2>
+<div class="paragraph"><p>Group of User Stories, taken from the Product Backlog
+and treated in a specific sprint.</p></div>
+</section>
+<section class="slide" id="_burndown">
+<h2>Burndown</h2>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.agiliste.fr/instruments-pilotage-projet/">
+<img alt="burndown inputs" src="images/burndown-inputs.png" width="50%" />
+</a>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<span class="detail"><a class="bare" href="http://www.agiliste.fr/instruments-pilotage-projet/">http://www.agiliste.fr/instruments-pilotage-projet/</a></span>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.agiliste.fr/instruments-pilotage-projet/">
+<img alt="burndown" src="images/burndown.png" width="50%" />
+</a>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<span class="detail"><a class="bare" href="http://www.agiliste.fr/instruments-pilotage-projet/">http://www.agiliste.fr/instruments-pilotage-projet/</a></span>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_classical_process">
+<h2>Classical process</h2>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://scrumprimer.org">
+<img alt="scrum overview" src="images/scrum_overview.png" width="100%" />
+</a>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<span class="detail"><a class="bare" href="http://scrumprimer.org">http://scrumprimer.org</a></span>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_ready_for_a_quizz">
+<h2>Ready for a quizz?</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="tuxteacher" src="images/icons/tuxteacher.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_ready_for_a_quizz_2">
+<h2>Ready for a quizz?</h2>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title"><strong>QUESTION</strong></div>
+<div class="ulist">
+<ul>
+<li>Connect on: <a class="bare" href="http://www.socrative.com/">http://www.socrative.com/</a> (<strong>student login</strong>)</li>
+<li>Or download the student app <span class="image"><img alt="socrative2" src="images/socrative2.png" width="10%" /></span></li>
+<li>Choose room # <strong>44918d67</strong></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.socrative.com/">
+<img alt="socrative1" src="images/socrative1.png" width="50%" />
+</a>
+</div>
+</div>
+</section>
+<p aria-role="status" class="deck-status">
+<span class="deck-status-current"></span>
+/
+<span class="deck-status-total"></span>
+</p>
+</div>
+<script src="deck.js/jquery.min.js"></script>
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/scale/deck.scale.js"></script>
+<script src="deck.js/extensions/split/deck.split.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/toc/deck.toc.js"></script>
+<div class="deck-toc"></div>
+<script type="text/javascript">
+  //<![CDATA[
+    (function($, deck, undefined) {
+      $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+      $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+    
+      $.extend(true, $[deck].defaults, {
+          countNested: false
+      });
+    
+      $.deck('.slide');
+    })(jQuery, 'deck');
+  //]]>
+</script>
+<style type="text/css">
+  /*<![CDATA[*/
+    .slide.canvas-image {
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-box;
+    display: box;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    -moz-box-align: start;
+    -webkit-box-align: start;
+    -ms-box-align: start;
+    box-align: start;
+    -moz-box-pack: start;
+    -webkit-box-pack: start;
+    -ms-box-pack: start;
+    box-pack: start;}
+    
+    .bottom-left {
+      left: 1%;
+      bottom: 20%; }
+    
+    .top-left {
+      left: 1%;
+      top: 20%; }
+    
+    .bottom-right {
+      right: 1%;
+      bottom: 20%; }
+    
+    .top-right {
+      right: 1%;
+      top: 20%; }
+    
+    .center-up {
+      right: 50%;
+      top: 1%;
+    }
+    
+    .center-down {
+      right: 50%;
+      bottom: 1%;
+    }
+    .canvas-image .canvas-caption p {
+      text-align: center;
+      padding-top: 0;
+      padding: 0;
+      -moz-transform: none;
+      -webkit-transform: none;
+      -o-transform: none;
+      -ms-transform: none;
+      transform: none;
+      display: inline;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      font-weight: bold;
+      font-size: 58px;
+      -webkit-box-shadow: 2px 2px 2px #000;
+      -moz-box-shadow: 2px 2px 2px #000;
+      box-shadow: 2px 2px 2px #000;
+      padding: 1rem;
+      color: white; }
+    kbd.keyseq { color: #555555; }
+    kbd:not(.keyseq) {
+      display: inline-block;
+      color: #222222;
+      font-size: 0.7em;
+      line-height: 1.4;
+      background-color: #F7F7F7;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+      margin: -0.15em 0.15em 0 0.15em;
+      padding: 0.2em 0.6em;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    kbd kbd:first-child { margin-left: 0; }
+    kbd kbd:last-child { margin-right: 0; }
+  /*]]>*/
+</style>
+</body>
+</html>

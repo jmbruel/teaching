@@ -1,0 +1,16 @@
+= MPA Project
+
+== Organization
+
+=== Groups of 6
+
+=== Topic
+
+=== Programming Language / Framework
+
+
+== Reporting
+
+In order to assess your progress and application of the {Scrum} approach, here are tips and tools you can use:
+
+- Develop your own burndown chart, using https://docs.google.com/spreadsheets/d/17bppZL6IQoHXKHm0Cr5Q5yYrQivA9oTSB5fmo6ECsJs/edit#gid=6[this example]

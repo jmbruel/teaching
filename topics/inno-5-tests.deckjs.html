@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=" http-equiv="Content-Type" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content="Asciidoctor 1.5.5" name="generator" />
+<meta content="J.-M. Bruel" name="author" />
+<title>Tests</title>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+<style>
+.conum { display: inline-block; color: white !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 1.2em; height: 1.2em; font-size: 0.9em; font-weight: bold; line-height: 1.2; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -0.1em; }
+.conum * { color: white !important; }
+.conum + b { display: none; }
+.conum:after { content: attr(data-value); }
+.conum:not([data-value]):empty { display: none; }
+.colist table td:first-of-type { padding-right: 0.25em; }
+</style>
+<link href="deck.js/core/deck.core.css" rel="stylesheet" />
+<link href="deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet" />
+<link href="deck.js/extensions/status/deck.status.css" media="screen" rel="stylesheet" />
+<link href="deck.js/extensions/toc/deck.toc.css" media="screen" rel="stylesheet" />
+<link href="deck.js/themes/style/swiss.css" media="screen" rel="stylesheet" />
+<link href="deck.js/themes/transition/fade.css" media="screen" rel="stylesheet" />
+<link href="deck.js/core/print.css" media="print" rel="stylesheet" />
+<script src="deck.js/modernizr.custom.js"></script>
+</head>
+<body class="article" id="MPA">
+<div class="deck-container">
+<section class="slide" id="title-slide">
+<h1>Tests</h1>
+<span id="author">J.-M. Bruel</span>
+<br />
+<span id="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span>
+<br />
+<span id="revnumber">version 1.0 2017-01-26</span>
+</section>
+<section class="slide" id="_materials_in_live_span_class_icon_i_class_icon_mobile_i_span_span_class_icon_i_class_icon_tablet_i_span_span_class_icon_i_class_icon_laptop_i_span">
+<h2>Materials in live&#8230;&#8203; <span class="icon"><i class="icon-mobile"></i></span> <span class="icon"><i class="icon-tablet"></i></span> <span class="icon"><i class="icon-laptop"></i></span></h2>
+<div class="paragraph"><p><a class="bare" href="http://bit.ly/jmb-agile">http://bit.ly/jmb-agile</a></p></div>
+<div class="paragraph"><p><a class="bare" href="http://jmbhome.github.io/teaching/topics/agile.html">http://jmbhome.github.io/teaching/topics/agile.html</a></p></div>
+</section>
+<section class="slide" id="_tests">
+<h2>Tests</h2>
+<div class="paragraph"><p>Whatever development method you apply, tests are <strong>the only way to ensure</strong>
+that the delivered product <strong>conforms to the client&#8217;s requirements</strong>.</p></div>
+</section>
+<section class="slide" id="_unit_tests">
+<h2>Unit Tests</h2>
+<div class="paragraph"><p>They are the simplest.
+But hence it is needed to &#8230;&#8203;</p></div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>forget 'manual' approaches</li>
+<li>explore their 'limitations'</li>
+<li>treate both the 'qualitative' and 'quantitative' aspects</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_unit_tests_2">
+<h2>Unit Tests</h2>
+<div class="paragraph"><p>Let&#8217;s consider the implementation of an abstract type: <code>MatrixInt</code></p></div>
+</section>
+<section class="slide" id="_unit_tests_3">
+<h2>Unit Tests</h2>
+<div class="ulist">
+<ul>
+<li><p>
+Operations<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>createMatrix : Int * Int &#8594; MatrixInt</li>
+<li>getNbLines : MatrixInt &#8594; Int</li>
+<li>getNbColumns : MatrixInt &#8594; Int</li>
+<li>&#8230;&#8203;</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_unit_tests_4">
+<h2>Unit Tests</h2>
+<div class="ulist">
+<ul>
+<li><p>
+Preconditions<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>createMatrix(l,c) valid IF and ONLY IF ( l &gt; 0 ) AND ( c &gt; 0 )</li>
+<li>getElement(m,i,j) valid IF and ONLY IF ( 0 &lt; = i &lt; getNbLines(m) ) AND ( 0 &lt; = j &lt; getNbColumns(m))</li>
+<li>&#8230;&#8203;</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_unit_tests_5">
+<h2>Unit Tests</h2>
+<div class="ulist">
+<ul>
+<li><p>
+Axioms<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>getNbLines(createMatrix(l,c)) = l</li>
+<li>getNbColumns(createMatrix(l,c)) = c</li>
+<li>getElement(createMatrix(l,c),i,j) = 0</li>
+<li>isSquared(createMatrix(l,c)) IF and ONLY IF l = c</li>
+<li>&#8230;&#8203;</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Testing program for Operations</div>
+<div class="content">
+<pre class="highlight"><code class="java language-java">import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+
+public class MatriceEntierOperationsTest extends TestCase {
+  static int totalAssertions = 0;
+  static int bilanAssertions = 0;
+
+  /*
+   Types des opérations du type MatriceEntier
+  */
+  public void test_type_new_MatriceEntier() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+
+    totalAssertions++ ;
+    assertEquals("new MatriceEntier(3,3) retourne une MatriceEntier", "MatriceEntier", m.getClass().getName());
+    bilanAssertions++ ;
+  }
+
+  public void test_type_get() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,4) ;
+
+    totalAssertions++ ;
+    assertTrue("getNbLignes() &gt; 0", m.getNbLignes() &gt; 0);
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertTrue("getNbColonnes() &gt; 0", m.getNbColonnes() &gt; 0);
+    bilanAssertions++ ;
+
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertTrue("getElement() retourne un entier", (m.getElement(i,j) &gt;= 0) || (m.getElement(i,j) &lt; 0));
+      bilanAssertions++ ;
+     }
+    }
+  }
+
+  public void test_type_som() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,4) ;
+
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+      totalAssertions++ ;
+      assertTrue("somLigne("+i+") &gt;= 0", m.somLigne(i) &gt;= 0);
+      bilanAssertions++ ;
+    }
+    for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertTrue("somColonne("+j+") &gt;= 0", m.somColonne(j) &gt;= 0);
+      bilanAssertions++ ;
+    }
+  }
+
+  public void test_type_est() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+    totalAssertions++ ;
+    assertTrue("estCarree() retourne un booleen", (m.estCarree() == true) || (m.estCarree() == false));
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertTrue("estDiagonale() retourne un booleen", (m.estDiagonale() == true) || (m.estDiagonale() == false));
+    bilanAssertions++ ;
+
+    m.setElement(0,0,1) ;
+    totalAssertions++ ;
+    assertTrue("estDiagonale() retourne un booleen", (m.estDiagonale() == true) || (m.estDiagonale() == false));
+    bilanAssertions++ ;
+
+    m = new MatriceEntier(3,4) ;
+    totalAssertions++ ;
+    assertTrue("estCarree() retourne un booleen", (m.estCarree() == true) || (m.estCarree() == false));
+    bilanAssertions++ ;
+  }
+
+  public void test_type_set_mul() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertEquals("setElement() retourne une MatriceEntier", "MatriceEntier", m.setElement(i,j,i+j).getClass().getName());
+      bilanAssertions++ ;
+     }
+    }
+
+    totalAssertions++ ;
+    assertEquals("setPremiereDiagonale(99) retourne une MatriceEntier", "MatriceEntier", m.setPremiereDiagonale(99).getClass().getName());
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertEquals("setSecondeDiagonale(99) retourne une MatriceEntier", "MatriceEntier", m.setSecondeDiagonale(99).getClass().getName());
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertEquals("mulMatNombre() retourne une MatriceEntier", "MatriceEntier", m.mulMatNombre(33).getClass().getName());
+    bilanAssertions++ ;
+  }
+
+  /*
+   main() de la classe de Test
+  */
+  public static void main(String[] args) {
+    junit.textui.TestRunner.run(new TestSuite(MatriceEntierOperationsTest.class));
+    if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
+    else  { System.out.print("OUPS !"); }
+    System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions verifiees");
+  } // fin main
+
+} // fin MatriceEntierOperationsTest</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_unit_tests_6">
+<h2>Unit Tests</h2>
+<div class="listingblock">
+<div class="title">Testing program for Preconditions</div>
+<div class="content">
+<pre class="highlight"><code class="java language-java">import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+
+public class MatriceEntierPreconditionsTest extends TestCase {
+  static int totalAssertions = 0;
+  static int bilanAssertions = 0;
+
+  /*
+   Préconditions du type Pile
+  */
+  public void test_precondition1() {
+    MatriceEntier m ;
+    boolean exception = false ;
+    try { m = new MatriceEntier(0,1) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("new MatriceEntier(0,1) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m = new MatriceEntier(1,0) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("new MatriceEntier(1,0) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m = new MatriceEntier(0,0) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("new MatriceEntier(0,0) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition2() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.getElement(-1,1) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("getElement(-1,1) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.getElement(2,2) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("getElement(2,2) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.getElement(1,-1) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("getElement(1,-1) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.getElement(1,3) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("getElement(1,3) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition3() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.setElement(-1,1,99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setElement(-1,1,99) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.setElement(2,2,99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setElement(2,2,99) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.setElement(1,-1,99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setElement(1,-1,99) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.setElement(1,3,99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setElement(1,3,99) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition4() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.somLigne(-1) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("somLigne(-1) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.somLigne(2) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("somLigne(2) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition5() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.somColonne(-1) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("somColonne(-1) leve une exception", exception);
+    bilanAssertions++ ;
+
+    exception = false ;
+    try { m.somColonne(3) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("somColonne(3) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition6() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.setPremiereDiagonale(99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setPremiereDiagonale(99) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition7() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.setSecondeDiagonale(99) ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("setSecondeDiagonale(99) leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  public void test_precondition8() throws Exception {
+    MatriceEntier m = new MatriceEntier(2,3);
+    boolean exception = false ;
+    try { m.estDiagonale() ; }
+    catch (Exception e) { exception = true ; };
+
+    totalAssertions++ ;
+    assertTrue("estDiagonale() leve une exception", exception);
+    bilanAssertions++ ;
+  }
+
+  /*
+   main() de la classe de Test
+  */
+  public static void main(String[] args) {
+    junit.textui.TestRunner.run(new TestSuite(MatriceEntierPreconditionsTest.class));
+    if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
+    else  { System.out.print("OUPS !"); }
+    System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions verifiees");
+  } // fin main
+
+} // fin MatriceEntierPreconditionsTest</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_unit_tests_7">
+<h2>Unit Tests</h2>
+<div class="listingblock">
+<div class="title">Testing program for Axioms</div>
+<div class="content">
+<pre class="highlight"><code class="java language-java">import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+
+public class MatriceEntierAxiomesTest extends TestCase {
+  static int totalAssertions = 0;
+  static int bilanAssertions = 0;
+
+  /*
+   Axiomes du type MatriceEntier
+  */
+  public void test_get() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,4) ;
+
+    totalAssertions++ ;
+    assertEquals("getNbLignes() == 3", 3, m.getNbLignes());
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertEquals("getNbColonnes() == 4", 4, m.getNbColonnes());
+    bilanAssertions++ ;
+
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertEquals("getElement("+i+","+j+") == 0", 0, m.getElement(i,j));
+      bilanAssertions++ ;
+     }
+    }
+
+    m = new MatriceEntier(3,3) ;
+    totalAssertions++ ;
+    assertEquals("setPremiereDiagonale(99).getNbLignes() == getNbLignes()", m.setPremiereDiagonale(99).getNbLignes(), m.getNbLignes());
+    bilanAssertions++ ;
+
+    totalAssertions++ ;
+    assertEquals("setSecondeDiagonale(99).getNbLignes() == getNbLignes()", m.setSecondeDiagonale(99).getNbLignes(), m.getNbLignes());
+    bilanAssertions++ ;
+
+    m = new MatriceEntier(3,3) ;
+    m.setPremiereDiagonale(99) ;
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      if ( i == j ) {
+        assertEquals("getElement("+i+","+i+") == 99", 99, m.getElement(i,i));
+      } else {
+        assertEquals("getElement("+i+","+j+") == 0", 0, m.getElement(i,j));
+      }
+      bilanAssertions++ ;
+     }
+    }
+
+  } // fin test_get
+
+  public void test_som() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,4) ;
+
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+      totalAssertions++ ;
+      assertEquals("somLigne("+i+") == 0", 0, m.somLigne(i));
+      bilanAssertions++ ;
+    }
+    for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertEquals("somColonne("+j+") == 0", 0, m.somColonne(j));
+      bilanAssertions++ ;
+    }
+
+    m = new MatriceEntier(3,3) ;
+    m.setPremiereDiagonale(99) ;
+    for (int ij=0; ij&lt;m.getNbLignes(); ij++) {
+      totalAssertions = totalAssertions + 2 ; ;
+      assertEquals("setPremiereDiagonale(99).somLigne("+ij+") == 99", 99, m.somLigne(ij));
+      bilanAssertions++ ;
+      assertEquals("setPremiereDiagonale(99).somColonne("+ij+") == 99", 99, m.somColonne(ij));
+      bilanAssertions++ ;
+    }
+
+    m = new MatriceEntier(3,3) ;
+    m.setSecondeDiagonale(99) ;
+    for (int ij=0; ij&lt;m.getNbLignes(); ij++) {
+      totalAssertions = totalAssertions + 2 ; ;
+      assertEquals("setSecondeDiagonale(99).somLigne("+ij+") == 99", 99, m.somLigne(ij));
+      bilanAssertions++ ;
+      assertEquals("setSecondeDiagonale(99).somColonne("+ij+") == 99", 99, m.somColonne(ij));
+      bilanAssertions++ ;
+    }
+
+  } // fin test_som
+
+  public void test_est() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+    totalAssertions++ ;
+    assertTrue("estCarree() == true", m.estCarree());
+    bilanAssertions++ ;
+
+    m = new MatriceEntier(2,3) ;
+    totalAssertions++ ;
+    assertFalse("estCarree() == false", m.estCarree());
+    bilanAssertions++ ;
+
+    m = new MatriceEntier(3,3) ;
+    totalAssertions++ ;
+    assertTrue("estDiagonale() == true", m.estDiagonale());
+    bilanAssertions++ ;
+
+    m.setPremiereDiagonale(99);
+    totalAssertions++ ;
+    assertTrue("setPremiereDiagonale(99).estDiagonale() == true", m.estDiagonale());
+    bilanAssertions++ ;
+
+    m.setSecondeDiagonale(99);
+    totalAssertions++ ;
+    assertFalse("setSecondeDiagonale(99).estDiagonale() == false", m.estDiagonale());
+    bilanAssertions++ ;
+
+  } // fin test_est
+
+  public void test_mul() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+    m.setPremiereDiagonale(1).mulMatNombre(99) ;
+    for (int ij=0; ij&lt;m.getNbLignes(); ij++) {
+      totalAssertions = totalAssertions + 2 ; ;
+      assertEquals("setPremiereDiagonale(1).mulMatNombre(99).somLigne("+ij+") == 99", 99, m.somLigne(ij));
+      bilanAssertions++ ;
+      assertEquals("setPremiereDiagonale(1).mulMatNombre(99).somColonne("+ij+") == 99", 99, m.somColonne(ij));
+      bilanAssertions++ ;
+    }
+
+    m = new MatriceEntier(3,3) ;
+    m.setSecondeDiagonale(1).mulMatNombre(99) ;
+    for (int ij=0; ij&lt;m.getNbLignes(); ij++) {
+      totalAssertions = totalAssertions + 2 ; ;
+      assertEquals("setSecondeDiagonale(1).mulMatNombre(99).somLigne("+ij+") == 99", 99, m.somLigne(ij));
+      bilanAssertions++ ;
+      assertEquals("setSecondeDiagonale(1).mulMatNombre(99).somColonne("+ij+") == 99", 99, m.somColonne(ij));
+      bilanAssertions++ ;
+    }
+
+    MatriceEntier m_init = new MatriceEntier(3,3) ;
+    m = new MatriceEntier(3,3) ;
+    // Initialise m_init et m à {{0,1,2}{3,4,5}{6,7,8}}
+    int k = 0 ;
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+	m_init.setElement(i,j,k) ;
+	m.setElement(i,j,k) ;
+	k = k + 1 ;
+     }
+    }
+    m.mulMatNombre(3) ;
+    for (int i=0; i&lt;m.getNbLignes(); i++) {
+     for (int j=0; j&lt;m.getNbColonnes(); j++) {
+      totalAssertions++ ;
+      assertEquals("m.mulMatNombre(3).getElement("+i+","+j+") == m.getElement("+i+","+j+") * 3", m_init.getElement(i,j) * 3, m.getElement(i,j));
+      bilanAssertions++ ;
+     }
+    }
+
+  } // fin test_mul
+
+  /*
+   main() de la classe de Test
+  */
+  public static void main(String[] args) {
+    junit.textui.TestRunner.run(new TestSuite(MatriceEntierAxiomesTest.class));
+    if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
+    else  { System.out.print("OUPS !"); }
+    System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions verifiees");
+  } // fin main
+
+} // fin MatriceEntierAxiomesTest</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_unit_tests_8">
+<h2>Unit Tests</h2>
+<div class="listingblock">
+<div class="title">Testing program for Additional Operations</div>
+<div class="content">
+<pre class="highlight"><code class="java language-java">import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+
+public class MatriceEntierOpSupTest extends TestCase {
+  static int totalAssertions = 0;
+  static int bilanAssertions = 0;
+
+  /*
+   Opérations supplémentaires du type MatriceEntier
+  */
+  public void test_toString() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+    m.setPremiereDiagonale(1).setSecondeDiagonale(2) ;
+
+    String ln = System.getProperty("line.separator") ;
+    String attendu = "1 0 2 " + ln + "0 2 0 " + ln + "2 0 1 " + ln ;
+    totalAssertions++ ;
+    assertEquals("toString() == ", attendu, m.toString());
+    bilanAssertions++ ;
+  }
+
+  public void test_toHTML() throws Exception {
+    MatriceEntier m = new MatriceEntier(3,3) ;
+    m.setPremiereDiagonale(1).setSecondeDiagonale(2) ;
+
+    String ln = System.getProperty("line.separator") ;
+    String attendu = "&lt;table border=\"1\"&gt;" + ln ;
+    attendu += "&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;/tr&gt;" + ln + "&lt;tr&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;" + ln + "&lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;" + ln ;
+    attendu += "&lt;/table&gt;" + ln ;
+    totalAssertions++ ;
+    assertEquals("toHTML() == ", attendu, m.toHTML());
+    bilanAssertions++ ;
+  }
+
+  /*
+   main() de la classe de Test
+  */
+  public static void main(String[] args) {
+    junit.textui.TestRunner.run(new TestSuite(MatriceEntierOpSupTest.class));
+    if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
+    else  { System.out.print("OUPS !"); }
+    System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions verifiees");
+  } // fin main
+
+} // fin PileTest</code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_unit_tests_9">
+<h2>Unit Tests</h2>
+<div class="paragraph"><p>The testing program is :</p></div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li><p>
+a <strong>regression</strong> detection tool<div class="ulist">
+<ul>
+<li>that should be run on each modification of the <code>MatrixInt</code> class</li>
+</ul>
+</div></p></li>
+<li><p>
+a <strong>specification</strong> <em>documentation</em><div class="ulist">
+<ul>
+<li>precise AND concise</li>
+</ul>
+</div></p></li>
+<li><p>
+a programmers' <em>documentation</em><div class="ulist">
+<ul>
+<li>operational</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_integration_tests">
+<h2>Integration Tests</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="titanic" src="images/titanic.jpg" width="100%" />
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="no integration testing" src="images/no-integration-testing.jpg" />
+</div>
+</div>
+</section>
+<section class="slide" id="_integration_tests_2">
+<h2>Integration Tests</h2>
+<div class="paragraph"><p>It a more complicated activity.
+It is required to:</p></div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>test the client&#8217;s expectations/requirements</li>
+<li>test systems' interactions</li>
+<li>no redo the unit tests</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_integration_tests_3">
+<h2>Integration Tests</h2>
+<div class="listingblock">
+<div class="title">Testing program of <code>JourSuivantAvecLibDate.class</code></div>
+<div class="content">
+<pre class="highlight"><code class="java language-java">import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+import java.io.*;
+
+public class JourSuivantAvecLibDateTest extends TestCase {
+  static String programmeATester = "JourSuivantAvecLibDate" ;  <i class="conum" data-value="1"></i><b>(1)</b>
+  Process executionProgrammeATester ;                          <i class="conum" data-value="2"></i><b>(2)</b>
+  BufferedReader ecranProgrammeATester ;                       <i class="conum" data-value="3"></i><b>(3)</b>
+  BufferedWriter clavierProgrammeATester ;                     <i class="conum" data-value="4"></i><b>(4)</b>
+
+  String finDeLigne = System.getProperty("line.separator") ;   <i class="conum" data-value="5"></i><b>(5)</b>
+
+  public static void main(String[] args) {
+    if ( args.length &gt; 0 ) { programmeATester = args[0] ; }
+    System.out.println("Tests du programme : " + programmeATester);
+    junit.textui.TestRunner.run(new TestSuite(JourSuivantAvecLibDateTest.class)); <i class="conum" data-value="6"></i><b>(6)</b>
+  }
+
+  protected void setUp() throws IOException {  <i class="conum" data-value="7"></i><b>(7)</b>
+    executionProgrammeATester = Runtime.getRuntime().exec("java -cp . "+programmeATester); <i class="conum" data-value="8"></i><b>(8)</b>
+    ecranProgrammeATester = new BufferedReader(new  InputStreamReader( executionProgrammeATester.getInputStream() )); <i class="conum" data-value="9"></i><b>(9)</b>
+    clavierProgrammeATester  = new BufferedWriter(new OutputStreamWriter( executionProgrammeATester.getOutputStream() )); <i class="conum" data-value="10"></i><b>(10)</b>
+  }
+
+  // Saisies valides
+  public void test_31_1_2013() throws IOException {
+    assertEquals("Affiche : 'Saisir une date : jour mois annee ? '","Saisir une date : jour mois annee ? ",ecranProgrammeATester.readLine()); <i class="conum" data-value="11"></i><b>(11)</b>
+    clavierProgrammeATester.write("31 1 2013"+finDeLigne); <i class="conum" data-value="12"></i><b>(12)</b>
+    clavierProgrammeATester.flush();                       <i class="conum" data-value="13"></i><b>(13)</b>
+    assertEquals("Affiche : 'Le lendemain du 31/1/2013'","Le lendemain du 31/1/2013",ecranProgrammeATester.readLine());
+    assertEquals("Affiche : 'sera le 1/2/2013.'","sera le 1/2/2013.",ecranProgrammeATester.readLine()); <i class="conum" data-value="14"></i><b>(14)</b>
+  }
+
+  public void test_28_2_2013() throws IOException {
+    String messageSaisie = "Saisir une date : jour mois annee ? " ;
+    String[] ligneJeuDEssai = {"28 2 2013","Le lendemain du 28/2/2013","sera le 1/3/2013."} ;
+
+    assertEquals("Affiche : "+messageSaisie,messageSaisie,ecranProgrammeATester.readLine());
+    clavierProgrammeATester.write(ligneJeuDEssai[0]+finDeLigne); clavierProgrammeATester.flush();
+    assertEquals("Affiche : "+ligneJeuDEssai[1],ligneJeuDEssai[1],ecranProgrammeATester.readLine());
+    assertEquals("Affiche : "+ligneJeuDEssai[2],ligneJeuDEssai[2],ecranProgrammeATester.readLine());
+  }
+
+  protected void assertsPourSaisieValide(String messageSaisie,String saisie,String affichage1,String affichage2) throws IOException {
+     assertEquals("Affiche : "+messageSaisie,messageSaisie,ecranProgrammeATester.readLine());
+     clavierProgrammeATester.write(saisie+finDeLigne); clavierProgrammeATester.flush();
+     assertEquals("Affiche : "+affichage1,affichage1,ecranProgrammeATester.readLine());
+     assertEquals("Affiche : "+affichage2,affichage2,ecranProgrammeATester.readLine());
+  }
+  public void test_31_3_2013() throws IOException {
+    String messageSaisie = "Saisir une date : jour mois annee ? " ;
+    String[] ligneJeuDEssai = {"31 3 2013","Le lendemain du 31/3/2013","sera le 1/4/2013."} ;
+    assertsPourSaisieValide(messageSaisie,ligneJeuDEssai[0],ligneJeuDEssai[1],ligneJeuDEssai[2]);
+  }
+
+  // Saisies invalides
+  protected void assertsPourSaisieInvalide(String messageSaisie,String saisie,String affichage) throws IOException {
+     assertEquals("Affiche : "+messageSaisie,messageSaisie,ecranProgrammeATester.readLine());
+     clavierProgrammeATester.write(saisie+finDeLigne); clavierProgrammeATester.flush();
+     assertEquals("Affiche : "+affichage,affichage,ecranProgrammeATester.readLine());
+  }
+
+  public void test_1_1_1581() throws IOException {
+    String messageSaisie = "Saisir une date : jour mois annee ? " ;
+    String[] ligneJeuDEssai = {"1 1 1581","La date du 1/1/1581 n'est pas une date valide."} ;
+    assertsPourSaisieInvalide(messageSaisie,ligneJeuDEssai[0],ligneJeuDEssai[1]);
+  }
+
+  public void test_32_1_2013() throws IOException {
+    String messageSaisie = "Saisir une date : jour mois annee ? " ;
+    String[] ligneJeuDEssai = {"32 1 2013","La date du 32/1/2013 n'est pas une date valide."} ;
+    assertsPourSaisieInvalide(messageSaisie,ligneJeuDEssai[0],ligneJeuDEssai[1]);
+  }
+
+} // fin class</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>name of the app to be tested</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Process = the running program</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>link to the display of the running program</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>link to the keyboard of the running program</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><strong>portable</strong> carrier return</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>launching of all the functions starting by 'test'</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>function (re-)executed before each testing function AND launch the program to be tested</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>launching of the program</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>connect to the display</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td>connect to the keyboard</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="11"></i><b>11</b></td>
+<td>read a line on the display</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="12"></i><b>12</b></td>
+<td>send a line to the keyboard</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="13"></i><b>13</b></td>
+<td>force the keyboard flush</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="14"></i><b>14</b></td>
+<td>read another line on the display</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_tests_implement_simple_algorithms">
+<h2>Tests implement simple algorithms</h2>
+<div class="listingblock">
+<div class="content">
+<pre><code>public void test_dates_invalids() {
+  int[][] tabJeuDEssaiDatesInvalids = {  <i class="conum" data-value="1"></i><b>(1)</b>
+      {1,1,1581},{0,1,2013},{99,99,2099},
+      {32,1,2013},{29,2,2013},{32,3,2013},
+      {31,4,2013},{32,5,2013},{31,6,2013},
+      {32,7,2013},{32,8,2013},{31,9,2013},
+      {32,10,2013},{31,11,2013},{32,12,2013},
+      {29,2,1900},{30,2,2000}
+  } ;
+  for ( int indice = 0, taille = tabJeuDEssaiDatesInvalids.length;
+        indice &lt; taille ;
+        indice = indice + 1){
+    int[] date = tabJeuDEssaiDatesInvalids[indice] ;
+    assertFalse(date[0]+"/"+date[1]+"/"+date[2]+" est invalid"
+    , LibDate.datevalid(date[0],date[1],date[2])); <i class="conum" data-value="2"></i><b>(2)</b> <i class="conum" data-value="3"></i><b>(3)</b>
+  }
+  bilanAssertions = bilanAssertions + tabJeuDEssaiDatesInvalids.length ;
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><strong>given</strong>: in the following situations</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><strong>when</strong>: when we check the validity of a date</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><strong>then</strong>: we should get <code>false</code></td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_can_everything_be_tested">
+<h2>Can everything be tested ?</h2>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>librairies</li>
+<li>system interactions (concurrency, etc.)</li>
+<li>network services</li>
+<li>graphical interfaces (html, java, flash, etc.)</li>
+<li>&#8230;&#8203;</li>
+<li>MAY BE NOT, but try anyway!</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_all_the_strategies_are_exploitable">
+<h2>All the strategies are exploitable</h2>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>Write a program that run the tests</li>
+<li>Write the tests of a given program</li>
+<li>Code a feature AND add the corresponding test</li>
+<li>Add a test AND integrate the corresponding functionnality (TDD)</li>
+<li>Find back the balance between Program / Tesing Program</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_most_common_mistakes_in_programming">
+<h2>Most common mistakes in programming</h2>
+<div class="paragraph"><p><a class="bare" href="http://blog.takipi.com/the-top-10-exceptions-types-in-production-java-applications-based-on-1b-events/?utm_content=buffer0c58b&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">http://blog.takipi.com/the-top-10-exceptions-types-in-production-java-applications-based-on-1b-events/?utm_content=buffer0c58b&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer</a></p></div>
+</section>
+<section class="slide" id="_ready_for_a_quizz">
+<h2>Ready for a quizz?</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="tuxteacher" src="images/icons/tuxteacher.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_ready_for_a_quizz_2">
+<h2>Ready for a quizz?</h2>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title"><strong>QUESTION</strong></div>
+<div class="ulist">
+<ul>
+<li>Connect on: <a class="bare" href="http://www.socrative.com/">http://www.socrative.com/</a> (<strong>student login</strong>)</li>
+<li>Or download the student app <span class="image"><img alt="socrative2" src="images/socrative2.png" width="10%" /></span></li>
+<li>Choose room # <strong>44918d67</strong></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.socrative.com/">
+<img alt="socrative1" src="images/socrative1.png" width="50%" />
+</a>
+</div>
+</div>
+</section>
+<p aria-role="status" class="deck-status">
+<span class="deck-status-current"></span>
+/
+<span class="deck-status-total"></span>
+</p>
+</div>
+<script src="deck.js/jquery.min.js"></script>
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/scale/deck.scale.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/toc/deck.toc.js"></script>
+<div class="deck-toc"></div>
+<script type="text/javascript">
+  //<![CDATA[
+    (function($, deck, undefined) {
+      $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+      $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+    
+      $.extend(true, $[deck].defaults, {
+          countNested: false
+      });
+    
+      $.deck('.slide');
+    })(jQuery, 'deck');
+  //]]>
+</script>
+<style type="text/css">
+  /*<![CDATA[*/
+    .slide.canvas-image {
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-box;
+    display: box;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    -moz-box-align: start;
+    -webkit-box-align: start;
+    -ms-box-align: start;
+    box-align: start;
+    -moz-box-pack: start;
+    -webkit-box-pack: start;
+    -ms-box-pack: start;
+    box-pack: start;}
+    
+    .bottom-left {
+      left: 1%;
+      bottom: 20%; }
+    
+    .top-left {
+      left: 1%;
+      top: 20%; }
+    
+    .bottom-right {
+      right: 1%;
+      bottom: 20%; }
+    
+    .top-right {
+      right: 1%;
+      top: 20%; }
+    
+    .center-up {
+      right: 50%;
+      top: 1%;
+    }
+    
+    .center-down {
+      right: 50%;
+      bottom: 1%;
+    }
+    .canvas-image .canvas-caption p {
+      text-align: center;
+      padding-top: 0;
+      padding: 0;
+      -moz-transform: none;
+      -webkit-transform: none;
+      -o-transform: none;
+      -ms-transform: none;
+      transform: none;
+      display: inline;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      font-weight: bold;
+      font-size: 58px;
+      -webkit-box-shadow: 2px 2px 2px #000;
+      -moz-box-shadow: 2px 2px 2px #000;
+      box-shadow: 2px 2px 2px #000;
+      padding: 1rem;
+      color: white; }
+    kbd.keyseq { color: #555555; }
+    kbd:not(.keyseq) {
+      display: inline-block;
+      color: #222222;
+      font-size: 0.7em;
+      line-height: 1.4;
+      background-color: #F7F7F7;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+      margin: -0.15em 0.15em 0 0.15em;
+      padding: 0.2em 0.6em;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    kbd kbd:first-child { margin-left: 0; }
+    kbd kbd:last-child { margin-right: 0; }
+  /*]]>*/
+</style>
+</body>
+</html>

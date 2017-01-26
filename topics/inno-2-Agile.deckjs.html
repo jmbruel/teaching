@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=" http-equiv="Content-Type" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content="Asciidoctor 1.5.5" name="generator" />
+<meta content="J.-M. Bruel" name="author" />
+<title>Project Management, Agility, Tests</title>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
+<style>
+.conum { display: inline-block; color: white !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 1.2em; height: 1.2em; font-size: 0.9em; font-weight: bold; line-height: 1.2; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -0.1em; }
+.conum * { color: white !important; }
+.conum + b { display: none; }
+.conum:after { content: attr(data-value); }
+.conum:not([data-value]):empty { display: none; }
+.colist table td:first-of-type { padding-right: 0.25em; }
+</style>
+<link href="deck.js/core/deck.core.css" rel="stylesheet" />
+<link href="deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet" />
+<link href="deck.js/extensions/status/deck.status.css" media="screen" rel="stylesheet" />
+<link href="deck.js/extensions/toc/deck.toc.css" media="screen" rel="stylesheet" />
+<link href="deck.js/themes/style/swiss.css" media="screen" rel="stylesheet" />
+<link href="deck.js/themes/transition/fade.css" media="screen" rel="stylesheet" />
+<link href="deck.js/core/print.css" media="print" rel="stylesheet" />
+<script src="deck.js/modernizr.custom.js"></script>
+</head>
+<body class="article" id="MPA">
+<div class="deck-container">
+<section class="slide" id="title-slide">
+<h1>Project Management, Agility, Tests</h1>
+<span id="author">J.-M. Bruel</span>
+<br />
+<span id="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span>
+<br />
+<span id="revnumber">version 1.0 2017-01-26</span>
+</section>
+<section class="slide" id="_materials_in_live_span_class_icon_i_class_icon_mobile_i_span_span_class_icon_i_class_icon_tablet_i_span_span_class_icon_i_class_icon_laptop_i_span">
+<h2>Materials in live&#8230;&#8203; <span class="icon"><i class="icon-mobile"></i></span> <span class="icon"><i class="icon-tablet"></i></span> <span class="icon"><i class="icon-laptop"></i></span></h2>
+<div class="paragraph"><p><a class="bare" href="http://bit.ly/jmb-agile">http://bit.ly/jmb-agile</a></p></div>
+<div class="paragraph"><p><a class="bare" href="http://jmbhome.github.io/teaching/topics/agile.html">http://jmbhome.github.io/teaching/topics/agile.html</a></p></div>
+<div class="paragraph"><p>This course is dedicated to my lost friend Jean-Michel Inglebert&#8230;&#8203;</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="blasonJMI" src="images/blasonJMI.png" width="50%" />
+</div>
+</div>
+</section>
+<section class="slide" id="__span_class_icon_i_class_icon_briefcase_i_span_strong_projects_strong_management">
+<h2><span class="icon"><i class="icon-briefcase"></i></span> <strong>Projects</strong> management</h2>
+
+</section>
+<section class="slide" id="_what_is_a_project">
+<h2>What is a project ?</h2>
+<div class="quoteblock">
+<blockquote>
+[&#8230;&#8203;] a project is an individual or collaborative enterprise, possibly involving research or design, that is carefully planned, usually by the project assigned team, to achieve a particular aim
+<div class="attribution">
+<cite>2014, Wikipedia</cite>
+</div>
+</blockquote>
+</div>
+</section>
+<section class="slide" id="_some_facts">
+<h2>Some facts&#8230;&#8203;</h2>
+<div class="ulist">
+<ul>
+<li><p>
+<strong>Start</strong>: was are the client needs expressed ?<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+specifications,
+</li>
+<li>
+list of expected features,
+</li>
+<li>
+scenarios, use cases
+</li>
+<li>
+&#8230;&#8203;
+</li>
+</ol>
+</div></p></li>
+<li><strong>End</strong>: when is the result product due ?</li>
+</ul>
+</div>
+<div class="paragraph"><p>Avoid to answer : <strong>yesterday!</strong> <span class="detail">(Otherwise it&#8217;s not a project anymore, but a rescue plan)</span></p></div>
+</section>
+<section class="slide" id="__and_in_between">
+<h2>&#8230;&#8203; and in between ?</h2>
+<div class="dlist {incremental}">
+<dl>
+<dt>Option 1</dt>
+<dd>
+<p>do your best by your own (like in 'DO the sales')</p>
+</dd>
+<dt>Option 2</dt>
+<dd>
+<p>run a process (like in '(RE)DO your passport')</p>
+</dd>
+<dt>Option 3</dt>
+<dd>
+<p>use project management techniques</p>
+</dd>
+</dl>
+</div>
+</section>
+<section class="slide" id="_how_project_management_is_doing_so_far">
+<h2>How project management is doing so far &#8230;&#8203;</h2>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph"><p>Out of 10, 7 projects are delivered <strong>late or never</strong> !</p></div>
+<div class="attribution">
+<cite>January 2014, Programmez! journal</cite>
+</div>
+</blockquote>
+</div>
+</section>
+<section class="slide" id="_how_project_management_is_doing_so_far_2">
+<h2>How project management is doing so far &#8230;&#8203;</h2>
+<div class="paragraph"><p>Possible reasons:</p></div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>client expectations are <strong>vague</strong></li>
+<li><strong>over-estimation</strong> of available resources</li>
+<li>latency at the <strong>beginning</strong></li>
+<li>modification and updates get <strong>lost</strong></li>
+<li><strong>overbooked</strong> teams</li>
+<li><strong>lost of knowledge</strong> during the project</li>
+<li>risks are <strong>badly evaluated</strong></li>
+<li>meetings are <strong>not productive</strong></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_how_project_management_is_doing_so_far_3">
+<h2>How project management is doing so far &#8230;&#8203;</h2>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph"><p>In any case, it&#8217;s the development team fault.</p></div>
+<div class="attribution">
+<cite>Often heard...</cite>
+</div>
+</blockquote>
+</div>
+</section>
+<section class="slide" id="_why_is_it_so_hard">
+<h2>Why is it so hard ?</h2>
+<div class="paragraph"><p>It should not be so hard:</p></div>
+<div class="ulist">
+<ul>
+<li>The goal and target are well known (provided by the client)</li>
+<li>The target satisfaction is often measurable (assessment)</li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">The problem</div>
+<div class="paragraph"><p>There is no systematic method that can garanty that a project
+team will meet its goals.</p></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Why ?</div>
+<div class="paragraph"><p>Because it requires to manage a domain complexity,
+a technical complexity and a human complexity,
+at the same time, with limited resources (time, money, &#8230;&#8203;)</p></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_why_is_it_so_hard_2">
+<h2>Why is it so hard ?</h2>
+<div class="paragraph"><p>In fact, the only predictable fact is :</p></div>
+<div class="paragraph"><p>it will be required to <strong>adapt</strong>!</p></div>
+</section>
+<section class="slide" id="_what_is_a_successfull_project">
+<h2>What is a successfull project ?</h2>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph"><p>A software project will end successfully if the team delivers an
+ application that is <strong>reliable</strong>, <strong>robust</strong> and <strong>maintenable</strong> that
+ meet the client expectations and need.</p></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_what_is_a_successfull_project_2">
+<h2>What is a successfull project ?</h2>
+<div class="dlist {incremental}">
+<dl>
+<dt>reliable</dt>
+<dd>
+<p>behave as expected in the expected conditions</p>
+</dd>
+<dt>robust</dt>
+<dd>
+<p>handle traffic, user mistakes, failures, etc.</p>
+</dd>
+<dt>maintenable</dt>
+<dd>
+<p>require few efforts to evolve</p>
+</dd>
+</dl>
+</div>
+</section>
+<section class="slide" id="__span_class_icon_i_class_icon_wrench_i_span_to_strong_produce_strong_applications">
+<h2><span class="icon"><i class="icon-wrench"></i></span> To <strong>produce</strong> applications</h2>
+
+</section>
+<section class="slide" id="_to_strong_produce_strong_applications">
+<h2>To <strong>produce</strong> applications</h2>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BUILD</dt>
+<dd>
+<p>make, <a href="http://ant.apache.org/">ant</a>, <a href="http://maven.apache.org/">Maven</a>, <a href="http://ant.apache.org/ivy/">Ivy</a>, <a href="http://www.gradle.org/">Gradle</a>, etc.</p>
+</dd>
+<dt class="hdlist1">&#8658;</dt>
+<dd>
+<p>we&#8217;ll see that later (if needed)&#8230;&#8203;</p>
+</dd>
+<dt class="hdlist1">Project Management tools</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li><a href="https://www.tuleap.org">tuleap</a>, <a href="http://www.redmine.org/">redmine</a>: dedicated tools</li>
+<li><span class="icon"><i class="icon-gitlab"></i></span><a href="https://gitlab.com/">GitLab</a> versioning repos using <a href="http://git-scm.com/"><span class="icon"><i class="icon-git"></i></span></a>.</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+<section class="slide" id="__span_class_icon_i_class_icon_road_i_span_methods">
+<h2><span class="icon"><i class="icon-road"></i></span> Methods</h2>
+
+</section>
+<section class="slide" id="_waterfall_and_v_cycle">
+<h2>Waterfall and V Cycle</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="waterfall" src="images/waterfall.png" width="70%" />
+</div>
+</div>
+</section>
+<section class="slide" id="_waterfall_and_v_cycle_2">
+<h2>Waterfall and V Cycle</h2>
+<div class="paragraph"><p>The V cycle adopts:</p></div>
+<div class="ulist">
+<ul>
+<li>Cascading <strong>descending</strong> phases for analysis and design</li>
+<li>Followed by an <strong>ascending</strong> for coding, tests and integration.</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="Vcycle" src="images/Vcycle.png" />
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph"><p>In these kind of projects <strong>success</strong> means
+being able to go through the ascending branch of the 'V'
+successfully.</p></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_waterfall_and_v_cycle_3">
+<h2>Waterfall and V Cycle</h2>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">If project stops&#8230;&#8203;</div>
+<div class="ulist">
+<ul>
+<li>No application can be delivered</li>
+<li>At best some modules/classes can be reused</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">If project is late&#8230;&#8203;</div>
+<div class="ulist">
+<ul>
+<li>coding and integration phases are shortened</li>
+<li>delivered product is undertested</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_waterfall_and_v_cycle_4">
+<h2>Waterfall and V Cycle</h2>
+<div class="paragraph"><p>To summarize:</p></div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>Cartesian way of reducing complexity</li>
+<li>Test plans are produced in descending phases</li>
+<li>Tests plans are veryfied during ascending phases</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_waterfall_and_v_cycle_5">
+<h2>Waterfall and V Cycle</h2>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Well known limitations</div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li><strong>ansence</strong> of <strong>maintenance</strong> and <strong>evolution</strong> phases</li>
+<li>going back to design is very difficult</li>
+<li>Hard to estimate <em>a priori</em>: what is the estimated complexity of the project ?</li>
+<li>Does the delivered <strong>application</strong> conform to its <strong>documentation</strong> (<strong>and vice versa</strong>) ?</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_from_strong_v_strong_cycles_to_strong_w_strong_ones">
+<h2>From <strong>V</strong> cycles to <strong>W</strong> ones</h2>
+
+</section>
+<section class="slide" id="_let_s_consider_a_trivial_example">
+<h2>Let&#8217;s consider a trivial example</h2>
+<div class="exampleblock">
+<div class="title">Example 1. A web application for managing URLs</div>
+<div class="content">
+<div class="paragraph"><p>Develop a <strong>web application</strong> capable of <strong>collecting</strong>
+and <strong>displaying</strong> URLs.</p></div>
+</div>
+</div>
+</section>
+<section class="slide" id="_cycle_0">
+<h2>Cycle 0</h2>
+<div class="paragraph"><p>Setup of the integration infrastructure</p></div>
+<div class="paragraph"><p>Chosen solution:</p></div>
+<div class="ulist">
+<ul>
+<li>Development langage: <code>PHP</code></li>
+<li>Infrastructure : <code>LAMP</code> server</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_cycle_1">
+<h2>Cycle 1</h2>
+<div class="paragraph"><p>Display the collected URLs</p></div>
+<div class="paragraph"><p>Chosen solution:</p></div>
+<div class="ulist">
+<ul>
+<li>The server stores a urls table</li>
+<li>Web page is returned using <code>GET</code> and displays urls as a list</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_cycle_2">
+<h2>Cycle 2</h2>
+<div class="paragraph"><p>To collect urls</p></div>
+<div class="paragraph"><p>Chosen solution:</p></div>
+<div class="ulist">
+<ul>
+<li>Web page propose a form to enter new urls</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_overall_process">
+<h2>Overall process</h2>
+
+</section>
+<section class="slide" id="_overall_process_2">
+<h2>Overall process</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="w12" src="images/w12.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_overall_process_3">
+<h2>Overall process</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="w32" src="images/w32.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_overall_process_4">
+<h2>Overall process</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="w42" src="images/w42.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_overall_process_5">
+<h2>Overall process</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="w52" src="images/w52.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_overall_process_6">
+<h2>Overall process</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="w5b2" src="images/w5b2.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_overall_process_7">
+<h2>Overall process</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="w5rb2" src="images/w5rb2.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_well_known_benefits">
+<h2>Well known benefits</h2>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>delivers an application that already runs in cycle 1</li>
+<li>manage complexity and integration at each cycle</li>
+<li>can be applied to a new development but also to an evolution</li>
+<li>allows the client to adjust its requirements</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_quizz">
+<h2>Quizz</h2>
+<div class="paragraph"><p>Complete the sentence we&#8217;ve seen before:</p></div>
+<div class="paragraph"><p>A software project will end successfully if the team delivers an
+ application that is &#8230;&#8203;&#8230;&#8203;, &#8230;&#8203;&#8230;&#8203;. and &#8230;&#8203;&#8230;&#8203;&#8230;&#8203;.. that
+ meet the client expectations and need.</p></div>
+</section>
+<section class="slide" id="_quizz_2">
+<h2>Quizz</h2>
+<div class="paragraph"><p>Complete the sentence we&#8217;ve seen before:</p></div>
+<div class="paragraph"><p>A software project will end successfully if the team delivers an
+ application that is <strong>reliable</strong>, <strong>robust</strong> and <strong>maintenable</strong> that
+ meet the client expectations and need.</p></div>
+</section>
+<section class="slide" id="_when_it_does_not_work">
+<h2>When it does not work ?</h2>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>client can&#8217;t be involved regularly</li>
+<li>the driving of the method is approximative (delays in releases)</li>
+<li>tests are left over</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_new_problems">
+<h2>New problems</h2>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>importance of the initial infrastructure (cycle 0)</li>
+<li>how to automate non regression tests: XP, T/BDD &#8230;&#8203;</li>
+<li>spaghetti code &#8658; refactoring &#8230;&#8203;</li>
+<li>frequent releases: continuous integration &#8230;&#8203;</li>
+<li>what about documentation ???</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_v_versus_w">
+<h2>V versus W</h2>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">V</div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>Requirements</li>
+<li>Specifications</li>
+<li>General and detailed design</li>
+<li>Coding and (unit) testing</li>
+<li>Integration and (integration) testing</li>
+<li>Release</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_v_versus_w_suite">
+<h2>V versus W (suite)</h2>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">W</div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>Cycle 0</li>
+<li><p>
+Cycle 1 .. N<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>chose several features</li>
+<li>&#8230;&#8203; code/test &#8230;&#8203;</li>
+<li>release</li>
+<li>adjust expectations</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_what_is_important">
+<h2>What is important</h2>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li>Plan (more or less) next actions</li>
+<li>Do as planned</li>
+<li>Regularly evaluate progress towards the target</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_evaluate_progress_towards_the_target">
+<h2>Evaluate progress towards the target</h2>
+<div class="paragraph"><p>An important artifact to assess progress: tests!</p></div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph"><p>Whatever the methodology, the project should address 'unit testing'
+and 'integration testing'.</p></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">You should</div>
+<div class="ulist {incremental}">
+<ul class="{incremental}">
+<li><strong>systematically</strong> write <strong>testing programs</strong></li>
+<li>execute them <strong>regularly</strong></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_ready_for_a_quizz">
+<h2>Ready for a quizz?</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="tuxteacher" src="images/icons/tuxteacher.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_ready_for_a_quizz_2">
+<h2>Ready for a quizz?</h2>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title"><strong>QUESTION</strong></div>
+<div class="ulist">
+<ul>
+<li>Connect on: <a class="bare" href="http://www.socrative.com/">http://www.socrative.com/</a> (<strong>student login</strong>)</li>
+<li>Or download the student app <span class="image"><img alt="socrative2" src="images/socrative2.png" width="10%" /></span></li>
+<li>Choose room # <strong>44918d67</strong></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.socrative.com/">
+<img alt="socrative1" src="images/socrative1.png" width="50%" />
+</a>
+</div>
+</div>
+</section>
+<p aria-role="status" class="deck-status">
+<span class="deck-status-current"></span>
+/
+<span class="deck-status-total"></span>
+</p>
+</div>
+<script src="deck.js/jquery.min.js"></script>
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/scale/deck.scale.js"></script>
+<script src="deck.js/extensions/status/deck.status.js"></script>
+<script src="deck.js/extensions/toc/deck.toc.js"></script>
+<div class="deck-toc"></div>
+<script type="text/javascript">
+  //<![CDATA[
+    (function($, deck, undefined) {
+      $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+      $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+    
+      $.extend(true, $[deck].defaults, {
+          countNested: false
+      });
+    
+      $.deck('.slide');
+    })(jQuery, 'deck');
+  //]]>
+</script>
+<style type="text/css">
+  /*<![CDATA[*/
+    .slide.canvas-image {
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: -moz-box;
+    display: -webkit-box;
+    display: -ms-box;
+    display: box;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    -moz-box-align: start;
+    -webkit-box-align: start;
+    -ms-box-align: start;
+    box-align: start;
+    -moz-box-pack: start;
+    -webkit-box-pack: start;
+    -ms-box-pack: start;
+    box-pack: start;}
+    
+    .bottom-left {
+      left: 1%;
+      bottom: 20%; }
+    
+    .top-left {
+      left: 1%;
+      top: 20%; }
+    
+    .bottom-right {
+      right: 1%;
+      bottom: 20%; }
+    
+    .top-right {
+      right: 1%;
+      top: 20%; }
+    
+    .center-up {
+      right: 50%;
+      top: 1%;
+    }
+    
+    .center-down {
+      right: 50%;
+      bottom: 1%;
+    }
+    .canvas-image .canvas-caption p {
+      text-align: center;
+      padding-top: 0;
+      padding: 0;
+      -moz-transform: none;
+      -webkit-transform: none;
+      -o-transform: none;
+      -ms-transform: none;
+      transform: none;
+      display: inline;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      font-weight: bold;
+      font-size: 58px;
+      -webkit-box-shadow: 2px 2px 2px #000;
+      -moz-box-shadow: 2px 2px 2px #000;
+      box-shadow: 2px 2px 2px #000;
+      padding: 1rem;
+      color: white; }
+    kbd.keyseq { color: #555555; }
+    kbd:not(.keyseq) {
+      display: inline-block;
+      color: #222222;
+      font-size: 0.7em;
+      line-height: 1.4;
+      background-color: #F7F7F7;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+      margin: -0.15em 0.15em 0 0.15em;
+      padding: 0.2em 0.6em;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    kbd kbd:first-child { margin-left: 0; }
+    kbd kbd:last-child { margin-right: 0; }
+  /*]]>*/
+</style>
+</body>
+</html>

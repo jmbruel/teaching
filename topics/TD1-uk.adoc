@@ -1,0 +1,172 @@
+= MPA : TD1
+DUT/INFO/M3301, v1.0, {localdate}
+:doctitle: MPA : TD1
+:lang: fr
+:slideshowlocation: Your computer
+:copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169;
+:incremental:
+include::../definitions.txt[]
+:icons: font
+:imagesdir: images
+//:prof:
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Tearcher version
+=====
+This version has some answers.
+=====
+endif::prof[]
+
+//-------------------------------------------------------------------------
+== icon:film[] Agile Video
+//-------------------------------------------------------------------------
+
+Let's watch and discuss this video:
+
+https://www.youtube.com/watch?v=XU0llRltyFM
+
+//-------------------------------------------------------------------------
+== icon:users[] Communication exercice
+//-------------------------------------------------------------------------
+
+=== Setup
+
+Split in groups and in each group design 2 volunteers:
+
+- a "cartoonist" (with minimal talents if possible)
+- one student who will play the project owner.
+
+Everybody else will play project supervisors.
+
+
+=== Let's play
+
+. Cartoonists get out and are briefed by teacher
++
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Answer sheet
+=====
+On a sheet of paper draw:
+
+-    a triangle
+-    a square
+-    a rectangle
+-    a circle
+-    a house
+-    a tree
+-    a bird
+
+There is no constraint on:
+
+-    colors
+-    size
+-    position
+-    etc.
+
+image::photos/dessinateurs.jpg[width=50%,link=images/photos/dessinateurs.jpg]
+
+=====
+endif::prof[]
++
+. The project owner discover the drawing and dictate to the project supervisors
+what they are supposed to produce (to draw).
+This part should only last 3 minutes.
++
+image::photos/description.jpg[width=50%,link=images/photos/description.jpg]
++
+[IMPORTANT]
+=====
+-    The PS do not see the original drawing.
+-    The PO do not see what the PS are drawing.
+=====
++
+. We compare the original and the PS drawings :-)
+. The PS select the best drawing (and send me the picture for my materials)
+. The best drawer become PO and we start again with other topics.
+
+//-------------------------------------------------------------------------
+== icon:th[] Story mapping (40')
+//-------------------------------------------------------------------------
+
+=== MoSCoW
+
+Could you remind what this abbreviation means?
+
+M::
+ifdef::prof[Must]
+o::
+ifdef::prof[(nothing)]
+S::
+ifdef::prof[Should]
+C::
+o::
+ifdef::prof[(nothing)]
+W::
+ifdef::prof[Won't (or Will)]
+
+{nbsp}
+
+=== Exercice
+
+. In groups, prepare a "MoSCoW" paperboard.
+. Distribute the material cards (https://idetido.files.wordpress.com/2014/06/exercice_story_map-cartes_us_recto.pdf[User Stories])
+. *Without talking* place the cards on the map
+. Call the teacher when you believe you're done
+. Discuss the validity of your choices with the client
++
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Tearcher version
+=====
+Too much "Must" in general.
+=====
+endif::prof[]
++
+. Redo the mapping (you're allowed to discuss this time)
+. Plan the US by iterations
+. Negociate with the client the MVP (_Minimum Viable Product_)
++
+[IMPORTANT]
+=====
+:thisref: http://blog.cayenneapps.com/2014/11/25/5-steps-to-building-minimum-viable-product-with-story-mapping/
+ifndef::slides[.Exemple de MVP ({thisref})]
+image::mvp.png[width=100%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+=====
++
+. Each team membre realise a drawing of the expected product (taking the MVP into account)
+. Make the client choose the product closest to its real expectation
+. Compare with the real expectation
+
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Answer
+=====
+The goal of this exercice is double: (i) practice story mapping
+and illustrate the need of making the user talk about its real needs.
+
+Here are some of my 2016 French students realization :
+
+|====
+| image:photos/voiture1.jpg[link=images/photos/voiture1.jpg] |
+image:photos/voiture2.jpg[link=images/photos/voiture2.jpg] |
+image:photos/voiture3.jpg[link=images/photos/voiture3.jpg]
+|====
+
+Here is the French version of the client expectation:
+
+image::tondeuse.jpg[width=70%]
+
+Here was the Russian one:
+
+image::chasse-neige.jpg[width=80%]
+
+=====
+endif::prof[]
+
+
+//////
+Autres idées :
+http://www.areyouagile.com/heros/masterstips.html
+//////
