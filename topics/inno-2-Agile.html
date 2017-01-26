@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="author" content="J.-M. Bruel">
+<title>Project Management, Agility, Tests</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="./pygments-default.css">
+</head>
+<body id="MPA" class="article toc2 toc-left">
+<div id="header">
+<h1>Project Management, Agility, Tests</h1>
+<div class="details">
+<span id="author" class="author">J.-M. Bruel</span><br>
+<span id="email" class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span><br>
+<span id="revnumber">version 1.0 2017-01-26</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matières</div>
+<ul class="sectlevel1">
+<li><a href="#__span_class_icon_i_class_fa_fa_briefcase_i_span_strong_projects_strong_management">1. <span class="icon"><i class="fa fa-briefcase"></i></span> <strong>Projects</strong> management</a>
+<ul class="sectlevel2">
+<li><a href="#_what_is_a_project">1.1. What is a project ?</a></li>
+<li><a href="#_some_facts">1.2. Some facts&#8230;&#8203;</a></li>
+<li><a href="#__and_in_between">1.3. &#8230;&#8203; and in between ?</a></li>
+<li><a href="#_how_project_management_is_doing_so_far">1.4. How project management is doing so far &#8230;&#8203;</a></li>
+<li><a href="#_why_is_it_so_hard">1.5. Why is it so hard ?</a></li>
+<li><a href="#_what_is_a_successfull_project">1.6. What is a successfull project ?</a></li>
+</ul>
+</li>
+<li><a href="#__span_class_icon_i_class_fa_fa_wrench_i_span_to_strong_produce_strong_applications">2. <span class="icon"><i class="fa fa-wrench"></i></span> To <strong>produce</strong> applications</a></li>
+<li><a href="#__span_class_icon_i_class_fa_fa_road_i_span_methods">3. <span class="icon"><i class="fa fa-road"></i></span> Methods</a>
+<ul class="sectlevel2">
+<li><a href="#_waterfall_and_v_cycle">3.1. Waterfall and V Cycle</a></li>
+<li><a href="#_from_strong_v_strong_cycles_to_strong_w_strong_ones">3.2. From <strong>V</strong> cycles to <strong>W</strong> ones</a></li>
+<li><a href="#_v_versus_w">3.3. V versus W</a></li>
+<li><a href="#_what_is_important">3.4. What is important</a></li>
+<li><a href="#_evaluate_progress_towards_the_target">3.5. Evaluate progress towards the target</a></li>
+</ul>
+</li>
+<li><a href="#_quizz">Quizz</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This course is dedicated to my lost friend Jean-Michel Inglebert&#8230;&#8203;</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/blasonJMI.png" alt="blasonJMI" width="50%">
+</div>
+<div class="title">Figure 1. Students 2016 blazon: "Friday is troll day"</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__span_class_icon_i_class_fa_fa_briefcase_i_span_strong_projects_strong_management">1. <span class="icon"><i class="fa fa-briefcase"></i></span> <strong>Projects</strong> management</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_what_is_a_project">1.1. What is a project ?</h3>
+<div class="quoteblock">
+<blockquote>
+[&#8230;&#8203;] a project is an individual or collaborative enterprise, possibly involving research or design, that is carefully planned, usually by the project assigned team, to achieve a particular aim
+</blockquote>
+<div class="attribution">
+&#8212; 2014<br>
+<cite>Wikipedia</cite>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_some_facts">1.2. Some facts&#8230;&#8203;</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Start</strong>: was are the client needs expressed ?</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>specifications,</p>
+</li>
+<li>
+<p>list of expected features,</p>
+</li>
+<li>
+<p>scenarios, use cases</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>End</strong>: when is the result product due ?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Avoid to answer : <strong>yesterday!</strong> <span class="detail">(Otherwise it&#8217;s not a project anymore, but a rescue plan)</span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="__and_in_between">1.3. &#8230;&#8203; and in between ?</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Option 1</dt>
+<dd>
+<p>do your best by your own (like in 'DO the sales')</p>
+</dd>
+<dt class="hdlist1">Option 2</dt>
+<dd>
+<p>run a process (like in '(RE)DO your passport')</p>
+</dd>
+<dt class="hdlist1">Option 3</dt>
+<dd>
+<p>use project management techniques</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_project_management_is_doing_so_far">1.4. How project management is doing so far &#8230;&#8203;</h3>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Out of 10, 7 projects are delivered <strong>late or never</strong> !</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; January 2014<br>
+<cite>Programmez! journal</cite>
+</div>
+</div>
+<div class="paragraph">
+<p>Possible reasons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>client expectations are <strong>vague</strong></p>
+</li>
+<li>
+<p><strong>over-estimation</strong> of available resources</p>
+</li>
+<li>
+<p>latency at the <strong>beginning</strong></p>
+</li>
+<li>
+<p>modification and updates get <strong>lost</strong></p>
+</li>
+<li>
+<p><strong>overbooked</strong> teams</p>
+</li>
+<li>
+<p><strong>lost of knowledge</strong> during the project</p>
+</li>
+<li>
+<p>risks are <strong>badly evaluated</strong></p>
+</li>
+<li>
+<p>meetings are <strong>not productive</strong></p>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>In any case, it&#8217;s the development team fault.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Often heard...
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_why_is_it_so_hard">1.5. Why is it so hard ?</h3>
+<div class="paragraph">
+<p>It should not be so hard:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The goal and target are well known (provided by the client)</p>
+</li>
+<li>
+<p>The target satisfaction is often measurable (assessment)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">The problem</div>
+<div class="paragraph">
+<p>There is no systematic method that can garanty that a project
+team will meet its goals.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Why ?</div>
+<div class="paragraph">
+<p>Because it requires to manage a domain complexity,
+a technical complexity and a human complexity,
+at the same time, with limited resources (time, money, &#8230;&#8203;)</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In fact, the only predictable fact is :</p>
+</div>
+<div class="paragraph">
+<p>it will be required to <strong>adapt</strong>!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_is_a_successfull_project">1.6. What is a successfull project ?</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A software project will end successfully if the team delivers an
+ application that is <strong>reliable</strong>, <strong>robust</strong> and <strong>maintenable</strong> that
+ meet the client expectations and need.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">reliable</dt>
+<dd>
+<p>behave as expected in the expected conditions</p>
+</dd>
+<dt class="hdlist1">robust</dt>
+<dd>
+<p>handle traffic, user mistakes, failures, etc.</p>
+</dd>
+<dt class="hdlist1">maintenable</dt>
+<dd>
+<p>require few efforts to evolve</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__span_class_icon_i_class_fa_fa_wrench_i_span_to_strong_produce_strong_applications">2. <span class="icon"><i class="fa fa-wrench"></i></span> To <strong>produce</strong> applications</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">BUILD</dt>
+<dd>
+<p>make, <a href="http://ant.apache.org/">ant</a>, <a href="http://maven.apache.org/">Maven</a>, <a href="http://ant.apache.org/ivy/">Ivy</a>, <a href="http://www.gradle.org/">Gradle</a>, etc.</p>
+</dd>
+<dt class="hdlist1">&#8658;</dt>
+<dd>
+<p>we&#8217;ll see that later (if needed)&#8230;&#8203;</p>
+</dd>
+<dt class="hdlist1">Project Management tools</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.tuleap.org">tuleap</a>, <a href="http://www.redmine.org/">redmine</a>: dedicated tools</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-gitlab"></i></span><a href="https://gitlab.com/">GitLab</a> versioning repos using <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a>.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="__span_class_icon_i_class_fa_fa_road_i_span_methods">3. <span class="icon"><i class="fa fa-road"></i></span> Methods</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_waterfall_and_v_cycle">3.1. Waterfall and V Cycle</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/waterfall.png" alt="waterfall" width="70%">
+</div>
+<div class="title">Figure 2. The waterfall process</div>
+</div>
+<div class="paragraph">
+<p>The V cycle adopts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cascading <strong>descending</strong> phases for analysis and design</p>
+</li>
+<li>
+<p>Followed by an <strong>ascending</strong> for coding, tests and integration.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Vcycle.png" alt="Vcycle">
+</div>
+<div class="title">Figure 3. Typicall V cycle (source: <a href="https://en.wikipedia.org/wiki/V-Model" class="bare">https://en.wikipedia.org/wiki/V-Model</a>)</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In these kind of projects <strong>success</strong> means
+being able to go through the ascending branch of the 'V'
+successfully.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">If project stops&#8230;&#8203;</div>
+<div class="ulist">
+<ul>
+<li>
+<p>No application can be delivered</p>
+</li>
+<li>
+<p>At best some modules/classes can be reused</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">If project is late&#8230;&#8203;</div>
+<div class="ulist">
+<ul>
+<li>
+<p>coding and integration phases are shortened</p>
+</li>
+<li>
+<p>delivered product is undertested</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To summarize:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cartesian way of reducing complexity</p>
+</li>
+<li>
+<p>Test plans are produced in descending phases</p>
+</li>
+<li>
+<p>Tests plans are veryfied during ascending phases</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Well known limitations</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ansence</strong> of <strong>maintenance</strong> and <strong>evolution</strong> phases</p>
+</li>
+<li>
+<p>going back to design is very difficult</p>
+</li>
+<li>
+<p>Hard to estimate <em>a priori</em>: what is the estimated complexity of the project ?</p>
+</li>
+<li>
+<p>Does the delivered <strong>application</strong> conform to its <strong>documentation</strong> (<strong>and vice versa</strong>) ?</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_from_strong_v_strong_cycles_to_strong_w_strong_ones">3.2. From <strong>V</strong> cycles to <strong>W</strong> ones</h3>
+<div class="sect3">
+<h4 id="_let_s_consider_a_trivial_example">3.2.1. Let&#8217;s consider a trivial example</h4>
+<div class="exampleblock">
+<div class="title">Example 1. A web application for managing URLs</div>
+<div class="content">
+<div class="paragraph">
+<p>Develop a <strong>web application</strong> capable of <strong>collecting</strong>
+and <strong>displaying</strong> URLs.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cycle_0">Cycle 0</h5>
+<div class="paragraph">
+<p>Setup of the integration infrastructure</p>
+</div>
+<div class="paragraph">
+<p>Chosen solution:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Development langage: <code>PHP</code></p>
+</li>
+<li>
+<p>Infrastructure : <code>LAMP</code> server</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cycle_1">Cycle 1</h5>
+<div class="paragraph">
+<p>Display the collected URLs</p>
+</div>
+<div class="paragraph">
+<p>Chosen solution:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The server stores a urls table</p>
+</li>
+<li>
+<p>Web page is returned using <code>GET</code> and displays urls as a list</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_cycle_2">Cycle 2</h5>
+<div class="paragraph">
+<p>To collect urls</p>
+</div>
+<div class="paragraph">
+<p>Chosen solution:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Web page propose a form to enter new urls</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_overall_process">3.2.2. Overall process</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/w5rb2.png" alt="w5rb2">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_well_known_benefits">3.2.3. Well known benefits</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>delivers an application that already runs in cycle 1</p>
+</li>
+<li>
+<p>manage complexity and integration at each cycle</p>
+</li>
+<li>
+<p>can be applied to a new development but also to an evolution</p>
+</li>
+<li>
+<p>allows the client to adjust its requirements</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Complete the sentence we&#8217;ve seen before:</p>
+</div>
+<div class="paragraph">
+<p>A software project will end successfully if the team delivers an
+ application that is <strong>reliable</strong>, <strong>robust</strong> and <strong>maintenable</strong> that
+ meet the client expectations and need.</p>
+</div>
+<div class="sect4">
+<h5 id="_when_it_does_not_work">When it does not work ?</h5>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>client can&#8217;t be involved regularly</p>
+</li>
+<li>
+<p>the driving of the method is approximative (delays in releases)</p>
+</li>
+<li>
+<p>tests are left over</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_new_problems">New problems</h5>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>importance of the initial infrastructure (cycle 0)</p>
+</li>
+<li>
+<p>how to automate non regression tests: XP, T/BDD &#8230;&#8203;</p>
+</li>
+<li>
+<p>spaghetti code &#8658; refactoring &#8230;&#8203;</p>
+</li>
+<li>
+<p>frequent releases: continuous integration &#8230;&#8203;</p>
+</li>
+<li>
+<p>what about documentation ???</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v_versus_w">3.3. V versus W</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">V</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Requirements</p>
+</li>
+<li>
+<p>Specifications</p>
+</li>
+<li>
+<p>General and detailed design</p>
+</li>
+<li>
+<p>Coding and (unit) testing</p>
+</li>
+<li>
+<p>Integration and (integration) testing</p>
+</li>
+<li>
+<p>Release</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">W</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cycle 0</p>
+</li>
+<li>
+<p>Cycle 1 .. N</p>
+<div class="ulist">
+<ul>
+<li>
+<p>chose several features</p>
+</li>
+<li>
+<p>&#8230;&#8203; code/test &#8230;&#8203;</p>
+</li>
+<li>
+<p>release</p>
+</li>
+<li>
+<p>adjust expectations</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_is_important">3.4. What is important</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Plan (more or less) next actions</p>
+</li>
+<li>
+<p>Do as planned</p>
+</li>
+<li>
+<p>Regularly evaluate progress towards the target</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_evaluate_progress_towards_the_target">3.5. Evaluate progress towards the target</h3>
+<div class="paragraph">
+<p>An important artifact to assess progress: tests!</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Whatever the methodology, the project should address 'unit testing'
+and 'integration testing'.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">You should</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>systematically</strong> write <strong>testing programs</strong></p>
+</li>
+<li>
+<p>execute them <strong>regularly</strong></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quizz">Quizz</h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title"><strong>QUESTION</strong></div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect on: <a href="http://www.socrative.com/" class="bare">http://www.socrative.com/</a> (<strong>student login</strong>)</p>
+</li>
+<li>
+<p>Or download the student app <span class="image"><img src="images/socrative2.png" alt="socrative2" width="10%"></span></p>
+</li>
+<li>
+<p>Choose room # <strong>44918d67</strong></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.socrative.com/"><img src="images/socrative1.png" alt="socrative1" width="50%"></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0 2017-01-26<br>
+Last updated 2017-01-25 16:52:13 CET
+</div>
+</div>
+</body>
+</html>
