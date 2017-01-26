@@ -7,7 +7,7 @@ DECK=swiss
 #STYLE=../POO/COO/stylesheets/golo-jmb.css
 STYLE=../../asciidoctor-stylesheet-factory/stylesheets/jmb.css
 #ASCIIDOCTOR=asciidoctor  -a icons=font -a linkcss! -a data-uri
-ASCIIDOCTOR=asciidoctor -a icons=font
+ASCIIDOCTOR=asciidoctor -a icons=font -a data-uri
 EXT=adoc
 OUTPUT=.
 SITE=../jmbruel.github.io/teaching
