@@ -1,10 +1,13 @@
 #-----------------------------------------------------
 DZSLIDES=../../asciidoctor-backends/slim/dzslides
 DECKJS=../..asciidoctor-deck.js/templates/haml/
+DECK=swiss
+#DECK=neon
+#DECK=beamer
 #STYLE=../POO/COO/stylesheets/golo-jmb.css
 STYLE=../../asciidoctor-stylesheet-factory/stylesheets/jmb.css
 #ASCIIDOCTOR=asciidoctor  -a icons=font -a linkcss! -a data-uri
-ASCIIDOCTOR=asciidoctor -a icons=font
+ASCIIDOCTOR=asciidoctor -a icons=font -a data-uri
 EXT=adoc
 OUTPUT=.
 SITE=../jmbruel.github.io/teaching
@@ -12,13 +15,13 @@ SITE=../jmbruel.github.io/teaching
 THEME=riak
 #The valid options are coderay, highlightjs, prettify, and pygments.
 HIGHLIGHT=pygments
-MAIN=TD1
+MAIN=testingCI
 
 #-----------------------------------------------------
 
 all: $(OUTPUT)/$(MAIN).html $(OUTPUT)/$(MAIN).dzslides.html $(OUTPUT)/$(MAIN).teacher.html
 
-support: ci.adoc
+support: $(MAIN).adoc
 	@echo '==> Compiling asciidoc files to generate HTML'
 	$(ASCIIDOCTOR) -b html5 \
 		-a numbered \
@@ -27,7 +30,7 @@ support: ci.adoc
 		-r asciidoctor-diagram \
 		-a source-highlighter=$(HIGHLIGHT) \
 		-o $@ $<
-		
+
 $(OUTPUT)/%.html: %.$(EXT)
 	@echo '==> Compiling asciidoc files to generate HTML'
 	$(ASCIIDOCTOR) -b html5 \
@@ -46,6 +49,15 @@ $(OUTPUT)/%.dzslides.html: %.$(EXT)
 		-a styledir=. \
 		-a stylesheet=$(STYLE) \
 		-a source-highlighter=$(HIGHLIGHT) \
+		-o $@ $<
+
+$(OUTPUT)/%.deckjs.html: %.$(EXT)
+	@echo '==> Compiling asciidoc files to generate Deckjs'
+	$(ASCIIDOCTOR) -b deckjs \
+		-T ../../asciidoctor-deck.js/templates/haml/ \
+		-a slides \
+		-a deckjs_theme=$(DECK) \
+		-a prof \
 		-o $@ $<
 
 $(OUTPUT)/%.teacher.html: %.$(EXT)
