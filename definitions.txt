@@ -55,7 +55,7 @@
 :github: link:{githuburl}[GitHub]
 :gitlaburl: https://gitlab.com/
 :gitlab: icon:gitlab[]link:{gitlaburl}[GitLab]
-:gitlabIUT: icon:gitlab[]https://algec.iut-blagnac.fr/
+:gitlabIUT: icon:gitlab[]https://gitlab.iut-blagnac.fr/
 :gherkin: link:http://cukes.info/gherkin.html[Gherkin]
 :googlemaps: https://www.google.fr/maps[Google Maps]
 :gradle: http://www.gradle.org/[Gradle]
@@ -167,9 +167,9 @@
 :iso: http://www.iso.org/[ISO](((ISO)))
 :io: mailto:iulian.ober@irit.fr[Iulian Ober]
 :ileana: mailto:ileana.ober@irit.fr[Ileana Ober]
-:irit: http://www.irit.fr[IRIT](((IRIT)))
+:irit: link:http://www.irit.fr[IRIT](((IRIT)))
 :lirit: http://www.irit.fr[l'IRIT](((IRIT)))
-:iut: http://www.iut-blagnac.fr/[IUT de Blagnac]
+:iut: link:http://www.iut-blagnac.fr/[IUT de Blagnac]
 :liut: http://www.iut-blagnac.fr/[l'IUT de Blagnac]
 :jg: mailto:jacob.geisel@irit.fr[Jacob Geisel]
 :jmb: mailto:bruel@irit.fr[Jean-Michel Bruel]

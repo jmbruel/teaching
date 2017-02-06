@@ -244,6 +244,7 @@ TIP: *YAGNI*: **Y**ou **A**in't **G**onna **N**eed **I**t
 === More Organizational principles: the LEAN view
 
 7 waste of software dev. (M. Poppendieck):
+
 - Overproduction: extra/unused features
 - Inventory: partially developed work not released
 - Extra processing: unused artifacts

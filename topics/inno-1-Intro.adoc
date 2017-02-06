@@ -29,9 +29,18 @@ include::../definitions.txt[]
 == Sorry...
 
 [{incremental}]
-- I don't speak a single word of Russian!
+- For travelling by night just before class!!
+- For not speaking a single word of Russian!
 - First time (in English) for this course!
 - First time for me in Innopolis!
+
+include::whoAmI.asc[]
+
+NOTE: I am here thanks to Pr. {bm}
+
+== Let's talk about you...
+
+image::whoAreU.jpg[width=100%]
 
 == Materials in live... icon:mobile[] icon:tablet[] icon:laptop[]
 
@@ -70,13 +79,15 @@ Tools::
 
 == Between my venues
 
-- MOOC and online Materials
+- {agileMoocUrl} and other online Materials
 - Self-practice on a dedicated Project
 - icon:envelope[] jbruel@gmail.com
 - icon:twitter[] jmbruel
 - {bitlysiteurl}
 
 == Online practices
+
+{agileMoocUrl}
 
 ifndef::slides[.My own results]
 image::mooc-results.png[]

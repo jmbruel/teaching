@@ -1,14 +1,16 @@
-= MPA : TD1
+= MAP: Practice
 DUT/INFO/M3301, v1.0, {localdate}
 :doctitle: MPA : TD1
 :lang: fr
 :slideshowlocation: Your computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169;
 :incremental:
+:numbered:
+
 include::../definitions.txt[]
 :icons: font
 :imagesdir: images
-//:prof:
+:prof:
 ifdef::prof[]
 [IMPORTANT]
 .icon:graduation-cap[] Tearcher version
@@ -18,13 +20,15 @@ This version has some answers.
 endif::prof[]
 
 //-------------------------------------------------------------------------
-== icon:film[] Agile Video
+== icon:film[] Online extra material (10')
 //-------------------------------------------------------------------------
 
-Let's watch and discuss this video:
+I'd recommand that you watch this short video that will summarize in 8
+minutes 2 days of class (well I hope not so ;-):
 
 https://www.youtube.com/watch?v=XU0llRltyFM
 
+/////
 //-------------------------------------------------------------------------
 == icon:users[] Communication exercice
 //-------------------------------------------------------------------------
@@ -84,6 +88,8 @@ image::photos/description.jpg[width=50%,link=images/photos/description.jpg]
 . We compare the original and the PS drawings :-)
 . The PS select the best drawing (and send me the picture for my materials)
 . The best drawer become PO and we start again with other topics.
+
+/////
 
 //-------------------------------------------------------------------------
 == icon:th[] Story mapping (40')
@@ -146,7 +152,7 @@ ifdef::prof[]
 The goal of this exercice is double: (i) practice story mapping
 and illustrate the need of making the user talk about its real needs.
 
-Here are some of my 2016 French students realization :
+Here are some of my 2016 French students realization:
 
 |====
 | image:photos/voiture1.jpg[link=images/photos/voiture1.jpg] |
@@ -157,6 +163,14 @@ image:photos/voiture3.jpg[link=images/photos/voiture3.jpg]
 Here is the French version of the client expectation:
 
 image::tondeuse.jpg[width=70%]
+
+Here are some of the 2017 Innopolis students realization:
+
+|====
+| image:photos/voiture4.jpg[link=images/photos/voiture4.jpg] |
+image:photos/voiture5.jpg[link=images/photos/voiture5.jpg] |
+image:photos/voiture6.jpg[link=images/photos/voiture6.jpg]
+|====
 
 Here was the Russian one:
 
