@@ -101,31 +101,31 @@ ifdef::slides[==  Unit Tests]
 
 Let's consider the implementation of an abstract type: `MatrixInt`
 
-ifdef::slides[==  Unit Tests]
+ifdef::slides[==  Unit Tests (operations)]
 
 * Operations
 [{incremental}]
-** createMatrix : Int * Int -> MatrixInt
-** getNbLines : MatrixInt -> Int
-** getNbColumns : MatrixInt -> Int
+** `createMatrix : Int * Int -> MatrixInt`
+** `getNbLines: MatrixInt -> Int`
+** `getNbColumns: MatrixInt -> Int`
 ** ...
 
-ifdef::slides[==  Unit Tests]
+ifdef::slides[==  Unit Tests (preconditions)]
 
 * Preconditions
 [{incremental}]
-** createMatrix(l,c) valid IF and ONLY IF ( l > 0 ) AND ( c > 0 )
-** getElement(m,i,j) valid IF and ONLY IF ( 0 < = i < getNbLines(m) ) AND ( 0 < = j < getNbColumns(m))
+** `createMatrix(l,c) valid IF and ONLY IF ( l > 0 ) AND ( c > 0 )`
+** `getElement(m,i,j) valid IF and ONLY IF ( 0 < = i < getNbLines(m) ) AND ( 0 < = j < getNbColumns(m))`
 ** ...
 
-ifdef::slides[==  Unit Tests]
+ifdef::slides[==  Unit Tests (axioms)]
 
 * Axioms
 [{incremental}]
-** getNbLines(createMatrix(l,c)) = l
-** getNbColumns(createMatrix(l,c)) = c
-** getElement(createMatrix(l,c),i,j) = 0
-** isSquared(createMatrix(l,c)) IF and ONLY IF l = c
+** `getNbLines(createMatrix(l,c)) = l`
+** `getNbColumns(createMatrix(l,c)) = c`
+** `getElement(createMatrix(l,c),i,j) = 0`
+** `isSquared(createMatrix(l,c)) IF and ONLY IF l = c`
 ** ...
 
 ifndef::slides[]
@@ -184,13 +184,30 @@ ifndef::slides[]
 ====
 endif::slides[]
 
+ifdef::slides[]
+==  Unit Tests (testing operations)
+
+link:src/MatriceEntierOperationsTest.java[]
+
+endif::slides[]
+
+ifndef::slides[]
+
 [source,java]
 .Testing program for Operations
 ----
 include::src/MatriceEntierOperationsTest.java[]
 ----
+endif::slides[]
 
-ifdef::slides[==  Unit Tests]
+ifdef::slides[]
+==  Unit Tests (testing preconditions)
+
+link:src/MatriceEntierPreconditionsTest.java[]
+
+endif::slides[]
+
+ifndef::slides[]
 
 [source,java]
 .Testing program for Preconditions
@@ -198,7 +215,16 @@ ifdef::slides[==  Unit Tests]
 include::src/MatriceEntierPreconditionsTest.java[]
 ----
 
-ifdef::slides[==  Unit Tests]
+endif::slides[]
+
+ifdef::slides[]
+==  Unit Tests (testing axioms)
+
+link:src/MatriceEntierAxiomsTest.java[]
+
+endif::slides[]
+
+ifndef::slides[]
 
 [source,java]
 .Testing program for Axioms
@@ -206,13 +232,24 @@ ifdef::slides[==  Unit Tests]
 include::src/MatriceEntierAxiomesTest.java[]
 ----
 
-ifdef::slides[==  Unit Tests]
+endif::slides[]
+
+ifdef::slides[]
+==  Unit Tests (testing additional operations)
+
+link:src/MatriceEntierOpSupTest.java[]
+
+endif::slides[]
+
+ifndef::slides[]
 
 [source,java]
 .Testing program for Additional Operations
 ----
 include::src/MatriceEntierOpSupTest.java[]
 ----
+
+endif::slides[]
 
 ifdef::slides[==  Unit Tests]
 
@@ -229,8 +266,10 @@ The testing program is :
 [{topic}]
 == Integration Tests
 
-image::titanic.jpg[width=100%]
-image::no-integration-testing.jpg[]
+image::titanic.jpg[width=80%]
+
+ifdef::slides[==  Integration Tests]
+image::no-integration-testing.jpg[width=50%]
 
 ifdef::slides[== Integration Tests]
 
@@ -247,7 +286,7 @@ ifdef::slides[== Integration Tests]
 [source,java]
 .Testing program of `JourSuivantAvecLibDate.class`
 ----
-include::src/JourSuivantAvecLibDateTest.java[]
+include::src/JourSuivantAvecLibDateTest.java[lines=1..33]
 ----
 <1> name of the app to be tested
 <2> Process = the running program

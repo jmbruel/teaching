@@ -7,27 +7,27 @@ public class MatriceEntierOperationsTest extends TestCase {
   static int bilanAssertions = 0;
 
   /*
-   Types des opérations du type MatriceEntier
+   Types des operations du type MatriceEntier
   */
   public void test_type_new_MatriceEntier() throws Exception {
     MatriceEntier m = new MatriceEntier(3,3) ;
-	  
+
     totalAssertions++ ;
     assertEquals("new MatriceEntier(3,3) retourne une MatriceEntier", "MatriceEntier", m.getClass().getName());
     bilanAssertions++ ;
   }
-  
+
   public void test_type_get() throws Exception {
     MatriceEntier m = new MatriceEntier(3,4) ;
-	  
+
     totalAssertions++ ;
     assertTrue("getNbLignes() > 0", m.getNbLignes() > 0);
     bilanAssertions++ ;
-	  
+
     totalAssertions++ ;
     assertTrue("getNbColonnes() > 0", m.getNbColonnes() > 0);
     bilanAssertions++ ;
-	  
+
     for (int i=0; i<m.getNbLignes(); i++) {
      for (int j=0; j<m.getNbColonnes(); j++) {
       totalAssertions++ ;
@@ -39,7 +39,7 @@ public class MatriceEntierOperationsTest extends TestCase {
 
   public void test_type_som() throws Exception {
     MatriceEntier m = new MatriceEntier(3,4) ;
-	  
+
     for (int i=0; i<m.getNbLignes(); i++) {
       totalAssertions++ ;
       assertTrue("somLigne("+i+") >= 0", m.somLigne(i) >= 0);
@@ -49,7 +49,7 @@ public class MatriceEntierOperationsTest extends TestCase {
       totalAssertions++ ;
       assertTrue("somColonne("+j+") >= 0", m.somColonne(j) >= 0);
       bilanAssertions++ ;
-    }	  
+    }
   }
 
   public void test_type_est() throws Exception {
@@ -57,11 +57,11 @@ public class MatriceEntierOperationsTest extends TestCase {
     totalAssertions++ ;
     assertTrue("estCarree() retourne un booleen", (m.estCarree() == true) || (m.estCarree() == false));
     bilanAssertions++ ;
-	  
+
     totalAssertions++ ;
     assertTrue("estDiagonale() retourne un booleen", (m.estDiagonale() == true) || (m.estDiagonale() == false));
     bilanAssertions++ ;
-	  
+
     m.setElement(0,0,1) ;
     totalAssertions++ ;
     assertTrue("estDiagonale() retourne un booleen", (m.estDiagonale() == true) || (m.estDiagonale() == false));
@@ -75,7 +75,7 @@ public class MatriceEntierOperationsTest extends TestCase {
 
   public void test_type_set_mul() throws Exception {
     MatriceEntier m = new MatriceEntier(3,3) ;
-	  
+
     for (int i=0; i<m.getNbLignes(); i++) {
      for (int j=0; j<m.getNbColonnes(); j++) {
       totalAssertions++ ;
@@ -83,20 +83,20 @@ public class MatriceEntierOperationsTest extends TestCase {
       bilanAssertions++ ;
      }
     }
-    
+
     totalAssertions++ ;
     assertEquals("setPremiereDiagonale(99) retourne une MatriceEntier", "MatriceEntier", m.setPremiereDiagonale(99).getClass().getName());
     bilanAssertions++ ;
-    
+
     totalAssertions++ ;
     assertEquals("setSecondeDiagonale(99) retourne une MatriceEntier", "MatriceEntier", m.setSecondeDiagonale(99).getClass().getName());
     bilanAssertions++ ;
-    
+
     totalAssertions++ ;
     assertEquals("mulMatNombre() retourne une MatriceEntier", "MatriceEntier", m.mulMatNombre(33).getClass().getName());
     bilanAssertions++ ;
   }
-  
+
   /*
    main() de la classe de Test
   */
