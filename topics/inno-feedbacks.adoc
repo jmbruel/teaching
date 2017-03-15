@@ -1,0 +1,122 @@
+//---------------------------------
+// Cours MPA - version UK
+// (c) JMB - 2016
+//---------------------------------
+= **M**odern **A**pplication **P**roduction
+J.-M. Bruel <jbruel@gmail.com>
+v1.1 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+:icons: font
+:experimental:
+:toc: left
+:numbered:
+:status:
+:base: http://jmbruel.github.io/teaching/topics
+:siteurl: {base}/map.html
+:bitlysiteurl: http://bit.ly/jmb-map
+:incremental: %step
+:numbered!:
+
+include::../definitions.txt[]
+
+[{intro}]
+== icon:book[] This period program
+
+[{incremental}]
+- Back to the big picture of this course
+- Feedbacks from last venue/presentations
+
+== Materials in live... icon:mobile[] icon:tablet[] icon:laptop[]
+
+{bitlysiteurl}
+
+== icon:home[] Principles
+
+[{incremental}]
+Application::
+  => Software
+Production::
+  => Professional activity => *build*
+Methods::
+  Agile Methods, wit focus on the {scrum} method
+Tools::
+  We will combine modern production tools
+
+== Time schedule and organisation
+
+[cols="1,2,4"]
+|===
+| # | Date | Topic
+
+| 1 | Jan. 27th | link:{base}/inno-1-Intro.html[Introduction]
+| 2 | Jan. 27th | link:{base}/inno-2-Agile.html[Agile methods]
+| 3 | Jan. 27th | Project setup
+| 4 | Jan. 28th | link:{base}/inno-3-Manifesto.html[Agile Manifesto]
+| 5 | Jan. 28th | link:{base}/inno-4-Scrum.html[Scrum practice]
+| 6 | Jan. 28th | link:{base}/inno-5-tests.html[Tests] & Coding Dojo
+| 7 | Jan. 28th | Team building & Sprint 0
+
+| 8-15 | Mar. 3-4 | Feedbacks on self-practice; Demo and presentations
+| 16-25 | Mar. 17-19 | Continuous Integration; Build techniques; Reporting
+| 26-32 | Apr. 14-15 | Quality assessment; Reporting
+|===
+
+== icon:graduation-cap[] Evaluation
+
+[{incremental}]
+- Assignements (Moodle)
+- Reporting
+- Exam
+- {agileMoocUrl}
+
+== Online practices
+
+{agileMoocUrl}
+
+ifndef::slides[.My own results]
+image::mooc-results.png[]
+
+- Good way of staying in the field between two venues
+- Proof of success (>60%) will count in the evaluation
+
+== Feedbacks
+
+== Assignement 2
+
+[{incremental}]
+- Find a provocative statement about Agile/Scrum
+- Explain in one slide
+- Give your opinion (right/wrong)
+
+== Assignement 2: Illustration (link)
+
+.Provocative Statement (https://hackernoon.com/agile-doesnt-have-a-brain-51c2835a838#.5i0a1hbbm)
+image::provocative.png[align=center,width=60%]
+
+== Assignement 2: Illustration (hypothesis)
+
+[quote,Jeff Gothelf]
+We've traded in results for velocity
+
+.Bad agile product (https://hackernoon.com/agile-doesnt-have-a-brain-51c2835a838#.5i0a1hbbm)
+image::guitare.jpeg[align=center,width=60%]
+
+== Assignement 2: Illustration (statement)
+
+How to improve:
+[{incremental}]
+* Understanding your customer needs
+** by *interviewing* them regularly
+* Understanding what's getting in the way of them being successful
+** by analyzing their behavior on your system
+* Using that information to drive *prioritization of features*
+* Building in *regular feedback loops*
+** quantitative and qualitative
+** that confirm that our ideas did indeed add value
+* Letting the right solutions *emerge from the use* of the system
+** Don’t attempt to predict exactly how each interaction will best be served.
+** Customer usage of early-stage features informs future iterations of those features.
+* Leverage the agility of this way of working to change course
+** re-prioritize when the facts disagree with your plan
