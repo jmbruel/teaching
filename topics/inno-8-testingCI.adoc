@@ -1,0 +1,823 @@
+//---------------------------------
+// Course on Unit Testing
+// (c) JMB - 2016
+//---------------------------------
+= *Tests* en intégration continue
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: https://jmbruel.github.io/teaching/topics/testingCI.html
+:bitlysiteurl: http://bit.ly/jmb-testing
+//------------------------------------ Slides uniquement
+ifdef::slides[]
+//--------------------- dzslides slides
+ifdef::dzslides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+:dzslides-highlight: asciidoctor
+//:dzslides-highlight: monokai
+//:source-highlighter: highlightjs
+:dzslides-status:
+//:syntaxoff: syntax="no-highlight"
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+
+endif::dzslides[]
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+
+ifdef::slides[]
+// ------------------------------------------ disclaimer
+:numbered!:
+[{intro}]
+== Avant-propos
+
+[{topic}]
+== Pour suivre en live... icon:mobile[] icon:tablet[] icon:laptop[]
+
+[{statement}]
+{bitlysiteurl}
+
+{siteurl}
+
+// ------------------------------------------ Plan
+[{intro}]
+== Plan
+
+ifdef::slides[== !]
+
+Pourquoi tester?
+
+Un exemple concret de test obligatoire : `Asciidoctor.org`
+
+Un exemple concret de documentation obligatoire : `Eclipse`
+
+Typologie des tests
+
+JUnit etc.
+
+Application concrète pour MPA2016
+
+endif::slides[]
+
+:numbered:
+
+// ------------------------------------------ Pourquoi
+[{intro}]
+== *Pourquoi* tester ?
+
+ifdef::slides[== !]
+
+//https://blog.acolyer.org/2016/10/06/simple-testing-can-prevent-most-critical-failures/amp/
+[quote,Yuan et al. OSDI 2014]
+A majority of the production failures (77%) can be reproduced by a unit test.
+
+:thisref: Un tweet récent!
+ifndef::slides[.{thisref}]
+image::tweet-tests.png[width=30%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+NOTE: Pour lire l'article en question : https://blog.acolyer.org/2016/10/06/simple-testing-can-prevent-most-critical-failures/amp/
+
+ifdef::slides[:leveloffset: -1]
+
+[{topic}]
+=== Pour livrer le *bon produit*
+
+:thisref: http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/
+ifndef::slides[.Un produit qui fait ce qu'il est censé faire (crédit photo {thisref})]
+image::why1.png[width=50%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[{topic}]
+=== Ce qui marche pour *1* ne marche pas nécessairement pour *100*
+
+:thisref: http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/
+ifndef::slides[.Passage à l'échelle (crédit photo {thisref})]
+image::why2.jpg[width=50%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[{topic}]
+=== La loi de *Murphy*
+
+[quote,Edward A. Murphy Jr.]
+Tout ce qui est susceptible de mal tourner tournera nécessairement mal.
+
+:thisref: http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/
+ifndef::slides[.Murphy's law (crédit photo {thisref})]
+image::why3.jpg[width=50%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[{topic}]
+=== Différents *OS* ou différents *terminaux*
+
+:thisref: http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/
+ifndef::slides[.Diversité (crédit photo {thisref})]
+image::why4.png[width=50%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[{topic}]
+=== Pour donner *le meilleur*
+
+:thisref: http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/
+ifndef::slides[.Faire de son mieux (crédit photo {thisref})]
+image::why5.jpg[width=50%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[:leveloffset: 0]
+
+// ------------------------------------------ Exemple
+[{intro}]
+== Un exemple concret de test *obligatoire*
+
+ifdef::slides[== Asciidoctor]
+
+https://github.com/asciidoctor/asciidoctor/blob/master/CONTRIBUTING.adoc[Asciidoctor Contribution]
+
+:thisref: Autour d'une bière avec Dan Allen, à Denver, Colorado #ILoveMyJob
+ifndef::slides[.{thisref}]
+image::danAllen.png[width=80%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[== Submitting a Pull Request]
+
+. Fork the repository.
+. Run `bundle` to install development dependencies.
+. Create a topic branch
+. Add tests for your unimplemented feature or bug fix. (See <<writing-and-executing-tests>>)
+. Run `bundle exec rake` to run the tests.
+If your tests pass, return to step 4.
+. Implement your feature or bug fix.
+. Run `bundle exec rake` to run the tests.
+If your tests fail, return to step 6.
+. Add documentation for your feature or bug fix.
+. If your changes are not 100% documented, go back to step 8.
+. Add, commit, and push your changes.
+. Submit a pull request.
+
+// ------------------------------------------ Exemple
+[{intro}]
+== Un exemple concret de *documentation* obligatoire
+
+ifdef::slides[== Eclipse]
+
+:thisref: Après un footing avec Gaël Blondel, à Saint-Malo  #ILoveMyJob
+ifndef::slides[.{thisref}]
+image::gaelBlondelle.jpg[width=80%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[== !]
+
+[quote,Eclipse Development Process]
+[...] an Eclipse project is providing extensible frameworks and applications accessible via documented APIs.
+
+// ------------------------------------------ Typologie
+[{intro}]
+== Typologie des tests
+
+ifdef::slides[== !]
+
+:thisref: https://www.tutorialspoint.com/software_testing/software_testing_quick_guide.htm
+ifndef::slides[.Différences entre Vérification et Validation (source {thisref})]
+|====
+| Vérification | Validation
+| Le produit est-il *bon* ? | Le produit est-il *le bon* ?
+| _Are you building it right?_ | _Are you building the right thing?_
+| Réalisée par le *développeur* | Réalisée par le *testeur*
+| En premier | Après la vérification
+|====
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+// ------------------------------------------ JUnit etc.
+[{intro}]
+== JUnit etc.
+
+ifdef::slides[:leveloffset: -1]
+
+[{topic}]
+=== Quoi tester ?
+
+[align="left",cols="4,10",width="100%"]
+|======================
+| Les exceptions  | [detail]#`@Test (expected = Exception.class)`#
+| Le temps d'exécution | [detail]#`@Test(timeout=100)`#
+| Uniquement certains environnement |
+[detail]#`System.getProperty("os.name").contains("Linux"));`#
+Attention cette instruction n'est pas une annotation.
+| S'exécute avant les autres tests (e.g., accès à une base) | [detail]#`@BeforeClass public static void method()`#
+|======================
+
+[{topic}]
+=== Assertions
+
+[align="left",cols="5,5",width="100%"]
+|======================
+| [detail]#`fail([message])`# | On force le test à échouer
+| [detail]#`assertTrue([message,] condition)`# | La condition est vraie
+| [detail]#`assertFalse([message,] condition)`# | La condition est fausse
+| [detail]#`assertEquals([message,] attendu, actuel)`# |
+Les deux valeurs sont égales
+| [detail]#`assertNull([message,] object)`# |
+Objet nul
+| [detail]#`assertSame([message,] expected, actual)`# |
+Objets identiques (même réf.)
+|======================
+
+
+[{topic}]
+=== Stratégie de tests
+
+Considérons une fonction `int add(int,int);` d'une classe `myClass`.
+
+ifdef::slides[=== Cas nominal]
+
+Définir le comportement normal de la fonction (sortie normale pour des paramètres corrects).
+
+.(source : http://stackoverflow.com/questions/8751553/how-to-write-a-unit-test)
+[source,java]
+-----
+//for normal addition
+@Test
+public void testAdd1Plus1() {
+  int x  = 1 ; int y = 1;
+  assertEquals(2, myClass.add(x,y));
+}
+-----
+
+ifdef::slides[=== Cas particuliers]
+
+Ajouter des tests pour les cas particuliers :
+
+- aucune exception non capturée en cas d'_overflow_
+- les paramètres `null` sont gérés, e.g., :
+
+ifdef::slides[=== Cas particuliers]
+ifndef::slides[.(source : http://stackoverflow.com/questions/8751553/how-to-write-a-unit-test)]
+[source,java]
+-----
+//if you are using 0 as default for null, make sure your class works in that case.
+@Test
+public void testAdd1Plus1() {
+  int y = 1;
+  assertEquals(0, myClass.add(null,y));
+}
+-----
+ifdef::slides[=== Cas particuliers]
+- ça marche avec les paramètres négatifs, etc.
+
+[{topic}]
+=== L'ordre des tests
+
+Surtout aucun!!
+
+[quote,JUnit manual]
+JUnit assumes that all test methods can be executed in an arbitrary order. Well-written test code should not assume any order, i.e., tests should not depend on other tests.
+
+[{topic}]
+=== Sous Eclipse
+
+ifndef::slides[]
+- Pour une classe existante : btn:[Right-click] (dans le `Package Explorer` et menu:New[JUnit Test Case]).
+- Utiliser le `JUnit wizards` (menu:File[New > Other... > Java > JUnit]).
+- Il n'y a plus qu'à faire menu:Run-as[JUnit Test].
+endif::slides[]
+
+Pensez à utiliser le plug-in http://infinitest.github.io/[infinitest].
+
+[{topic}]
+=== Et pour les interfaces graphiques?
+
+Exemple de la librairie `Robot` :
+
+ifndef::slides[.(source : http://stackoverflow.com/questions/16411823/junit-tests-for-gui-in-java)]
+[source,java]
+-----
+Robot bot = new Robot();
+bot.mouseMove(10,10);
+bot.mousePress(InputEvent.BUTTON1_MASK);
+//add time between press and release or the input event system may
+//not think it is a click
+try{Thread.sleep(250);}catch(InterruptedException e){}
+bot.mouseRelease(InputEvent.BUTTON1_MASK);
+-----
+
+ifdef::slides[=== !]
+
+Exemple du plugin {eclipse} `swingcoder` :
+
+:thisref: https://marketplace.eclipse.org/content/swingcorder
+ifndef::slides[.Simulation d'utilisation d'interface (source {thisref})]
+image::swingTest.png[width=90%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[{topic}]
+=== Couverture des tests
+
+Il existe des outils pour aller plus loin :
+
+:thisref: http://www.eclemma.org/
+ifndef::slides[.Couverture des tests (source {thisref})]
+image::coverage.gif[width=90%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[:leveloffset: 0]
+
+// ------------------------------------------ MPA2016
+[{intro}]
+== Application concrète pour MPA2016
+
+ifdef::slides[:leveloffset: -1]
+
+[{topic}]
+=== De `To Be Done` à `On going`
+
+:thisref: Mettre à jour Tuleap
+ifndef::slides[.{thisref}]
+|===
+| image:tuleap1.png[width=90%] |
+image:tuleap2.png[width=90%]
+|===
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+:thisref: Confirmation par email
+ifndef::slides[.{thisref}]
+image::tuleap3.png[width=80%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[{topic}]
+=== Créer une branche spécifique (si nouvelle _feature_)
+
+[source,shell]
+-----
+bruel (master) $ git checkout -b US-15378
+Switched to a new branch 'US-15378'
+bruel (US-15378) $
+-----
+
+[{topic}]
+=== Ecrire un test qui échoue
+
+ifdef::slides[:leveloffset: -1]
+
+[{topic}]
+==== Etape 0 : Bien comprendre ce qu'on doit faire
+
+
+Objectif de la tâche : créer une classe `Pile`.
+
+[TIP]
+ifndef::slides[.Rappels sur les propriétés d'une `Pile` (opérations)]
+====
+Opérations::
+----
+CréerPile :  -> Pile
+estVide   :  Pile ->  Booléen
+Empiler   :  Pile * Elément -> Pile
+Dépiler   :  Pile -> Pile
+Sommet     :  Pile ->  Elément
+----
+====
+
+ifdef::slides[==== !]
+
+[TIP]
+ifndef::slides[.Rappels sur les propriétés d'une `Pile` (préconditions)]
+====
+Préconditions::
+----
+Sommet(p) valide Si et Seulement Si estVide(p) == FAUX
+Dépiler(p) valide Si et Seulement Si estVide(p) == FAUX
+----
+====
+
+ifdef::slides[==== !]
+
+[TIP]
+ifndef::slides[.Rappels sur les propriétés d'une `Pile` (axiomes)]
+====
+Axiomes::
+----
+(1) estVide(CréerPile())
+(2) estVide(Empiler(p,e)) == FAUX
+(3) estVide(Dépiler(Empiler(p,e))) Si et Seulement Si estVide(p)
+(4) Sommet(Empiler(p,e)) == e
+(5) !estVide(p) => Sommet(Dépiler(Empiler(p,e))) == Sommet(p)
+----
+====
+
+[{topic}]
+==== Etape 1 : Ecrire un test simple
+
+[source,java]
+----
+import junit.textui.TestRunner;
+import junit.framework.TestSuite;
+import junit.framework.TestCase;
+
+public class PileTest extends TestCase {
+
+        public void test_type_new_Pile() throws Exception {
+                Pile pile = new Pile() ;
+
+                assertEquals("new Pile() retourne une Pile", "Pile", pile.getClass().getName());
+        }
+}
+----
+
+ifdef::slides[==== Oups...]
+
+:thisref: Oups, JUnit n'est pas dans le path...
+ifndef::slides[.{thisref}]
+image::pile2.png[width=80%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[==== !]
+
+:thisref: Création rapide de la classe `Pile`
+ifndef::slides[.{thisref}]
+image::pile3.png[width=90%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[==== !]
+
+:thisref: Run as JUnit Tests
+ifndef::slides[.{thisref}]
+image::pile1.png[width=60%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+
+[{topic}]
+==== Etape 1' : amériorer avec un `main`
+
+Pour ceux qui veulent vraiment un `main` :
+
+[source,java]
+-----
+public class PileTest extends TestCase {
+        static int totalAssertions = 0;
+        static int bilanAssertions = 0;
+
+        public void test_type_new_Pile() throws Exception {
+                Pile pile = new Pile() ;
+
+                totalAssertions++ ;
+                assertEquals("new Pile() retourne une Pile", "Pile", pile.getClass().getName());
+                bilanAssertions++ ;
+        }
+
+        public static void main(String[] args) {
+                junit.textui.TestRunner.run(new TestSuite(PileTest.class));
+                if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
+                System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions vérifiées");
+        } // fin main
+
+} // fin PileTest
+
+-----
+
+ifdef::slides[==== !]
+
+Enexécutant le test comme un programme Java on obtient :
+
+[source,shell]
+----
+...
+Time: 0,005
+
+OK (3 tests)
+
+Bravo ! 3/3 assertions vérifiées
+----
+
+ifdef::slides[==== !]
+
+[TIP]
+=====
+Si vous utilisez SciTE au lieu de {eclipse}, pour compiler le programme de Test n'oubliez pas de placer les fichiers
+`SciTE.properties` et `junit.jar` dans le répertoire de vos sources (avant d'ouvrir SciTE) ou
+bien exécutez ceci :
+
+----
+javac -cp .;junit.jar PileTest.java
+----
+=====
+
+
+[{topic}]
+==== Etape 2 : écrire un test qui passe
+
+[source,java]
+-----
+public void test_type_empiler() throws Exception {
+  Pile pile = new Pile() ;
+
+  assertEquals("empiler(pile,'XXX') retourne une Pile", "Pile", pile.empiler("XXX").getClass().getName());
+}
+-----
+
+ifdef::slides[==== Erreur de syntaxe]
+
+:thisref: Erreur de syntaxe
+ifndef::slides[.{thisref}]
+image::pile4.png[width=60%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[==== Ajout de la méthode]
+
+[source,java]
+-----
+public class Pile {
+
+	public Object empiler(String string) {
+		// TODO Auto-generated method stub
+		return this;
+	}
+}
+-----
+
+ifdef::slides[==== !]
+
+[TIP]
+====
+La méthode générée par défaut retourne `null` ce qui provoque une `NullPointerException`. Nous avons modifié la méthode en conséquence.
+====
+
+ifdef::slides[==== !]
+
+:thisref: Ajout simple de la méthode manquante
+ifndef::slides[.{thisref}]
+image::pile5.png[width=90%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[==== Passage du test]
+
+:thisref: Passage du test
+ifndef::slides[.{thisref}]
+image::pile6.png[width=80%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[{topic}]
+==== Etape 2 : écrire un test qui échoue
+
+[source,java]
+-----
+public void test_axiome1() {
+  Pile pile = new Pile() ;
+
+  assertTrue("Une nouvelle pile est vide", pile.estVide(pile));
+}
+-----
+
+ifdef::slides[==== Le test échoue (comme souhaité)]
+
+ifndef::slides[.Méthode ajoutée par défaut]
+[source,java]
+-----
+public boolean estVide(Pile pile) {
+  // TODO Auto-generated method stub
+  return false;
+}
+-----
+
+ifdef::slides[==== Le test échoue (comme souhaité)]
+
+:thisref: Passage du test
+ifndef::slides[.{thisref}]
+image::pile7.png[width=100%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+
+ifdef::slides[==== Ignorer un test]
+
+[TIP]
+====
+Junit n'exécute que les fonctions qui commencent pas `test`.
+Le code suivant n'est par exemple pas exécuté!
+
+[source,java]
+-----
+public void XXXtest_axiome1() {
+  ...
+}
+-----
+
+Plus récemment, on utilise l'annotation `@Test` devant les tests, comme dans l'exemple ci-dessous :
+
+[source,java]
+-----
+@Test
+public void constructeur_correct() {
+  ...
+}
+-----
+====
+
+[{topic}]
+==== Etape 3 : On fait passer le test
+
+[source,java]
+-----
+public boolean estVide(Pile pile) {
+  // Smartly modified by JMB to pass the test!
+  return true;
+}
+-----
+
+ifdef::slides[==== Passage du test]
+
+:thisref: Passage du test
+ifndef::slides[.{thisref}]
+image::pile8.png[width=100%]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[==== !]
+
+[WARNING]
+=====
+Bien sûr le code n'est pas correcte pour l'instant
+(on s'en rendra compte dès les tests suivants)! Une meilleure solution pourrait être :
+
+[source,java]
+-----
+public class Pile {
+	int count;
+  ...
+	public boolean estVide(Pile pile) {
+		return (count == 0);
+	}
+}
+-----
+=====
+
+ifdef::slides[:leveloffset: +1]
+
+[{topic}]
+=== Essai de merge pour voir si tout le reste marche encore
+
+[source,shell]
+-----
+bruel (US-15378) $ git commit -am "Adding push feature. Tests OK"
+[US-15378 78f3242] Adding push feature. Tests OK
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+bruel (US-15378) $ git checkout devs
+Switched to branch 'devs'
+bruel (devs) $ git merge US-15378
+-----
+
+[{topic}]
+=== Commit & Push dans `devs`
+
+[source,shell]
+-----
+bruel (devs) $ git commit -am "..."
+...
+bruel (devs) $ git push origin devs
+...
+bruel (devs) $ git branch -D US-15378
+Deleted branch US-15378 (was f392a73).
+-----
+
+[{topic}]
+=== De `On going` à `Review`
+
+ifndef::slides[.Penser à mettre à jour le tableau de bord]
+image::review.jpg[width=90%]
+ifdef::slides[NOTE: [detail]#Penser à mettre à jour le tableau de bord#]
+
+
+ifndef::slides[]
+
+:numbered!:
+[{topic}]
+== Pour aller plus loin...
+
+- http://rpouiller.developpez.com/tutoriels/java/tests-unitaires-junit4/
+- https://jmbruel.github.io/teaching/topics/agile.html#_les_tests
+- http://www.vogella.com/tutorials/JUnit/article.html
+- http://junit.org
+- http://stackoverflow.com/questions/8751553/how-to-write-a-unit-test
+- https://www.quora.com/How-do-you-get-developers-to-love-testing-their-code
+
+endif::slides[]
+
+ifdef::slides[]
+
+:leveloffset: 0
+
+[{intro}]
+== Projet MPA : *Sprint 2*
+
+[{topic}]
+== Statistiques Sprint 2
+
+|=====
+| Groupe | # classes de test | # tests | Status
+| 1A1 | 1 | ~30 | image:buildNOK.png[width=30%]
+| 1A2 | 1 | 1 | image:buildNOK.png[width=30%]
+| 1B1 | 1 | ~10 | image:buildOK.png[width=30%]
+| 1B2 | ? | 2 | image:buildOK.png[width=30%]
+|=====
+[detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
+
+ifdef::slides[== !]
+
+|=====
+| Groupe | # classes de test | # tests | Status
+| 2A1 | 0 | 0 | image:buildOK.png[width=30%]
+| 2A2 | 1 | ~10 | image:buildOK.png[width=30%]
+| 2B1 | 2 | ~10 | image:buildOK.png[width=30%]
+| 2B2 | 0 | 0 | image:buildOK.png[width=30%]
+|=====
+[detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
+
+ifdef::slides[== !]
+
+|=====
+| Groupe | # classes de test | # tests | Status
+| 3A1 | 0 | 0 | image:buildNOK.png[width=30%]
+| 3A2 | 1 | 0 | image:buildNOK.png[width=30%]
+| 3B1 | 0 | 0 | image:buildOK.png[width=30%]
+| 3B2 | 0 | 0 | image:buildNOK.png[width=30%]
+|=====
+[detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
+
+
+[{intro}]
+== Perles
+
+ifdef::slides[== Les références absolues!]
+
+[quote,Anonymous]
+Position yourself in the project repository (`C:\Users\Etudiant\Desktop\Nouveau dossier\MPA2016-Gxxx`)
+
+ifdef::slides[== Les instructions qui ne marchent pas...]
+
+[quote, Extrait de la Doc. Utilisateur]
+Pour lancer l'application, lancer `ant Window`
+
+[source,shell]
+----
+$ ant Window
+BUILD FAILED
+Target "Window" does not exist in the project ...
+----
+
+ifdef::slides[== Le `build.xml` qui manque...]
+
+[quote, Extrait de la Doc. Utilisateur]
+Pour lancer l'application, lancer `ant`
+
+[source,shell]
+----
+$ ant
+Buildfile: build.xml does not exist!
+----
+
+image::why3.jpg[width=30%]
+
+[{intro}]
+== *The End* {nbsp}{nbsp}{nbsp}(for me)
+
+endif::slides[]

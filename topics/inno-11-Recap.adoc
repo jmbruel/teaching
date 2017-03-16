@@ -1,0 +1,8 @@
+= Recap
+
+== What is Scrum about?
+
+Scrum is about:
+
+- *Personal commitment* to the project
+- Trying to deliver the *most value* for customer
