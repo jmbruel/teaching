@@ -78,13 +78,16 @@ Tools::
 | 16 | Mar. 17th | link:{base}/inno-11-Recap.html[Feedbacks from last venue/presentations]
 | 17 | Mar. 17th | link:{base}/inno-4-Scrum.html[Scrum practice]  (quick reminder)
 | 18 | Mar. 17th | link:{base}/inno-5-tests.html[Tests] & Coding Dojo
-| 19 | Mar. 18th | link:{base}/inno-6-git.dzslides[Git] (quick reminder)
+| 19 | Mar. 18th | link:{base}/inno-6-git.html[Git] (quick reminder)
 | 20 | Mar. 18th | link:{base}/inno-7-ci.html[Continuous Integration]
 | 21 | Mar. 18th | link:{base}/inno-8-testingCI.html[Tests & CI]
 | 22-23 | Mar. 18th | Work on project reporting
 | 24-25 | Mar. 19th | Work on project reporting, discuss evaluation
 | 26-32 | Apr. 14-15 | Quality assessment; Reporting; Exam; Course evaluation
 |===
+
+NOTE: The evaluation plan is explained link:{base}/inno-10-MAP-Evaluation.html
+[here].
 
 == Between my venues
 
