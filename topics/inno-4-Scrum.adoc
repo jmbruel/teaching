@@ -108,7 +108,7 @@ The *Product Owner*:: the client or its representative, who is part of the team
 The *SCRUM Master*:: an animator, not a manager
 The *Team*:: everybody else, without specific role
 
-ifdef::slides[:leveloffset: -2]
+ifdef::slides[:leveloffset: -1]
 
 // ------
 [{topic}]
@@ -204,10 +204,10 @@ ifdef::slides[:leveloffset: -2]
 ==== Product Backlog
 
 [{incremental}]
-- Il est fourni par le *Product Owner* au démarrage du projet
-- Il est une liste ordonnée d'exigences (stories) classées [detail]#selon leur importance métier#
-- Le classement de chaque exigence pourra être révisé à chaque revue de sprint [detail]#par le Product Owner#
-- Des exigences pourront être ajoutées/retirées à chaque revue de sprint [detail]#par le Product Owner#
+- Provided by the *Product Owner* at the beginning of the project
+- Ranked list of requirements (stories) sorted [detail]#by domain importance#
+- This ranking can be re-evaluated after each sprint review [detail]#by the Product Owner#
+- Stories can be added/removed at each sprint review [detail]#by the Product Owner#
 
 
 [{topic}]

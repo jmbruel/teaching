@@ -1,9 +1,9 @@
 //---------------------------------
-// Cours sur Intégration continue
+// Cours sur Continuous Integration
 // (c) JMB - 2016
 //---------------------------------
 [[ci]]
-= *Intégration continue* avec gitlab
+= *Continuous Integration* with gitlab
 J.-M. Bruel <jbruel@gmail.com>
 v1.0 {localdate}
 :imagesdir: images
@@ -68,41 +68,24 @@ include::../definitions.txt[]
 endif::definitions[]
 :compMergeURL: https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&utm_medium=social&utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate
 
-ifdef::slides[]
-// ------------------------------------------ disclaimer
-:numbered!:
-[{intro}]
-== Avant-propos
-
-[{topic}]
-== Pour suivre en live... icon:mobile[] icon:tablet[] icon:laptop[]
-
-[{statement}]
-{bitlysiteurl}
-
-{siteurl}
-
-endif::slides[]
-
 // ------
 [{intro}]
-== Objectifs
+== Objectives
 
 ifndef::slides[:leveloffset: +1]
 
 // ------
 [{topic}]
-== Une vérification *systématique* de l'état du code
+== *Systematic* code review
 
 ifndef::slides[.Résultats visibles et tracés]
 image::builds_status.png[width=100%]
-ifdef::slides[NOTE: [detail]#Résultats visibles et tracés#]
 
 // ------
 [{topic}]
-== Environnement
+== Environment
 
-On utilise gitlab-ci-multi-runner `1.6.0`.
+gitlab-ci-multi-runner `1.6.0`.
 
 // ------
 [{topic}]
@@ -113,11 +96,10 @@ Continuous Integration is a software development practice where members of a tea
 
 // ------
 [{topic}]
-== Principe général
+== General Principles
 
-ifndef::slides[.Exemple d'Intégration Continue (github-travis)]
+ifndef::slides[.Exemple d'Continuous Integration (github-travis)]
 image::travis.png[width=100%]
-ifdef::slides[NOTE: [detail]#Exemple d'Intégration Continue (github-travis)#]
 
 ifdef::slides[== !]
 
@@ -133,7 +115,7 @@ ifdef::slides[NOTE: [detail]#{thisref}#]
 
 {yaml}: **Y**AML **A**in't **M**arkup **L**anguage
 
-.Exemple de fihier `.yml`
+.Example of `.yml` file
 .............
 ---
 receipt:     Oz-Ware Purchase Invoice
@@ -143,30 +125,27 @@ customer:
     family_name:  Gale
 .............
 
-NOTE: Utiliser des espaces et non des tabulations.
-
 ifndef::slides[:leveloffset: 0]
 
 // --------------------------------------------------------------------
 [{topic}]
-== Utilisation
+== Usage
 
-Un serveur d’intégration continue peut permettre de :
+A Continuous Integration server allows:
 
-[{incremental}]
--  Faire les opérations type git [detail]#(pull, checkout, push)#
--  Compiler du code source => *build*
--  Créer des archives
--  Déployer du code sur une machine de test
--  Exécuter une suite de *tests* [detail]#(Junit, Audit de code source, test IHM, ...)#
--  Notifier des résultats [detail]#(mail, RSS)#
--  etc.
+  git [detail]#(pull, checkout, push)#
+  *build*
+  Archives
+  Deploy code
+  Execute test suites [detail]#(Junit, Audit, test IHM, ...)#
+  Notify results [detail]#(mail, RSS)#
+  etc.
 
 // --------------------------------------------------------------------
 [{topic}]
-== Services connus
+== Services
 
-Les serveurs d’intégration les plus connus (https://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software[Wikipedia] en compte plus de 40!) :
+https://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software[Wikipedia] counts more than 40!:
 
 -    http://cruisecontrol.sourceforge.net/[Cruise Control]
 -    http://hudson-ci.org/[Hudson]
@@ -177,24 +156,24 @@ Les serveurs d’intégration les plus connus (https://en.wikipedia.org/wiki/Com
 
 // --------------------------------------------------------------------
 [{intro}]
-== Pour notre environnement (GitLab)
+== Illustration with GitLab
 
 ifndef::slides[:leveloffset: +1]
 
 // ------
 [{topic}]
-== Processus type
+== Process
 
 [{incremental}]
-. Créer à la racine du projet un fichier `.gitlab-ci.yml`
-. Y décrire ce que l'on souhaite réaliser
-. "Pousser" dans le dépôt {gitlab} ses modifications
-. Contrôler les résultats
+. Create a file in the main folder: `.gitlab-ci.yml`
+. Describe expected treatments
+. "Push" on the {gitlab} repo
+. Control results
 
 
 // ------
 [{topic}]
-== Exemple (MPA2016-1B2)
+== Example
 
 ..........
 image: node:4.2.2   <1>
@@ -204,20 +183,21 @@ all_tests:
    - npm install express --save
    - node ./myapp.js
 ..........
-<1> Nom du "runner"
-<2> Instructions à réaliser sur la machine
+<1> Name of the "runner"
+<2> Instructions for the virtual machine
 
-ifdef::slides[== !]
 
-Résultat avec le fichier `.gitlab-ci.yml` précédent :
+ifdef::slides[== Example]
+
+Results :
 
 ifndef::slides[.Attention au code infini]
 image::gitlabCI-1B2-1.png[width=50%]
-ifdef::slides[NOTE: [detail]#Attention au code infini#]
+ifdef::slides[NOTE: [detail]#Beware of infinite CI#]
 
-ifdef::slides[== !]
+ifdef::slides[== Example]
 
-Avec un fichier `.gitlab-ci.yml` plus conforme (exécution de tests) :
+Another `.gitlab-ci.yml`:
 
 ..........
    - npm install express --save
@@ -226,42 +206,20 @@ Avec un fichier `.gitlab-ci.yml` plus conforme (exécution de tests) :
 
 ifndef::slides[.Le build est un succès]
 image::gitlabCI-1B2-2.png[width=50%]
-ifdef::slides[NOTE: [detail]#Le build est un succès#]
-
-test_async:   stage: test   script:    - npm install    - node ./specs/start.js ./specs/async.spec.js
-
-// ------
-[{topic}]
-== Exemple HelloWorld
-
-. Code java
-. Petit `main` de test (pas unitaire)
-. Compilation manuelle
-. Build ant
-. Améliorations
-. Tests
-. Eclipse
-. Intégration continue
 
 ifndef::slides[:leveloffset: +1]
 
 // ------
 [{topic}]
-== Code java
+== Code
 
-NOTE: Consultez le tutoriel {ant} : https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
-
-ifndef::slides[]
-.src/HelloWorld.java
-[source,java]
-endif::slides[]
 -----
 include::HelloWorld/src/HelloWorld.java[]
 -----
 
 // ------
 [{topic}]
-== Petit `main` de test (pas unitaire)
+== Testing `main`
 
 ifndef::slides[]
 .src/Main.java
@@ -273,7 +231,7 @@ include::HelloWorld/src/Main.java[]
 
 // ------
 [{topic}]
-== Compilation manuelle
+== Compilation by hand
 
 [source]
 -----
@@ -286,7 +244,7 @@ Hello JMB!
 
 // ------
 [{topic}]
-== Build ant
+== Ant build
 
 .build.xml
 [source,xml]
@@ -294,7 +252,7 @@ Hello JMB!
 include::HelloWorld/build.xml[]
 -----
 
-ifdef::slides[== Exécution manuelle du build]
+ifdef::slides[== Manual build]
 
 [source]
 -----
@@ -311,7 +269,7 @@ Total time: 0 seconds
 
 // ------
 [{topic}]
-== Améliorations
+== Improvements
 
 .build.xml (amélioré)
 [source,xml]
@@ -319,7 +277,7 @@ Total time: 0 seconds
 include::HelloWorld/build1.xml[]
 -----
 
-ifdef::slides[== Exécution manuelle du build]
+ifdef::slides[== Manual build]
 
 [source]
 -----
@@ -358,15 +316,15 @@ endif::slides[]
 include::HelloWorld/src/TestHelloWorld.java[]
 -----
 
-ifdef::slides[== !]
+ifdef::slides[== Tests]
 
-.build.xml (librairies extérieures)
+.build.xml (external librairies)
 [source,xml]
 -----
 include::HelloWorld/build2.xml[]
 -----
 
-ifdef::slides[== Exécution manuelle du build]
+ifdef::slides[== Manual build]
 
 [source]
 -----
@@ -386,89 +344,77 @@ BUILD SUCCESSFUL
 Total time: 1 second
 -----
 
-ifdef::slides[== !]
+ifdef::slides[== Tests]
 
 ifndef::slides[]
-.src/TestHelloWorld.java (un vrai ce coup-ci)
+.src/TestHelloWorld.java
 [source,java]
 endif::slides[]
 -----
 include::HelloWorld/src/TestHelloWorldReal.java[]
 -----
 
-ifdef::slides[== !]
+ifdef::slides[== Tests]
 
 ifndef::slides[.Un test exécuté sous eclipse]
 image::eclipseTest.png[width=90%]
-ifdef::slides[NOTE: [detail]#Un test exécuté sous eclipse#]
+ifdef::slides[NOTE: [detail]#eclipse#]
 
-ifdef::slides[== !]
+ifdef::slides[== Tests]
 
-[NOTE]
-======
-Ne pas hésiter à utiliser le plugin http://infinitest.github.io/[infinitest].
+http://infinitest.github.io/[infinitest].
 
 ifndef::slides[.Utilisation d'infinitest sous eclipse]
 image::infinitest.png[width=90%]
-ifdef::slides[NOTE: [detail]#Utilisation d'infinitest sous eclipse#]
-
-======
 
 // ------
 [{topic}]
 == Eclipse
 
-Profiter de la génération de fichier de build {ant} par {eclipse}!
+{ant} files generated by {eclipse}!
 
 ifndef::slides[.Export du bild ant sous eclipse]
 image::exportAnt.png[width=100%]
-ifdef::slides[NOTE: [detail]#Utilisation d'infinitest sous eclipse#]
 
-ifdef::slides[== !]
+ifdef::slides[== Eclipse]
 
-.build.xml (généré par eclipse)
+.build.xml (eclipse)
 [source,xml]
 -----
 include::HelloWorld/buildEclipse.xml[]
 -----
 
-ifdef::slides[== !]
+ifdef::slides[== Eclipse]
 
 ifndef::slides[.Run de ant sous eclipse]
 image::runAnt.png[width=100%]
-ifdef::slides[NOTE: [detail]#Run de ant sous eclipse#]
 
-ifdef::slides[== !]
-
-Autre avantage de junit, la génération de pages web (répertoire `junit`, ouvrir `index.html`).
+ifdef::slides[== Eclipse]
 
 ifndef::slides[.Présentation des résultats de test]
 image::junitreport.png[width=90%]
-ifdef::slides[NOTE: [detail]#Présentation des résultats de test#]
 
 // ------
 [{topic}]
-== Integration Continue
+== Continuous Integration
 
-.{nbsp}.gitlab-ci.yml (ajouté à la racine du projet git)
+.{nbsp}.gitlab-ci.yml (at the root of the git project)
 [source,yml]
 -----
 include::.gitlab-ci.yml[]
 -----
 
-WARNING: Il faut modifier éventuellement le `build.xml`, souvent trop lié à {eclipse}.
-
 ifndef::slides[:leveloffset: 0]
 
 // --------------------------------------------------------------------
 [{intro}]
-== Divers
+== Tricks
 
 ifndef::slides[:leveloffset: +1]
 
 // ------
 [{topic}]
-== Quand on ne veux pas lancer l'IC
+== When CI is not wanted
 
 [source]
 ------
@@ -477,28 +423,11 @@ git commit -m "Blabla... [ci skip]"
 
 // ------
 [{topic}]
-== Pour vérifier la syntaxe de son fichier YAML
-
-Possibilité de tester son fichier `gitlab-ci.yml` :
+== Check the YAML syntax
 
 https://gitlab.com/ci/lint
 
 ifndef::slides[.Validation de son code YAML]
 image::lint.png[width=50%]
-ifdef::slides[NOTE: [detail]#Validation de son code YAML#]
 
 ifndef::slides[:leveloffset: 0]
-
-ifndef::slides[]
-
-// ------
-[{topic}]
-== Liens utiles
-
-Le site de référence::
-  https://about.gitlab.com/gitlab-ci/
-
-Un tuto en français sur l'IC sous {gitlab} (merci icon:twitter[] @npm_kader)::
-  https://www.grafikart.fr/tutoriels/divers/gitlab-ci-docker-808
-
-endif::slides[]
