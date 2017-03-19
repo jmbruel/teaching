@@ -68,12 +68,10 @@ https://moodle.university.innopolis.ru/mod/assign/view.php?id=5820
 
 Each of you is working on a project where you practice {Scrum}.
 
-Here is a non exhaustive list of potential sections for the report:
-
-- Context
+- Context, environment
 - Product description
 - Team organization
-- Sprint planning
+- Sprint plannings
 - Financial evaluation (if you had to send me a bill...)
 - Personnal Feedback on the experience
 - ...

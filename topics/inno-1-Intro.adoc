@@ -69,12 +69,21 @@ Tools::
 | 3 | Jan. 27th | Project setup
 | 4 | Jan. 28th | link:{base}/inno-3-Manifesto.html[Agile Manifesto]
 | 5 | Jan. 28th | link:{base}/inno-4-Scrum.html[Scrum practice]
-| 6 | Jan. 28th | link:{base}/inno-5-tests.html[Tests] & Coding Dojo
+| 6 | Jan. 28th | Scrum practice
 | 7 | Jan. 28th | Team building & Sprint 0
 
-| 8-15 | Mar. 3-4 | Feedbacks on self-practice; Build techniques
-| 16-23 | Mar. 17-18 | Continuous Integration; Demo and presentations
-| 24-30 | Apr. 14-15 | Quality assessment; Reporting
+| 8-15 | Mar. 3-4 | Feedbacks on self-practice; Demo and presentations
+| *16-25* | *Mar. 17-19* | *Continuous Integration; Build techniques; Reporting*
+| 16 | Mar. 17th | link:{base}/inno-feedbacks.html[Plan for the venue]
+| 16 | Mar. 17th | link:{base}/inno-11-Recap.html[Feedbacks from last venue/presentations]
+| 17 | Mar. 17th | link:{base}/inno-4-Scrum.html[Scrum practice]  (quick reminder)
+| 18 | Mar. 17th | link:{base}/inno-5-tests.html[Tests] & Coding Dojo
+| 19 | Mar. 18th | link:{base}/inno-6-git.dzslides[Git] (quick reminder)
+| 20 | Mar. 18th | link:{base}/inno-7-ci.dzslides.html[Continuous Integration]
+| 21 | Mar. 18th | link:{base}/inno-8-testingCI.dzslides.html[Tests & CI]
+| 22-23 | Mar. 18th | Work on project reporting
+| 24-25 | Mar. 19th | Work on project reporting, discuss evaluation
+| 26-32 | Apr. 14-15 | Quality assessment; Reporting; Exam; Course evaluation
 |===
 
 == Between my venues
