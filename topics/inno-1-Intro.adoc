@@ -86,8 +86,7 @@ Tools::
 | 26-32 | Apr. 14-15 | Quality assessment; Reporting; Exam; Course evaluation
 |===
 
-NOTE: The evaluation plan is explained link:{base}/inno-10-MAP-Evaluation.html
-[here].
+NOTE: The evaluation plan is explained link:{base}/inno-10-MAP-Evaluation.html[here].
 
 == Between my venues
 
