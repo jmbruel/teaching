@@ -1,0 +1,433 @@
+//---------------------------------
+// Cours sur Continuous Integration
+// (c) JMB - 2016
+//---------------------------------
+[[ci]]
+= *Continuous Integration* with gitlab
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: http://jmbhome.github.io/teaching/topics/ci.html
+:bitlysiteurl: http://bit.ly/jmb-ci
+//------------------------------------ Slides uniquement
+ifdef::slides[]
+//--------------------- dzslides slides
+ifdef::dzslides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+endif::dzslides[]
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+:compMergeURL: https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&utm_medium=social&utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate
+
+// ------
+[{intro}]
+== Objectives
+
+ifndef::slides[:leveloffset: +1]
+
+// ------
+[{topic}]
+== *Systematic* code review
+
+ifndef::slides[.Résultats visibles et tracés]
+image::builds_status.png[width=100%]
+
+// ------
+[{topic}]
+== Environment
+
+gitlab-ci-multi-runner `1.6.0`.
+
+// ------
+[{topic}]
+== e**X**treme **P**rogramming
+
+[quote,Martin Fowler]
+Continuous Integration is a software development practice where members of a team integrate their work frequently, [...] leading to multiple integrations per day.
+
+// ------
+[{topic}]
+== General Principles
+
+ifndef::slides[.Exemple d'Continuous Integration (github-travis)]
+image::travis.png[width=100%]
+
+ifdef::slides[== !]
+
+:thisref: https://about.gitlab.com/gitlab-ci/
+ifndef::slides[.Architecture GitLab-CI ({thisref})]
+image::arch1.jpg[width=80%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+// ------
+[{topic}]
+== YAML
+:yaml: http://yaml.org/[YAML]
+
+{yaml}: **Y**AML **A**in't **M**arkup **L**anguage
+
+.Example of `.yml` file
+.............
+---
+receipt:     Oz-Ware Purchase Invoice
+date:        2012-08-06
+customer:
+    first_name:   Dorothy
+    family_name:  Gale
+.............
+
+ifndef::slides[:leveloffset: 0]
+
+// --------------------------------------------------------------------
+[{topic}]
+== Usage
+
+A Continuous Integration server allows:
+
+  git [detail]#(pull, checkout, push)#
+  *build*
+  Archives
+  Deploy code
+  Execute test suites [detail]#(Junit, Audit, test IHM, ...)#
+  Notify results [detail]#(mail, RSS)#
+  etc.
+
+// --------------------------------------------------------------------
+[{topic}]
+== Services
+
+https://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software[Wikipedia] counts more than 40!:
+
+-    http://cruisecontrol.sourceforge.net/[Cruise Control]
+-    http://hudson-ci.org/[Hudson]
+-   https://travis-ci.org/[Travis CI]
+-   https://jenkins.io/[Jenkins]
+-   https://about.gitlab.com/gitlab-ci/[Gitlab CI]
+
+
+// --------------------------------------------------------------------
+[{intro}]
+== Illustration with GitLab
+
+ifndef::slides[:leveloffset: +1]
+
+// ------
+[{topic}]
+== Process
+
+[{incremental}]
+. Create a file in the main folder: `.gitlab-ci.yml`
+. Describe expected treatments
+. "Push" on the {gitlab} repo
+. Control results
+
+
+// ------
+[{topic}]
+== Example
+
+..........
+image: node:4.2.2   <1>
+
+all_tests:
+  script:           <2>
+   - npm install express --save
+   - node ./myapp.js
+..........
+<1> Name of the "runner"
+<2> Instructions for the virtual machine
+
+
+ifdef::slides[== Example]
+
+Results :
+
+ifndef::slides[.Attention au code infini]
+image::gitlabCI-1B2-1.png[width=50%]
+ifdef::slides[NOTE: [detail]#Beware of infinite CI#]
+
+ifdef::slides[== Example]
+
+Another `.gitlab-ci.yml`:
+
+..........
+   - npm install express --save
+   - node ./specs/start.js ./specs/async.spec.js
+..........
+
+ifndef::slides[.Le build est un succès]
+image::gitlabCI-1B2-2.png[width=50%]
+
+ifndef::slides[:leveloffset: +1]
+
+// ------
+[{topic}]
+== Code
+
+-----
+include::HelloWorld/src/HelloWorld.java[]
+-----
+
+// ------
+[{topic}]
+== Testing `main`
+
+ifndef::slides[]
+.src/Main.java
+[source,java]
+endif::slides[]
+-----
+include::HelloWorld/src/Main.java[]
+-----
+
+// ------
+[{topic}]
+== Compilation by hand
+
+[source]
+-----
+$ javac -sourcepath src -d bin/ src/Main.java
+$ ls bin
+HelloWorld.class	Main.class
+$ java -cp bin Main
+Hello JMB!
+-----
+
+// ------
+[{topic}]
+== Ant build
+
+.build.xml
+[source,xml]
+-----
+include::HelloWorld/build.xml[]
+-----
+
+ifdef::slides[== Manual build]
+
+[source]
+-----
+$ ant clean build jar
+$ ant run
+Buildfile: /Users/bruel/HelloWorld/build.xml
+
+run:
+     [java] Hello JMB!
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+-----
+
+// ------
+[{topic}]
+== Improvements
+
+.build.xml (amélioré)
+[source,xml]
+-----
+include::HelloWorld/build1.xml[]
+-----
+
+ifdef::slides[== Manual build]
+
+[source]
+-----
+$ ant
+Buildfile: /Users/bruel/HelloWorld/build.xml
+
+clean:
+   [delete] Deleting directory /Users/bruel/HelloWorld/bin
+
+compile:
+    [mkdir] Created dir: /Users/bruel/HelloWorld/bin/classes
+    [javac] Compiling 2 source files to /Users/bruel/HelloWorld/bin/classes
+
+jar:
+    [mkdir] Created dir: /Users/bruel/HelloWorld/bin/jar
+      [jar] Building jar: /Users/bruel/HelloWorld/bin/jar/HelloWorld.jar
+
+run:
+     [java] Hello JMB!
+
+main:
+
+BUILD SUCCESSFUL
+Total time: 1 second
+-----
+
+// ------
+[{topic}]
+== Tests
+
+ifndef::slides[]
+.src/TestHelloWorld.java (failing)
+[source,java]
+endif::slides[]
+-----
+include::HelloWorld/src/TestHelloWorld.java[]
+-----
+
+ifdef::slides[== Tests]
+
+.build.xml (external librairies)
+[source,xml]
+-----
+include::HelloWorld/build2.xml[]
+-----
+
+ifdef::slides[== Manual build]
+
+[source]
+-----
+$ ant junit
+Buildfile: /Users/bruel/HelloWorld/build.xml
+
+compile:
+
+jar:
+
+junit:
+    [junit] Running TestHelloWorld
+    [junit] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0,003 sec
+    [junit] Test TestHelloWorld FAILED
+
+BUILD SUCCESSFUL
+Total time: 1 second
+-----
+
+ifdef::slides[== Tests]
+
+ifndef::slides[]
+.src/TestHelloWorld.java
+[source,java]
+endif::slides[]
+-----
+include::HelloWorld/src/TestHelloWorldReal.java[]
+-----
+
+ifdef::slides[== Tests]
+
+ifndef::slides[.Un test exécuté sous eclipse]
+image::eclipseTest.png[width=90%]
+ifdef::slides[NOTE: [detail]#eclipse#]
+
+ifdef::slides[== Tests]
+
+http://infinitest.github.io/[infinitest].
+
+ifndef::slides[.Utilisation d'infinitest sous eclipse]
+image::infinitest.png[width=90%]
+
+// ------
+[{topic}]
+== Eclipse
+
+{ant} files generated by {eclipse}!
+
+ifndef::slides[.Export du bild ant sous eclipse]
+image::exportAnt.png[width=100%]
+
+ifdef::slides[== Eclipse]
+
+.build.xml (eclipse)
+[source,xml]
+-----
+include::HelloWorld/buildEclipse.xml[]
+-----
+
+ifdef::slides[== Eclipse]
+
+ifndef::slides[.Run de ant sous eclipse]
+image::runAnt.png[width=100%]
+
+ifdef::slides[== Eclipse]
+
+ifndef::slides[.Présentation des résultats de test]
+image::junitreport.png[width=90%]
+
+// ------
+[{topic}]
+== Continuous Integration
+
+.{nbsp}.gitlab-ci.yml (at the root of the git project)
+[source,yml]
+-----
+include::.gitlab-ci.yml[]
+-----
+
+ifndef::slides[:leveloffset: 0]
+
+// --------------------------------------------------------------------
+[{intro}]
+== Tricks
+
+ifndef::slides[:leveloffset: +1]
+
+// ------
+[{topic}]
+== When CI is not wanted
+
+[source]
+------
+git commit -m "Blabla... [ci skip]"
+------
+
+// ------
+[{topic}]
+== Check the YAML syntax
+
+https://gitlab.com/ci/lint
+
+ifndef::slides[.Validation de son code YAML]
+image::lint.png[width=50%]
+
+ifndef::slides[:leveloffset: 0]

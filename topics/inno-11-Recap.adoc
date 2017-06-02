@@ -1,0 +1,111 @@
+//---------------------------------
+// Course on Unit Testing
+// (c) JMB - 2016
+//---------------------------------
+= Recap
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: https://jmbruel.github.io/teaching/topics/testingCI.html
+:bitlysiteurl: http://bit.ly/jmb-testing
+//------------------------------------ Slides uniquement
+ifdef::slides[]
+//--------------------- dzslides slides
+ifdef::dzslides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+:dzslides-highlight: asciidoctor
+//:dzslides-highlight: monokai
+//:source-highlighter: highlightjs
+:dzslides-status:
+//:syntaxoff: syntax="no-highlight"
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+
+endif::dzslides[]
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+
+:numbered:
+
+// ------------------------------------------ Pourquoi
+[{intro}]
+== Feedbacks
+
+[{topic}]
+== What is *Scrum* about?
+
+Scrum is about:
+
+[{incremental}]
+- *Personal commitment* to the project
+- Trying to deliver the *most value* for customer
+
+
+[{topic}]
+== Lessons learned (previous period)
+
+[{incremental}]
+* Importance of same *Time Schedule*
+* Importance of *tools*
+** => use a suitable one that you master
+
+[{topic}]
+== Lessons learned (previous period)
+
+[{incremental}]
+* No too long sprints
+** 2 weeks max
+* Correct mistakes ASAP
+** => regular feedbacks and retrospectives
+
+[{topic}]
+== Lessons learned (previous period)
+
+[{incremental}]
+* Difficulty of evaluating (points/time)
+** it comes with experience
+* Importance of *physical* meetings
+* Importance of an available Product Owner

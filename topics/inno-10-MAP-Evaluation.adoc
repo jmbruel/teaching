@@ -1,0 +1,135 @@
+//---------------------------------
+// Cours MPA - version UK
+// (c) JMB - 2016
+//---------------------------------
+= **M**odern **A**pplication **P**roduction
+J.-M. Bruel <jbruel@gmail.com>
+v1.3 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+:icons: font
+:experimental:
+:toc: left
+:numbered:
+:status:
+:base: http://jmbruel.github.io/teaching/topics
+:siteurl: {base}/map.html
+:bitlysiteurl: http://bit.ly/jmb-map
+:incremental: %step
+:numbered!:
+
+include::../definitions.txt[]
+
+== icon:book[] *Evaluation* For this course
+
+image::tuxteacher.png[]
+
+The evaluation will be as follow:
+
+[align="center",width="90%",cols="6,^4,^2",options="header"]
+|=========================================================
+| Topic											    | Deadline     | Weight footnote:[in the final grade]
+| Assignement 1 (User Stories)	| April 2nd    | 10%
+| Assignement 2 (Provocative st.)	| April 9th    | 10%
+| Project Report	                 | April 19th    | 60%
+| Exam (quizz)	                 | To be announced    | 20%
+| _Bonus_                         	| _April 19th_    | _+10%_
+|=========================================================
+
+:numbered:
+== Assignement 1 (10%)
+
+=== Topic
+
+I asked you to read a 15 pages report detailing what a good User Story is.
+You will provide a one page max PDF file with your answers to the final 2 questions.
+
+=== Evaluation
+
+Upload your answers on Moodle: https://moodle.university.innopolis.ru/mod/assign/view.php?id=5074
+
+== Assignement 2 (10%)
+
+=== Topic
+
+- Find a provocative statement about Agile/Scrum (e.g., https://hackernoon.com/agile-doesnt-have-a-brain-51c2835a838#.5i0a1hbb[this one])
+- Explain in one slide/one page
+- Give a critical and argumented opinion (right/wrong)
+
+=== Evaluation
+
+Upload your answers on Moodle:
+https://moodle.university.innopolis.ru/mod/assign/view.php?id=5820
+
+== Project Report (60%)
+
+=== Topic
+
+Each of you is working on a project where you practice {Scrum}.
+
+- Context, environment
+- Product description
+- Team organization
+- Sprint plannings
+- Financial evaluation (if you had to send me a bill...)
+- Personnal Feedback on the experience
+- ...
+
+=== Evaluation
+
+NOTE: This is a group evaluation, hence make sure to put the list
+of all the members (registered students) of the team on your report.
+
+You will have to put a PDF report and any other materials you believe usefull
+in this Moodle report:
+
+https://moodle.university.innopolis.ru/mod/assign/view.php?id=5819
+
+The evaluation of your report will focus on the following criterias:
+
+[align="center",width="90%",cols="6,^2",options="header"]
+|=========================================================
+| Criteria											      | Weight
+| Structure and organization		      | 10%
+| Preciseness in method description		| 10%
+| Correctness of the Scrum principles	| 30%
+| Availability of Scrum artefacts footnote:[Burndown charts, sprint backlogs, ...]		| 30%
+| Conclusion and feedbacks		        | 10%
+| Readability                     		| 10%
+|=========================================================
+
+[TIP]
+====
+Feel free to add a "self-evaluation"
+section in your report that self-evaluate those criteria
+for your project.
+====
+
+== Exam (20%)
+
+=== Topic
+
+This will take the form of a one hour exam on a quizz
+with questions taken from the course (about Agile, Scrum, Tests, Build, Continuous Integration, etc.).
+
+=== Evaluation
+
+The quizz will have negative points for bad answers.
+Make sure you answer questions you're sure about the answer.
+
+== Bonus (extra 10%)
+
+=== Topic
+
+For those of you who really want a more detailed,
+critical view on Agile methods, I advised you to follow
+this online MOOC: {agileMoocUrl}
+
+It is a good way of staying in the field between two venues
+and to prepare the exam.
+
+=== Evaluation
+
+Proof of success (>60%) should be sent to me by email.
+It will count as a bonus in the evaluation.

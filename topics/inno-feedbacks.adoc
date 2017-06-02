@@ -22,17 +22,38 @@ v1.1 {localdate}
 include::../definitions.txt[]
 
 [{intro}]
-== icon:book[] This period program
+== icon:book[] This sprint "backlog"
+
+[{topic}]
+== Day 1
 
 [{incremental}]
 - Back to the big picture of this course
-- Feedbacks from last venue/presentations
+- link:{base}/inno-11-Recap.dzslides.html[Feedbacks from last venue/presentations]
+- link:{base}/inno-4-Scrum.html[Scrum practice]  (quick reminder)
+- link:{base}/inno-5-tests.html[Tests] & Coding Dojo
+
+[{topic}]
+== Day 2
+
+[{incremental}]
+- link:{base}/inno-6-git.dzslides[Git] (quick reminder)
+- link:{base}/inno-7-ci.dzslides.html[Continuous Integration]
+- link:{base}/inno-8-testingCI.dzslides.html[Tests & CI]
+
+[{topic}]
+== Day 3
+
+[{incremental}]
+- Practice
+- Documentation production
+
 
 == Materials in live... icon:mobile[] icon:tablet[] icon:laptop[]
 
 {bitlysiteurl}
 
-== icon:home[] Principles
+== icon:home[] Principles (Product Backlog)
 
 [{incremental}]
 Application::
@@ -55,11 +76,11 @@ Tools::
 | 3 | Jan. 27th | Project setup
 | 4 | Jan. 28th | link:{base}/inno-3-Manifesto.html[Agile Manifesto]
 | 5 | Jan. 28th | link:{base}/inno-4-Scrum.html[Scrum practice]
-| 6 | Jan. 28th | link:{base}/inno-5-tests.html[Tests] & Coding Dojo
+| 6 | Jan. 28th | Scrum practice
 | 7 | Jan. 28th | Team building & Sprint 0
 
 | 8-15 | Mar. 3-4 | Feedbacks on self-practice; Demo and presentations
-| 16-25 | Mar. 17-19 | Continuous Integration; Build techniques; Reporting
+| *16-25* | *Mar. 17-19* | *Continuous Integration; Build techniques; Reporting*
 | 26-32 | Apr. 14-15 | Quality assessment; Reporting
 |===
 
@@ -80,8 +101,6 @@ image::mooc-results.png[]
 
 - Good way of staying in the field between two venues
 - Proof of success (>60%) will count in the evaluation
-
-== Feedbacks
 
 == Assignement 2
 

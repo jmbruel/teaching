@@ -1,0 +1,810 @@
+//---------------------------------
+// Cours sur Git
+// (c) JMB - 2014
+//---------------------------------
+[[git]]
+= Versioning with *git*
+J.-M. Bruel <jbruel@gmail.com>
+v2.0 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:git-version: 2.9.2
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: http://jmbhome.github.io/teaching/topics/git.html
+:bitlysiteurl: http://bit.ly/jmb-git
+//------------------------------------ Slides uniquement
+ifdef::slides[]
+//--------------------- dzslides slides
+ifdef::dzslides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+endif::dzslides[]
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+:compMergeURL: https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/?utm_source=twitter&utm_medium=social&utm_campaign=atlassian_pull-request-merge-strategies-the-great-debate
+
+// ------
+[{topic}]
+== Environment
+
+ifdef::slides[]
+- {git} [detail]#(v.`{git-version}`)#
+- {giturl}
+endif::slides[]
+ifndef::slides[]
+Vous pouvez installer {git} depuis le site officiel.
+Nous utilisons ici la version `{git-version}` en ligne de commande.
+Mais vous pouvez bien sûr utiliser un client graphique (comme https://www.sourcetreeapp.com/).
+
+endif::slides[]
+
+:thisref: {sourcetreeurl}
+ifndef::slides[.Client graphique ({thisref})]
+image::sourcetree.png[width=50%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+ifdef::slides[== Command lines]
+
+ifndef::slides[.Lignes de commande]
+image::git-term.png[width=80%]
+
+ifndef::slides[]
+[NOTE]
+====
+Je vous recommande tout de même de connaître les commandes en ligne, c'est souvent utile!
+Pour vous familiariser avec les commandes {git} en ligne, ne pas hésiter à utiliser le site http://try.github.com/levels/1/challenges/1[http://try.github.com].
+====
+endif::slides[]
+
+// ------
+[{topic}]
+== General principles
+
+:thisref: http://nvie.com/posts/a-successful-git-branching-model/
+ifndef::slides[.Usage classique de git ({thisref})]
+image::git-branching.png[width=70%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+
+ifndef::slides[]
+[NOTE]
+====
+Ce modèle est controversé et ne fait pas l'unanimité.
+Nous verrons dans la suite qu'il y a plus simple.
+====
+endif::slides[]
+
+// ------
+[{topic}]
+== Before starting
+
+Initialize some useful variables:
+
+[source]
+----------------------------------------------------------------------
+$ git config --global user.name "JM Bruel"
+$ git config --global user.email jbruel@gmail.com
+$ git config --global alias.co checkout
+----------------------------------------------------------------------
+
+// ------
+ifdef::slides[== !]
+
+[TIP]
+====
+Those information are stored in the file: `~/.gitcongif`.
+====
+
+Here is an extract of link:util/.gitconfig[mine]:
+
+[source]
+----------------------------------------------------------------------
+[user]
+        name = Jean-Michel Bruel
+        email = jbruel@gmail.com
+[alias]
+        co = checkout
+        st = status
+----------------------------------------------------------------------
+
+// ------
+ifdef::slides[== !]
+
+[source]
+----------------------------------------------------------------------
+$ git co
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+$ git checkout
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+----------------------------------------------------------------------
+
+
+// ------
+[{intro}]
+== *Classic* scenario (and ideal)
+
+ifndef::slides[:leveloffset: +1]
+
+// ------
+[{topic}]
+== Step 1: local _repository_
+
+Let's start versioning:
+
+[source]
+----------------------------------------------------------------------
+$ git init
+----------------------------------------------------------------------
+
+// ------
+ifdef::slides[== !]
+
+[TIP]
+====
+This generates the `.git` folder (in the current one).
+
+[source]
+----------------------------------------------------------------------
+$ git init
+Initialized empty Git repository in /tmp/.git/
+
+$ ll
+total 0
+drwxr-xr-x   3 bruel  admin   102 21 jul 17:29 ./
+drwxr-xr-x  35 bruel  admin  1190 21 jul 17:29 ../
+drwxr-xr-x  10 bruel  admin   340 21 jul 17:29 .git/
+----------------------------------------------------------------------
+
+====
+
+// ------
+[{topic}]
+== Step 2: adding files
+
+Adding the current forlder (and its content) to the repository:
+
+[source]
+----------------------------------------------------------------------
+$ git add .
+----------------------------------------------------------------------
+
+[{incremental}]
+You can select what is added (`git add *.c` for example).
+
+[{incremental}]
+Create a `.gitignore` file to avoid adding useless files (such as `log` ones).
+
+// ------
+[{topic}]
+== Step 2 (ctd.): checking
+
+You can verify the *current state*:
+
+[source]
+----------------------------------------------------------------------
+$ git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   Generalites.txt
+#	deleted:    S3/128056_56.d
+...
+----------------------------------------------------------------------
+
+// ------
+[{topic}]
+== Step 3: Commit
+
+To register the changes:
+
+[source]
+----------------------------------------------------------------------
+$ git commit -m "First draft"
+[master (root-commit) 4f40f5d] First draft
+ 0 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 titi.txt
+ create mode 100644 toto.txt
+----------------------------------------------------------------------
+
+[{incremental}]
+The `commit` is only local!
+
+// ------
+[{topic}]
+== Step 3 (ctd.) : Gestion "locale"
+
+Example of scenario:
+
+[source]
+----------------------------------------------------------------------
+$ rm titi.txt
+$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    titi.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git checkout -f
+$ ls titi.txt
+titi.txt
+----------------------------------------------------------------------
+
+// ------
+[{topic}]
+== Step 4: Find a distant repository
+
+{gitHub}, {gitlab} etc.
+
+image::github.png[width="70%"]
+
+// ------
+[{topic}]
+== Step 4 (ctd.): define the distant repository
+
+[source]
+----------------------------------------------------------------------
+$ git remote add origin git@github.com:jmbruel/first_app.git <1>
+$ git push -u origin master <2>
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 225 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:jmbruel/first_app.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+----------------------------------------------------------------------
+<1> Possible to have several distant repository (this one is named `origin`).
+<2> The option `-u origin master` is for the next `git push`
+//''
+
+// ------
+[{topic}]
+== Step 5: branch, edit, commit, merge
+
+[source]
+----------------------------------------------------------------------
+$ git checkout
+Your branch is ahead of 'origin/master' by 1 commit.
+----------------------------------------------------------------------
+
+// ------
+[{topic}]
+== Step 5 (ctd.): branching
+
+{git} is very good to create branches:
+
+[source]
+----------------------------------------------------------------------
+$ git checkout -b testModifTiti
+Switched to a new branch 'testModifTiti'
+$ git branch
+  master
+* testModifTiti <1>
+----------------------------------------------------------------------
+<1> current branch with `*`.
+
+// ------
+[{topic}]
+== Step 5 (ctd.): edit
+
+[source]
+----------------------------------------------------------------------
+$ git status
+# On branch testModifTiti
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   titi.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+----------------------------------------------------------------------
+
+// ------
+[{topic}]
+== Step 5 (ctd.): commit
+
+[source]
+----------------------------------------------------------------------
+$ git commit -am "modif de titi"
+[testModifTiti 4515b5d] modif de titi
+ 1 files changed, 7 insertions(+), 0 deletions(-)
+----------------------------------------------------------------------
+
+[{incremental}]
+- Only local!
+
+// ------
+[{topic}]
+== Step 5 (ctd.): use of branches
+
+[source]
+----------------------------------------------------------------------
+$ ll titi*
+-rw-rw-r--    1 bruel  staff   331 12 nov 12:39 titi.txt
+
+$ git co master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+
+$ ll titi*
+-rw-rw-r--    1 bruel  staff     0 12 nov 12:40 titi.txt
+----------------------------------------------------------------------
+
+// ------
+[{topic}]
+== Step 5 (ctd.): merge
+
+[source]
+----------------------------------------------------------------------
+$ git co master
+Switched to branch 'master'
+
+$ git merge testModifTiti
+Merge made by recursive.
+ titi.txt |    7 +++++++
+ 1 files changed, 7 insertions(+), 0 deletions(-)
+----------------------------------------------------------------------
+
+// ------
+[{topic}]
+== Step 6: push
+
+[source]
+----------------------------------------------------------------------
+$ git push
+Counting objects: 11, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 977 bytes, done.
+Total 9 (delta 2), reused 0 (delta 0)
+To git@github.com:jmbruel/first_app.git
+   6103463..3aae48a  master -> master
+----------------------------------------------------------------------
+
+// ------
+[{topic}]
+== Step 7: pull request (acceptation)
+
+[source]
+----------------------------------------------------------------------
+$ git checkout -b develop origin/develop
+$ ...                       <1>
+$ git checkout master
+$ git merge --no-ff develop <2>
+$ git push origin master    <3>
+----------------------------------------------------------------------
+<1> We check what is going to be integrated
+<2> Local merge (to check pproblems))
+<3> Push on master
+
+ifndef::slides[:leveloffset: 0]
+
+// ------
+[{topic}]
+== Existing repository
+
+[source]
+----------------------------------------------------------------------
+$ git clone git@github.com:jmbruel/first_app.git
+----------------------------------------------------------------------
+
+// ------
+[{topic}]
+== Illustration of branches
+
+(taken from http://git-scm.com/book[git-scm]).
+
+ifndef::slides[.Situation initiale]
+image::gf1.svg[width="50%"]
+
+ifdef::slides[]
+// ------
+[{topic}]
+== Illustration of branches (ctd.)
+endif::slides[]
+
+[source]
+----------------------------------------------------------------------
+$ git checkout -b iss53
+----------------------------------------------------------------------
+
+ifndef::slides[.Création d'une branche]
+image::gf2.svg[width="40%"]
+
+{git} only creates a pointer => no memory copy.
+
+ifdef::slides[]
+// ------
+[{topic}]
+== Illustration of branches (ctd.)
+endif::slides[]
+
+
+[source]
+----------------------------------------------------------------------
+$ edit ...
+$ git commit -m " blabla iss53"
+----------------------------------------------------------------------
+
+ifndef::slides[.On commence à diverger de `master`]
+image::gf3.svg[width="50%"]
+ifdef::slides[Diverging from `master`]
+
+ifdef::slides[]
+// ------
+[{topic}]
+== Illustration of branches (ctd.)
+endif::slides[]
+
+[source]
+----------------------------------------------------------------------
+$ git checkout master
+$ git checkout -b hotfix
+$ edit ...
+$ git commit -m " blabla hotfix"
+----------------------------------------------------------------------
+
+ifndef::slides[.Maintenant on a 2 branches parallèles (en plus de `master`)]
+image::gf4.svg[width="50%"]
+
+ifdef::slides[]
+// ------
+[{topic}]
+== Illustration of branches (ctd.)
+endif::slides[]
+
+[source]
+----------------------------------------------------------------------
+$ git checkout master
+$ git merge hotfix
+----------------------------------------------------------------------
+
+ifndef::slides[.Merge de deux branches (en _fast-forward_)]
+image::gf5.svg[width="40%"]
+
+{git} use of *fast-forward* here
+
+ifdef::slides[]
+// ------
+[{topic}]
+== Illustration of branches (ctd.)
+endif::slides[]
+
+Working on `iss53` :
+
+[source]
+----------------------------------------------------------------------
+$ git branch -d hotfix <1>
+$ git checkout iss53
+$ edit ...
+$ git commit -m " blabla iss53"
+----------------------------------------------------------------------
+<1> Destruction de la branche devenue redondante avec `master`.
+
+ifndef::slides[.On retravaille sur `iss53`]
+image::gf6.svg[width="50%"]
+
+ifdef::slides[]
+// ------
+[{topic}]
+== Illustration of branches (ctd.)
+endif::slides[]
+
+[source]
+----------------------------------------------------------------------
+$ git checkout master
+$ git merge iss53
+----------------------------------------------------------------------
+
+ifndef::slides[.Explications du fonctionnement du merge sans _fast-forward_]
+image::gf7.svg[width="50%"]
+
+ifndef::slides[]
+[NOTE]
+====
+[{incremental}]
+- Explications : {git} recherche la racine commune (ici `c3` pour intégrer
+les branches (les commits feuilles) une par une et vérifier les conflits par itérations à partir de cette racine.
+====
+endif::slides[]
+
+ifdef::slides[]
+// ------
+[{topic}]
+== Illustration of branches (ctd.)
+endif::slides[]
+
+ifndef::slides[.Situation finale]
+image::gf8.svg[width="50%"]
+
+// ------
+[{topic}]
+== Good habits
+
+ifdef::slides[:leveloffset: -1]
+
+// ------
+[{topic}]
+=== Defined procedure
+
+ifndef::slides[.Usage classique de git (http://nvie.com/posts/a-successful-git-branching-model/)]
+image::git-branching.png[width="70%",link="http://nvie.com/posts/a-successful-git-branching-model/",window="_blank"]
+
+// ------
+[{topic}]
+=== Do not version everything!
+
+- no exe files
+- no changing zip files
+- no generated images
+- no binary in general!
+
+// ------
+[{intro}]
+=== Tricks
+
+// ------
+[{topic}]
+=== Oups! I forgot something
+
+[source]
+----------------------------------------------------------
+$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend
+----------------------------------------------------------
+
+// ------
+[{topic}]
+=== Oups! I've put too much
+
+[source]
+----------------------------------------------------------
+$ git add *.*
+$ git reset *.class
+----------------------------------------------------------
+
+NOTE: Safe
+
+// ------
+[{topic}]
+=== CTRL+Z
+
+[source]
+----------------------------------------------------------
+$ working on some file README.adoc ...
+$ git checkout -- REAME.adoc
+----------------------------------------------------------
+
+WARNING: Unsafe!
+
+// ------
+[{topic}]
+=== Where am I?
+
+[source]
+----------------------------------------------------------
+$ git status
+----------------------------------------------------------
+
+ifdef::slides[=== !]
+
+image::gitbash1.png[width=95%]
+
+ifdef::slides[=== !]
+
+image::gitbash2.png[width=95%]
+
+ifdef::slides[=== !]
+
+image::gitbash3.png[width=95%]
+
+ifdef::slides[=== !]
+
+image::gitbash4.png[width=95%]
+
+ifdef::slides[:leveloffset: +1]
+
+// ------
+[{intro}]
+== Branching
+
+ifdef::slides[== !]
+
+(taken from the excellent book https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows[Pro Git])
+
+ifdef::slides[== !]
+
+Only 2 branches: `master` & `develop`.
+
+[source]
+----------------------------------------------------------
+$ git branch
+* develop     <1>
+  master      <2>
+----------------------------------------------------------
+<1> `develop` est la branche de travail qui contient la dernière version des codages en cours.
+<2> `master` est toujours stable et sert au déploiement
+
+ifdef::slides[== !]
+
+fork `develop` to treat a _bug_ or a _feature_.
+
+- merge in `develop`
+- destroy the useless branch
+
+ifdef::slides[== !]
+
+[{incremental}]
+- Create a branch (e.g., `fix-451`)
+- Work on it
+- Merger in `develop`
+- Re-run tests
+- Fix conflicts if any
+- When everything works => pull-request
+- `master` is ready
+
+
+// ------
+[{intro}]
+== Different *merge*
+
+ifdef::slides[== !]
+
+(taken from {compMergeURL})
+
+ifdef::slides[:leveloffset: -1]
+
+// ------
+[{topic}]
+=== Explicit `merge`
+
+image::what-is-a-merge.gif[width=95%,link={compMergeURL}]
+
+// ------
+[{topic}]
+=== Implicit `merge` via `rebase` or `fast-forward`
+
+image::what-is-a-rebase.gif[width=95%,link={compMergeURL}]
+
+// ------
+[{topic}]
+=== Implicit `merge` via `fast-forward`
+
+image::what-is-a-fast-forward.gif[width=95%,link={compMergeURL}]
+
+// ------
+[{topic}]
+=== Squash on `merge`
+
+image::squash-on-merge.gif[width=95%,link={compMergeURL}]
+
+
+ifdef::slides[:leveloffset: +1]
+
+[[conflits]]
+// ------
+[{intro}]
+== Conflicts management
+
+ifdef::slides[:leveloffset: -1]
+
+// ------
+[{topic}]
+=== By hand
+
+[source]
+----------------------------------------------------------
+$ git checkout master
+$ git merge other_branch
+Auto-merging toto.txt
+CONFLICT (content): Merge conflict in toto.txt
+Automatic merge failed; fix conflicts and then commit the result.
+$ more toto.txt
+<<<<<<< HEAD <1>
+Salut monde
+======= <2>
+hello world!
+
+>>>>>>> other_branch <3>
+$ vi toto.txt <4>
+$ git commit <5>
+----------------------------------------------------------
+<1> Voilà où commence la différence entre la branche courante (`HEAD`)
+et la branche qu'on essaye de merger (`other_branch`)
+<2> Séparation
+<3> Voilà où se termine cette différence
+<4> on édite le fichier à la main pour choisir la bonne version
+<5> on commit pour valider la modif
+
+// ------
+[{topic}]
+=== With some help
+
+- `git diff`
+- `git difftool`
+** {diffmerge}
+** ...
+
+ifdef::slides[:leveloffset: +1]
+
+// ------
+[{intro}]
+== Git advanced: Git-Flow
+
+ifdef::slides[== !]
+
+http://danielkummer.github.io/git-flow-cheatsheet/
+
+ifdef::slides[]
+// ------
+[{intro}]
+== Wrap-up
+endif::slides[]
+
+// ------
+[{topic}]
+== Wrap-up
+
+(taken from http://osteele.com) :
+
+ifndef::slides[.Résumé des commandes git (http://osteele.com)]
+image::git-resume.png[width="90%",link="http://osteele.com"]
