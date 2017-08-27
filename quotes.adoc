@@ -11,3 +11,9 @@ stages of development. When this happens, the design may have to be heavily and 
 //-----------------
 [quote,G. E. P. Box and N. R. Draper, 1987]
 Essentially, all models are wrong, but some are useful.
+
+//-----------------
+//
+//-----------------
+[quote, Edsger Dijkstra, ACM Turing Lecture - 1972]
+The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise.
