@@ -9,10 +9,11 @@ include::../definitions.txt[]
 :icons: font
 :imagesdir: images
 :prof:
+:forum: {telegram}
 
 == Context
 
-For this fisrt edition of the course, we have collectivelly decide that
+For this first edition of the course, we have collectively decided that
 projects will be different for each team and that the teams will be
 self-decided and self-organized groups.
 
@@ -26,7 +27,7 @@ http://bit.ly/jmb-map2017
 The use of a management tools is mandatory but the choice is up to each group
 ({tuleap}, {gitlab}, {redmine}, {zenhub}, {youtalk}, {jira}, {trello}, ...
 
-The only requirements for this tool (or comination of tools) are:
+The only requirements for this tool (or combination of tools) are:
 
 - you should be able to add me as a member of the team (scrum master helpdesk ;-)
 - it should allow you to manipulate the {scrum} artefacts (backlogs, burdown, ...)
@@ -39,7 +40,7 @@ Here is an example of steps you could follow:
 . icon:users[] Choose a Scrum Master icon:user-md[] (at least for the first Sprint)
 . icon:user-md[] Scrum Master add the other team members in the project,
 as well as {jmb} as a Product Owner icon:male[].
-. Don't hesitate to use the forum ({telegram}) for general questions that could interest everybody.
+. Don't hesitate to use the forum ({forum}) for general questions that could interest everybody.
 +
 NOTE: This forum will be the official mean of communication
 +
