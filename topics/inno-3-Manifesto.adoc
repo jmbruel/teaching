@@ -40,7 +40,7 @@ ifdef::dzslides[]
 :statement: .topic.statement
 :incremental: .incremental
 :source: .topic.source
-:nextslide: == !
+:nextslide: == {nbsp}
 endif::dzslides[]
 //----------- deck.js --------------
 ifdef::deckjs-slides[]
@@ -297,7 +297,7 @@ Taken from the {agileMoocUrl}[Agile MOOC]:
 - Provide interface with higher management
 - Provide interface with Customer
 - Validate requirements
-- Decide wheterg goals have been met
+- Decide whether goals have been met
 - Enforce deadlines
 - Coach, mentor
 - Enforce rules and methodology

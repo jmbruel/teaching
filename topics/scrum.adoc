@@ -3,14 +3,14 @@
 [{intro}]
 == La méthode Agile *SCRUM*
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 [{incremental}]
 - {Scrum} est un processus *agile* qui permet de produire la *plus grande valeur métier* dans la *durée la plus courte*.
 - Du logiciel *qui fonctionne* est produit à chaque sprint (toutes les 2 à 4 semaines).
 - Le métier définit les *priorités*.
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 [{incremental}]
 - L'équipe *s'organise elle-même* pour déterminer la meilleure façon de produire les exigences les plus prioritaires.
 - À chaque fin de sprint, tout le monde peut voir *fonctionner le produit* courant et décider soit de le livrer dans l'état,
@@ -83,14 +83,14 @@ ifdef::slides[:leveloffset: -1]
 
 image::scrum1.jpg[width=100%]
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 * Planification du sprint suivant
 [{incremental}]
 ** Choix des items du backlog de produit qui seront réalisés durant le sprint
 ** Identification des tâches et définition du backlog de sprint estimé en heures
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 * SCRUM quotidien (15mn)
 [{incremental}]
@@ -98,14 +98,14 @@ ifdef::slides[=== !]
 ** que vais-je faire aujourd'hui ?
 ** y-a-t-il des problèmes particuliers ?
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 * Revue de SPRINT (15-30mn)
 [{incremental}]
 ** Présentation de l'application à l'équipe et à toute personne invitée
 ** Calcul de la vélocité de l'équipe
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 * Rétrospective de SPRINT (15mn)
 [{incremental}]
@@ -114,7 +114,7 @@ ifdef::slides[=== !]
 ** Qu'est-ce qui ne marche pas : comment fait-on désormais ?
 ** Y-a-t-il des choses à ne plus faire ?
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 * Planification de Release
 [{incremental}]
@@ -211,7 +211,7 @@ ifdef::slides[:leveloffset: +1]
 [{intro}]
 == Les Tests
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Quelle que soit la méthode de développement choisie,
 les Tests sont le *seul moyen de garantir* que le produit livré
@@ -386,7 +386,7 @@ Plus délicat, il s'agit :
 * de tester les intéractions système
 * de ne pas refaire les tests unitaires
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 [source,java]
 .Programme de Test du programme `JourSuivantAvecLibDate.class`

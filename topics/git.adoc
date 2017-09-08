@@ -166,7 +166,7 @@ $ git config --global alias.co checkout
 ----------------------------------------------------------------------
 
 // ------
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 [TIP]
 ====
@@ -460,7 +460,7 @@ Merge made by recursive.
  1 files changed, 7 insertions(+), 0 deletions(-)
 ----------------------------------------------------------------------
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 [NOTE]
 ====
@@ -729,7 +729,7 @@ $ git tag
 v1.0
 ----------------------------------------------------------------------
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 On peut voir les détails d'un commit tagué :
 
@@ -747,7 +747,7 @@ Author: Jean-Michel Bruel <jbruel@gmail.com>
 Date:   Fri Sep 16 12:38:20 2016 +0200
 ----------------------------------------------------------------------
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 On peut aussi taguer a posteriori :
 
@@ -819,19 +819,19 @@ WARNING: Danger!
 $ git status
 ----------------------------------------------------------
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 image::gitbash1.png[width=95%]
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 image::gitbash2.png[width=95%]
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 image::gitbash3.png[width=95%]
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 image::gitbash4.png[width=95%]
 
@@ -841,14 +841,14 @@ ifdef::slides[:leveloffset: +1]
 [{intro}]
 == Gestion des branches
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 La principale difficulté de {git} vient de la liberté en termes de branches.
 
 Pour faire simple, je vous conseille une gestion qui marche bien pour les petites équipes,
 tiré de l'excellent livre https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows[Pro Git] :
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 * Deux branches seulement: `master` et `develop`.
 +
@@ -861,13 +861,13 @@ $ git branch
 <1> `develop` est la branche de travail qui contient la dernière version des codages en cours.
 <2> `master` est toujours stable et sert au déploiement
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 * On fork `develop` pour traiter un _bug_ ou une _feature_.
 ** On merge dans `develop`
 ** On détruit la branche devenue inutile
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Ce qui donne le flot suivant dès que vous devez faire une amélioration (corriger un bug ou ajouter une fonctionnalités) :
 
@@ -885,7 +885,7 @@ Ce qui donne le flot suivant dès que vous devez faire une amélioration (corrig
 [{intro}]
 == Les différents *merge*
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Les exemples suivants sont tirés de :
 
@@ -929,7 +929,7 @@ ifdef::slides[:leveloffset: +1]
 [{intro}]
 == Gestion des conflits
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 La principale activité du programmeur qui utilise {git} en équipe vient de la gestion des *conflits*.
 
@@ -981,7 +981,7 @@ ifdef::slides[:leveloffset: +1]
 [{intro}]
 == Git avancé : Git-Flow
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 http://danielkummer.github.io/git-flow-cheatsheet/
 

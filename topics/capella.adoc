@@ -1,8 +1,9 @@
 = Arcadia / Capella
-Jean-Michel Bruel <bruel@irit.fr>, v1.0, {localdate}
+Jean-Michel Bruel <bruel@irit.fr>, v1.1, {localdate}
+// after Neptune 2017
 
 :numbered:
-:capellaversion: 1.0.2
+:capellaversion: 1.1.1
 :imagesdir: images
 :experimental:
 
@@ -10,11 +11,15 @@ include::../definitions.txt[]
 
 == Environment & context
 
-- Tutorial at {models16} from {prfc}.
+- Tutorial at {models16} and {Neptune17} from {prfc}.
 - Version of {capella} for these notes: `{capellaversion}`.
 +
-WARNING: For MAC OS you need to `chmod +x` the eclipse exe file.
+WARNING: For MAC OS you need to `chmod +x` the `eclipse` exe file.
 
+:thisref: http://polarsys.org/capella
+ifndef::slides[.Capella version ({thisref})]
+image::capella.png[width=100%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
 
 == History
 
@@ -22,6 +27,8 @@ WARNING: For MAC OS you need to `chmod +x` the eclipse exe file.
 - In Thales, the method is called Melody Advance
 
 == ARCADIA
+
+**ARC**hitecture **A**nalysis and **D**esign **I**ntegrated **A**pproach
 
 :thisref: https://www.polarsys.org/capella/arcadia.html
 ifndef::slides[.Arcadia layers ({thisref})]
@@ -44,7 +51,7 @@ ifndef::slides[.Capella big picture ({thisref})]
 image::capella_big_picture.png[width=100%,link="{thisref}"]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
-[NOTE]
+[TIP]
 .Color conventions
 =====
 - functions => [green]#green#
@@ -142,6 +149,36 @@ No time...
 === Viewpoints
 
 No time...
+
+== Existing Project
+
+=== Import existing project
+
+menu:File[Import...]
+
+.Import
+image::import.png[]
+
+=== Tune the method
+
+menu:Capella[Preferences...]
+
+Each part of the Arcadia can be "unchecked"
+
+image::tuning.png[]
+
+=== Play
+
+[TIP]
+=====
+- To reach an element in the explorer, select it in the diagram and then menu:F8[].
+- For a diagram, if you click on the background of a diagram, menu:F8[] chows it in the model explorer.
+- Double Click on a diagram to open it full screen (and again to go back).
+=====
+
+=== Import existing functions in a SDFB
+
+image::functionWizard.png[]
 
 
 :numbered!:

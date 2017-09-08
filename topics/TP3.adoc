@@ -64,37 +64,38 @@ Cf. fichier Projet sous Moodle.
 
 === Déroulement
 
-Le projet se déroulera en deux releases :
+Le projet se déroulera en deux _Releases_ :
 
-- V1 (livraison 7 octobre soit à 4 semaines)
-- V2 (livraison 11 novembre soit à 4 semaines de plus)
+- V1 (deadline livraison 7 octobre soit à 4 semaines)
+- V2 (deadline livraison 28 octobre soit à 3 semaines de plus)
 
 Chaque sprint donnera lieu à la livraison d'un nouveau code
-opérationnel et convenant au client, conformément au Sprint Backlog qui aura été produit avec lui.
+opérationnel et convenant au client, conformément au Sprint Backlog
+qui aura été produit avec lui.
 
 === Evaluation
 
-L'évaluation de votre projet portera bien sûr sur la qualité du produit final, mais surtout sur votre capacité à mettre en oeuvre les principes agiles dans vos 8 semaines d'activités.
+L'évaluation de votre projet portera bien sûr sur la qualité du produit final, mais surtout sur votre capacité à mettre en oeuvre les principes agiles dans vos 7 semaines d'activités.
 
 == Plannification des Stories, Releases et Sprints
 
 NOTE: Le Scrum Master icon:user-md[] vérifiera que l'équipe suit bien
-le plan ci-dessous et les conseils {Tuleap} disponibles https://blog.enalean.com/how-to-implement-scrum-with-tuleap/#backlog[ici].
+le plan ci-dessous et les conseils {gitlab} (cf. TP1).
 
 En prenant connaissance du sujet du projet et des besoins clients :
 
 . icon:users[] Créez toutes les User Stories
-. icon:users[] Organisez-les par priorité client
+. icon:users[] Organisez-les par priorité client (utilisez les tags si besoin)
 . icon:users[] Faites les estimations en points des User Stories
-. icon:users[] Créez et plannifiez les Releases telles qu'attendues par le client
+. icon:users[] Créez et planifiez les Releases telles qu'attendues par le client
 +
 NOTE: Vous devrez pour cette étape évaluer la *capacité* de l'équipe. À vous de voir
 par rapport à ce que vous vous sentez de faire dans le 1er sprint à donner une valeur
 réaliste. Pensez au nombre que vous êtes et ne soyez pas trop ambitieux le premier
 coup en vous rappelant que chaque Sprint inclut des tâches de test et de documentation.
 +
-. icon:users[] Créez les Sprints
-. icon:users[]Ajoutez le Sprint 0 après avoir ajouté des Stories liées à la mise en place
+. icon:users[] Créez les Sprints (_Milestones_)
+. icon:users[] Ajoutez le Sprint 0 après avoir ajouté des Stories liées à la mise en place
 de l'infrastructure initiale
 . icon:users[] Commencez à vous demander comment vous allez occuper le Sprint 0 et créez les
 tâches associées
@@ -102,40 +103,36 @@ tâches associées
 
 :numbered!:
 
-== Lier tuleap et eclipse
+== Lier gitlab et eclipse
 
-Votre {eclipse} sur les machines de l'IUT doit avoir le plug-in tuleap déjà
+Votre {eclipse} sur les machines de l'IUT doit avoir le plug-in git déjà
 intégré.
 
 Si ce n'est pas le cas ou si vous souhaitez l'installer également sur votre machine
 personnelle :
 
 . Allez dans menu:Help[Eclipse Marketplace...]
-. Cherchez tuleap
-+
-image:mylynTuleap.png[width=50%]
-+
+. Cherchez `EGit`
 . Installez le plug-in
-. Couplez l'outil avec votre projet tuleap en suivant http://tuleap-documentation.readthedocs.io/en/latest/mylyn/usage.html[ce tuto] (sorry for the English).
 . Ajouter un serveur de tâches
 +
 image:serveurMylyn0.png[width=50%]
 +
-. Sélectionner le connecteur Tuleap
+. Sélectionner le connecteur GitLab
 +
-image:serveurMylyn.png[width=50%]
+image:gitlab/serveurMylyn.png[width=50%]
 +
-. Entrez `http://tuleap.iut-blagnac.fr/projects/votreProjet/` comme nom de serveur
-. Décochez anonyme et entrez vos login/password
-. Constatez que les modifications dans l'un ou l'autre ({tuleap}/{eclipse}) ont
+. Entrez comme serveur le nom de votre projet {Gitlab}
+. Entrez vos login/password
+. Constatez que les modifications dans l'un ou l'autre ({gitlab}/{eclipse}) ont
 bien des répercussions automatiquement dans l'autre.
 
 
 == Liens utiles
 
-- La doc {tuleap} : https://tuleap.net/doc/fr/
+- La doc {gitlab} : https://docs.gitlab.com/ee/README.html
 
 == Contact
 
-En cas de soucis, n'hésitez pas à poser vos questions sur le forum {tuleapIUT}
+En cas de soucis, n'hésitez pas à poser vos questions sur le forum {discordMPA}
 ou en dernier recours à {jmb}.

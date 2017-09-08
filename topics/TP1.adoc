@@ -27,7 +27,10 @@ endif::prof[]
 :lien: Lien
 :img: img
 :tuleapVersion: 6.0
-
+:gitlab: icon:gitlab[] Gitlab
+:gitlabIUT: https://gitlab.iut-blagnac.fr/
+:gitlabIUT: {gitlabIUT}
+:discordMPA: https://discord.gg/aVFUzGp
 
 //-------------------- Warning si correction -----------
 ifdef::prof[]
@@ -56,79 +59,80 @@ endif::prof[]
 |======================
 
 
-== Organization des groupes
+== Organisation des groupes
 
 Validez la constitution de votre groupe auprès de votre enseignant de TD/TP.
 
 NOTE: Ce n'est pas parce que vous êtes dans une salle machine que vous devez foncer sur le codage!
 
-== Tuleap
+== icon:gitlab[] Gitlab
 
-. Connectez-vous sur {tuleapIUT} (icon:users[] tous les membres du groupe)
+. Connectez-vous sur {gitlabIUT} (icon:users[] tous les membres du groupe)
 +
-NOTE: Demandez vos codes d'accès à votre enseignant.
+[NOTE]
+=====
+- L'accès se fait avec vos comptes _Active Directory_.
+- Si le serveur est indisponible ou vos comptes pas encore créés, utilisez un dépôt git de votre choix, ou bien passez cette étape pour l'instant.
+=====
 +
 . icon:users[] Découvrez l'environnement, les menus et configurez votre profil
 . icon:users[] Désignez un Scrum Master icon:user-md[] pour cette séance au
   moins (vous pouvez changer régulièrement si vous voulez, mais à chaque Sprint,
   pas pendant un Sprint) qui demande à l'enseignant icon:graduation-cap[] de
   l'ajouter comme gestionnaire du projet de votre groupe.
+. icon:user-md[] Le Scrum Master créé un dépôt respectant la nomenclature : `MPA2017-G[1|2|3][A|B][1|2|3]`.
+  Où le 1er numéro est le numéro du groupe de TD (entre 1 et 3),
+  suivi de la lettre A ou B pour le groupe de TP,
+  suivi d'un numéro de groupe (3 groupes de 4 étudiants max par groupe TP)
 . icon:user-md[] Le Scrum Master ajoute tous les autres membres du groupe, ainsi que le ou les
-Product Owner icon:male[] (le prof de TD/TP), ainsi que {jmb} comme Product Owner.
+Product Owner icon:male[] (le prof de TD/TP), ainsi que {jmb} (utilisateur `jmb`,
+  en tant que Product Owner).
 . Participez par un billet d'humeur de votre choix (humour autorisé mais restez
-  correct) sur les forums.
+  correct) sur le forum dédié à ce module (après vous y être abonné comme en S2) :
+  {discordMPA}.
 +
 NOTE: Les forums seront le seul moyen de communication officiel avec le client icon:male[] ou
-le support technique (les enseignants supports en {tuleap}, {git}, {java}, etc.)
+le support technique (les enseignants supports en {gitlab}, {git}, {java}, etc.)
 +
 . Remplissez les champs pour votre projet (description, etc.)
-. Commencez un wiki avec la composition de votre équipe, son nom
+. Rédigez un `README.adoc` ou `README.md` d'accueil pour votre projet
+(composition, liens divers, etc.)
+. Commencez éventuellement un wiki avec la composition de votre équipe, son nom
 (soyez créatifs), etc.
-. Vérifiez que votre projet est bien configuré avec l'option Agile
+. Vérifiez que votre projet est bien configuré avec l'option Agile (menu:Issues[Boards])
 +
-image:tuleap{tuleapVersion}/agile.png[width={standWidth}]
+image:gitlab/boards.png[width=50%]
 +
+/////
 . Vérifiez que votre tableau de bord Agile est bien configuré pour {Scrum}.
 Si vous avez l'image ci-dessous en allant dans le menu menu:Agile Dashboard[],
 cliquez simplement sur btn:[Démarrez Scrum].
 +
-image:tuleap{tuleapVersion}/scrum.png[width={standWidth}]
-
-== git
-
-. Connectez-vous sur le gitlab de l'IUT : {gitlabIUT} (tous les membres du groupe)
-+
-NOTE: si le serveur est indisponible ou vos comptes pas encore créés, utilisez
-un dépôt git de votre choix, ou bien passez cette étape pour l'instant.
-+
-. L'un des membres du groupe créé un dépôt respectant la nomenclature :
-`MPA2016-GX[A|B]Y`.
-Où `X` est le numéro du groupe de TD (entre 1 et 3) et `Y` le numéro du groupe
-projet (1 ou 2). `A` ou `B` désignant le groupe TP.
-. Il ajoute comme membre du dépôt ses collègues, ainsi que le compte gitlab du
-prof de TD/TP, ainsi que l'utilisateur `jmb`.
+image:gitlab/scrum.png[width={standWidth}]
+/////
 
 == Plannification des Stories, Releases et Sprints
 
 NOTE: Le Scrum Master icon:user-md[] vérifiera que l'équipe suit bien
-le plan ci-dessous et les conseils {Tuleap} disponibles https://blog.enalean.com/how-to-implement-scrum-with-tuleap/#backlog[ici].
+le plan ci-dessous et les conseils disponibles https://about.gitlab.com/features/issueboard/[ici].
 
-WARNING: Ce Sprint un peu spécial dure une seule séance!
+WARNING: Ce Sprint, un peu spécial dure, une seule séance!
 
 En ayant en tête un simple projet Java "HelloWorld" :
 
-. icon:users[] Créez quelques User Stories
+. icon:users[] Créez quelques _User Stories_
 . icon:users[] Organisez-les par priorité client
-. icon:users[] Faites les estimations en points des User Stories
-. icon:users[] Créez et plannifiez une seule Release
+. icon:users[] Faites les estimations en points des _User Stories_ (appelés _weight_ dans {gitlab})
+. icon:users[] Créez et planifiez une seule _Release_ 
 +
-NOTE: Vous devrez pour cette étape évaluer la *capacité* de l'équipe. À vous de voir
-par rapport à ce que vous vous sentez de faire dans le 1er sprint à donner une valeur
-réaliste. Pensez au nombre que vous êtes et ne soyez pas trop ambitieux le premier
+NOTE: Vous devrez pour cette étape évaluer la *capacité* de l'équipe.
+À vous de voir par rapport à ce que vous vous sentez de faire dans le 1er
+sprint à donner une valeur réaliste.
+Pensez au nombre que vous êtes et ne soyez pas trop ambitieux le premier
 coup en vous rappelant que chaque Sprint inclut des tâches de test et de documentation.
 +
-. icon:users[] Créez les Sprints
-. icon:users[]Ajoutez le Sprint 0 après avoir ajouté des Stories liées à la mise en place
+. icon:users[] Créez les Sprints (en utilisant la notion de `Milestones`)
+. icon:users[] Ajoutez le Sprint 0 après avoir ajouté des Stories liées à la mise en place
 de l'infrastructure initiale
 . icon:users[] Créez les tâches associées pour ce Sprint unique
 . icon:user-md[] Faites valider tout ça par le prof icon:graduation-cap[]
@@ -144,11 +148,14 @@ supprimer ensuite)
 == Pour aller plus loin
 
 Commencez à réfléchir à comment vous allez construire votre application
-(Makefile, {ant}, etc.)
+(Makefile, {ant}, etc.), si bien sûr les vacances n'ont pas complètement effacé ce que vous
+avez fait en S2...
+
 //----------------------------------------------------- Correction ------------
 ifdef::prof[]
 
-== Retours André
+/////
+== Retours André (2016, sur Tuleap => obsolètes)
 
 === Diverses manips
 
@@ -164,9 +171,9 @@ ifdef::prof[]
 
 * menu:Backlog[Ajouter un élément > Ajouter un(e) User Stories]
 * Pas vue en cours mais `Epics` = ensemble de User Stories
-* On évite les Epic si possible (pas obligatoire dans Tuleap Blagnac)
+* On évite les Epic si possible (pas obligatoire dans gitlab Blagnac)
 * Ordonner Epics et User Story
-* Donner points aux User Story
+* Donner points aux User Story ()
 ** Fibonacci : 1, 2, 3, 5, 8, 13, 21, 34 	55 	89 	144 	233 	377
 ** ou binaire : 2 4 8 16 32 64 128 ...
 * Ordonner priorités (ordre apparition) aux Epics et User Story dans EPICs
@@ -207,7 +214,7 @@ Mettre les sprints à Done lorsque OK.
 - Pas de burndown correct.
 
 Faire une fois un sprint de 2-3 semaines (avec des User Stories en cascade ?)
-pour voir un burndown ...
+pour voir un _burndown_ ...
 
 [TIP]
 =====
@@ -216,6 +223,7 @@ pour voir un burndown ...
 - une story ne peut aller que dans un seul sprint
 - petits menus signalés par un triangle un peu partout dans le dashboard
 =====
+/////
 
 endif::prof[]
 //----------------------------------------------------- fin Correction --------
@@ -225,9 +233,10 @@ endif::prof[]
 
 == Liens utiles
 
-- La doc {tuleap} : https://tuleap.net/doc/fr/
+- La doc {gitlab} : https://docs.gitlab.com/ee/README.html
+- Une vidéo sur l'utilisation de {gitlab} pour faire du Scrum : https://www.youtube.com/watch?v=CiolDtBIOA0
 
 == Contact
 
-En cas de soucis, n'hésitez pas à poser vos questions sur le forum {tuleapIUT}
+En cas de soucis, n'hésitez pas à poser vos questions sur le forum {discordMPA}
 ou en dernier recours à {jmb}.

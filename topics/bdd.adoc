@@ -1,0 +1,27 @@
+= Behaviour-Driven Development
+Jean-Michel Bruel <bruel@irit.fr>, v1.0, {localdate}
+
+:numbered:
+:capellaversion: 1.0.2
+:imagesdir: images
+:experimental:
+
+include::../definitions.txt[]
+
+== Environment & context
+
+WARNING: My notes on BDD
+
+== BDD vs. TDD
+
+:thisref: https://www.quora.com/Is-it-right-to-say-that-BDD-is-a-subset-of-TDD
+ifndef::slides[.BDD vs. TDD ({thisref})]
+image::bdd.png[width=90%,link="{thisref}"]
+ifdef::slides[NOTE: [detail]#{thisref}#]
+
+
+:numbered!:
+== References
+
+BDD::
+- https://www.wikiwand.com/en/Behavior-driven_development

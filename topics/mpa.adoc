@@ -68,7 +68,7 @@ ifndef::definitions[]
 include::../definitions.txt[]
 endif::definitions[]
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 À l'initiateur de ce cours, Jean-Michel Inglebert...
 
@@ -113,7 +113,7 @@ endif::slides[]
 [{intro}]
 == Avant-propos
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Nous allons nous intéresser dans ce cours aux
 **M**éthodologies de la **P**roduction d'**A**pplications.
@@ -142,11 +142,11 @@ image::M3301.png["M3301", width="80%", link="http://www.iut.univ-paris8.fr/files
 [{intro}]
 == icon:home[] Principes
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Ce module s'intéresse aux **M**éthodes et outils de la **P**roduction d'**A**pplications (MPA).
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 [{incremental}]
 Application::

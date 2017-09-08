@@ -134,7 +134,7 @@ $ git config --global alias.co checkout
 ----------------------------------------------------------------------
 
 // ------
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 [TIP]
 ====
@@ -154,7 +154,7 @@ Here is an extract of link:util/.gitconfig[mine]:
 ----------------------------------------------------------------------
 
 // ------
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 [source]
 ----------------------------------------------------------------------
@@ -185,7 +185,7 @@ $ git init
 ----------------------------------------------------------------------
 
 // ------
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 [TIP]
 ====
@@ -645,19 +645,19 @@ WARNING: Unsafe!
 $ git status
 ----------------------------------------------------------
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 image::gitbash1.png[width=95%]
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 image::gitbash2.png[width=95%]
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 image::gitbash3.png[width=95%]
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 image::gitbash4.png[width=95%]
 
@@ -667,11 +667,11 @@ ifdef::slides[:leveloffset: +1]
 [{intro}]
 == Branching
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 (taken from the excellent book https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows[Pro Git])
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Only 2 branches: `master` & `develop`.
 
@@ -684,14 +684,14 @@ $ git branch
 <1> `develop` est la branche de travail qui contient la dernière version des codages en cours.
 <2> `master` est toujours stable et sert au déploiement
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 fork `develop` to treat a _bug_ or a _feature_.
 
 - merge in `develop`
 - destroy the useless branch
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 [{incremental}]
 - Create a branch (e.g., `fix-451`)
@@ -707,7 +707,7 @@ ifdef::slides[== !]
 [{intro}]
 == Different *merge*
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 (taken from {compMergeURL})
 
@@ -790,7 +790,7 @@ ifdef::slides[:leveloffset: +1]
 [{intro}]
 == Git advanced: Git-Flow
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 http://danielkummer.github.io/git-flow-cheatsheet/
 

@@ -86,7 +86,7 @@ ifdef::slides[]
 [{intro}]
 == Plan
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Pourquoi tester?
 
@@ -108,7 +108,7 @@ endif::slides[]
 [{intro}]
 == *Pourquoi* tester ?
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 //https://blog.acolyer.org/2016/10/06/simple-testing-can-prevent-most-critical-failures/amp/
 [quote,Yuan et al. OSDI 2014]
@@ -208,7 +208,7 @@ ifndef::slides[.{thisref}]
 image::gaelBlondelle.jpg[width=80%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 [quote,Eclipse Development Process]
 [...] an Eclipse project is providing extensible frameworks and applications accessible via documented APIs.
@@ -217,7 +217,7 @@ ifdef::slides[== !]
 [{intro}]
 == Typologie des tests
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 :thisref: https://www.tutorialspoint.com/software_testing/software_testing_quick_guide.htm
 ifndef::slides[.Différences entre Vérification et Validation (source {thisref})]
@@ -343,7 +343,7 @@ try{Thread.sleep(250);}catch(InterruptedException e){}
 bot.mouseRelease(InputEvent.BUTTON1_MASK);
 -----
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 Exemple du plugin {eclipse} `swingcoder` :
 
@@ -420,7 +420,7 @@ Sommet     :  Pile ->  Elément
 ----
 ====
 
-ifdef::slides[==== !]
+ifdef::slides[==== {nbsp}]
 
 [TIP]
 ifndef::slides[.Rappels sur les propriétés d'une `Pile` (préconditions)]
@@ -432,7 +432,7 @@ Dépiler(p) valide Si et Seulement Si estVide(p) == FAUX
 ----
 ====
 
-ifdef::slides[==== !]
+ifdef::slides[==== {nbsp}]
 
 [TIP]
 ifndef::slides[.Rappels sur les propriétés d'une `Pile` (axiomes)]
@@ -473,14 +473,14 @@ ifndef::slides[.{thisref}]
 image::pile2.png[width=80%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
-ifdef::slides[==== !]
+ifdef::slides[==== {nbsp}]
 
 :thisref: Création rapide de la classe `Pile`
 ifndef::slides[.{thisref}]
 image::pile3.png[width=90%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
-ifdef::slides[==== !]
+ifdef::slides[==== {nbsp}]
 
 :thisref: Run as JUnit Tests
 ifndef::slides[.{thisref}]
@@ -517,7 +517,7 @@ public class PileTest extends TestCase {
 
 -----
 
-ifdef::slides[==== !]
+ifdef::slides[==== {nbsp}]
 
 Enexécutant le test comme un programme Java on obtient :
 
@@ -531,7 +531,7 @@ OK (3 tests)
 Bravo ! 3/3 assertions vérifiées
 ----
 
-ifdef::slides[==== !]
+ifdef::slides[==== {nbsp}]
 
 [TIP]
 =====
@@ -577,14 +577,14 @@ public class Pile {
 }
 -----
 
-ifdef::slides[==== !]
+ifdef::slides[==== {nbsp}]
 
 [TIP]
 ====
 La méthode générée par défaut retourne `null` ce qui provoque une `NullPointerException`. Nous avons modifié la méthode en conséquence.
 ====
 
-ifdef::slides[==== !]
+ifdef::slides[==== {nbsp}]
 
 :thisref: Ajout simple de la méthode manquante
 ifndef::slides[.{thisref}]
@@ -672,7 +672,7 @@ ifndef::slides[.{thisref}]
 image::pile8.png[width=100%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
-ifdef::slides[==== !]
+ifdef::slides[==== {nbsp}]
 
 [WARNING]
 =====
@@ -761,7 +761,7 @@ ifdef::slides[]
 |=====
 [detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 |=====
 | Groupe | # classes de test | # tests | Status
@@ -772,7 +772,7 @@ ifdef::slides[== !]
 |=====
 [detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 |=====
 | Groupe | # classes de test | # tests | Status
