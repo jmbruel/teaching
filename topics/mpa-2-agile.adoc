@@ -73,12 +73,11 @@ ifdef::slides[]
 [{topic}]
 == Pour suivre en live... icon:mobile[] icon:tablet[] icon:laptop[]
 
-[{statement}]
 {bitlysiteurl}
 
 {siteurl}
 
-== !
+== {nbsp}
 
 endif::slides[]
 
@@ -100,7 +99,7 @@ ifdef::slides[:leveloffset: -1]
 [quote, 2014, Wikipedia]
 On appelle *projet* un ensemble finalisé d’*activités et d’actions* entreprises dans le but de *répondre* à un *besoin* défini dans des délais fixés et dans la limite d'une enveloppe budgétaire allouée.
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 [quote, 2014, JMI]
 ___________________________________________
@@ -145,7 +144,7 @@ ___________________________________________
 7 projets sur 10 arrivent *en retard ou jamais* !
 ___________________________________________
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 Les causes :
 [{incremental}]
@@ -158,7 +157,7 @@ Les causes :
 - les risques sont *mal évalués*
 - les réunions sont *improductives*
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 Dans tous les cas, c'est l'équipe de développement qui est fautive.
 
@@ -183,7 +182,7 @@ On n'a pas de méthode infaillible qui garantisse qu'une équipe projet atteindr
 Il s'agit de gérer une complexité métier, technique et humaine avec des ressources limitées (temps, moyens ...)
 ====
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 Seule certitude prévisible : il faudra *s'adapter aux imprévus*.
 
@@ -200,7 +199,7 @@ Un projet de développement logiciel se terminera de 'manière satisfaisante'
 si l'équipe fournit une application *fiable*, *robuste* et *maintenable* qui répond aux exigences du client.
 ====
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 [{incremental}]
 fiable:: fait ce qu'on attend d'elle dans les conditions fixées
@@ -213,7 +212,7 @@ ifdef::slides[:leveloffset: 0]
 [{intro}]
 == icon:wrench[] *Produire* des applications
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 BUILD:: make, {ant}, {maven}, {ivy}, {gradle}, etc.
 =>:: cf. cours suivants...
@@ -242,7 +241,7 @@ NOTE: Voir l'excellent site parodique http://www.la-rache.com/.
 ifndef::slides[.Les méthodes en cascade (waterfall)]
 image::waterfall.png[width=70%]
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 Le cycle en V adopte :
 
@@ -251,13 +250,13 @@ Le cycle en V adopte :
 
 ifdef::slides[]
 
-=== !
+=== {nbsp}
 image::v1.png[]
 
-=== !
+=== {nbsp}
 image::v2.png[]
 
-=== !
+=== {nbsp}
 image::v123.png[]
 
 endif::slides[]
@@ -273,7 +272,7 @@ Un projet de développement de type cycle en V se terminera de *manière satisfa
 si l'équipe arrive à remonter le 'V' dans de 'bonnes conditions'.
 ====
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 [NOTE]
 .Arrêt du projet
@@ -290,7 +289,7 @@ ifdef::slides[=== !]
 ====
 
 // ------
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 En résumé :
 
@@ -300,7 +299,7 @@ En résumé :
 - vérifie les plans de tests dans les phases ascendantes
 
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 [CAUTION]
 .Limites connues
@@ -372,22 +371,22 @@ ifdef::slides[:leveloffset: -2]
 
 ifdef::slides[]
 
-==== !
+==== {nbsp}
 image::w12.png[]
 
-==== !
+==== {nbsp}
 image::w32.png[]
 
-==== !
+==== {nbsp}
 image::w42.png[]
 
-==== !
+==== {nbsp}
 image::w52.png[]
 
-==== !
+==== {nbsp}
 image::w5b2.png[]
 
-==== !
+==== {nbsp}
 image::w5rb2.png[]
 
 endif::slides[]
@@ -411,14 +410,14 @@ endif::slides[]
 ====
 
 ifdef::slides[]
-==== !
+==== {nbsp}
 
 Rappel :
 
 Un projet de développement logiciel se terminera de 'manière satisfaisante'
 si l'équipe fournit une application ......, ....... et ........... qui répond aux exigences du client.
 
-==== !
+==== {nbsp}
 
 endif::slides[]
 
@@ -532,7 +531,7 @@ ifdef::slides[]
 
 image::icons/tuxteacher.png[]
 
-== !
+== {nbsp}
 
 endif::slides[]
 

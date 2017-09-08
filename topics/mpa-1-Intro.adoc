@@ -1,0 +1,207 @@
+//---------------------------------
+// Cours MPA - version FR
+// (c) JMB - 2017
+//---------------------------------
+= **M**éthodologie de la **P**roduction d'**A**pplication – MPA (M3301)
+J.-M. Bruel <jbruel@gmail.com>
+v1.4 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+:icons: font
+:experimental:
+:toc: left
+:numbered:
+:status:
+:base: http://jmbruel.github.io/teaching/topics
+:siteurl: {base}/mpa.html
+:bitlysiteurl: http://bit.ly/jmb-mpa
+:incremental: %step
+:discordMPA: https://discord.gg/aVFUzGp
+
+include::../definitions.txt[]
+
+ifdef::slides[== {nbsp}]
+
+À l'initiateur de ce cours, Jean-Michel Inglebert...
+
+ifndef::slides[.Blason des étudiants DUT Info 2016]
+image::blasonJMI.png[width=50%]
+
+ifdef::slides[]
+// ------------------------------------------
+== Avant de démarrer...
+
+[{incremental}]
+- icon:laptop[] Laptops welcome!
+- Discussions welcome... mais avec moi!
+
+== Désolé...
+
+[{incremental}]
+- Pour le nombre d'heures que vous allez m'avoir les 7 prochaines semaines!!
+- Pour les TPs à 26 (manque de vacataires) !
+- For my English! (for Groupe 1)
+
+== Cours en ligne... icon:mobile[] icon:tablet[] icon:laptop[]
+
+{bitlysiteurl}
+
+{siteurl}
+
+http://bit.ly/jmb-map (UK)
+
+endif::slides[]
+// ------------------------------------------
+== icon:home[] Principes généraux
+
+[{incremental}]
+Méthodologie::
+  Méthodes Agile, avec un focus sur la méthode {scrum}
+Production::
+  => "Professionnaliser" => *build*, outils modernes
+Application::
+    => Logiciel + documentation
+
+ifdef::slides[== {nbsp}]
+
+Nous allons nous intéresser dans ce cours aux
+**M**éthodologies de la **P**roduction d'**A**pplications.
+
+Ce module, qui fait suite aux modules de :
+
+- programmation (M2103),
+- conception (M2104) et
+- d'IHM (M2105).
+
+Il est fortement corrélé au module de conception avancé (M3105).
+
+ifdef::slides[== PPN]
+
+ifndef::slides[]
+[NOTE]
+====
+Nous suivons (comme tous les DUT informatique) le programme pédagogique national (PPN - disponible http://www.iut.univ-paris8.fr/files/webfm/administration/com/PPNinformatique.pdf[ici]).
+====
+endif::slides[]
+
+ifndef::slides[.Le contenu officiel]
+image::M3301.png["M3301", width="80%", link="http://www.iut.univ-paris8.fr/files/webfm/administration/com/PPNinformatique.pdf"]
+
+// ------
+[{intro}]
+== Contenu et Progression
+
+ifdef::slides[== Les cours]
+
+- Cours SCRUM, Cycle -1 et Cycle 0, Tests
+- Cours Gestion des Modèles au cours du développement et à la livraison
+- Cours Intégration continue, documentation
+- Cours Modèles UML complémentaire (Activité, État)
+- Cours Maintenance, refactoring, évolutions
+
+// ------
+[{topic}]
+== Organisation et emploi du temps
+
+Au lieu de faire 2 modules en // (comme POO et COO l'an dernier), vous aurez ce semestre 2 fois plus d'heures,
+mais d'un seul module, l'un après l'autre (MPA puis CPOA).
+
+// ------
+[{topic}]
+== Les différents cycles
+
+ifdef::slides[:leveloffset: -1]
+
+// ------
+[{topic}]
+=== Cycle 0
+
+[{incremental}]
+- Saisir le Backlog initial de Produit
+- Organiser l'arborescence des sources {git} (branches, tags)
+- Organiser les répertoires du projet (data,lib,test,doc)
+
+// ------
+[{topic}]
+=== Cycle 1 et suivants...
+
+[{incremental}]
+- Produire l'IHM V1
+- Produire la librairie V1
+- Produire la documentation utilisateur V1
+- Produire la documentation technique V1 (dont les scénarios de test d'IHM)
+
+ifdef::slides[:leveloffset: -1]
+
+// ------
+[{topic}]
+==== Backlog du Cycle 1
+
+- En tant que ..., je peux ...
+
+Par exemple :
+
+- En tant que *gestionnaire*, je peux *afficher la liste des étudiants*
+- En tant qu' *administrateur*, je peux *afficher la liste des intervenants*
+
+
+// ------
+[{topic}]
+==== TD/TP
+
+- TDs (un ou deux) : travail sur feuille pour améliorer la compréhension de {scrum}
+- TPs : mise en oeuvre de {scrum}
+
+ifdef::slides[:leveloffset: +2]
+
+/////
+[cols="1,2,4"]
+|===
+| # | Date | Topic
+
+| 1 | Jan. 27th | link:{base}/inno-1-Intro.html[Introduction]
+| 2 | Jan. 27th | link:{base}/inno-2-Agile.html[Agile methods]
+| 3 | Jan. 27th | Project setup
+| 4 | Jan. 28th | link:{base}/inno-3-Manifesto.html[Agile Manifesto]
+| 5 | Jan. 28th | link:{base}/inno-4-Scrum.html[Scrum practice]
+| 6 | Jan. 28th | Scrum practice
+| 7 | Jan. 28th | Team building & Sprint 0
+
+| 8-15 | Mar. 3-4 | Feedbacks on self-practice; Demo and presentations
+| *16-25* | *Mar. 17-19* | *Continuous Integration; Build techniques; Reporting*
+| 16 | Mar. 17th | link:{base}/inno-feedbacks.html[Plan for the venue]
+| 16 | Mar. 17th | link:{base}/inno-11-Recap.html[Feedbacks from last venue/presentations]
+| 17 | Mar. 17th | link:{base}/inno-4-Scrum.html[Scrum practice]  (quick reminder)
+| 18 | Mar. 17th | link:{base}/inno-5-tests.html[Tests] & Coding Dojo
+| 19 | Mar. 18th | link:{base}/inno-6-git.html[Git] (quick reminder)
+| 20 | Mar. 18th | link:{base}/inno-7-ci.html[Continuous Integration]
+| 21 | Mar. 18th | link:{base}/inno-8-testingCI.html[Tests & CI]
+| 22-23 | Mar. 18th | Work on project reporting
+| 24-25 | Mar. 19th | Work on project reporting, discuss evaluation
+| 26-32 | Apr. 14-15 | Quality assessment; Reporting; Exam; Course evaluation
+|===
+
+NOTE: The evaluation plan is explained link:{base}/inno-10-MAP-Evaluation.html[here].
+/////
+
+// ------
+[{topic}]
+== Cours complémentaire
+
+- {agileMoocUrl}
+- {discordMPA}
+- icon:envelope[] jbruel@gmail.com
+- icon:twitter[] jmbruel
+- {bitlysiteurl}
+
+// ------
+[{topic}]
+== MOOC
+
+{agileMoocUrl}
+
+ifndef::slides[.Mes résultats]
+image::mooc-results.png[]
+
+- Toute _Proof of success_ (>60%) comptera dans l'évaluation

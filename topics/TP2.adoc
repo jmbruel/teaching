@@ -27,6 +27,10 @@ endif::prof[]
 :lien: Lien
 :img: img
 :tuleapVersion: 6.0
+:gitlab: icon:gitlab[] Gitlab
+:gitlabIUT: https://gitlab.iut-blagnac.fr/
+:gitlabIUT: {gitlabIUT}
+:discordMPA: https://discord.gg/aVFUzGp
 
 
 //-------------------- Warning si correction -----------
@@ -50,7 +54,7 @@ endif::prof[]
 |======================
 | {pre}		|
 1.	Je connais les concepts principaux de {scrum}
-2.  J'ai configuré mon environnement de travail (tuleap, gitlab, eclipse, etc.)
+2.  J'ai configuré mon environnement de travail (gitlab, eclipse, etc.)
 | {objtd}	| Mettre en place les outils de documentation et de build.
 | {duree}	| *1 ou 2 séance(s)* de 1,5h (selon ce qu'il vous reste)
 |======================
@@ -451,10 +455,11 @@ WARNING: Le minimum exigé sera <<ant>>.
 
 == Liens utiles
 
+- La doc {gitlab} : https://docs.gitlab.com/ee/README.html
 - https://technologyconversations.com/2014/06/18/build-tools/
 - image:icons/fr.svg[width=30] http://linsolas.developpez.com/articles/java/outils/builds/
 
 == Contact
 
-En cas de soucis, n'hésitez pas à poser vos questions sur le forum {tuleapIUT}
+En cas de soucis, n'hésitez pas à poser vos questions sur le forum {discordMPA}
 ou en dernier recours à {jmb}.

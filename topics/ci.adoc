@@ -119,7 +119,7 @@ ifndef::slides[.Exemple d'Intégration Continue (github-travis)]
 image::travis.png[width=100%]
 ifdef::slides[NOTE: [detail]#Exemple d'Intégration Continue (github-travis)#]
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 :thisref: https://about.gitlab.com/gitlab-ci/
 ifndef::slides[.Architecture GitLab-CI ({thisref})]
@@ -207,7 +207,7 @@ all_tests:
 <1> Nom du "runner"
 <2> Instructions à réaliser sur la machine
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Résultat avec le fichier `.gitlab-ci.yml` précédent :
 
@@ -215,7 +215,7 @@ ifndef::slides[.Attention au code infini]
 image::gitlabCI-1B2-1.png[width=50%]
 ifdef::slides[NOTE: [detail]#Attention au code infini#]
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Avec un fichier `.gitlab-ci.yml` plus conforme (exécution de tests) :
 
@@ -358,7 +358,7 @@ endif::slides[]
 include::HelloWorld/src/TestHelloWorld.java[]
 -----
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 .build.xml (librairies extérieures)
 [source,xml]
@@ -386,7 +386,7 @@ BUILD SUCCESSFUL
 Total time: 1 second
 -----
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 ifndef::slides[]
 .src/TestHelloWorld.java (un vrai ce coup-ci)
@@ -396,13 +396,13 @@ endif::slides[]
 include::HelloWorld/src/TestHelloWorldReal.java[]
 -----
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 ifndef::slides[.Un test exécuté sous eclipse]
 image::eclipseTest.png[width=90%]
 ifdef::slides[NOTE: [detail]#Un test exécuté sous eclipse#]
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 [NOTE]
 ======
@@ -424,7 +424,7 @@ ifndef::slides[.Export du bild ant sous eclipse]
 image::exportAnt.png[width=100%]
 ifdef::slides[NOTE: [detail]#Utilisation d'infinitest sous eclipse#]
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 .build.xml (généré par eclipse)
 [source,xml]
@@ -432,13 +432,13 @@ ifdef::slides[== !]
 include::HelloWorld/buildEclipse.xml[]
 -----
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 ifndef::slides[.Run de ant sous eclipse]
 image::runAnt.png[width=100%]
 ifdef::slides[NOTE: [detail]#Run de ant sous eclipse#]
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Autre avantage de junit, la génération de pages web (répertoire `junit`, ouvrir `index.html`).
 

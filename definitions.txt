@@ -80,6 +80,7 @@
 :models16: http://models2016.irisa.fr/[MODELS'2016]
 :moodle: http://webetud.iut-blagnac.fr[Moodle]
 :mps: http://www.jetbrains.com/mps/[MPS]
+:neptune17: https://neptune.irit.fr/neptune/index.php/fr/news/37-journees-neptune-2017[Neptune'2017]
 :n2i: http://www.nuitdelinfo.com/[Nuit de l'Info]
 :norme: http://www.omg.org/spec/SysML/1.3/PDF/[OMG SysML v1.3]
 :omg: http://www.omg.org[OMG(TM)]indexterm:[OMG]

@@ -178,3 +178,5 @@ qu'il me propose de la créer - *priorité métier 4*.
 
 - En tant qu'utilisateur, je n'aime pas trop les interfaces java, mais je
 préfère les interfaces web... - *priorité métier 2*
+
+//https://gitlab.com/gitlab-org/gitlab-ce/issues/21595

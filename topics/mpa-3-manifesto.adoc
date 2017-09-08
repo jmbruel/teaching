@@ -79,7 +79,7 @@ ifdef::slides[]
 
 {siteurl}
 
-== !
+== {nbsp}
 
 endif::slides[]
 
@@ -114,14 +114,16 @@ Les plus connus :
 [{topic}]
 == Les 12 principes
 
-ifdef::slides[== !]
+image::12principles.jpg[link="{agileManifesto}",width=90%]
+
+ifdef::slides[== {nbsp}]
 
 Vous trouverez une version actualisée des principes sur Wikipedia :
 
 - image:icons/fr.svg[width=30] https://fr.wikipedia.org/wiki/Manifeste_agile#Les_12_principes
 - https://en.wikipedia.org/wiki/Agile_software_development
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 . Customer satisfaction by early and continuous delivery of valuable software
 . Welcome changing requirements, even in late development
@@ -140,7 +142,7 @@ ifdef::slides[== !]
 ifdef::slides[]
 
 [{topic}]
-== Exercice
+== icon:question-circle-o[] Exercice
 
 Repérez dans la liste des 12 principes :
 
@@ -166,7 +168,7 @@ endif::slides[]
 
 Idées générales, qui précèdent aux principes.
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Du {agileManifesto}[manifesto] lui-même :
 
@@ -183,7 +185,7 @@ Ne pas oublier la petite phrase qui va avec :
 *Nous reconnaissons la valeur des seconds* éléments, mais privilégions les premiers.
 =====
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 Du {agileMoocUrl}[MOOC Agile] :
 
@@ -223,10 +225,17 @@ ils sont souvent des solutions plus que des besoins)#
 - Accepte le changement
 - Laisser l'équipe s'organiser
 - Maintenir un rythme durable
+
+[{topic}]
+=== Les principes organisationnels (suite)
+
+[{incremental}]
 - Produire du logiciel "minimaliste"
 ** Les fonctionalités requises
 ** et uniquement elles
 ** ne développer que le code et les tests
+
+TIP: *YAGNI*: **Y**ou **A**in't **G**onna **N**eed **I**t
 
 [{topic}]
 === Les principes techniques
@@ -234,7 +243,10 @@ ils sont souvent des solutions plus que des besoins)#
 [{incremental}]
 - Développer itérativement
 - Mettre en avant les tests (TDD)
+** Non regression
+** Test first (TDD)
 - Exprimer les exigences comme des scénarios
+** User stories
 
 ifdef::slides[:leveloffset: +1]
 
@@ -246,6 +258,69 @@ ifdef::slides[:leveloffset: +1]
 - SCRUM Master
 - Team
 
+WARNING: Mais où est passé le chef de projet?!
+
+ifdef::slides[]
+
+[{topic}]
+== icon:question-circle-o[] Exercise
+
+Quels sont les rôles classique d'un chef de projet?
+
+[{topic}]
+== Eléments de réponse...
+
+(tirés de {agileMoocUrl}[Agile MOOC])
+
+- Définir les objectifs
+- Définir les _deadlines_
+- Assigner les tâches
+- Servir d'interface avec le management
+- Servir d'interface avec le client
+
+[{topic}]
+== Eléments de réponse... (suite)
+
+- Valider les exigences
+- Décider si les objectifs ont été atteints
+- Faire respecter les _deadlines_
+- Coacher, mentorer, ...
+- Faire respecter les règles et la méthodologie
+
+endif::slides[]
+
+WARNING: Dans Scrum => pas de chef !
+
+ifndef::slides[:leveloffset: +1]
+
+[{topic}]
+== L'auto-organisation (dans l'équipe)
+
+- Spécialistes mais pas que
+- Transversalité : n'importe qui peut prendre n'importe quelle tâche
+- Sélection collective des objectifs pour l'itération
+- Affectation collective des tâches
+- Démonstration collective des résultats
+
+[{topic}]
+== _Product Owner_
+
+- Interface avec le client
+- Défini les caractéristiques du produit (_features_)
+- Priorise les _features_
+- Participe aux présentations du produit
+
+[{topic}]
+== _Scrum master_
+
+- S'assure que l'équipe applique correctement la méthode
+- S'assure que l'équipe est fonctionnelle
+- Facilite la coopération
+- Protège l'équipe
+- Aide à résoudre les problèmes et blocages
+
+ifndef::slides[:leveloffset: 0]
+
 //----------------------------- les "practices" ------------------
 [{topic}]
 == Les pratiques
@@ -254,6 +329,74 @@ ifdef::slides[:leveloffset: +1]
 - Meetings & Scrums
 - Retrospectives
 - TDD
+
+ifndef::slides[:leveloffset: +1]
+
+[{topic}]
+== Plannings
+
+- Planning poker
+- Scrum of Scrums
+- Storyboards
+
+[{topic}]
+== Meetings
+
+* Daily meetings
+** Matin généralement
+** "Stand-up" (<15')
+** Tout le monde participe
+** Engagements/Empêchements
+* Planning meetings
+** Sprint Backlog
+
+ifdef::slides[== Meetings (suite)]
+
+* Retrospective meeetings
+** Qu'est-ce qui a marché?
+** Qu'est-ce qui peut être amélioré?
+* Review meetings
+** On implique le client
+
+[{topic}]
+== Focus sur le _Daily meeting_
+
+Les 3 questions classiques :
+
+- Qu'as-tu fait hier?
+- Que vas-tu faire aujourd'hui?
+- Vois-tu des obstacles à venir?
+
+[{topic}]
+== Développement
+
+- _Pair programming_
+- Mentor
+- Une seule base de code (vs. _branching_)
+- Code partagé
+- Garder l'optimisation pour la fin
+- Conception simple
+- Conception incrémentale
+- _Refactoring_
+
+[{topic}]
+== Release
+
+- Tôt et souvent
+- Continuous Integration
+- Petite, Incrémentale
+- Cycles hebdomadaires
+
+[{topic}]
+== Tests
+
+- Utiliser les standards
+- Systématiser les Tests Unitaires
+- TDD
+
+
+
+ifndef::slides[:leveloffset: 0]
 
 //----------------------------- les "artefacts" ------------------
 [{topic}]
@@ -269,42 +412,67 @@ ifdef::slides[:leveloffset: -1]
 [{topic}]
 === Product Backlog
 
+- Propriété du _Product Owner_
+- Maintenu et "vivant" tout au long du projet
+- Ouvert
+- Contiens des _backlog items_
+- Inclue des estimations des _business values_
+- Inclue des estimations des efforts de développement
+
 [{topic}]
 === User stories
 
-ifdef::slides[=== !]
+As a::
+  ...
+I want to::
+  ...
+So that::
+  ...
 
-Caractéristiques (XP => INVEST) :
+ifdef::slides[=== User stories (cards)]
+
+:myref: https://mazoea.wordpress.com/agile/
+ifndef::slides[.Example of Story Card (source: {myref})]
+image:storycard.png[link="{myref}"]
+
+ifdef::slides[=== User stories vs. UML Use Cases]
+
+ifdef::slides[=== User stories (ctd.)]
+
+Bonne pratique (XP => https://en.wikipedia.org/wiki/INVEST_(mnemonic)[INVEST]):
 
 [{incremental}]
-- Indépendante des autres histoires d’utilisateur
+- **I**ndépendante des autres histoires d’utilisateur
 [detail]#(dans la mesure du possible)#
-- Négociable [detail]#(discutée avec l’équipe, notamment lors de
+- **N**égociable [detail]#(discutée avec l’équipe, notamment lors de
 l’estimation)#
-- Source de valeur [detail]#(porteuse d’une
-valeur pour le client)#
-- Estimable [detail]#(elle peut être estimée par l’équipe)#
-- Courte [detail]#(généralement une ou trois phrases environ)#
-- D’une taille appropriée [detail]#(pouvoir être développée
+- source de **V**aleur [detail]#(porteuse d'une
+valeur client)#
+
+ifdef::slides[=== User stories (ctd.)]
+
+- **E**stimable [detail]#(elle peut être estimée par l’équipe)#
+- (**S**)Courte [detail]#(généralement une ou trois phrases environ)#
+- D’une **T**aille appropriée [detail]#(pouvoir être développée
 et testée au sein d’une itération)#
 
-ifdef::slides[=== !]
+ifdef::slides[=== User stories (suite)]
 
 Attributs :
 
-- Un numéro
+- Un numéro (_Id_)
 - Une importance/priorité client
 - Une estimation du coût (en points, temps, ...)
 - Une expression de la forme "En tant que ... je souhaite ... pour pouvoir ...
 
-ifdef::slides[=== !]
+ifdef::slides[=== User stories (suite)]
 
 :thisref: http://www.agiliste.fr/guide-de-demarrage-scrum/
 ifndef::slides[.Exemple de carte pour User Story ({thisref})]
 image::US.jpg[width=100%,link="{thisref}"]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
-ifdef::slides[=== !]
+ifdef::slides[=== Story mapping]
 
 Une activité populaire consiste à organiser les Stories sous forme
 d'une matrice et non d'une simple liste : c'est le *Story Mapping*.
@@ -317,7 +485,7 @@ ifndef::slides[.Exemple de Story Map ({thisref})]
 image::storymap.png[width=50%,link="{thisref}"]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
-ifdef::slides[=== !]
+ifdef::slides[=== {nbsp}]
 
 L'autre dimenstion de la matrice :
 
@@ -327,6 +495,23 @@ L'autre dimenstion de la matrice :
 ifndef::slides[.Exemple de Story Map par flot ({thisref})]
 image::mvp-priorities.png[width=80%,link="{thisref}"]
 ifdef::slides[NOTE: [detail]#{thisref}#]
+
+[{topic}]
+=== Storyboard
+
+:thisref: https://www.vikingcodeschool.com/software-engineering-basics/agile-development-with-xp-and-scrum
+ifndef::slides[.Example of storyboard  ({thisref})]
+image:agile_story_board.jpg[link="{thisref}"]
+
+[{topic}]
+=== Vélocité
+
+WARNING: Attention, ce n'est pas une vitesse!
+
+- Number of items delivered
+- Burndown chart
+
+// velocity estimation: https://www.versionone.com/agile-101/agile-management-practices/agile-scrum-velocity/
 
 [{topic}]
 === Sprint Backlog
@@ -368,7 +553,7 @@ ifdef::slides[]
 
 image::icons/tuxteacher.png[]
 
-== !
+== {nbsp}
 
 endif::slides[]
 

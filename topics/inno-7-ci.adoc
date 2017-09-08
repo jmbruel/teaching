@@ -101,7 +101,7 @@ Continuous Integration is a software development practice where members of a tea
 ifndef::slides[.Exemple d'Continuous Integration (github-travis)]
 image::travis.png[width=100%]
 
-ifdef::slides[== !]
+ifdef::slides[== {nbsp}]
 
 :thisref: https://about.gitlab.com/gitlab-ci/
 ifndef::slides[.Architecture GitLab-CI ({thisref})]
