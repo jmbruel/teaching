@@ -3,6 +3,6 @@ output/
 Gemfile.lock
 asciidoctor-epub3/
 asciidoctor-pdf/
-.html
+*.html
 topics/projet2016
 
