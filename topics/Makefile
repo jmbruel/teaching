@@ -51,6 +51,16 @@ $(OUTPUT)/%.dzslides.html: %.$(EXT)
 		-a source-highlighter=$(HIGHLIGHT) \
 		-o $@ $<
 
+$(OUTPUT)/%.test.html: %.$(EXT)
+	@echo '==> Compiling asciidoc files to generate Dzslides'
+	$(ASCIIDOCTOR) -b dzslides \
+		-T $(DZSLIDES) -E slim \
+		-a slides -a dzslides \
+		-r asciidoctor-diagram \
+		-a styledir=. \
+		-a source-highlighter=$(HIGHLIGHT) \
+		-o $@ $<
+
 $(OUTPUT)/%.deckjs.html: %.$(EXT)
 	@echo '==> Compiling asciidoc files to generate Deckjs'
 	$(ASCIIDOCTOR) -b deckjs \

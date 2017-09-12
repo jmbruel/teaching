@@ -21,6 +21,7 @@ v1.4 {localdate}
 
 include::../definitions.txt[]
 
+//--------------------- slides
 ifdef::slides[]
 :dzslides-style: tomorrow
 //:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default

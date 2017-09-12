@@ -88,6 +88,9 @@ Nous nous intéressons dans cette section à cette deuxième catégorie, car le
 client n'est pas sensé disposer d'{eclipse} ou du même environnement de développement
 que nous.
 
+WARNING: Les manipulations ci-dessous sont à faire dans un environnement
+où vous avez un projet Java existant!!
+
 ifdef::slides[== Construire ses applications (suite)]
 Il existe plusieurs outils :
 
@@ -250,7 +253,7 @@ ifdef::slides[=== ant (suite)]
 Exemple d'tilisation dans {eclipse} pour la génération de fichier
 du type `TD.uml` :
 
-1. Créer un répertoire tools et mettre dedans :
+1. Créer un répertoire tools et mettre dedans (fichiers disponibles sur Moodle, dans le répertoire Sujets TDs/TPs) :
 *	`Plantuml.jar`
 *	`Plantumldoclet.jar`
 * `build.xml`
