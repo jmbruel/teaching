@@ -21,6 +21,23 @@ v1.4 {localdate}
 
 include::../definitions.txt[]
 
+//--------------------- slides
+ifdef::slides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+endif::slides[]
+
 ifdef::slides[== {nbsp}]
 
 À l'initiateur de ce cours, Jean-Michel Inglebert...

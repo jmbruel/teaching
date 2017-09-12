@@ -54,7 +54,7 @@ endif::prof[]
 |======================
 | {pre}		|
 1.	Je connais les concepts principaux de {scrum}
-| {objtd}	| Comprendre ce qu'est un *modèle*.
+| {objtd}	| Mettre en place dépôt pour le code
 | {duree}	| *1 ou 2 séance(s)* de 1,5h (selon la chaleur)
 |======================
 
@@ -123,7 +123,7 @@ En ayant en tête un simple projet Java "HelloWorld" :
 . icon:users[] Créez quelques _User Stories_
 . icon:users[] Organisez-les par priorité client
 . icon:users[] Faites les estimations en points des _User Stories_ (appelés _weight_ dans {gitlab})
-. icon:users[] Créez et planifiez une seule _Release_ 
+. icon:users[] Créez et planifiez une seule _Release_
 +
 NOTE: Vous devrez pour cette étape évaluer la *capacité* de l'équipe.
 À vous de voir par rapport à ce que vous vous sentez de faire dans le 1er
