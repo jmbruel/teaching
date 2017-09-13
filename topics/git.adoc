@@ -1021,6 +1021,8 @@ Comparaison entre merge/rebase/etc.::
   {compmergeURL}
 Un excellent tutoriel en Français et dynamique :
   http://learngitbranching.js.org/
+Git pour les nuls::
+  http://rogerdudler.github.io/git-guide/
 
 // ------
 [{topic}]
