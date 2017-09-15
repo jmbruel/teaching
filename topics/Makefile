@@ -46,8 +46,6 @@ $(OUTPUT)/%.dzslides.html: %.$(EXT)
 		-T $(DZSLIDES) -E slim \
 		-a slides -a dzslides \
 		-r asciidoctor-diagram \
-		-a styledir=. \
-		-a stylesheet=$(STYLE) \
 		-a source-highlighter=$(HIGHLIGHT) \
 		-o $@ $<
 
