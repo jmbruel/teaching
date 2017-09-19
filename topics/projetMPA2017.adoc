@@ -136,10 +136,6 @@ fichier de type  `entreprises2015_2016.csv` grâce à l'IHM - *priorité métier
 - En tant qu'utilisateur, je veux pouvoir afficher la liste des versements de
 TA d'un fichier de type `versements2015_2016.csv` grâce à l'IHM - *priorité métier 8*
 
-- En tant qu'utilisateur, je veux pouvoir afficher la liste des entreprises dans
-l'IHM, en supprimer certains puis l'enregistrer dans un fichier `.csv` de mon
-choix - *priorité métier 8*
-
 - En tant qu'utilisateur, une fois la liste des entreprises affichée dans l'IHM,
 je veux pouvoir sélectionner (filtrer) les éléments affichés sur chacun des champs
 du fichier `.csv` correspondant - *priorité métier 8*.
