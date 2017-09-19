@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="main" name="EssaiBuild">
+  <target name="main">
+    <echo message="Version d'Ant utilisee: ${ant.version}"/>
+    <javadoc doclet="de.mallox.doclet.PlantUMLDoclet"
+    docletpath="plantUmlDoclet.jar"
+    access="private"
+    additionalparam=
+    "-encoding utf-8 -J-DdestinationFile=uml.txt -J-DcreatePackages=false -J-DshowPublicMethods=true -J-DshowPublicConstructors=false -J-DshowPublicFields=true"
+    >
+      <packageset dir="../src">
+        <include name="testMPA"/>
+      </packageset>
+    </javadoc>
+    
+    <javac srcdir="../src" destdir="../bin" >
+    	
+    </javac>
+
+    <java jar="plantuml.jar" fork="true" maxmemory="128m">
+      <arg value="uml.txt"/>
+    </java>
+    
+  </target>
+</project>
