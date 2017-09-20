@@ -1,6 +1,6 @@
 //---------------------------------
 // Course on Unit Testing
-// (c) JMB - 2016
+// (c) JMB - 2016-2017
 //---------------------------------
 = *Tests* en intégration continue
 J.-M. Bruel <jbruel@gmail.com>
@@ -98,7 +98,7 @@ Typologie des tests
 
 JUnit etc.
 
-Application concrète pour MPA2016
+Application concrète pour MPA2017
 
 endif::slides[]
 
@@ -364,7 +364,7 @@ ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifdef::slides[:leveloffset: 0]
 
-// ------------------------------------------ MPA2016
+// ------------------------------------------ MPA2017
 [{intro}]
 == Application concrète pour MPA2016
 
@@ -747,8 +747,9 @@ ifdef::slides[]
 :leveloffset: 0
 
 [{intro}]
-== Projet MPA : *Sprint 2*
+== Projet MPA : *Sprint 1*
 
+/////
 [{topic}]
 == Statistiques Sprint 2
 
@@ -782,10 +783,10 @@ ifdef::slides[== {nbsp}]
 | 3B2 | 0 | 0 | image:buildNOK.png[width=30%]
 |=====
 [detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
-
+/////
 
 [{intro}]
-== Perles
+== Perles livraison Sprint 1
 
 ifdef::slides[== Les références absolues!]
 
