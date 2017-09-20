@@ -176,3 +176,19 @@ qu'il me propose de la créer - *priorité métier 4*.
 préfère les interfaces web... - *priorité métier 2*
 
 //https://gitlab.com/gitlab-org/gitlab-ce/issues/21595
+
+:numbered:
+== Evaluation et notation
+
+Voici le barème prévisionnel :
+
+[align="center",width="90%",cols="6,^1",options="header"]
+|=========================================================
+| Rubrique											    | Poids footnote:[sur la note de projet]
+| Respect de la méthode Scrum 	    | 30%
+| Caractère "Professionnel"	du dev  | 30%
+| Livraisons successives            | 20%
+| Tests/Documentations/Readme/wiki  | 10%
+| Satisfaction cliente finale       | 10%
+| _Bonus_ (MOOC en ligne)           | _+10%_ footnote:[bonus individuel]
+|=========================================================
