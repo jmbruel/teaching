@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="author" content="J.-M. Bruel -- 2017-10-13">
+<title>Les exigences (et SysML)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="./pygments-default.css">
+</head>
+<body id="reqs" class="article toc2 toc-left">
+<div id="header">
+<h1>Les <strong>exigences</strong> (et SysML)</h1>
+<div class="details">
+<span id="author" class="author">J.-M. Bruel -- 2017-10-13</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matières</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_fondements">2. Fondements</a></li>
+<li><a href="#_l_organisation_des_em_requirements_em">3. L&#8217;organisation des <em>Requirements</em></a>
+<ul class="sectlevel2">
+<li><a href="#_représentation_de_base">3.1. Représentation de base</a></li>
+<li><a href="#_différents_types_d_organisation">3.2. Différents types d&#8217;organisation</a></li>
+<li><a href="#_tableaux_de_em_requirements_em">3.3. Tableaux de <em>Requirements</em></a></li>
+</ul>
+</li>
+<li><a href="#_les_em_requirements_properties_em">4. Les <em>Requirements properties</em></a></li>
+<li><a href="#_les_em_requirements_links_em">5. Les <em>Requirements links</em></a></li>
+<li><a href="#_les_em_requirements_diagrams_em">6. Les <em>Requirements Diagrams</em></a></li>
+<li><a href="#reqStereotypes">7. Stéréotyper les <em>Requirements</em></a></li>
+<li><a href="#reqAnnot">8. Annotations des <em>Requirements</em></a></li>
+<li><a href="#_les_considérations_sur_la_traçabilité">9. Les considérations sur la traçabilité</a></li>
+<li><a href="#_les_em_use_case_diagrams_em">10. Les <em>Use Case Diagrams</em></a></li>
+<li><a href="#_exigences_et_tests">11. Exigences et tests</a>
+<ul class="sectlevel2">
+<li><a href="#_principes">11.1. Principes</a></li>
+</ul>
+</li>
+<li><a href="#_exemple_complet">12. Exemple complet</a>
+<ul class="sectlevel2">
+<li><a href="#_le_texte_du_cahier_des_charges">12.1. Le texte du cahier des charges</a></li>
+<li><a href="#_expression_des_exigences">12.2. Expression des exigences</a></li>
+<li><a href="#_plan_de_test">12.3. Plan de test</a></li>
+<li><a href="#_analyse_et_la_conception">12.4. Analyse et la conception</a></li>
+<li><a href="#_lien_et_traçabilité">12.5. Lien et traçabilité</a></li>
+</ul>
+</li>
+<li><a href="#_en_résumé">13. En résumé</a></li>
+<li><a href="#_questions_de_révision">14. Questions de révision</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>L&#8217;ingénierie des exigences est d&#8217;une importance capitale, surtout en Ingénierie Système.
+En général les exigences sont exprimées par des ingénieurs dédiés à cette activité.
+La complexité des systèmes modernes (embarqués, communicants, critiques, &#8230;&#8203;) rendent
+cruciale cette analyse.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://www.inria.fr/centre/rennes/actualites/vers-un-cahier-des-charges-mieux-formule"><img src="images/ingenierie-des-exigences.jpg" alt="Joke" width="100"></a>
+</div>
+<div class="title">Figure 1. 300 corps de métiers sont parfois présents sur un même chantier</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Besoins, exigences : question de vocabulaire</div>
+<div class="paragraph">
+<p>La difficulté de l&#8217;emploi massif de l&#8217;anglais fait qu&#8217;il existe souvent une confusion entre
+les termes anglais et leurs traduction française. Nous précisons donc ici notre utilisation des termes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><em>Requirements</em></dt>
+<dd>
+<p>Exigences, c&#8217;est à dire :</p>
+</dd>
+</dl>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="literalblock">
+<div class="content">
+<pre>une fonction ou une propriété que doit satisfaire le système considéré.</pre>
+</div>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; OMG SysML v1.5, p. 161
+</div>
+</div>
+<div class="paragraph">
+<p>Par nature une exigence doit pouvoir être <strong>vérifiable</strong>.</p>
+</div>
+<div class="paragraph">
+<p>En génie logiciel on parle plus classiquement des spécifications ("spec") pour parler des contraintes à respecter pour un système.</p>
+</div>
+<div class="paragraph">
+<p>Les ingénieurs systèmes ont depuis longtemps intégré le terme d&#8217;exigences comme traduction directe de <em>requirement</em>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Besoins</dt>
+<dd>
+<p>Il s&#8217;agit des exigences du client. En <a href="http://www.uml.org/">UML&#8482;</a> on va plus les retrouver dans les cas d&#8217;utilisation. Ils sont à l&#8217;origine des <em>requirements</em> tels que définis plus haut.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Il est important pour une exigence qu&#8217;elle ne soit pas ambiguë (contrairement au terme "en" dans la consigne exprimée par la maman dans l&#8217;illustration <a href="#fig:eggs">ci-dessous</a> : "<em>Ramène moi 1 bouteille de lait. S&#8217;il y a des oeufs, ramène m&#8217;en 6.</em>").</p>
+</div>
+<div id="fig:eggs" class="imageblock">
+<div class="content">
+<a class="image" href="https://plus.google.com/100035762233109552669/posts/a8Hafq2hZ74"><img src="images/ProgrammerHumor.jpg" alt="Joke" width="40%"></a>
+</div>
+<div class="title">Figure 2. Spécification ambiguë (taken from <a href="https://plus.google.com/100035762233109552669/posts/a8Hafq2hZ74" class="bare">https://plus.google.com/100035762233109552669/posts/a8Hafq2hZ74</a>)</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fondements">2. Fondements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>On abordera :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;organization des <em>Requirements</em></p>
+</li>
+<li>
+<p>Les <em>Requirements properties</em></p>
+</li>
+<li>
+<p>Les <em>Requirements links</em></p>
+</li>
+<li>
+<p>Les <em>Requirements Diagrams</em></p>
+</li>
+<li>
+<p>Les considérations sur la traçabilité</p>
+</li>
+<li>
+<p>Annotations des <em>Requirements</em></p>
+</li>
+<li>
+<p>Les <em>Use Case Diagrams</em></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>L&#8217;ingénierie des exigences est une discipline à part entière et nous n&#8217;abordons ici
+que les aspects en lien avec la modélisation. Voir le livre de référence pour
+plus de détails (<a href="#Sommerville1997">[Sommerville1997]</a>) ou le guide de l&#8217;<a href="http://www.afis.fr/">AFIS</a> (<a href="#REQ2012">[REQ2012]</a>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Il n&#8217;existe pas de diagramme <a href="http://www.uml.org/">UML&#8482;</a> pour traiter des exigences en particulier.
+C&#8217;est pourquoi ce diagramme a été introduit par <a href="http://www.omgsysml.org/">SysML&#8482;</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_l_organisation_des_em_requirements_em">3. L&#8217;organisation des <em>Requirements</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Il ne s&#8217;agit pas ici de revenir sur les exigences elles-même, mais plutôt de voir comment <a href="http://www.omgsysml.org/">SysML&#8482;</a> permet
+de les exprimer, de les manipuler et surtout de les lier avec le reste du système.</p>
+</div>
+<div class="sect2">
+<h3 id="_représentation_de_base">3.1. Représentation de base</h3>
+<div class="paragraph">
+<p>Un <em>Requirement</em> en <a href="http://www.omgsysml.org/">SysML&#8482;</a> n&#8217;est qu&#8217;un bloc particulier.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Définition : <span class="image"><img src="images/sysml.jpeg" alt="sysml" width="20"></span> <em>Requirements</em> (OMG SysML v1.5, p. 161)</div>
+<div class="paragraph">
+<p><em>A requirement specifies a capability or condition that must (or should) be satisfied&#8230;&#8203;
+A requirement is defined as a stereotype of UML Class&#8230;&#8203;</em></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="corde" class="imageblock">
+<div class="content">
+<img src="images/requirement.png" alt="SysML and UML" width="50%">
+</div>
+<div class="title">Figure 3. Un exemple de _Requirement_ en SysML (source &lt;&lt;SysML&gt;&gt;, p. 159)</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_différents_types_d_organisation">3.2. Différents types d&#8217;organisation</h3>
+<div class="paragraph">
+<p>L&#8217;ingénierie des exigences aboutit généralement à une liste organisée d&#8217;exigences, que ce soit en terme
+de fonctionnelles/non fonctionnelles, de prioritaires/secondaires, etc.
+Le principal support de <a href="http://www.omgsysml.org/">SysML&#8482;</a> à cette organisation, outre la possibilité de les annoter (cf. section <a href="#reqStereotypes">Stéréotyper les exigences</a>), consiste à utiliser les  <em>packages</em>.</p>
+</div>
+<div class="paragraph">
+<p>Plusieurs types d&#8217;organisations sont possibles :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Par niveau d&#8217;abstraction</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Besoins généraux (en lien avec les  <em>use cases</em> par exemple)</p>
+</li>
+<li>
+<p>Besoins techniques (en lien avec les éléments de conception)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Par point de vue</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Besoins principaux (en lien avec les <em>use cases</em>)</p>
+</li>
+<li>
+<p>Besoins spécifiques :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fonctionnels</p>
+</li>
+<li>
+<p>Marketing</p>
+</li>
+<li>
+<p>Environnementaux</p>
+</li>
+<li>
+<p><em>Business</em></p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>etc.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tableaux_de_em_requirements_em">3.3. Tableaux de <em>Requirements</em></h3>
+<div class="paragraph">
+<p>Les <em>requirements</em> sont habituellement stockés dans des tableaux (feuilles excel le plus souvent!).
+Il est donc recommandé par le norme et possible dans de nombreux outils de représenter les exigences
+sous forme tabulaire.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Définition : <span class="image"><img src="images/sysml.jpeg" alt="sysml" width="20"></span> <em>Requirements Table</em> (OMG SysML v1.3, p. 145)</div>
+<div class="paragraph">
+<p><em>The tabular format is used to represent the requirements, their properties and relationships&#8230;&#8203;</em></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/req-table.png" alt="req table" width="100%">
+</div>
+<div class="title">Figure 4. Exemples tableau d'exigences (OMG SysML v1.3, p. 145)</div>
+</div>
+<div class="paragraph">
+<p>La plupart des outils modernes permettent le passage entre outils classiques de gestion des exigences (comme <a href="http://www-03.ibm.com/software/products/fr/fr/ratidoor/">DOORS&#8482;</a>)
+et outils de modélisation <a href="http://www.omgsysml.org/">SysML&#8482;</a> (comme <a href="http://www.modeliosoft.com/">Modelio</a>, illustré ci-dessous).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/req-modelio.png" alt="req modelio" width="100%">
+</div>
+<div class="title">Figure 5. Import Modelio de tableau d'exigences (tiré de &lt;&lt;Modelio2012&gt;&gt;)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_em_requirements_properties_em">4. Les <em>Requirements properties</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>À partir du moment où on commence à définir des propriétés pour les éxigences,
+on peut considérer que l&#8217;on est à la frontière avec la phase d&#8217;analyse des exigences.</p>
+</div>
+<div class="paragraph">
+<p>Il est possible d&#8217;indiquer un certain nombre de propriétés sur un <em>requirement</em> :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>priority</em> (<code>high</code>, <code>low</code>, &#8230;&#8203;)</p>
+</li>
+<li>
+<p><em>source</em> (<code>stakeolder</code>, <code>law</code>, <code>technical</code>, &#8230;&#8203;)</p>
+</li>
+<li>
+<p><em>risk</em> (<code>high</code>, <code>low</code>, &#8230;&#8203;)</p>
+</li>
+<li>
+<p><em>status</em> (<code>proposed</code>, <code>approved</code>, &#8230;&#8203;)</p>
+</li>
+<li>
+<p><em>verification method</em> (<code>analysis</code>, <code>tests</code>, &#8230;&#8203;)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Dans le cadre du module MPA nous ne retiendrons comme attribut d&#8217;un <em>requirement</em>
+que son identifiant et le texte le désignnat (les deux attributs obligatoire).
+La priorité sera donné par le client en terme de cycle (on traitera en premier les <em>requirements</em> prioritaires).</p>
+</div>
+<div class="paragraph">
+<p>Ainsi en <a href="http://plantuml.sourceforge.net/">plantUML</a>, une exigence ressemblera à ceci (cf. rendu <a href="#corde">ici</a>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code>class ObtenirHoraires &lt;&lt;requirement&gt;&gt; {
+	Text = "Le logiciel doit fournir les horaires rapidement."
+	Id = "14.2"
+	}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_em_requirements_links_em">5. Les <em>Requirements links</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les principales relations entre <em>requirements</em> sont :</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><em>Containment</em></dt>
+<dd>
+<p>Pour décrire la décomposition d&#8217;une exigence en plusieurs sous-exigences (⊕–). Typiquement dès qu&#8217;une exigence est exprimée avec une conjonction "et" ("La voiture doit être rapide et économe.").</p>
+</dd>
+<dt class="hdlist1"><em>Refinement</em></dt>
+<dd>
+<p>Pour décrire un ajout de précision (<code>&lt;&lt;refine&gt;&gt;</code>), comme par exemple une précision.</p>
+</dd>
+<dt class="hdlist1"><em>Derivation</em></dt>
+<dd>
+<p>	Pour indiquer une différence de niveau d&#8217;abstraction (<code>&lt;&lt;deriveReqt&gt;&gt;</code>), par exemple
+entre un système et un de ses sous-systèmes.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Lorsqu&#8217;une exigence possède plusieurs cas <code>&lt;&lt;refine&gt;&gt;</code> qui pointent vers lui,
+on considère que ces différents cas sont des options possibles de raffinement (cf. <a href="#conventions">[conventions]</a>).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/req-exp1.png" alt="req exp1" width="80%">
+</div>
+<div class="title">Figure 6. Exemples de relations entre exigences</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Il existe ensuite les relations entre les besoins et les autres éléments de modélisation
+(les <em>block</em> ou les <em>class</em> principalement) comme <code>&lt;&lt;satisfy&gt;&gt;</code> ou <code>&lt;&lt;verify&gt;&gt;</code>, mais nous les aborderons
+dans la partie <a href="#transvers">transverse</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/topcased-req-connections.png" alt="topcased req connections" width="50%">
+</div>
+<div class="title">Figure 7. Relations liées aux _requirements_ dans TOPCASED</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_em_requirements_diagrams_em">6. Les <em>Requirements Diagrams</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Voici un exemple de <code>req</code> un peu plus étoffé, tiré de la norme (voir aussi <a href="#rationale">Exemples de _rationale_ et _problem_ (tiré de &lt;&lt;SysML&gt;&gt;)</a>) :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/hsuv-reqs1.png" alt="hsuv reqs1" width="80%">
+</div>
+<div class="title">Figure 8. Exemples de composition d'exigences (tiré de &lt;&lt;SysML&gt;&gt;)</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reqStereotypes">7. Stéréotyper les <em>Requirements</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Tout comme pour n&#8217;importe quel bloc, il est possible de stéréotyper les <em>requirements</em>.
+Ceci permet de se définir ses propres priorités et classifications.
+Quelques exemples de stéréotypes utiles :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;&lt;interfaceRequirement&gt;&gt;</code>, <code>&lt;&lt;physicalRequirement&gt;&gt;</code>, &#8230;&#8203;</p>
+</li>
+<li>
+<p><code>&lt;&lt;FunctionalRequirement&gt;&gt;</code>, <code>&lt;&lt;nonFunctionalRequirement&gt;&gt;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reqAnnot">8. Annotations des <em>Requirements</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Il est possible d&#8217;annoter les éléments de modélisation en précisant les raisons
+(<em>rationale</em>) ou les éventuels problèmes anticipés (<em>problem</em>).</p>
+</div>
+<div id="rationale" class="imageblock">
+<div class="content">
+<img src="images/hsuv-reqs2.png" alt="hsuv reqs2" width="80%">
+</div>
+<div class="title">Figure 9. Exemples de _rationale_ et _problem_ (tiré de &lt;&lt;SysML&gt;&gt;)</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_considérations_sur_la_traçabilité">9. Les considérations sur la traçabilité</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une fois que les <em>requirements</em> ont été définis et organisés, il est utile de les lier au moins aux <em>use cases</em>
+(en utilisant <code>&lt;&lt;refine&gt;&gt;</code> par exemple) et aux éléments structurels (en utilisant <code>&lt;&lt;satisfy&gt;&gt;</code> par exemple), mais ceci
+sera abordé dans la partie <a href="#transvers">transverse</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>En général chaque <em>requirement</em> devrait être relié à au moins un <em>use case</em> (et vice-versa!).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_les_em_use_case_diagrams_em">10. Les <em>Use Case Diagrams</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bien que nous traitions les cas d&#8217;utilisation dans la partie <a href="#behavior">comportement</a>, nous les abordons
+	ici du fait de leur proximité avec les <em>requirements</em>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/req-uc-relation.png" alt="req uc relation" width="50%">
+</div>
+<div class="title">Figure 10. Exemple de lien entre use case et requirements</div>
+</div>
+<div class="paragraph">
+<p>Ce diagramme est celui que vous avez appris l&#8217;an dernier en <a href="http://www.uml.org/">UML&#8482;</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UCGestionNotes.png" alt="UCGestionNotes" width="80%">
+</div>
+<div class="title">Figure 11. Exemple de diagramme des cas d'utilisation (`B`)</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/uc.png" alt="uc" width="70%">
+</div>
+<div class="title">Figure 12. Autre exemple de diagrammes des cas d'utilisation (`B`)</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un acteur représente un <strong>rôle</strong> joué par un utilisateur humain. Il faut donc plutôt raisonner sur les rôles que sur les personnes elles-mêmes pour identifier les acteurs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exigences_et_tests">11. Exigences et tests</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_principes">11.1. Principes</h3>
+<div class="paragraph">
+<p>Pour ce qui ce concerne ce module nous allons nous contenter de maintenir des
+matrices croisant les exigences d&#8217;un côté et les tests de l&#8217;autre.</p>
+</div>
+<div class="paragraph">
+<p>Par exemple :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://infocenter.sybase.com/archive/index.jsp?topic=/com.sybase.stf.poweramc.docs_12.0.0/html/exgu/exgup38.htm"><img src="images/matriceTraca.png" alt="matriceTraca" width="70%"></a>
+</div>
+<div class="title">Figure 13. Exemple de matrice de traçabilité</div>
+</div>
+<div class="paragraph">
+<p>Dans la réalité, les entreprises industrialisent le processus de vérification
+des exigences en utilisant des outils adaptés :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/testindus.png" alt="testindus" width="60%">
+</div>
+<div class="title">Figure 14. Le cycle de la qualification fonctionnelle en lien avec les besoins métiers (tirée de <a href="#TestsIndustriels2009">[TestsIndustriels2009]</a>)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exemple_complet">12. Exemple complet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>En prenant un exemple tiré de l&#8217;exemple du <a href="http://www.prfc.fr/livres/">Radio Réveil</a>&#8230;&#8203;</p>
+</div>
+<div class="sect2">
+<h3 id="_le_texte_du_cahier_des_charges">12.1. Le texte du cahier des charges</h3>
+<div class="paragraph">
+<p>Le texte complet de l&#8217;exemple ne précise pas le cahier des charges de l&#8217;Autoradio (AR), considérant
+que tout le monde sait ce que c&#8217;est!</p>
+</div>
+<div class="paragraph">
+<p>Rédigeons tout de même quelques extraits (numérotés) de texte possible :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>L&#8217;AR est un dispositif qui permet d&#8217;écouter la radio de manière confortable et interactive.</p>
+</li>
+<li>
+<p>L&#8217;AR doit être capable de mémoriser un certain nombre de station différentes.</p>
+</li>
+<li>
+<p>L&#8217;Utilisateur de l&#8217;AR doit pouvoir choisir sa station parmis un choix donné.</p>
+</li>
+<li>
+<p>L&#8217;Utilisateur de l&#8217;AR doit pouvoir régler le niveau sonore.</p>
+</li>
+<li>
+<p>L&#8217;Utilisateur de l&#8217;AR doit pouvoir chercher une station en "balayant" les ondes FM.</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expression_des_exigences">12.2. Expression des exigences</h3>
+<div class="paragraph">
+<p>Nous pouvons, en analysant ce cahier des charges, déduire un certain nombre d&#8217;exigences.
+Nous les écrivons ici sous forme tabulaire, puis en utilisant le langage <a href="http://cukes.info/gherkin.html">Gherkin</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Concernant <a href="http://cukes.info/gherkin.html">Gherkin</a>, pour ceux qui veulent aller plus loin, il est possible d&#8217;automatiser la génération des tests
+à partir de ce genre de langage. C&#8217;est ce que fait <a href="http://cukes.info/">Cucumber</a> pour <a href="https://www.ruby-lang.org">Ruby</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Version tabulaire</strong> :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tabulaire.png" alt="tabulaire" width="100%">
+</div>
+<div class="title">Figure 15. Exemple de liste d'exigences (tirée de <a href="#TestsIndustriels2009">[TestsIndustriels2009]</a>)</div>
+</div>
+<div class="paragraph">
+<p>Exemple de <strong>version textuelle</strong> formattée :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code>#encoding: utf-8
+Feature: Scénario simple d'utilisation de l'AutoRadio (AR)
+  In order to vérifier que le son marche
+  As an utilisateur lambda
+  I should be able to exécuter ces scénarios et constater les effets
+
+  Scenario: Augmenter le son
+    Given un AR avec le son à 0
+    When Je presse le bouton "Volume +"
+    Then Le son passe à 1
+    And Je commence à entendre la radio</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_plan_de_test">12.3. Plan de test</h3>
+<div class="paragraph">
+<p>Créer un plan de test consiste à prévoir l&#8217;ensemble des tests à l&#8217;avance de manière
+à prévoir la <strong>couverture</strong> de ces tests.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/plantest.png" alt="plantest" width="100%">
+</div>
+<div class="title">Figure 16. Exemple de plan de test simplifié (tirée de <a href="#TestsIndustriels2009">[TestsIndustriels2009]</a>)</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_analyse_et_la_conception">12.4. Analyse et la conception</h3>
+<div class="paragraph">
+<p>Dans un cycle classique ("en V" par exemple), les modèles sont réalisés avant l&#8217;implémentation (codage).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="images/AutoRadio-UC.png"><img src="images/AutoRadio-UC.png" alt="AutoRadio UC" width="20%"></a>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="images/AutoRadio-DC.png"><img src="images/AutoRadio-DC.png" alt="AutoRadio DC" width="20%"></a>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="images/AutoRadio-DS-Suivante.png"><img src="images/AutoRadio-DS-Suivante.png" alt="AutoRadio DS Suivante" width="20%"></a>
+</div>
+</div>
+<div class="paragraph">
+<p>Dans un cycle Agile, chaque cycle possèdera ses modèles, eux aussi versionnés, qui eux aussi évolueront
+en même temps que le code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lien_et_traçabilité">12.5. Lien et traçabilité</h3>
+<div class="paragraph">
+<p>Plus encore que dans les méthodes classiques, il conviendra de vérifier que code et modèles sont bien
+cohérents. On pourra donc :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>générer les codes à partir des modèles</p>
+</li>
+<li>
+<p>générer les modèles à partir des codes <span class="detail">(cf. <a href="#commentaires">commentaires</a>)</span></p>
+</li>
+<li>
+<p>utiliser des outils intégrés <span class="detail">comme <a href="http://www.eclipse.org">eclipse</a></span></p>
+</li>
+<li>
+<p>avoir un plan systématique de révision code/modèle</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div id="commentaires" class="listingblock">
+<div class="title">Exemple de code Java commenté pour la génération automatique de diagrammes plantUML</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="java"><span class="tok-kn">package</span> <span class="tok-n">demo</span><span class="tok-o">;</span>
+
+<span class="tok-kd">class</span> <span class="tok-nc">Controller</span> <span class="tok-o">{}</span>
+<span class="tok-kd">class</span> <span class="tok-nc">EmbeddedAgent</span> <span class="tok-o">{}</span>
+<span class="tok-kd">class</span> <span class="tok-nc">PowerManager</span> <span class="tok-o">{}</span>
+
+<span class="tok-cm">/**</span>
+<span class="tok-cm"> * @extends Controller</span>
+<span class="tok-cm"> * @extends EmbeddedAgent</span>
+<span class="tok-cm"> * @navassoc - - 1..* PowerManager</span>
+<span class="tok-cm"> * @note this is a note</span>
+<span class="tok-cm"> */</span>
+<span class="tok-kd">class</span> <span class="tok-nc">SetTopController</span> <span class="tok-kd">implements</span> <span class="tok-n">URLStreamHandler</span> <span class="tok-o">{</span>
+  <span class="tok-kd">public</span> <span class="tok-n">String</span> <span class="tok-n">name</span><span class="tok-o">;</span>
+
+  <span class="tok-kt">int</span> <span class="tok-n">authorizationLevel</span><span class="tok-o">;</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">startUp</span><span class="tok-o">()</span> <span class="tok-o">{}</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">shutDown</span><span class="tok-o">()</span> <span class="tok-o">{}</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">connect</span><span class="tok-o">()</span> <span class="tok-o">{}</span>
+<span class="tok-o">}</span>
+
+<span class="tok-cm">/** @depend - friend - SetTopController */</span>
+<span class="tok-kd">class</span> <span class="tok-nc">ChannelIterator</span> <span class="tok-o">{}</span>
+
+<span class="tok-kd">interface</span> <span class="tok-nc">URLStreamHandler</span> <span class="tok-o">{</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">OpenConnection</span><span class="tok-o">();</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">parseURL</span><span class="tok-o">();</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">setURL</span><span class="tok-o">();</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">toExternalForm</span><span class="tok-o">();</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="http://plantuml.sourceforge.net/doclet.html"><img src="images/doclet.png" alt="doclet" width="90%"></a>
+</div>
+<div class="title">Figure 17. Exemple de diagramme généré par javadoc (tirée de <a href="#TestsIndustriels2009">[TestsIndustriels2009]</a>)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_en_résumé">13. En résumé</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les <strong>exigences</strong> sont très importantes en ingénierie système,
+du fait de la multiplication des <strong>sous-systèmes</strong> et donc des <strong>intermédiaires</strong> (fournisseurs, sous-traitants, etc.)
+avec qui les aspects contractuels seront souvent basés sur ces exigences.</p>
+</div>
+<div class="paragraph">
+<p>Il n&#8217;est donc pas étonnant qu&#8217;un  diagramme
+et des mécanismes <strong>dédiés</strong> aient été prévus en <a href="http://www.omgsysml.org/">SysML&#8482;</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 90%;">
+<caption class="title">Table 1. Déclinaison des Exigences</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6669%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"><strong class="red"><a href="#reqs">Exigences</a></strong></th>
+<th class="tableblock halign-left valign-top"><a href="#archi">Structure</a></th>
+<th class="tableblock halign-left valign-top"><a href="#behavior">Comportement</a></th>
+<th class="tableblock halign-left valign-top"><a href="#transvers">Transverse</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Organisation</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>⊕–</code>, <code>&lt;&lt;deriveReqt&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Analyse</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;satisfy&gt;&gt;</code>, <code>&lt;&lt;refine&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;satisfy&gt;&gt;</code> entre reqs et UC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;refine&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Conception</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;allocate&gt;&gt;+</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Implémentation</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;satisfy&gt;&gt;</code>, <code>&lt;&lt;verify&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>En terme de démarche, il est classique d&#8217;avoir de nombreux aller-retour entre la modélisation
+des exigences et la modélisation du système lui-même (cf. <a href="#sysmod">Exemple de démarche (_SYSMOD Zigzag pattern_) (tirée de <a href="#TestsIndustriels2009">[TestsIndustriels2009]</a>)</a>).</p>
+</div>
+<div id="sysmod" class="imageblock">
+<div class="content">
+<a class="image" href="http://model-based-systems-engineering.com/2012/03/26/the-sysmod-zigzag-pattern/"><img src="images/zigzag.png" alt="zigzag" width="90%"></a>
+</div>
+<div class="title">Figure 18. Exemple de démarche (_SYSMOD Zigzag pattern_) (tirée de <a href="#TestsIndustriels2009">[TestsIndustriels2009]</a>)</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_questions_de_révision">14. Questions de révision</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="./images/icons/tuxteacher.png" alt="Note">
+</td>
+<td class="content">
+<div class="title">Questions</div>
+<div class="paragraph">
+<p>Quelles sont les différences entre <strong>besoins</strong> et <strong>exigences</strong> ?</p>
+</div>
+<div class="paragraph">
+<p>Quelles sont les différences entre un <strong>backlog de produit</strong> et une liste d'<strong>exigences</strong>?</p>
+</div>
+<div class="paragraph">
+<p>En quoi les cas d&#8217;utilisation sont-ils complémentaires des exigences?</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-10-13 08:24:41 CEST
+</div>
+</div>
+</body>
+</html>
