@@ -1,0 +1,132 @@
+:miburl: http://mi.iut-blagnac.fr/
+:mib: {miburl}[MIB]
+:projectName: SmartHomeSystem
+:projectShortName: SHS
+:sysml: http://www.omgsysml.org/[SysML(TM)]indexterm:[SysML]
+:iut: http://www.iut-blagnac.fr/[IUT de Blagnac]
+:papyrus: http://www.eclipse.org/papyrus/[Papyrus-SysML]
+:papyrusversion: 3.0
+:dl: http://www.master-developpement-logiciel.fr/[Master DL]
+:bc: link:http://www.combemale.fr[Benoît Combemale]
+:esir: link:https://esir.univ-rennes1.fr/[ESIR]
+:mdetools: http://mase.cs.queensu.ca/mdetools/[MDETools'17]
+:FichierExigences: https://docs.google.com/spreadsheets/d/1Y7Bdt31vNEErk-NghoGVbQmzeEY5j9RwBZK9fBiywZM/edit?usp=sharing
+
+
+[[etudeCas]]
+[reftext="Étude de cas"]
+= Étude de cas
+
+Nous allons modéliser un système complexe, réel : la Maison
+Intelligente de Blagnac ({MIB}).
+Nous avons volontairement choisi un domaine qui prend de l'ampleur :
+l'Internet des Objets (IoT - _Internet of Thing_).
+
+.La "Maison Intelligente" de Blagnac
+image::mib.png[MIB,width=90%,scaledwidth=90%]
+
+La {mib} est un appartement permettant la supervision de personnes dépendantes (patients, personnes âgées, ...) à domicile.
+La description de ce système (notre spécification initiale) est disponible sur le site {miburl}.
+Pour permettre de démarrer la modélisation, nous partirons d'un {FichierExigences}[fichier partagé] des exigences initiales.
+
+[WARNING]
+=====
+. Nous ne nous intéresserons qu'à la partie intelligente de la maison (et non à ses caractéristiques architecturales par exemple).
+. N'hésitez pas à prendre quelques libertés sur les caractéristiques de la maison réelle
+pour parfois les enrichir.
+=====
+
+== Description
+
+//merci Nicolas Hili
+La variété des équipements disponibles dans la {mib} permet à son occupant de
+réaliser un ensemble de tâches comme :
+
+- Surveiller (_Monitoring_) ma consommation énergétique (globale ou d'un équipement en particulier)
+- Activer des dispositifs (_actuators_) comme l'intensité d'une ampoule (_light bulb_), l'ouverture d'un rideau (_shutter_)
+- Surveiller les données collectées par des capteurs (_sensors_) comme la temperature, la luminosité, etc.
+
+L'objectif principal de la {mib} est d'être un support à l'assistance et au monitoring de
+personne à domicile qui sont autonome mais qui doivent être suivies ou aidées.
+Les éléments de conforts mais surtout de sécurité sont donc primordiaux et doivent
+être fournis de manière continue, et potentiellement nécessiter des moyens humains d'assistance.
+
+L'intérêt de ce cas d'étude (que nous appèlerons _{projectName}_, ou {projectShortName})
+est qu'elle nécessite de prendre en compte les aspects sécurité (_security_), adaptation (_accommodation_),
+sociaux (_societal_), légaux (_legislative_), économiques (_economical_), et écologiques (_ecological_).
+Dans ce qui suit nous décrivons plus précisément quelques services attendus d'un tel système.
+
+=== Sécurité
+
+Comme n'importe quelle autre logement, la maison intelligente doit être sécurisée.
+Le _{projectName}_ doit donc fournir un certain niveau de protection contre les intrus et les voleurs.
+Ce niveau doit même être renforcé du fait de la vulnérabilité induite par l'ultra-connectivité du système.
+On profitera donc avantageusement du niveau d'équipement pour mettre en place les réponses adaptées
+(alarmes, alertes automatiques, etc.) sans pour autant oublier de donner un accès privilégié
+aux différents acteurs de la supervision (pompiers, médecins, etc.).
+L'accès aux données personnelles (notamment de santé) via les différents dispositifs connectés
+sera fortement contrôlé. Les notions d'identification, de certification ou de cryptage seront donc primordiales.
+
+WARNING: Cette description mélange des aspects différents de sécurité : la sureté, la sécurité et la cybersécurité.
+Nous avons laissé volontairement ces ambiguités pour illustrer comment {sysml} peut être utilisé pour exprimer
+la composition d'exigences.
+
+=== Adaptation
+
+Le _{projectName}_ doit pouvoir s'adapter aux conditions physiques et mentales
+de l'occupantfootnote:[Pour des raisons de simplicité, et pour coller à la réalité de la {mib}, nous ne considérons
+qu'il n'y a qu'un(e) seul(e) habitant(e).].
+Par exemple, la hauteur des équipements de cuisine (meubles, éviers) s'abaissent
+automatiquement si l'occupant est en fauteuil roulant.
+Un autre exemple, qui concerne les personnes atteintes de troubles cognitifs, est
+la possibilité de guider l'occupant par la voix ou par un signal lumineux au sol,
+d'un point à un autre de la maison (par exemple le matin de son lit à la salle de bain).
+Le _{projectName}_ doit également permettre de configurer les nombreux équipements
+en fonction des préférences de l'occupant (par exemple, heure de fermeture des volets ou du réveil, etc.).
+
+=== Environnement et économie
+
+Une des caractéristique des maisons intelligentes modernes est leur prise en compte de
+l'environnement et donc des consommations énergétiques.
+L'objectif peut être économique, légal (suivre une norme ou un label), ou simplement social.
+Par exemple le _{projectName}_ pourra abaisser la température de la maison à certains moments
+(programmés ou opportuns). Les dispositifs inutiles à certains moments de la journée pourront
+être mis en sommeil, idem pour les débits Internet, etc.
+La maison pourra aussi être autonome en énergie, ou tout le moins, produire dans une certaine
+mesure sa propre énergie (éolienne, panneaux solaires, etc.).
+
+== Plateforme expérimentale
+
+Un véritable _{projectName}_ est disponible à la {mib}, sur le campus de l'{iut}, près de Toulouse.
+N'hésitez pas à nous contacter si vous êtes intéressé par des expérimentations réelles.
+
+== Quelques exemples de scénarios
+
+Dans ce qui suit, nous imaginerons que l'habitante qui occupe la maison s'appelle Alice
+et que son état de santé nécessite un suivi particulier :
+
+- Chaque matin, quand Alice s'éveille, un guidage lumineux au sol lui permet de simplement
+atteindre la salle de bain pour sa toilette.
+Si elle a choisi l'option, elle peut même bénéficier d'un guidage audio complémentaire.
+- Alice bénéficie d'un "majordome intelligent"footnote:[Scénario tiré du Projet ESIR3 NSOC donné par {bc} à l'{esir}.],
+capable de :
+* afficher un indicateur de santé de la maison, qui combine les informations provenant de la mesure de plusieurs grandeurs physiques
+(e.g., Température, Humidité, CO2, ...)
+* afficher des indicateurs détaillés sur différents domaines (en instantané et avec des graphiques) en le ramenant
+à des indicateurs intelligibles pour l’humain (Qualité de l’air,  Consommation électrique, ...)
+* afficher des prévisions pour la journée / semaine (Consommation électrique prévue, Production d’énergie prévue,
+La voiture sera chargée pour faire votre trajet quotidien à 16h30, ...)
+* afficher des conseils / alertes pour bénéficier au mieux des capacités passives de la maison (Ouvrir la fenêtre pendant 10 minutes,
+Ne pas faire entrer de nouveaux visiteurs, ...)
+- Quand Alice chute sur le sol et qu'elle reste immobile plus de 30s, et qu'elle ne répond pas à une première
+série de messages audio diffusés dans la maison, le {projectShortName} appelle les secours avec les informations rentrées au
+préalable dans le système.
+
+== Pour aller plus loin
+
+Cette étude de cas a été utilisée dans le cadre d'un cours {sysml} au {DL} ainsi
+que pour le workshop {mdetools}. Ces deux sources peuvent fournir nombre de modèles
+complémentaires à ceux que vous trouverez dans ce livre.
+
+Pour une liste plus complète d'exigences, réalisée par les étudiants du {dl}, voir
+{FichierExigences}[ce lien].
