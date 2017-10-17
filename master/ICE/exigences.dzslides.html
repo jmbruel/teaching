@@ -1,0 +1,1617 @@
+<!DOCTYPE html><html lang="en" class="aspect-4-3"><head><meta charset="UTF-8" /><meta name="generator" content="Asciidoctor 1.5.6.1, dzslides backend" /><title>Les exigences (et SysML)</title><meta name="author" content="J.-M. Bruel -- 2017-10-13" /><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,200,300&amp;family=Cedarville+Cursive" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" /><style>
+/* Asciidoctor style for highlight.js */
+pre code {
+  display: block; padding: 0.5em;
+  color: #333;
+  background: #f8f8ff
+}
+
+pre .comment,
+pre .template_comment,
+pre .diff .header,
+pre .javadoc {
+  color: #998;
+  font-style: italic
+}
+
+pre .keyword,
+pre .css .rule .keyword,
+pre .winutils,
+pre .javascript .title,
+pre .nginx .title,
+pre .subst,
+pre .request,
+pre .status {
+  color: #990073;
+}
+
+pre .number,
+pre .hexcolor,
+pre .ruby .constant {
+  color: #080;
+}
+
+pre .string,
+pre .tag .value,
+pre .phpdoc,
+pre .tex .formula {
+  color: #d32323;
+}
+
+pre .title,
+pre .id {
+  color: #900;
+  font-weight: bold
+}
+
+pre .javascript .title,
+pre .lisp .title,
+pre .clojure .title,
+pre .subst {
+  font-weight: normal
+}
+
+pre .class .title,
+pre .haskell .type,
+pre .vhdl .literal,
+pre .tex .command {
+  color: #458;
+  font-weight: bold
+}
+
+pre .tag,
+pre .tag .title,
+pre .rules .property,
+pre .django .tag .keyword {
+  color: #099;
+  font-weight: normal
+}
+
+pre .attribute,
+pre .variable,
+pre .lisp .body {
+  color: #080;
+}
+
+pre .regexp {
+  color: #009926
+}
+
+pre .class {
+  color: #458;
+  font-weight: bold
+}
+
+pre .symbol,
+pre .ruby .symbol .string,
+pre .lisp .keyword,
+pre .tex .special,
+pre .prompt {
+  color: #990073
+}
+
+pre .built_in,
+pre .lisp .title,
+pre .clojure .built_in {
+  color: #0086b3
+}
+
+pre .preprocessor,
+pre .pi,
+pre .doctype,
+pre .shebang,
+pre .cdata {
+  color: #999;
+  font-weight: bold
+}
+
+pre .deletion {
+  background: #fdd
+}
+
+pre .addition {
+  background: #dfd
+}
+
+pre .diff .change {
+  background: #0086b3
+}
+
+pre .chunk {
+  color: #aaa
+}
+
+pre .asciidoc .header {
+  color: #800;
+}
+
+pre .asciidoc .blockquote {
+  color: #888;
+}
+
+pre .asciidoc .bullet,
+pre .asciidoc .link_url {
+  color: #080;
+}
+
+pre .asciidoc .link_url {
+  text-decoration: underline;
+}
+
+pre .asciidoc .link_label,
+pre .asciidoc .attribute {
+  color: #099;
+}
+
+pre .asciidoc .label,
+pre .asciidoc .strong {
+  font-weight: bold;
+}
+
+pre .asciidoc .emphasis {
+  font-style: italic;
+}
+
+pre .asciidoc .code {
+  color: #d14;
+}
+</style><style>
+/*
+ Theme: Tomorrow White
+ Fonts: Yanone Kaffeesatz, Cedarville Cursive
+
+ <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,200,300" rel="stylesheet">
+ <link href="http://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
+
+ Style class:
+ .title = Use on title slide
+ .intro = Use on intro slides, use h1 heading (or h2 heading) for topic name
+ .recap = Use on recap slides, use h1 heading (or h2 heading) for topic name, h2 and h3 in an hgroup for summary
+ .source = Use on source code slide, put source in <pre><code> (requires highlight.js for syntax highlighting)
+ .ending = Use on final slide, use h2 heading for message
+ .statement = Use on a paragraph to make it a statement, vertically centered
+ .middle = Use on any element to vertically center it
+ 
+ Color Palette:
+ 
+ https://github.com/chriskempson/tomorrow-theme
+
+ Name           Hex
+ =====================
+ Background ... #ffffff 
+ Current Line . #efefef 
+ Selection .... #d6d6d6 
+ Foreground ... #4d4d4c 
+ Comment ...... #8e908c 
+ Red .......... #c82829 
+ Orange ....... #f5871f 
+ Yellow ....... #eab700 
+ Green ........ #718c00 
+ Aqua ......... #3e999f 
+ Blue ......... #4271ae 
+ Purple ....... #8959a8 
+
+*/
+
+html, .view body {
+  background: #8e908c url(images/White.jpg) repeat;
+  counter-reset: slideidx;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+body, .view section {
+  background: #ffffff;
+  font-size: 17px;
+  line-height: 1;
+  -webkit-box-shadow: 8px 0 6px -3px #8c8c8c;
+     -moz-box-shadow: 8px 0 6px -3px #8c8c8c;
+          box-shadow: 8px 0 6px -3px #8c8c8c;
+}
+
+section, .view head > title {
+}
+
+.view section:after {
+  counter-increment: slideidx;
+  content: counter(slideidx, decimal-leading-zero);
+  position: absolute;
+  bottom: -1.5em;
+  right: .5em;
+  color: #FFFFFF;
+  font-size: 3em;
+}
+
+.view head > title {
+  color: #FFFFFF;
+  text-align: center;
+  margin: .5em 0 .25em;
+  line-height: 1;
+  font-size: 3em;
+}
+
+.view section[aria-selected] {
+  border: 5px #FFFFFF solid;
+}
+
+section:not(.title) {
+  padding: 50px;
+}
+
+section.title h1 {
+  font-size: 6em;
+  color: #1D2326;
+  position: relative;
+  top: 40%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0 50px; /* quick hack to fix overruns */
+}
+
+section.title footer {
+  font-weight: 200;
+  text-align: center;
+  font-size: 2.5em;
+  padding: 30px 50px;
+}
+
+section[class=topic] h2 {
+  color:  #4d4d4c;
+  font-size: 2.5em;
+  margin-bottom: .5em;
+  margin-top: -.5em;
+}
+
+section.intro, section.terminal {
+  background-color: #1D2326;
+}
+
+section.intro h1,
+section.intro h2 {
+  color: #DDDCC5;
+  text-transform: lowercase;
+  line-height: .7em;
+  text-align: left;
+  font-size: 4.4em;
+}
+
+section.intro.alt h1,
+section.intro.alt h2 {
+  text-align: right;
+}
+
+section.intro h1 strong,
+section.intro h2 strong {
+  color: #D5EE5E;
+  font-size: 1.51em;
+  line-height: .8em;
+}
+
+section.terminal pre.literal {
+  color: #D5EE5E;
+}
+
+section.secret {
+  background-color: #4d4d4c;
+}
+
+section.secret p {
+  color: #DDDCC5;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+section.secret strong {
+  color: #4271ae;
+  font-size: 2em;
+  display: block;
+  line-height: .8em;
+}
+
+section.recap > h1,
+section.recap > h2 {
+  margin: 0;
+  text-transform: uppercase;
+  color: #718c00;
+  font-size: 2em;
+  border: 15px solid #718c00;
+  border-radius: 20px;
+  position: absolute;
+  right: -25px;
+  top: 5px;
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -webkit-transform-origin: top left;
+  -moz-transform-origin: top left;
+  -o-transform-origin: top left;
+  transform-origin: top left;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+section.recap hgroup h2 {
+  color: #4d4d4c;
+  text-transform: uppercase;
+  font-size: 4.4em;
+}
+
+section.recap hgroup h3 {
+  color: #c82829;
+  text-transform: uppercase;
+  font-size: 3em;
+}
+
+section.recap hgroup .invert h2 {
+  font-size: 3em;
+}
+
+section.recap hgroup .invert h3 {
+  font-size: 4.4em;
+}
+
+section.question p {
+  text-align: right;
+  font-size: 3em;
+}
+
+section.question p strong {
+  display: block;
+  text-transform: uppercase;
+  font-size: 2em;
+  line-height: .8em;
+}
+
+section.ending {
+  background-color: #4271ae;
+}
+
+section.ending > h2 {
+  color: #ffffff;
+  font-size: 4.4em;
+  text-transform: lowercase;
+}
+
+section.ending > h2.name {
+  text-transform: none;
+  top: 40%;
+}
+
+section.ending footer,
+section.ending p.footer {
+  position: absolute;
+  bottom: 22%;
+  left: 0;
+  background-color: #FFFFFF;
+  width: 100%;
+  padding: 40px 0;
+  font-size: 3em;
+  text-align: center;
+  color: #4271ae;
+  font-weight: bold;
+  top: 55%;
+  margin: 0;
+}
+
+.aspect-16-10 section.ending footer,
+.aspect-16-10 section.ending p.footer {
+  height: 26%;
+}
+
+h1 {
+  font-size: 4.4em;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+h3 {
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section ul {
+  list-style: none;
+  font-size: 3em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #4271ae;
+  text-align: right;
+  margin-bottom: 1em;
+}
+
+section ul.variants {
+  margin-top: 150px; /* half height (250px) - 100px to account for padding */
+}
+
+section ul.split > li {
+  width: 50%;
+}
+
+section ul.split > li:nth-of-type(2n),
+section ul.scatter > li:nth-of-type(2n) {
+  float: right;
+}
+
+section ul.split > li:nth-of-type(2n - 1),
+section ul.scatter > li:nth-of-type(2n - 1) {
+  float: left;
+}
+
+section ul.scatter > li:nth-of-type(2n) {
+  clear: left;
+  text-align: right;
+}
+
+section ul.scatter > li:nth-of-type(2n - 1) {
+  clear: right;
+}
+
+section .graffiti {
+  font-family: 'Cedarville Cursive', cursive;
+  text-transform: none;
+  font-weight: normal;
+  color: #6A6A61;
+  text-align: left;
+  line-height: 1.5;
+}
+
+section .graffiti strong, section .graffiti em {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+section dt {
+  font-size: 3em;
+  color: #c82829;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0;
+  line-height: 1em;
+}
+
+section dd {
+  color: #4d4d4c;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1em;
+  margin-bottom: 2em;
+  font-size: 2em;
+}
+
+section dt:nth-of-type(2n),
+section dd:nth-of-type(2n) {
+  text-align: right;
+}
+
+section p {
+  color: #4d4d4c;
+  font-weight: 700;
+  font-size: 3.5em;
+}
+
+section p.revision {
+  font-family: 'Cedarville Cursive';
+  font-weight: normal;
+  color: #6A6A61;
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -o-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
+
+.insert:before {
+  display: inline-block;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  content: "^";
+  margin-right: 10px;
+}
+
+section p.expression {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 8em;
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -o-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-transform-origin: 0% 15%;
+  -moz-transform-origin: 0% 15%;
+  -o-transform-origin: 0% 15%;
+  transform-origin: 0% 15%;
+  text-shadow: 1px 1px 3px rgba(0,0,0,.5);
+}
+
+section p.follow-up {
+  /*color: #D5EE5E;*/
+  color: #4d4d4c;
+  font-weight: 700;
+  font-size: 2em;
+  margin-top: -.5em;
+  padding-left: 3px;
+}
+
+section p.point {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 2.8em;
+  text-align: right;
+  font-weight: 700;
+}
+
+section em {
+  color: #c82829;
+  font-style: normal;
+}
+
+section strong {
+  color: #c82829;
+}
+
+section del {
+  color: #6A6A61;
+}
+
+section p del span {
+  color: #4d4d4c;
+  font-weight: 700;
+}
+
+blockquote {
+  padding: 0 0 0 15px;
+  margin: -10px 2em 0 2em;
+  border-left: 5px solid #c82829;
+}
+
+blockquote:before {
+  color: #c82829;
+  content: '\201C';
+  font-size: 4em;
+  font-weight: 700;
+  float: left;
+  margin-left: -.9em;
+}
+
+section blockquote p {
+  color: #1D2326;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: .5em;
+  font-style: italic;
+  font-size: 3.0em;
+  font-weight: normal;
+}
+
+blockquote p em {
+  font-style: italic;
+}
+
+blockquote p:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 0.1em;
+}
+
+blockquote cite {
+  font-size: 1.5em;
+  display: block;
+  line-height: 1.8;
+  color: #718c00;
+  font-style: normal;
+  margin-top: .25em;
+}
+
+blockquote cite:before {
+  content: '\2014 \00A0';
+}
+
+figcaption {
+  font-size: 3em;
+  /*color: #c82829;*/
+  color: #000000;
+  font-weight: 700;
+  text-align: right;
+  position: absolute;
+  bottom: 20px;
+  right: 35px;
+  width: 100%;
+}
+
+figcaption.invert {
+  color: #FFFFFF;
+  text-shadow: 2px 2px #000000;
+}
+
+section.title footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 40px;
+  background-color: #F3F4F8;
+  border-top: 1px solid #CCC;
+}
+
+section.source {
+  /*background-color: #272822;*/
+  background-color: #000000;
+  padding: 30px !important;
+}
+
+section.source h2 {
+  margin: 0 .5em .5em 0;
+  color: #DDDCC5;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+section.source.lhs h2 {
+  text-align: left;
+}
+
+section.source div.title {
+  color: #4d4d4c;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-bottom: .3em;
+  padding-left: 1px;
+}
+
+section pre code {
+  font-family: "DejaVu Sans Mono", "Droid Sans Mono", Menlo, Monaco, "Courier New", monospace;
+  font-size: 1em;
+  line-height: 1.2;
+  background: rgba(255,255,255,.075);
+  border: 1px solid rgba(255,255,255,.2);
+  margin-bottom: 1em;
+}
+
+.middle,
+.statement,
+section.intro > h1,
+section.intro > h2,
+section.recap > hgroup, 
+section.ending > h2,
+section > dl,
+section > ul.graffiti,
+section > p {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+section p.statement strong {
+  font-size: 3em;
+  line-height: .75em;
+}
+
+img.middle {
+  display: block;
+  margin: 0 auto;
+}
+
+img.stretch-x {
+  width: 100%;
+}
+
+img.stretch-y {
+  height: 100%;
+}
+
+img.scale{
+  max-height: 97.5%;
+  width: auto;
+}
+
+.hide {
+  display: none;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.auto-width {
+  width: auto !important;
+}
+
+span.detail {
+  font-size: .8em;
+  color: #3e999f;
+  opacity: 0.5;
+  font-weight: normal;
+}
+
+.mild {
+  color: #718c00;
+}
+
+/* Incremental elements */
+
+/* By default, visible */
+.incremental > * {
+  opacity: .5;
+}
+
+/* The current item */
+.incremental > *[aria-selected] {
+  opacity: 1;
+}
+
+/* The items to-be-selected */
+.incremental > *[aria-selected] ~ * {
+  opacity: 0;
+}
+
+.view .incremental {
+  visibility: visible;
+}
+
+.view .incremental * {
+  opacity: 1 !important;
+}
+
+/* The progressbar, at the bottom of the slides, show the global
+   progress of the presentation. */
+#progress-bar {
+  height: 2px;
+  background: #AAA;
+}
+
+/* TODO: merge the overrides below into the sheet */
+section.title h1 {
+  font-size: 4em;
+}
+
+section.title h1 strong {
+  font-size: 3em;
+  font-style: italic;
+}
+
+section.intro h1 strong,
+section.intro h2 strong {
+  font-size: 3.5em;
+}
+
+section p {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+section p.middle,
+section p.statement {
+  font-size: 3em;
+}
+
+section p.follow-up {
+  margin-top: 0;
+}
+
+section > p {
+  position: static;
+  top: 0;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+
+section pre.literal {
+  font-size: .8em;
+  font-weight: bold;
+}
+
+section pre code {
+  white-space: pre-wrap;
+}
+
+section pre:nth-of-type(2):not(.continue) code {
+  font-size: .8em;
+  line-height: 1.4;
+}
+
+section ul {
+  text-transform: none;
+  text-align: left;
+/*  font-size: 1.5em;*/
+  line-height: 1.1;
+}
+
+section ul ul {
+  font-size: .8em;
+  margin-bottom: 0;
+  margin-left: 1em;
+}
+
+section.fit {
+  padding: 50px 0;
+  -moz-transition: none;
+}
+
+section.fit > img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+}
+
+.colist {
+  color: #DDDCC5;
+}
+</style><style>
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+details {
+  display: none;
+}
+/* default aspect is 4:3 */
+body {
+  width: 800px;
+  height: 600px;
+  margin-left: -400px;
+  margin-top: -300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  display: none;
+}
+.aspect-16-10 body {
+  height: 500px; 
+  margin-top: -250px;
+}
+.aspect-16-9 body {
+  height: 450px; 
+  margin-top: -225px;
+}
+.view body {
+  position: static;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: visible;
+  overflow-x: hidden;
+  /* undo Dz.onresize */
+  transform: none !important;
+  -moz-transform: none !important;
+  -webkit-transform: none !important;
+  -o-transform: none !important;
+  -ms-transform: none !important;
+}
+.view head, .view head > title {
+  display: block;
+}
+section {
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+.view section {
+  pointer-events: auto;
+  position: static;
+  width: 800px;
+  height: 600px;
+  margin: -150px -200px;
+  float: left;
+  transform: scale(.4);
+  -moz-transform: scale(.4);
+  -webkit-transform: scale(.4);
+  -o-transform: scale(.4);
+  -ms-transform: scale(.4);
+}
+.view.aspect-16-10 section {
+  height: 500px;
+  margin-top: -125px;
+  margin-bottom: -125px;
+}
+.view.aspect-16-9 section {
+  height: 450px;
+  margin-top: -112px;
+  margin-bottom: -113px;
+}
+.view section > * {
+  pointer-events: none;
+}
+section[aria-selected] {
+  pointer-events: auto;
+}
+html {
+  overflow: hidden;
+}
+html.view {
+  overflow: visible;
+}
+body.loaded {
+  display: block;
+}
+.incremental {
+  visibility: hidden;
+}
+.incremental[active] {
+  visibility: visible;
+}
+#progress-bar {
+  bottom: 0;
+  position: absolute;
+  -moz-transition: width 400ms linear 0s;
+  -webkit-transition: width 400ms linear 0s;
+  -ms-transition: width 400ms linear 0s;
+  transition: width 400ms linear 0s;
+}
+.view #progress-bar {
+  display: none;
+}
+figure {
+  width: 100%;
+  height: 100%;
+}
+figure > * {
+  position: absolute;
+}
+figure > img, figure > video, figure > embed {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Slide flipping */
+
+/* Previous */
+section {
+  opacity: 0;
+}
+.view section {
+  opacity: 1;
+}
+/* Current */
+section[aria-selected] {
+  opacity: 1;
+}
+/* Next */
+section[aria-selected] ~ section {
+  opacity: 0;
+}
+.view section[aria-selected] ~ section {
+  opacity: 1;
+}
+</style><style>
+/* Fade slide transition */
+/* opacity is set by core styles */
+section {
+  -moz-transition: opacity 450ms ease-out 0ms;
+  -webkit-transition: opacity 450ms ease-out 0ms;
+  -ms-transition: opacity 450ms ease-out 0ms;
+  transition: opacity 450ms ease-out 0ms;
+}
+</style></head><body id="reqs"><section class="title"><h1>Les <strong>exigences</strong> (et SysML)</h1><footer><span class="author">J.-M. Bruel -- 2017-10-13</span></footer></section><section class="topic"><h2>Introduction</h2><p>L&#8217;ingénierie des exigences est d&#8217;une importance capitale, surtout en Ingénierie Système.
+En général les exigences sont exprimées par des ingénieurs dédiés à cette activité.
+La complexité des systèmes modernes (embarqués, communicants, critiques, &#8230;&#8203;) rendent
+cruciale cette analyse.</p>
+<a class="image" href="http://www.inria.fr/centre/rennes/actualites/vers-un-cahier-des-charges-mieux-formule"><img src="images/ingenierie-des-exigences.jpg" alt="Joke" width="100" /></a>
+<p><span class="detail">300 corps de métiers sont parfois présents sur un même chantier</span></p></section>
+<section><h2>Les exigences (suite)</h2><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip"></i></td><td class="content"><div class="title">Besoins, exigences : question de vocabulaire</div><p>La difficulté de l&#8217;emploi massif de l&#8217;anglais fait qu&#8217;il existe souvent une confusion entre
+les termes anglais et leurs traduction française. Nous précisons donc ici notre utilisation des termes.</p></td></tr></table></div></section>
+<section><h2>Exigences</h2><p>Exigences, c&#8217;est à dire :</p>
+<blockquote><div class="literalblock"><pre class="literal">une fonction ou une propriété que doit satisfaire le système considéré.</pre></div><br /><cite>OMG SysML v1.5, p. 161</cite></blockquote>
+<p class="incremental">Par nature une exigence doit pouvoir être <strong>vérifiable</strong>.</p>
+<p class="incremental">En génie logiciel on parle plus classiquement des spécifications ("spec") pour parler des contraintes à respecter pour un système.</p>
+<p class="incremental">Les ingénieurs systèmes ont depuis longtemps intégré le terme d&#8217;exigences comme traduction directe de <em>requirement</em>.</p></section>
+<section><h2>Besoin</h2><p>Il s&#8217;agit des exigences du client. En <a href="http://www.uml.org/">UML&#8482;</a> on va plus les retrouver dans les cas d&#8217;utilisation. Ils sont à l&#8217;origine des <em>requirements</em> tels que définis plus haut.</p></section>
+<section><h2>Les exigences (suite)</h2><p>Il est important pour une exigence qu&#8217;elle ne soit pas ambiguë (contrairement au terme "en" dans la consigne exprimée par la maman dans l&#8217;illustration <a class="xref" href="#fig:eggs">ci-dessous</a> : "<em>Ramène moi 1 bouteille de lait. S&#8217;il y a des oeufs, ramène m&#8217;en 6.</em>").</p>
+<a class="image" href="https://plus.google.com/100035762233109552669/posts/a8Hafq2hZ74"><img src="images/ProgrammerHumor.jpg" alt="Joke" width="40%" /></a>
+<p><span class="detail">Spécification ambiguë</span></p></section>
+<section><h2>Fondements</h2><p>On abordera :</p>
+<ul class="incremental"><li>L&#8217;organization des <em>Requirements</em></li><li>Les <em>Requirements properties</em></li><li>Les <em>Requirements links</em></li><li>Les <em>Requirements Diagrams</em></li><li>Les considérations sur la traçabilité</li><li>Annotations des <em>Requirements</em></li><li>Les <em>Use Case Diagrams</em></li></ul></section>
+<section><p>Il n&#8217;existe pas de diagramme <a href="http://www.uml.org/">UML&#8482;</a> pour traiter des exigences en particulier.
+C&#8217;est pourquoi ce diagramme a été introduit par <a href="http://www.omgsysml.org/">SysML&#8482;</a>.</p></section>
+<section class="topic"><h2>L&#8217;organisation des <em>Requirements</em></h2><p>Il ne s&#8217;agit pas ici de revenir sur les exigences elles-même, mais plutôt de voir comment <a href="http://www.omgsysml.org/">SysML&#8482;</a> permet
+de les exprimer, de les manipuler et surtout de les lier avec le reste du système.</p></section>
+<section class="topic"><h2>Représentation de base</h2><p>Un <em>Requirement</em> en <a href="http://www.omgsysml.org/">SysML&#8482;</a> n&#8217;est qu&#8217;un bloc particulier.</p>
+<div class="admonitionblock caution"><table><tr><td class="icon"><i class="fa icon-caution"></i></td><td class="content"><div class="title">Définition : <span class="image"><img src="images/sysml.jpeg" alt="sysml" width="20" /></span> <em>Requirements</em> (OMG SysML v1.5, p. 161)</div><p><em>A requirement specifies a capability or condition that must (or should) be satisfied&#8230;&#8203;
+A requirement is defined as a stereotype of UML Class&#8230;&#8203;</em></p></td></tr></table></div></section>
+<section><img src="images/requirement.png" alt="SysML and UML" width="50%" />
+<p><span class="detail">Un exemple de _Requirement_ en SysML (source <a class="xref" href="#SysML">[SysML]</a>, p. 159)</span></p></section>
+<section class="topic"><h2>Différents types d&#8217;organisation</h2><p>Plusieurs types d&#8217;organisations sont possibles :</p>
+<ul><li>Par niveau d&#8217;abstraction<ul><li>Besoins généraux (en lien avec les  <em>use cases</em> par exemple)</li><li>Besoins techniques (en lien avec les éléments de conception)</li></ul></li></ul></section>
+<section><ul><li>Par point de vue<ul><li>Besoins principaux (en lien avec les <em>use cases</em>)</li><li>Besoins spécifiques :<ul><li>Fonctionnels</li><li>Marketing</li><li>Environnementaux</li><li><em>Business</em></li><li>&#8230;&#8203;</li></ul></li></ul></li><li>etc.</li></ul></section>
+<section><h2>Tableaux de <em>Requirements</em></h2><img src="images/req-table.png" alt="req table" width="100%" />
+<p><span class="detail">Exemples tableau d&#8217;exigences (OMG SysML v1.3, p. 145)</span></p></section>
+<section><p>La plupart des outils modernes permettent le passage entre outils classiques de gestion des exigences (comme <a href="http://www-03.ibm.com/software/products/fr/fr/ratidoor/">DOORS&#8482;</a>)
+et outils de modélisation <a href="http://www.omgsysml.org/">SysML&#8482;</a> (comme <a href="http://www.modeliosoft.com/">Modelio</a>, illustré ci-dessous).</p>
+<img src="images/req-modelio.png" alt="req modelio" width="100%" />
+<p><span class="detail">Import Modelio de tableau d&#8217;exigences (tiré de <a class="xref" href="#Modelio2012">[Modelio2012]</a>)</span></p></section>
+<section><h2>Les <em>Requirements properties</em></h2><p>À partir du moment où on commence à définir des propriétés pour les éxigences,
+on peut considérer que l&#8217;on est à la frontière avec la phase d&#8217;analyse des exigences.</p></section>
+<section><p>Il est possible d&#8217;indiquer un certain nombre de propriétés sur un <em>requirement</em> :</p>
+<ul><li><em>priority</em> (<code>high</code>, <code>low</code>, &#8230;&#8203;)</li><li><em>source</em> (<code>stakeolder</code>, <code>law</code>, <code>technical</code>, &#8230;&#8203;)</li><li><em>risk</em> (<code>high</code>, <code>low</code>, &#8230;&#8203;)</li><li><em>status</em> (<code>proposed</code>, <code>approved</code>, &#8230;&#8203;)</li><li><em>verification method</em> (<code>analysis</code>, <code>tests</code>, &#8230;&#8203;)</li></ul></section>
+<section><p>Dans le cadre du module MPA nous ne retiendrons comme attribut d&#8217;un <em>requirement</em>
+que son identifiant et le texte le désignnat (les deux attributs obligatoire).
+La priorité sera donné par le client en terme de cycle (on traitera en premier les <em>requirements</em> prioritaires).</p>
+<section><p>Ainsi en <a href="http://plantuml.sourceforge.net/">plantUML</a>, une exigence ressemblera à ceci (cf. rendu <a class="xref" href="#corde">ici</a>):</p>
+<div class="listingblock"><pre>class ObtenirHoraires &lt;&lt;requirement&gt;&gt; {
+	Text = "Le logiciel doit fournir les horaires rapidement."
+	Id = "14.2"
+	}</pre></div></section></section>
+<section><h2>Les <em>Requirements links</em></h2><p>Les principales relations entre <em>requirements</em> sont :</p>
+<dl><dt><em>Containment</em></dt><dd>Pour décrire la décomposition d&#8217;une exigence en plusieurs sous-exigences (⊕–). Typiquement dès qu&#8217;une exigence est exprimée avec une conjonction "et" ("La voiture doit être rapide et économe.").</dd></dl></section>
+<section><dl><dt><em>Refinement</em></dt><dd>Pour décrire un ajout de précision (<code>&lt;&lt;refine&gt;&gt;</code>), comme par exemple une précision.</dd></dl></section>
+<section><dl><dt><em>Derivation</em></dt><dd>	Pour indiquer une différence de niveau d&#8217;abstraction (<code>&lt;&lt;deriveReqt&gt;&gt;</code>), par exemple
+entre un système et un de ses sous-systèmes.</dd></dl></section>
+<section><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip"></i></td><td class="content"><p>Lorsqu&#8217;une exigence possède plusieurs cas <code>&lt;&lt;refine&gt;&gt;</code> qui pointent vers lui,
+on considère que ces différents cas sont des options possibles de raffinement (cf. <a class="xref" href="#conventions">[conventions]</a>).</p></td></tr></table></div></section>
+<section><h2>Les <em>Requirements links</em> (suite)</h2><img src="images/req-exp1.png" alt="req exp1" width="80%" />
+<p><span class="detail">Exemples de relations entre exigences</span></p></section>
+<section><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip"></i></td><td class="content"><p>Il existe ensuite les relations entre les besoins et les autres éléments de modélisation
+(les <em>block</em> ou les <em>class</em> principalement) comme <code>&lt;&lt;satisfy&gt;&gt;</code> ou <code>&lt;&lt;verify&gt;&gt;</code>, mais nous les aborderons
+dans la partie <a class="xref" href="#transvers">transverse</a>.</p></td></tr></table></div></section>
+<section><img src="images/topcased-req-connections.png" alt="topcased req connections" width="50%" />
+<p><span class="detail">Relations liées aux _requirements_ dans TOPCASED</span></p></section>
+<section><h2>Les <em>Requirements Diagrams</em></h2><p>Voici un exemple de <code>req</code> un peu plus étoffé, tiré de la norme (voir aussi <a class="xref" href="#rationale">[rationale]</a>) :</p>
+<img src="images/hsuv-reqs1.png" alt="hsuv reqs1" width="80%" />
+<p><span class="detail">Exemples de composition d&#8217;exigences (tiré de <a class="xref" href="#SysML">[SysML]</a>)</span></p></section>
+<section><h2>Stéréotyper les <em>Requirements</em></h2><p>Tout comme pour n&#8217;importe quel bloc, il est possible de stéréotyper les <em>requirements</em>.
+Ceci permet de se définir ses propres priorités et classifications.
+Quelques exemples de stéréotypes utiles :</p>
+<ul><li><code>&lt;&lt;interfaceRequirement&gt;&gt;</code>, <code>&lt;&lt;physicalRequirement&gt;&gt;</code>, &#8230;&#8203;</li><li><code>&lt;&lt;FunctionalRequirement&gt;&gt;</code>, <code>&lt;&lt;nonFunctionalRequirement&gt;&gt;</code></li></ul></section>
+<section><h2>Annotations des <em>Requirements</em></h2><p>Il est possible d&#8217;annoter les éléments de modélisation en précisant les raisons
+(<em>rationale</em>) ou les éventuels problèmes anticipés (<em>problem</em>).</p>
+<img src="images/hsuv-reqs2.png" alt="hsuv reqs2" width="80%" />
+<p><span class="detail">Exemples de _rationale_ et _problem_ (tiré de <a class="xref" href="#SysML">[SysML]</a>)</span></p></section>
+<section><h2>Les considérations sur la traçabilité</h2><p>Une fois que les <em>requirements</em> ont été définis et organisés, il est utile de les lier au moins aux <em>use cases</em>
+(en utilisant <code>&lt;&lt;refine&gt;&gt;</code> par exemple) et aux éléments structurels (en utilisant <code>&lt;&lt;satisfy&gt;&gt;</code> par exemple), mais ceci
+sera abordé dans la partie <a class="xref" href="#transvers">transverse</a>.</p>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note"></i></td><td class="content"><p>En général chaque <em>requirement</em> devrait être relié à au moins un <em>use case</em> (et vice-versa!).</p></td></tr></table></div></section>
+<section><h2>Les <em>Use Case Diagrams</em></h2><p>Bien que nous traitions les cas d&#8217;utilisation dans la partie <a class="xref" href="#behavior">comportement</a>, nous les abordons
+	ici du fait de leur proximité avec les <em>requirements</em>.</p>
+<img src="images/req-uc-relation.png" alt="req uc relation" width="50%" />
+<p><span class="detail">Exemple de lien entre use case et requirements</span></p></section>
+<section><h2>Les <em>Use Case Diagrams</em> (suite)</h2><p>Ce diagramme est celui que vous avez appris l&#8217;an dernier en <a href="http://www.uml.org/">UML&#8482;</a>.</p>
+<img src="images/UCGestionNotes.png" alt="UCGestionNotes" width="80%" />
+<p><span class="detail">Exemple de diagramme des cas d&#8217;utilisation (`B`)</span></p></section>
+<section><h2>Les <em>Use Case Diagrams</em> (suite)</h2><img src="images/uc.png" alt="uc" width="70%" />
+<p><span class="detail">Autre exemple de diagrammes des cas d&#8217;utilisation (`B`)</span></p></section>
+<section><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa icon-tip"></i></td><td class="content"><p>Un acteur représente un <strong>rôle</strong> joué par un utilisateur humain. Il faut donc plutôt raisonner sur les rôles que sur les personnes elles-mêmes pour identifier les acteurs.</p></td></tr></table></div></section>
+<section class="topic intro"><h2>Exigences et tests</h2></section>
+<section><h2>Principes</h2><p>Pour ce qui ce concerne ce module nous allons nous contenter de maintenir des
+matrices croisant les exigences d&#8217;un côté et les tests de l&#8217;autre.</p>
+<p>Par exemple :</p>
+<a class="image" href="http://infocenter.sybase.com/archive/index.jsp?topic=/com.sybase.stf.poweramc.docs_12.0.0/html/exgu/exgup38.htm"><img src="images/matriceTraca.png" alt="matriceTraca" width="70%" /></a>
+<p><span class="detail">Exemple de matrice de traçabilité</span></p></section>
+<section><p>Dans la réalité, les entreprises industrialisent le processus de vérification
+des exigences en utilisant des outils adaptés :</p>
+<img src="images/testindus.png" alt="testindus" width="60%" />
+<p><span class="detail">Le cycle de la qualification fonctionnelle en lien avec les besoins métiers</span></p></section>
+<section><h2>Exemple complet</h2><p>En prenant un exemple tiré de l&#8217;exemple du <a href="http://www.prfc.fr/livres/">Radio Réveil</a>&#8230;&#8203;</p></section>
+<section><h2>Le texte du cahier des charges</h2><p>Le texte complet de l&#8217;exemple ne précise pas le cahier des charges de l&#8217;Autoradio (AR), considérant
+que tout le monde sait ce que c&#8217;est!</p>
+<p>Rédigeons tout de même quelques extraits (numérotés) de texte possible :</p>
+<ol class="arabic"><li>L&#8217;AR est un dispositif qui permet d&#8217;écouter la radio de manière confortable et interactive.</li><li>L&#8217;AR doit être capable de mémoriser un certain nombre de station différentes.</li><li>L&#8217;Utilisateur de l&#8217;AR doit pouvoir choisir sa station parmis un choix donné.</li><li>L&#8217;Utilisateur de l&#8217;AR doit pouvoir régler le niveau sonore.</li><li>L&#8217;Utilisateur de l&#8217;AR doit pouvoir chercher une station en "balayant" les ondes FM.</li><li>&#8230;&#8203;</li></ol></section>
+<section><h2>Expression des exigences</h2><p>Nous pouvons, en analysant ce cahier des charges, déduire un certain nombre d&#8217;exigences.
+Nous les écrivons ici sous forme tabulaire, puis en utilisant le langage <a href="http://cukes.info/gherkin.html">Gherkin</a>.</p>
+<div class="admonitionblock note"><table><tr><td class="icon"><i class="fa icon-note"></i></td><td class="content"><p>Concernant <a href="http://cukes.info/gherkin.html">Gherkin</a>, pour ceux qui veulent aller plus loin, il est possible d&#8217;automatiser la génération des tests
+à partir de ce genre de langage. C&#8217;est ce que fait <a href="http://cukes.info/">Cucumber</a> pour <a href="https://www.ruby-lang.org">Ruby</a>.</p></td></tr></table></div></section>
+<section><h2>Expression des exigences (tabulaire)</h2><p><strong>Version tabulaire</strong> :</p>
+<img src="images/tabulaire.png" alt="tabulaire" width="100%" />
+<p><span class="detail">Exemple de liste d&#8217;exigences</span></p></section>
+<section><h2>Expression des exigences (Gherkin)</h2><p>Exemple de <strong>version textuelle</strong> formattée :</p>
+<div class="listingblock"><pre>#encoding: utf-8
+Feature: Scénario simple d'utilisation de l'AutoRadio (AR)
+  In order to vérifier que le son marche
+  As an utilisateur lambda
+  I should be able to exécuter ces scénarios et constater les effets
+
+  Scenario: Augmenter le son
+    Given un AR avec le son à 0
+    When Je presse le bouton "Volume +"
+    Then Le son passe à 1
+    And Je commence à entendre la radio</pre></div></section>
+<section><h2>Plan de test</h2><p>Créer un plan de test consiste à prévoir l&#8217;ensemble des tests à l&#8217;avance de manière
+à prévoir la <strong>couverture</strong> de ces tests.</p>
+<img src="images/plantest.png" alt="plantest" width="100%" />
+<p><span class="detail">Exemple de plan de test simplifié</span></p></section>
+<section><h2>Analyse et la conception</h2><p>Dans un cycle classique ("en V" par exemple), les modèles sont réalisés avant l&#8217;implémentation (codage).</p>
+<p>Dans un cycle Agile, chaque cycle possèdera ses modèles, eux aussi versionnés, qui eux aussi évolueront
+en même temps que le code.</p></section>
+<section><h2>Lien et traçabilité</h2><p>Plus encore que dans les méthodes classiques, il conviendra de vérifier que code et modèles sont bien
+cohérents. On pourra donc :</p>
+<ul class="incremental"><li>générer les codes à partir des modèles</li><li>générer les modèles à partir des codes <span class="detail">(cf. <a class="xref" href="#commentaires">commentaires</a>)</span></li><li>utiliser des outils intégrés <span class="detail">comme <a href="http://www.eclipse.org">eclipse</a></span></li><li>avoir un plan systématique de révision code/modèle</li><li>&#8230;&#8203;</li></ul>
+<section><h2>Lien et traçabilité (suite)</h2><div class="listingblock" id="commentaires"><div class="title">Exemple de code Java commenté pour la génération automatique de diagrammes plantUML</div><pre class="highlight"><code class="java"><span class="tok-kn">package</span> <span class="tok-n">demo</span><span class="tok-o">;</span>
+
+<span class="tok-kd">class</span> <span class="tok-nc">Controller</span> <span class="tok-o">{}</span>
+<span class="tok-kd">class</span> <span class="tok-nc">EmbeddedAgent</span> <span class="tok-o">{}</span>
+<span class="tok-kd">class</span> <span class="tok-nc">PowerManager</span> <span class="tok-o">{}</span>
+
+<span class="tok-cm">/**</span>
+<span class="tok-cm"> * @extends Controller</span>
+<span class="tok-cm"> * @extends EmbeddedAgent</span>
+<span class="tok-cm"> * @navassoc - - 1..* PowerManager</span>
+<span class="tok-cm"> * @note this is a note</span>
+<span class="tok-cm"> */</span>
+<span class="tok-kd">class</span> <span class="tok-nc">SetTopController</span> <span class="tok-kd">implements</span> <span class="tok-n">URLStreamHandler</span> <span class="tok-o">{</span>
+  <span class="tok-kd">public</span> <span class="tok-n">String</span> <span class="tok-n">name</span><span class="tok-o">;</span>
+
+  <span class="tok-kt">int</span> <span class="tok-n">authorizationLevel</span><span class="tok-o">;</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">startUp</span><span class="tok-o">()</span> <span class="tok-o">{}</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">shutDown</span><span class="tok-o">()</span> <span class="tok-o">{}</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">connect</span><span class="tok-o">()</span> <span class="tok-o">{}</span>
+<span class="tok-o">}</span>
+
+<span class="tok-cm">/** @depend - friend - SetTopController */</span>
+<span class="tok-kd">class</span> <span class="tok-nc">ChannelIterator</span> <span class="tok-o">{}</span>
+
+<span class="tok-kd">interface</span> <span class="tok-nc">URLStreamHandler</span> <span class="tok-o">{</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">OpenConnection</span><span class="tok-o">();</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">parseURL</span><span class="tok-o">();</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">setURL</span><span class="tok-o">();</span>
+  <span class="tok-kt">void</span> <span class="tok-nf">toExternalForm</span><span class="tok-o">();</span>
+<span class="tok-o">}</span></code></pre></div></section>
+<section><h2>Lien et traçabilité (suite)</h2><a class="image" href="http://plantuml.sourceforge.net/doclet.html"><img src="images/doclet.png" alt="doclet" width="90%" /></a>
+<p><span class="detail">Exemple de diagramme généré par javadoc</span></p></section></section>
+<section class="topic"><h2>En résumé</h2><p>Les <strong>exigences</strong> sont très importantes en ingénierie système,
+du fait de la multiplication des <strong>sous-systèmes</strong> et donc des <strong>intermédiaires</strong> (fournisseurs, sous-traitants, etc.)
+avec qui les aspects contractuels seront souvent basés sur ces exigences.</p>
+<p>Il n&#8217;est donc pas étonnant qu&#8217;un  diagramme
+et des mécanismes <strong>dédiés</strong> aient été prévus en <a href="http://www.omgsysml.org/">SysML&#8482;</a>.</p>
+<section><table class="tableblock frame-all grid-all" style="width: 90%"><caption class="title">Table 1. Déclinaison des Exigences</caption><colgroup><col style="width: 16.6666%" /><col style="width: 33.3333%" /><col style="width: 16.6666%" /><col style="width: 16.6666%" /><col style="width: 16.6669%" /></colgroup><thead><tr><th class="tableblock halign-left valign-top"></th><th class="tableblock halign-left valign-top"><strong class="red"><a class="xref" href="#reqs">Exigences</a></strong></th><th class="tableblock halign-left valign-top"><a class="xref" href="#archi">Structure</a></th><th class="tableblock halign-left valign-top"><a class="xref" href="#behavior">Comportement</a></th><th class="tableblock halign-left valign-top"><a class="xref" href="#transvers">Transverse</a></th></tr></thead><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock header">Organisation</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>⊕–</code>, <code>&lt;&lt;deriveReqt&gt;&gt;</code></p></td><td class="tableblock halign-left valign-top"></td><td class="tableblock halign-left valign-top"></td><td class="tableblock halign-left valign-top"></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock header">Analyse</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;satisfy&gt;&gt;</code>, <code>&lt;&lt;refine&gt;&gt;</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;satisfy&gt;&gt;</code> entre reqs et UC</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;refine&gt;&gt;</code></p></td><td class="tableblock halign-left valign-top"></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock header">Conception</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;allocate&gt;&gt;+</code></p></td><td class="tableblock halign-left valign-top"></td><td class="tableblock halign-left valign-top"></td><td class="tableblock halign-left valign-top"></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock header">Implémentation</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;&lt;satisfy&gt;&gt;</code>, <code>&lt;&lt;verify&gt;&gt;</code></p></td><td class="tableblock halign-left valign-top"></td><td class="tableblock halign-left valign-top"></td><td class="tableblock halign-left valign-top"></td></tr></tbody></table></section>
+<section><h2>Les <em>Use Case Diagrams</em> (suite)</h2><p>En terme de démarche, il est classique d&#8217;avoir de nombreux aller-retour entre la modélisation
+des exigences et la modélisation du système lui-même (cf. <a class="xref" href="#sysmod">[sysmod]</a>).</p></section>
+<section><a class="image" href="http://model-based-systems-engineering.com/2012/03/26/the-sysmod-zigzag-pattern/"><img src="images/zigzag.png" alt="zigzag" width="90%" /></a>
+<p><span class="detail">Exemple de démarche (_SYSMOD Zigzag pattern_)</span></p></section></section>
+<section class="topic"><h2>Questions de révision</h2><p>Quelles sont les différences entre <strong>besoins</strong> et <strong>exigences</strong> ?</p>
+<p>Quelles sont les différences entre un <strong>backlog de produit</strong> et une liste d'<strong>exigences</strong>?</p>
+<p>En quoi les cas d&#8217;utilisation sont-ils complémentaires des exigences?</p></section><script>
+//   __  __  __       .  __   ___  __
+//  |  \  / /__` |    | |  \ |__  /__`
+//  |__/ /_ .__/ |___ | |__/ |___ .__/ core :€
+//
+var Dz = {
+  remoteWindows: [],
+  idx: -1,
+  step: 0,
+  html: null,
+  slides: null,
+  progressBar : null,
+  params: {
+    autoplay: "1"
+  }
+};
+
+Dz.init = function() {
+  document.body.className = "loaded";
+  this.slides = Array.prototype.slice.call($$("body > section"));
+  this.progressBar = $("#progress-bar");
+  if (!this.progressBar) {
+    this.progressBar = document.createElement('div');
+    this.progressBar.id = 'progress-bar';
+    document.body.appendChild(this.progressBar);
+  }
+  this.html = document.body.parentNode;
+  this.setupParams();
+  this.onhashchange();
+  this.setupTouchEvents();
+  this.onresize();
+  this.setupView();
+}
+
+Dz.setupParams = function() {
+  var p = window.location.search.substr(1).split('&');
+  p.forEach(function(e, i, a) {
+    var keyVal = e.split('=');
+    Dz.params[keyVal[0]] = decodeURIComponent(keyVal[1]);
+  });
+// Specific params handling
+  if (!+this.params.autoplay)
+    $$.forEach($$("video"), function(v){ v.controls = true });
+}
+
+Dz.onkeydown = function(aEvent) {
+  // skip keystrokes in a content editable region
+  if (aEvent.target.isContentEditable) {
+    return;
+  }
+
+  // Don't intercept keyboard shortcuts
+  if (aEvent.altKey
+    || aEvent.ctrlKey
+    || aEvent.metaKey
+    || aEvent.shiftKey) {
+    return;
+  }
+  if ( aEvent.keyCode == 37 // left arrow
+    || aEvent.keyCode == 38 // up arrow
+    || aEvent.keyCode == 33 // page up
+    || aEvent.keyCode == 8 // backspace
+    || aEvent.keyCode == 75 // k
+  ) {
+    aEvent.preventDefault();
+    this.back();
+  }
+  else if ( aEvent.keyCode == 39 // right arrow
+    || aEvent.keyCode == 40 // down arrow
+    || aEvent.keyCode == 34 // page down
+    || aEvent.keyCode == 32 // space
+    || aEvent.keyCode == 74 // j
+  ) {
+    aEvent.preventDefault();
+    this.forward();
+  }
+  else if (aEvent.keyCode == 35) { // end
+    aEvent.preventDefault();
+    this.goEnd();
+  }
+  else if (aEvent.keyCode == 36) { // home
+    aEvent.preventDefault();
+    this.goStart();
+  }
+  else if (aEvent.keyCode == 80) { // p
+    aEvent.preventDefault();
+    this.toggleContent();
+  }
+  else if (aEvent.keyCode == 70) { // f
+    aEvent.preventDefault();
+    this.goFullscreen();
+  }
+  else if (aEvent.keyCode == 79) { // o
+    aEvent.preventDefault();
+    this.toggleView();
+  }
+}
+
+/* Touch Events */
+
+Dz.setupTouchEvents = function() {
+  var orgX, newX;
+  var tracking = false;
+
+  var db = document.body;
+  db.addEventListener("touchstart", start.bind(this), false);
+  db.addEventListener("touchmove", move.bind(this), false);
+
+  function start(aEvent) {
+    aEvent.preventDefault();
+    tracking = true;
+    orgX = aEvent.changedTouches[0].pageX;
+  }
+
+  function move(aEvent) {
+    if (!tracking) return;
+    newX = aEvent.changedTouches[0].pageX;
+    if (orgX - newX > 100) {
+      tracking = false;
+      this.forward();
+    } else {
+      if (orgX - newX < -100) {
+        tracking = false;
+        this.back();
+      }
+    }
+  }
+}
+
+Dz.setupView = function() {
+  document.body.addEventListener("click", function ( e ) {
+    if (!Dz.html.classList.contains("view")) return;
+    if (!e.target || e.target.nodeName != "SECTION") return;
+
+    Dz.html.classList.remove("view");
+    Dz.setCursor(Dz.slides.indexOf(e.target) + 1);
+  }, false);
+}
+
+/* Adapt the size of the slides to the window */
+
+Dz.onresize = function() {
+  var db = document.body;
+  var sx = db.clientWidth / window.innerWidth;
+  var sy = db.clientHeight / window.innerHeight;
+  var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
+
+  db.style.MozTransform = transform;
+  db.style.WebkitTransform = transform;
+  db.style.OTransform = transform;
+  db.style.msTransform = transform;
+  db.style.transform = transform;
+}
+
+Dz.getDetails = function(aIdx) {
+  var s = $("section:nth-of-type(" + aIdx + ")");
+  var d = s.$("details");
+  return d ? d.innerHTML : "";
+}
+
+Dz.getAspect = function() {
+  var match = document.documentElement.className.match(/\baspect-([0-9]+)-([0-9]+)\b/)
+  if (match)
+    return match[1] + ":" + match[2];
+  return "4:3";
+}
+
+Dz.onmessage = function(aEvent) {
+  var argv = aEvent.data.split(" "), argc = argv.length;
+  argv.forEach(function(e, i, a) { a[i] = decodeURIComponent(e) });
+  var win = aEvent.source;
+  if (argv[0] === "REGISTER" && argc === 1) {
+    this.remoteWindows.push(win);
+    this.postMsg(win, "REGISTERED", document.title, this.slides.length);
+    this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+    return;
+  }
+  if (argv[0] === "BACK" && argc === 1)
+    this.back();
+  if (argv[0] === "FORWARD" && argc === 1)
+    this.forward();
+  if (argv[0] === "START" && argc === 1)
+    this.goStart();
+  if (argv[0] === "END" && argc === 1)
+    this.goEnd();
+  if (argv[0] === "TOGGLE_CONTENT" && argc === 1)
+    this.toggleContent();
+  if (argv[0] === "SET_CURSOR" && argc === 2)
+    window.location.hash = "#" + argv[1];
+  if (argv[0] === "GET_CURSOR" && argc === 1)
+    this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+  if (argv[0] === "GET_NOTES" && argc === 1)
+    this.postMsg(win, "NOTES", this.getDetails(this.idx));
+  if (argv[0] === "GET_ASPECT" && argc === 1)
+    this.postMsg(win, "ASPECT", this.getAspect());
+}
+
+Dz.toggleContent = function() {
+  // If a Video is present in this new slide, play it.
+  // If a Video is present in the previous slide, stop it.
+  var s = $("section[aria-selected]");
+  if (s) {
+    var video = s.$("video");
+    if (video) {
+      if (video.ended || video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+  }
+}
+
+Dz.setCursor = function(aIdx, aStep) {
+  // If the user change the slide number in the URL bar, jump
+  // to this slide.
+  aStep = (aStep != 0 && typeof aStep !== "undefined") ? "." + aStep : ".0";
+  window.location.hash = "#" + aIdx + aStep;
+}
+
+Dz.onhashchange = function() {
+  var cursor = window.location.hash.split("#"),
+      newidx = 1,
+      newstep = 0;
+  if (cursor.length == 2) {
+    newidx = ~~cursor[1].split(".")[0];
+    newstep = ~~cursor[1].split(".")[1];
+    if (newstep > Dz.slides[newidx - 1].$$('.incremental > *').length) {
+      newstep = 0;
+      newidx++;
+    }
+  }
+  this.setProgress(newidx, newstep);
+  if (newidx != this.idx) {
+    this.setSlide(newidx);
+  }
+  if (newstep != this.step) {
+    this.setIncremental(newstep);
+  }
+  for (var i = 0; i < this.remoteWindows.length; i++) {
+    this.postMsg(this.remoteWindows[i], "CURSOR", this.idx + "." + this.step);
+  }
+}
+
+Dz.back = function() {
+  if (this.idx == 1 && this.step == 0) {
+    return;
+  }
+  if (this.step == 0) {
+    this.setCursor(this.idx - 1,
+                   this.slides[this.idx - 2].$$('.incremental > *').length);
+  } else {
+    this.setCursor(this.idx, this.step - 1);
+  }
+}
+
+Dz.forward = function() {
+  if (this.idx >= this.slides.length &&
+      this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+      return;
+  }
+  if (this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+    this.setCursor(this.idx + 1, 0);
+  } else {
+    this.setCursor(this.idx, this.step + 1);
+  }
+}
+
+Dz.goStart = function() {
+  this.setCursor(1, 0);
+}
+
+Dz.goEnd = function() {
+  var lastIdx = this.slides.length;
+  var lastStep = this.slides[lastIdx - 1].$$('.incremental > *').length;
+  this.setCursor(lastIdx, lastStep);
+}
+
+Dz.toggleView = function() {
+  this.html.classList.toggle("view");
+
+  if (this.html.classList.contains("view")) {
+    $("section[aria-selected]").scrollIntoView(true);
+  }
+}
+
+Dz.setSlide = function(aIdx) {
+  this.idx = aIdx;
+  var old = $("section[aria-selected]");
+  var next = $("section:nth-of-type("+ this.idx +")");
+  if (old) {
+    var oldIncremental = old.$('.incremental > *[aria-selected]')
+    if (oldIncremental) {
+      oldIncremental.removeAttribute('aria-selected');
+    }
+    old.removeAttribute("aria-selected");
+    var video = old.$("video");
+    if (video) {
+      video.pause();
+    }
+  }
+  if (next) {
+    next.setAttribute("aria-selected", "true");
+    var video = next.$("video");
+    if (video && !!+this.params.autoplay) {
+      video.play();
+    }
+  } else {
+    // That should not happen
+    this.idx = -1;
+    // console.warn("Slide doesn't exist.");
+  }
+}
+
+Dz.setIncremental = function(aStep) {
+  this.step = aStep;
+  var old = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
+  if (old) {
+    old.removeAttribute('aria-selected');
+  }
+  var incrementals = $$('.incremental');
+  if (this.step <= 0) {
+    $$.forEach(incrementals, function(aNode) {
+      aNode.removeAttribute('active');
+    });
+    return;
+  }
+  var next = this.slides[this.idx - 1].$$('.incremental > *')[this.step - 1];
+  if (next) {
+    next.setAttribute('aria-selected', true);
+    next.parentNode.setAttribute('active', true);
+    var found = false;
+    $$.forEach(incrementals, function(aNode) {
+      if (aNode != next.parentNode)
+        if (found)
+          aNode.removeAttribute('active');
+        else
+          aNode.setAttribute('active', true);
+      else
+        found = true;
+    });
+  } else {
+    setCursor(this.idx, 0);
+  }
+  return next;
+}
+
+Dz.goFullscreen = function() {
+  var html = $('html'),
+      requestFullscreen = html.requestFullscreen || html.requestFullScreen || html.mozRequestFullScreen || html.webkitRequestFullScreen;
+  if (requestFullscreen) {
+    requestFullscreen.apply(html);
+  }
+}
+
+Dz.setProgress = function(aIdx, aStep) {
+  var slide = $("section:nth-of-type("+ aIdx +")");
+  if (!slide)
+    return;
+  var steps = slide.$$('.incremental > *').length + 1,
+      slideSize = 100 / (this.slides.length - 1),
+      stepSize = slideSize / steps;
+  this.progressBar.style.width = ((aIdx - 1) * slideSize + aStep * stepSize) + '%';
+}
+
+Dz.postMsg = function(aWin, aMsg) { // [arg0, [arg1...]]
+  aMsg = [aMsg];
+  for (var i = 2; i < arguments.length; i++)
+    aMsg.push(encodeURIComponent(arguments[i]));
+  aWin.postMessage(aMsg.join(" "), "*");
+}
+
+function init() {
+  Dz.init();
+  window.onkeydown = Dz.onkeydown.bind(Dz);
+  window.onresize = Dz.onresize.bind(Dz);
+  window.onhashchange = Dz.onhashchange.bind(Dz);
+  window.onmessage = Dz.onmessage.bind(Dz);
+}
+
+document.addEventListener('DOMContentLoaded', init, false);
+
+// Helpers
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function (oThis) {
+
+    // closest thing possible to the ECMAScript 5 internal IsCallable
+    // function 
+    if (typeof this !== "function")
+    throw new TypeError(
+      "Function.prototype.bind - what is trying to be fBound is not callable"
+    );
+
+    var aArgs = Array.prototype.slice.call(arguments, 1),
+        fToBind = this,
+        fNOP = function () {},
+        fBound = function () {
+          return fToBind.apply( this instanceof fNOP ? this : oThis || window,
+                 aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
+
+    fNOP.prototype = this.prototype;
+    fBound.prototype = new fNOP();
+
+    return fBound;
+  };
+}
+
+var $ = (HTMLElement.prototype.$ = function(aQuery) {
+  return this.querySelector(aQuery);
+}).bind(document);
+
+var $$ = (HTMLElement.prototype.$$ = function(aQuery) {
+  return this.querySelectorAll(aQuery);
+}).bind(document);
+
+$$.forEach = function(nodeList, fun) {
+  Array.prototype.forEach.call(nodeList, fun);
+}
+</script><script>
+var hljs=new function(){function l(o){return o.replace(/&/gm,"&amp;").replace(/</gm,"&lt;").replace(/>/gm,"&gt;")}function b(p){for(var o=p.firstChild;o;o=o.nextSibling){if(o.nodeName=="CODE"){return o}if(!(o.nodeType==3&&o.nodeValue.match(/\s+/))){break}}}function h(p,o){return Array.prototype.map.call(p.childNodes,function(q){if(q.nodeType==3){return o?q.nodeValue.replace(/\n/g,""):q.nodeValue}if(q.nodeName=="BR"){return"\n"}return h(q,o)}).join("")}function a(q){var p=(q.className+" "+(q.parentNode?q.parentNode.className:"")).split(/\s+/);p=p.map(function(r){return r.replace(/^language-/,"")});for(var o=0;o<p.length;o++){if(e[p[o]]||p[o]=="no-highlight"){return p[o]}}}function c(q){var o=[];(function p(r,s){for(var t=r.firstChild;t;t=t.nextSibling){if(t.nodeType==3){s+=t.nodeValue.length}else{if(t.nodeName=="BR"){s+=1}else{if(t.nodeType==1){o.push({event:"start",offset:s,node:t});s=p(t,s);o.push({event:"stop",offset:s,node:t})}}}}return s})(q,0);return o}function j(x,v,w){var p=0;var y="";var r=[];function t(){if(x.length&&v.length){if(x[0].offset!=v[0].offset){return(x[0].offset<v[0].offset)?x:v}else{return v[0].event=="start"?x:v}}else{return x.length?x:v}}function s(A){function z(B){return" "+B.nodeName+'="'+l(B.value)+'"'}return"<"+A.nodeName+Array.prototype.map.call(A.attributes,z).join("")+">"}while(x.length||v.length){var u=t().splice(0,1)[0];y+=l(w.substr(p,u.offset-p));p=u.offset;if(u.event=="start"){y+=s(u.node);r.push(u.node)}else{if(u.event=="stop"){var o,q=r.length;do{q--;o=r[q];y+=("</"+o.nodeName.toLowerCase()+">")}while(o!=u.node);r.splice(q,1);while(q<r.length){y+=s(r[q]);q++}}}}return y+l(w.substr(p))}function f(r){function o(s){return(s&&s.source)||s}function p(t,s){return RegExp(o(t),"m"+(r.cI?"i":"")+(s?"g":""))}function q(z,x){if(z.compiled){return}z.compiled=true;var u=[];if(z.k){var s={};function A(B,t){t.split(" ").forEach(function(C){var D=C.split("|");s[D[0]]=[B,D[1]?Number(D[1]):1];u.push(D[0])})}z.lR=p(z.l||hljs.IR+"(?!\\.)",true);if(typeof z.k=="string"){A("keyword",z.k)}else{for(var y in z.k){if(!z.k.hasOwnProperty(y)){continue}A(y,z.k[y])}}z.k=s}if(x){if(z.bWK){z.b="\\b("+u.join("|")+")\\b(?!\\.)\\s*"}z.bR=p(z.b?z.b:"\\B|\\b");if(!z.e&&!z.eW){z.e="\\B|\\b"}if(z.e){z.eR=p(z.e)}z.tE=o(z.e)||"";if(z.eW&&x.tE){z.tE+=(z.e?"|":"")+x.tE}}if(z.i){z.iR=p(z.i)}if(z.r===undefined){z.r=1}if(!z.c){z.c=[]}for(var w=0;w<z.c.length;w++){if(z.c[w]=="self"){z.c[w]=z}q(z.c[w],z)}if(z.starts){q(z.starts,x)}var v=[];for(var w=0;w<z.c.length;w++){v.push(o(z.c[w].b))}if(z.tE){v.push(o(z.tE))}if(z.i){v.push(o(z.i))}z.t=v.length?p(v.join("|"),true):{exec:function(t){return null}}}q(r)}function d(E,F,C){function o(r,N){for(var M=0;M<N.c.length;M++){var L=N.c[M].bR.exec(r);if(L&&L.index==0){return N.c[M]}}}function s(L,r){if(L.e&&L.eR.test(r)){return L}if(L.eW){return s(L.parent,r)}}function t(r,L){return !C&&L.i&&L.iR.test(r)}function y(M,r){var L=G.cI?r[0].toLowerCase():r[0];return M.k.hasOwnProperty(L)&&M.k[L]}function H(){var L=l(w);if(!A.k){return L}var r="";var O=0;A.lR.lastIndex=0;var M=A.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=y(A,M);if(N){v+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=A.lR.lastIndex;M=A.lR.exec(L)}return r+L.substr(O)}function z(){if(A.sL&&!e[A.sL]){return l(w)}var r=A.sL?d(A.sL,w):g(w);if(A.r>0){v+=r.keyword_count;B+=r.r}return'<span class="'+r.language+'">'+r.value+"</span>"}function K(){return A.sL!==undefined?z():H()}function J(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){x+=L;w=""}else{if(M.eB){x+=l(r)+L;w=""}else{x+=L;w=r}}A=Object.create(M,{parent:{value:A}})}function D(L,r){w+=L;if(r===undefined){x+=K();return 0}var N=o(r,A);if(N){x+=K();J(N,r);return N.rB?0:r.length}var O=s(A,r);if(O){var M=A;if(!(M.rE||M.eE)){w+=r}x+=K();do{if(A.cN){x+="</span>"}B+=A.r;A=A.parent}while(A!=O.parent);if(M.eE){x+=l(r)}w="";if(O.starts){J(O.starts,"")}return M.rE?0:r.length}if(t(r,A)){throw new Error('Illegal lexem "'+r+'" for mode "'+(A.cN||"<unnamed>")+'"')}w+=r;return r.length||1}var G=e[E];f(G);var A=G;var w="";var B=0;var v=0;var x="";try{var u,q,p=0;while(true){A.t.lastIndex=p;u=A.t.exec(F);if(!u){break}q=D(F.substr(p,u.index-p),u[0]);p=u.index+q}D(F.substr(p));return{r:B,keyword_count:v,value:x,language:E}}catch(I){if(I.message.indexOf("Illegal")!=-1){return{r:0,keyword_count:0,value:l(F)}}else{throw I}}}function g(s){var o={keyword_count:0,r:0,value:l(s)};var q=o;for(var p in e){if(!e.hasOwnProperty(p)){continue}var r=d(p,s,false);r.language=p;if(r.keyword_count+r.r>q.keyword_count+q.r){q=r}if(r.keyword_count+r.r>o.keyword_count+o.r){q=o;o=r}}if(q.language){o.second_best=q}return o}function i(q,p,o){if(p){q=q.replace(/^((<[^>]+>|\t)+)/gm,function(r,v,u,t){return v.replace(/\t/g,p)})}if(o){q=q.replace(/\n/g,"<br>")}return q}function m(r,u,p){var v=h(r,p);var t=a(r);if(t=="no-highlight"){return}var w=t?d(t,v,true):g(v);t=w.language;var o=c(r);if(o.length){var q=document.createElement("pre");q.innerHTML=w.value;w.value=j(o,c(q),v)}w.value=i(w.value,u,p);var s=r.className;if(!s.match("(\\s|^)(language-)?"+t+"(\\s|$)")){s=s?(s+" "+t):t}r.innerHTML=w.value;r.className=s;r.result={language:t,kw:w.keyword_count,re:w.r};if(w.second_best){r.second_best={language:w.second_best.language,kw:w.second_best.keyword_count,re:w.second_best.r}}}function n(){if(n.called){return}n.called=true;Array.prototype.map.call(document.getElementsByTagName("pre"),b).filter(Boolean).forEach(function(o){m(o,hljs.tabReplace)})}function k(){window.addEventListener("DOMContentLoaded",n,false);window.addEventListener("load",n,false)}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=m;this.initHighlighting=n;this.initHighlightingOnLoad=k;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.BE={b:"\\\\[\\s\\S]",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.REGEXP_MODE={cN:"regexp",b:/\//,e:/\/[gim]*/,i:/\n/,c:[this.BE,{b:/\[/,e:/\]/,r:0,c:[this.BE]}]};this.inherit=function(q,r){var o={};for(var p in q){o[p]=q[p]}if(r){for(var p in r){o[p]=r[p]}}return o}}();hljs.LANGUAGES.ruby=function(e){var a="[a-zA-Z_][a-zA-Z0-9_]*(\\!|\\?)?";var j="[a-zA-Z_]\\w*[!?=]?|[-+~]\\@|<<|>>|=~|===?|<=>|[<>]=?|\\*\\*|[-/+%^&*~`|]|\\[\\]=?";var g={keyword:"and false then defined module in return redo if BEGIN retry end for true self when next until do begin unless END rescue nil else break undef not super class case require yield alias while ensure elsif or include"};var c={cN:"yardoctag",b:"@[A-Za-z]+"};var k=[{cN:"comment",b:"#",e:"$",c:[c]},{cN:"comment",b:"^\\=begin",e:"^\\=end",c:[c],r:10},{cN:"comment",b:"^__END__",e:"\\n$"}];var d={cN:"subst",b:"#\\{",e:"}",l:a,k:g};var i=[e.BE,d];var b=[{cN:"string",b:"'",e:"'",c:i,r:0},{cN:"string",b:'"',e:'"',c:i,r:0},{cN:"string",b:"%[qw]?\\(",e:"\\)",c:i},{cN:"string",b:"%[qw]?\\[",e:"\\]",c:i},{cN:"string",b:"%[qw]?{",e:"}",c:i},{cN:"string",b:"%[qw]?<",e:">",c:i,r:10},{cN:"string",b:"%[qw]?/",e:"/",c:i,r:10},{cN:"string",b:"%[qw]?%",e:"%",c:i,r:10},{cN:"string",b:"%[qw]?-",e:"-",c:i,r:10},{cN:"string",b:"%[qw]?\\|",e:"\\|",c:i,r:10}];var h={cN:"function",bWK:true,e:" |$|;",k:"def",c:[{cN:"title",b:j,l:a,k:g},{cN:"params",b:"\\(",e:"\\)",l:a,k:g}].concat(k)};var f=k.concat(b.concat([{cN:"class",bWK:true,e:"$|;",k:"class module",c:[{cN:"title",b:"[A-Za-z_]\\w*(::\\w+)*(\\?|\\!)?",r:0},{cN:"inheritance",b:"<\\s*",c:[{cN:"parent",b:"("+e.IR+"::)?"+e.IR}]}].concat(k)},h,{cN:"constant",b:"(::)?(\\b[A-Z]\\w*(::)?)+",r:0},{cN:"symbol",b:":",c:b.concat([{b:j}]),r:0},{cN:"symbol",b:a+":",r:0},{cN:"number",b:"(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b",r:0},{cN:"number",b:"\\?\\w"},{cN:"variable",b:"(\\$\\W)|((\\$|\\@\\@?)(\\w+))"},{b:"("+e.RSR+")\\s*",c:k.concat([{cN:"regexp",b:"/",e:"/[a-z]*",i:"\\n",c:[e.BE,d]}]),r:0}]));d.c=f;h.c[1].c=f;return{l:a,k:g,c:f}}(hljs);hljs.LANGUAGES.xml=function(a){var c="[A-Za-z0-9\\._:-]+";var b={eW:true,r:0,c:[{cN:"attribute",b:c,r:0},{b:'="',rB:true,e:'"',c:[{cN:"value",b:'"',eW:true}]},{b:"='",rB:true,e:"'",c:[{cN:"value",b:"'",eW:true}]},{b:"=",c:[{cN:"value",b:"[^\\s/>]+"}]}]};return{cI:true,c:[{cN:"pi",b:"<\\?",e:"\\?>",r:10},{cN:"doctype",b:"<!DOCTYPE",e:">",r:10,c:[{b:"\\[",e:"\\]"}]},{cN:"comment",b:"<!--",e:"-->",r:10},{cN:"cdata",b:"<\\!\\[CDATA\\[",e:"\\]\\]>",r:10},{cN:"tag",b:"<style(?=\\s|>|$)",e:">",k:{title:"style"},c:[b],starts:{e:"</style>",rE:true,sL:"css"}},{cN:"tag",b:"<script(?=\\s|>|$)",e:">",k:{title:"script"},c:[b],starts:{e:"<\/script>",rE:true,sL:"javascript"}},{b:"<%",e:"%>",sL:"vbscript"},{cN:"tag",b:"</?",e:"/?>",r:0,c:[{cN:"title",b:"[^ /><]+"},b]}]}}(hljs);hljs.LANGUAGES.markdown=function(a){return{c:[{cN:"header",b:"^#{1,3}",e:"$"},{cN:"header",b:"^.+?\\n[=-]{2,}$"},{b:"<",e:">",sL:"xml",r:0},{cN:"bullet",b:"^([*+-]|(\\d+\\.))\\s+"},{cN:"strong",b:"[*_]{2}.+?[*_]{2}"},{cN:"emphasis",b:"\\*.+?\\*"},{cN:"emphasis",b:"_.+?_",r:0},{cN:"blockquote",b:"^>\\s+",e:"$"},{cN:"code",b:"`.+?`"},{cN:"code",b:"^    ",e:"$",r:0},{cN:"horizontal_rule",b:"^-{3,}",e:"$"},{b:"\\[.+?\\]\\(.+?\\)",rB:true,c:[{cN:"link_label",b:"\\[.+\\]"},{cN:"link_url",b:"\\(",e:"\\)",eB:true,eE:true}]}]}}(hljs);hljs.LANGUAGES.java=function(a){return{k:"false synchronized int abstract float private char boolean static null if const for true while long throw strictfp finally protected import native final return void enum else break transient new catch instanceof byte super volatile case assert short package default double public try this switch continue throws",c:[{cN:"javadoc",b:"/\\*\\*",e:"\\*/",c:[{cN:"javadoctag",b:"(^|\\s)@[A-Za-z]+"}],r:10},a.CLCM,a.CBLCLM,a.ASM,a.QSM,{cN:"class",bWK:true,e:"{",k:"class interface",eE:true,i:":",c:[{bWK:true,k:"extends implements",r:10},{cN:"title",b:a.UIR}]},a.CNM,{cN:"annotation",b:"@[A-Za-z]+"}]}}(hljs);hljs.LANGUAGES.xml=function(a){var c="[A-Za-z0-9\\._:-]+";var b={eW:true,r:0,c:[{cN:"attribute",b:c,r:0},{b:'="',rB:true,e:'"',c:[{cN:"value",b:'"',eW:true}]},{b:"='",rB:true,e:"'",c:[{cN:"value",b:"'",eW:true}]},{b:"=",c:[{cN:"value",b:"[^\\s/>]+"}]}]};return{cI:true,c:[{cN:"pi",b:"<\\?",e:"\\?>",r:10},{cN:"doctype",b:"<!DOCTYPE",e:">",r:10,c:[{b:"\\[",e:"\\]"}]},{cN:"comment",b:"<!--",e:"-->",r:10},{cN:"cdata",b:"<\\!\\[CDATA\\[",e:"\\]\\]>",r:10},{cN:"tag",b:"<style(?=\\s|>|$)",e:">",k:{title:"style"},c:[b],starts:{e:"</style>",rE:true,sL:"css"}},{cN:"tag",b:"<script(?=\\s|>|$)",e:">",k:{title:"script"},c:[b],starts:{e:"<\/script>",rE:true,sL:"javascript"}},{b:"<%",e:"%>",sL:"vbscript"},{cN:"tag",b:"</?",e:"/?>",r:0,c:[{cN:"title",b:"[^ /><]+"},b]}]}}(hljs);hljs.LANGUAGES.asciidoc=function(a){return{c:[{cN:"comment",b:"^/{4,}\\n",e:"\\n/{4,}$",r:10},{cN:"comment",b:"^//",e:"$",r:0},{cN:"title",b:"^\\.\\w.*$"},{b:"^[=\\*]{4,}\\n",e:"\\n^[=\\*]{4,}$",r:10},{cN:"header",b:"^(={1,5}) .+?( \\1)?$",r:10},{cN:"header",b:"^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$",r:10},{cN:"attribute",b:"^:.+?:",e:"\\s",eE:true,r:10},{cN:"attribute",b:"^\\[.+?\\]$",r:0},{cN:"blockquote",b:"^_{4,}\\n",e:"\\n_{4,}$",r:10},{cN:"code",b:"^[\\-\\.]{4,}\\n",e:"\\n[\\-\\.]{4,}$",r:10},{b:"^\\+{4,}\\n",e:"\\n\\+{4,}$",c:[{b:"<",e:">",sL:"xml",r:0}],r:10},{cN:"bullet",b:"^(\\*+|\\-+|\\.+|[^\\n]+?::)\\s+"},{cN:"label",b:"^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+",r:10},{cN:"strong",b:"\\B\\*(?![\\*\\s])",e:"(\\n{2}|\\*)",c:[{b:"\\\\*\\w",r:0}]},{cN:"emphasis",b:"\\B'(?!['\\s])",e:"(\\n{2}|')",c:[{b:"\\\\'\\w",r:0}],r:0},{cN:"emphasis",b:"_(?![_\\s])",e:"(\\n{2}|_)",r:0},{cN:"smartquote",b:"``.+?''",r:10},{cN:"smartquote",b:"`.+?'",r:10},{cN:"code",b:"(`.+?`|\\+.+?\\+)",r:0},{cN:"code",b:"^[ \\t]",e:"$",r:0},{cN:"horizontal_rule",b:"^'{3,}[ \\t]*$",r:10},{b:"(link:)?(http|https|ftp|file|irc|image:?):\\S+\\[.*?\\]",rB:true,c:[{b:"(link|image:?):",r:0},{cN:"link_url",b:"\\w",e:"[^\\[]+",r:0},{cN:"link_label",b:"\\[",e:"\\]",eB:true,eE:true,r:0}],r:10}]}}(hljs);hljs.LANGUAGES.javascript=function(a){return{k:{keyword:"in if for while finally var new function do return void else break catch instanceof with throw case default try this switch continue typeof delete let yield const",literal:"true false null undefined NaN Infinity"},c:[a.ASM,a.QSM,a.CLCM,a.CBLCLM,a.CNM,{b:"("+a.RSR+"|\\b(case|return|throw)\\b)\\s*",k:"return throw case",c:[a.CLCM,a.CBLCLM,a.REGEXP_MODE,{b:/</,e:/>;/,sL:"xml"}],r:0},{cN:"function",bWK:true,e:/{/,k:"function",c:[{cN:"title",b:/[A-Za-z$_][0-9A-Za-z$_]*/},{cN:"params",b:/\(/,e:/\)/,c:[a.CLCM,a.CBLCLM],i:/["'\(]/}],i:/\[|%/}]}}(hljs);
+</script><script>hljs.initHighlightingOnLoad()</script></body></html>
