@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=" http-equiv="Content-Type">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="Asciidoctor 1.5.5" name="generator">
+<meta content="J.-M. Bruel" name="author">
+<title>Modeling Information: an introduction</title>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<style>
+.conum { display: inline-block; color: white !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 1.2em; height: 1.2em; font-size: 0.9em; font-weight: bold; line-height: 1.2; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -0.1em; }
+.conum * { color: white !important; }
+.conum + b { display: none; }
+.conum:after { content: attr(data-value); }
+.conum:not([data-value]):empty { display: none; }
+.colist table td:first-of-type { padding-right: 0.25em; }
+</style>
+<style>
+.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments, .listingblock .pygments code { background: #f8f8f8; }
+.listingblock .pygments .tok-c { color: #408080; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
+.listingblock .pygments .tok-k { color: #008000; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-o { color: #666666 } /* Operator */
+.listingblock .pygments .tok-cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #BC7A00 } /* Comment.Preproc */
+.listingblock .pygments .tok-c1 { color: #408080; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #408080; font-style: italic } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #FF0000 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #888888 } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #0044DD } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #008000 } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #B00040 } /* Keyword.Type */
+.listingblock .pygments .tok-m { color: #666666 } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #BA2121 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #7D9029 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #008000 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.listingblock .pygments .tok-no { color: #880000 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #AA22FF } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #999999; font-weight: bold } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #0000FF } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #A0A000 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.listingblock .pygments .tok-nt { color: #008000; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #19177C } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #666666 } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #666666 } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #666666 } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #666666 } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #666666 } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sb { color: #BA2121 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #BA2121 } /* Literal.String.Char */
+.listingblock .pygments .tok-sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #BA2121 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #BA2121 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #008000 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #BB6688 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #BA2121 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #19177C } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #008000 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-vc { color: #19177C } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #19177C } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #19177C } /* Name.Variable.Instance */
+.listingblock .pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+<link href="deck.js/core/deck.core.css" rel="stylesheet">
+<link href="deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet">
+<link href="deck.js/extensions/toc/deck.toc.css" media="screen" rel="stylesheet">
+<link href="deck.js/themes/style/swiss.css" media="screen" rel="stylesheet">
+<link href="deck.js/themes/transition/fade.css" media="screen" rel="stylesheet">
+<link href="deck.js/core/print.css" media="print" rel="stylesheet">
+<script src="deck.js/modernizr.custom.js"></script>
+</head>
+<body class="article">
+<div class="deck-container">
+<section class="slide" id="title-slide">
+<h1><strong>Modeling</strong> Information: an introduction</h1>
+<span id="author">J.-M. Bruel</span>
+<br>
+<span id="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span>
+<br>
+<span id="revnumber">version 0.8,</span>
+<span id="revdate">2016-11-27</span>
+</section>
+<section class="slide" id="_follow_this_course_on_the_internet">
+<h2>Follow this course on the Internet&#8230;&#8203;</h2>
+<div class="imageblock">
+<div class="content">
+<a class="image" href="images/dublin2016.jpg">
+<img alt="http://bit.ly/jmb-dublin16" src="images/dublin2016.jpg" width="40%">
+</a>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>http://bit.ly/jmb-dublin16</pre>
+</div>
+</div>
+</section>
+<section class="slide" id="__span_class_icon_i_class_icon_home_i_span_about_me_and_this_course">
+<h2><span class="icon"><i class="icon-home"></i></span> About me and this course</h2>
+
+</section>
+<section class="slide" id="__span_class_icon_i_class_icon_user_i_span_who_am_i">
+<h2><span class="icon"><i class="icon-user"></i></span> Who am I ?</h2>
+<div class="ulist">
+<ul>
+<li>Professor
+<span class="image"><img alt="logo iut" src="images/logo-iut.png" width="20%"></span>
+<span class="image"><img alt="dublin trip" src="images/dublin-trip.png" width="20%"></span></li>
+<li>Head of the MACAO team of the CNRS/IRIT Lab <span class="image"><a class="image" href="http://www.irit.fr/">
+<img alt="logo irit" height="40" src="images/logo-irit.png">
+</a></span></li>
+<li><p>
+Teaching Undergraduate (IUT), M.Sc. (Master), Doctorate:<div class="ulist">
+<ul>
+<li><a href="http://www.uml.org/">UML&#8482;</a> / <a href="http://www.sysml-france.fr">SysML-France</a></li>
+<li><a href="https://www.java.com/fr/">Java</a> / Object-Orientation / Design Patterns</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="__span_class_icon_i_class_icon_map_signs_i_span_topics">
+<h2><span class="icon"><i class="icon-map-signs"></i></span> Topics</h2>
+<div class="paragraph"><p>This course will consist in :</p></div>
+<div class="ulist">
+<ul>
+<li><a href="#Concepts"><span class="icon"><i class="icon-graduation-cap"></i></span> Concepts and definitions</a></li>
+<li><a href="#Practice"><span class="icon"><i class="icon-graduation-cap"></i></span> Advanced concepts</a></li>
+<li><a href="#Outils"><span class="icon"><i class="icon-wrench"></i></span> Tools</a></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_time_schedule">
+<h2>Time schedule</h2>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Monday</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>9-11am room 212</li>
+<li>13-15h room 215</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">TuesDAY</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>9-11am room 212</li>
+<li>13-15h room 221</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+Yes, I know, only 2 days ! <span class="icon"><i class="icon-smiley"></i></span>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="Concepts">
+<h2><span class="icon"><i class="icon-graduation-cap"></i></span> Concepts and definitions</h2>
+<div class="paragraph"><p><span class="icon"><i class="icon-map-signs"></i></span></p></div>
+<div class="ulist">
+<ul>
+<li>Before starting</li>
+<li>Objects</li>
+<li>Properties</li>
+<li>Class</li>
+<li>Attributes</li>
+<li>Associations</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_before_starting">
+<h2>Before starting</h2>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code class="java language-java"><span class="tok-kd">public</span> <span class="tok-kd">class</span> <span class="tok-nc">Student</span> <span class="tok-o">{</span>
+	<span class="tok-n">String</span> <span class="tok-n">name</span><span class="tok-o">;</span>
+<span class="tok-o">}</span></code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="Student" height="62" src="images/Student.svg" width="64">
+</div>
+</div>
+</section>
+<section class="slide" id="_discussions">
+<h2>Discussions</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="tuxteacher" src="images/tuxteacher.png" width="20%">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>Why a square and not a circle?</li>
+<li>What "data" have you manipulated so far?</li>
+<li>Any "record" ?</li>
+<li>Let&#8217;s model some of them&#8230;&#8203;</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_we_need_to_agree_on_a_notation">
+<h2>We need to agree on a notation</h2>
+<div class="ulist">
+<ul>
+<li>&#8658; <a href="http://www.uml.org/">UML&#8482;</a></li>
+<li>&#8658; Independant from coding language (<a href="https://www.java.com/fr/">Java</a>, <code>PHP</code>, &#8230;&#8203;)</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_data_vs_information">
+<h2>Data vs Information</h2>
+<div class="paragraph"><p>A data (e.g., <code>37.2</code>) is raw, it has no meaning until it becomes an information (e.g., "temperature in Celcius").</p></div>
+<div class="quoteblock">
+<blockquote>
+A <strong>variable</strong> stores a <strong>data</strong> that represents an <strong>information</strong>.
+</blockquote>
+</div>
+</section>
+<section class="slide" id="_objects">
+<h2>Objects</h2>
+<div class="listingblock">
+<div class="title">JSON example</div>
+<div class="content">
+<pre class="pygments highlight"><code class="json language-json"><span class="tok-p">{</span>
+  <span class="tok-nt">&quot;jmb&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+    <span class="tok-nt">&quot;location&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Toulouse&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Jean-Michel Bruel&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;country&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;France&quot;</span>
+  <span class="tok-p">},</span>
+  <span class="tok-nt">&quot;am&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+    <span class="tok-nt">&quot;location&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Dublin&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Andrew Donnellan&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;country&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Ireland&quot;</span>
+  <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</section>
+<section class="slide" id="_properties">
+<h2>Properties</h2>
+<div class="paragraph"><p>In the previous example, each <strong>object</strong> has the same
+<strong>properties</strong>:</p></div>
+<div class="ulist">
+<ul>
+<li>location</li>
+<li>name</li>
+<li>country</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_class">
+<h2>Class</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="People" height="87" src="images/People.svg" width="72">
+</div>
+</div>
+</section>
+<section class="slide" id="_class_2">
+<h2>Class</h2>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph"><p>A class is not a set of objects (hence no prurial on its name)!</p></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_attributes">
+<h2>Attributes</h2>
+<div class="paragraph"><p>In the previous example, for the <code>People</code>  <strong>class</strong>, we have defined some <strong>attributes</strong>:</p></div>
+<div class="ulist">
+<ul>
+<li>location</li>
+<li>name</li>
+<li>country</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+So far you should wonder why I used 2 different words for the same concepts: <em>properties</em> and <em>attributes</em>, but we&#8217;ll see why in a minute&#8230;&#8203;
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_attributs">
+<h2>Attributs</h2>
+<div class="paragraph"><p>An <strong>attribute</strong> is a characteristic of an objet
+(person&#8217;s name, color of a car, average grade of a stydent&#8230;&#8203;).</p></div>
+<div class="paragraph"><p>Each object is characterized by the set of values of its attributes.</p></div>
+</section>
+<section class="slide" id="_special_kind_of_attribute_em_identifiers_em">
+<h2>Special kind of attribute : <em>Identifiers</em></h2>
+<div class="paragraph"><p>An <strong>identifier</strong> (or "Id") is an attribute that is unique for each object (e.g., social seciruty number).</p></div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph"><p>We will make those attributes explicitely identifiers, by
+preceeding their name with <code>id</code> (e.g., idStudent).</p></div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_conventions">
+<h2>Conventions</h2>
+<div class="paragraph"><p>You might have noticed that I used the same conventions for naming things (same as <a href="https://www.java.com/fr/">Java</a>):</p></div>
+<div class="ulist">
+<ul>
+<li>1st letter of a class, always in Capital (e.g.,  <code>Student</code>, <code>People</code>)</li>
+<li>1st letter of a properties, never in Capital (e.g.,    <code>name</code>,<code>dateOfBirth</code>)</li>
+<li>no plurial on class name</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_back_to_object_notation_in_uml">
+<h2>Back to object notation (in UML)</h2>
+<div class="ulist">
+<ul>
+<li>In classical programming languages (such as C), we talk about <code>type</code> and <code>variable</code>.</li>
+<li>In object oriented programming (and hence in UML) we will talk about <code>class</code> and <code>object</code> (or also <code>instance</code>).</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="jmb" height="87" src="images/jmb.svg" width="174">
+</div>
+</div>
+</section>
+<section class="slide" id="_discussions_2">
+<h2>Discussions</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="tuxteacher" src="images/tuxteacher.png" width="20%">
+</div>
+</div>
+<div class="paragraph"><p>Questions so far?</p></div>
+</section>
+<section class="slide" id="_associations">
+<h2>Associations</h2>
+
+</section>
+<section class="slide" id="_definition">
+<h2>Definition</h2>
+<div class="paragraph"><p>Through <strong>association</strong> we are going to model links between objects.</p></div>
+<div class="paragraph"><p>Let&#8217;s start with an example :</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="assoc1" height="206" src="images/assoc1.svg" width="374">
+</div>
+</div>
+</section>
+<section class="slide" id="_definition_2">
+<h2>Definition</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="assoc2" height="205" src="images/assoc2.svg" width="374">
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Advantage</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>Now we know they belong to the same team</li>
+<li>Now we know the content of the team</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Problem</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>We cannot do that for all the objects!!</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+<section class="slide" id="_definition_3">
+<h2>Definition</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="assoc3" height="87" src="images/assoc3.svg" width="148">
+</div>
+</div>
+</section>
+<section class="slide" id="_dimension_of_an_association">
+<h2>Dimension of an association</h2>
+<div class="paragraph"><p>An association between two class is a <strong>binary</strong> association.</p></div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-note" title="Note"></i>
+</td>
+<td class="content">
+We will see others (such as ternary associations) later.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Example of binary association</div><p><span class="image"><img alt="prod fourn" src="images/prod-fourn.svg" width="50%"></span></p></div>
+</section>
+<section class="slide" id="_name_of_an_association">
+<h2>Name of an association</h2>
+<div class="paragraph"><p>An association has a <strong>name</strong> (often a verb). It is not mandatory, but sometimes usefull to understand the links between objects.</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="assoc5" height="41" src="images/assoc5.svg" width="209">
+</div>
+</div>
+</section>
+<section class="slide" id="_multiplicity">
+<h2>Multiplicity</h2>
+<div class="paragraph"><p>It is important to visualize the number of objects on one side, in association with the objects on the other side.
+Most of the time this number is not fixed, but is a range denoted <code>M..N</code>.</p></div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph"><p>On <code>M..N</code>, <code>M</code> must always be lower or equal to <code>N</code> (e.g., <code>3..10</code>).</p></div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="assoc4" height="206" src="images/assoc4.svg" width="80">
+</div>
+</div>
+</section>
+<section class="slide" id="_multiplicity_2">
+<h2>Multiplicity</h2>
+<div class="paragraph"><p>Usual situations:</p></div>
+<div class="ulist">
+<ul>
+<li><code><strong></code> &#8658; multiple optional (meaning <code>0..</strong></code>).</li>
+<li><code>1..*</code> &#8658; multiple mandatory</li>
+<li><code>1</code> &#8658; mandatory (meaning <code>1..1</code>)</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="Practice">
+<h2><span class="icon"><i class="icon-graduation-cap"></i></span> Advanced concepts</h2>
+<div class="paragraph"><p><span class="icon"><i class="icon-map-signs"></i></span></p></div>
+<div class="ulist">
+<ul>
+<li>How association are "stored" ?</li>
+<li>Navigability</li>
+<li>Ownership</li>
+<li>Class-Association</li>
+<li>Link with databases</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_how_association_are_stored">
+<h2>How association are "stored" ?</h2>
+<div class="paragraph"><p>Let&#8217;s have a look at some java code&#8230;&#8203;</p></div>
+<div class="paragraph"><p><a href="http://cruise.eecs.uottawa.ca/umple/">Umple</a></p></div>
+</section>
+<section class="slide" id="_navigability">
+<h2>Navigability</h2>
+<div class="paragraph"><p>What are thye differences between those two associations:</p></div>
+<div class="imageblock">
+<div class="content">
+<img alt="assoc6" height="125" src="images/assoc6.svg" width="74">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="assoc7" height="125" src="images/assoc7.svg" width="74">
+</div>
+</div>
+</section>
+<section class="slide" id="Practice">
+<h2><span class="icon"><i class="icon-cogs"></i></span> Practice &amp; exercices</h2>
+
+</section>
+<section class="slide" id="_easy_class_diagrams">
+<h2>Easy class diagrams</h2>
+<div class="paragraph"><p>Model the following situations through class diagrams:</p></div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+Pick up your favorite domain and model the data as classes
+</li>
+<li>
+Model the IP datagrams class and find some associations with other classes. Make sure to put names, multiplicities.
+</li>
+<li>
+<p>Laptops</p>
+<div class="ulist">
+<ul>
+<li>A laptop has a keyboard</li>
+<li>A keyboard has a type ("azerty" or "querty")</li>
+<li>A keyboard has some keys</li>
+<li>A laptop can have an owner, himself having a first and last name</li>
+<li>A laptop has a price (when bought) and a value (actual)</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Solution</div>
+<div class="imageblock">
+<div class="content">
+<img alt="DIag de Classe" height="400" src="images/portable.png" width="400">
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="_second_level_class_diagrams">
+<h2>Second level class diagrams</h2>
+<div class="paragraph"><p>Model the following situations through class diagrams:</p></div>
+<div class="ulist">
+<ul>
+<li><p>
+Exams<div class="ulist">
+<ul>
+<li>Students have a number, a name, a firstname, a date of birth. They follow some courses (title, code).</li>
+<li>The exams concern a given course. Each exam has a date and coef.</li>
+<li>For each exam a student has a grade.</li>
+<li>Course are taugt by professors (name, firstname)</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">Solution</div>
+<div class="imageblock">
+<div class="content">
+<img alt="DIag de Classe" height="400" src="images/exams.png" width="400">
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</section>
+<section class="slide" id="Outils">
+<h2><span class="icon"><i class="icon-wrench"></i></span> Tools</h2>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a href="http://plantuml.sourceforge.net/">plantUML</a></dt>
+<dd>
+<p>You like to draw? You prefer programming?</p>
+</dd>
+<dt class="hdlist1"><a href="http://www.eclipse.org/papyrus/">Papyrus</a></dt>
+<dd>
+<p>Wanna try professional environment?</p>
+</dd>
+</dl>
+</div>
+</section>
+<section class="slide" id="models">
+<h2>Modeling is not (just) drawing</h2>
+<div class="ulist">
+<ul>
+<li>With a modeling tool &#8658; respect of the notation</li>
+<li>Global vision and links between elements</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_about">
+<h2>About&#8230;&#8203;</h2>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph"><p>Material by <a href="mailto:jbruel@gmail.com">J.-M. Bruel</a> via  <a href="http://asciidoctor.org/">Asciidoctor</a> (v.<code>1.5.5</code>) from 'Dan Allen'.
+'Licence Creative Commons'.
+<a href="http://creativecommons.org/licenses/by-sa/3.0/">licence Creative Commons Paternity</a>.
+<span class="image"><a class="image" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<img alt="Licence Creative Commons" src="images/88x31.png">
+</a></span></p></div>
+</div>
+</div>
+</section>
+</div>
+<script src="deck.js/jquery.min.js"></script>
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/scale/deck.scale.js"></script>
+<script src="deck.js/extensions/toc/deck.toc.js"></script>
+<div class="deck-toc"></div>
+<script>
+  (function($, deck, undefined) {
+    $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+    $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+  
+    $.extend(true, $[deck].defaults, {
+        countNested: false
+    });
+  
+    $.deck('.slide');
+  })(jQuery, 'deck');
+</script>
+<style>
+  .slide.canvas-image {
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-box;
+  display: box;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -moz-box-align: start;
+  -webkit-box-align: start;
+  -ms-box-align: start;
+  box-align: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -ms-box-pack: start;
+  box-pack: start;}
+  
+  .bottom-left {
+    left: 1%;
+    bottom: 20%; }
+  
+  .top-left {
+    left: 1%;
+    top: 20%; }
+  
+  .bottom-right {
+    right: 1%;
+    bottom: 20%; }
+  
+  .top-right {
+    right: 1%;
+    top: 20%; }
+  
+  .center-up {
+    right: 50%;
+    top: 1%;
+  }
+  
+  .center-down {
+    right: 50%;
+    bottom: 1%;
+  }
+  .canvas-image .canvas-caption p {
+    text-align: center;
+    padding-top: 0;
+    padding: 0;
+    -moz-transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+    display: inline;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    font-size: 58px;
+    -webkit-box-shadow: 2px 2px 2px #000;
+    -moz-box-shadow: 2px 2px 2px #000;
+    box-shadow: 2px 2px 2px #000;
+    padding: 1rem;
+    color: white; }
+  kbd.keyseq { color: #555555; }
+  kbd:not(.keyseq) {
+    display: inline-block;
+    color: #222222;
+    font-size: 0.7em;
+    line-height: 1.4;
+    background-color: #F7F7F7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    margin: -0.15em 0.15em 0 0.15em;
+    padding: 0.2em 0.6em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  kbd kbd:first-child { margin-left: 0; }
+  kbd kbd:last-child { margin-right: 0; }
+</style>
+</body>
+</html>
