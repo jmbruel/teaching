@@ -1,0 +1,60 @@
+= MPA Project
+Jean-Michel Bruel <jbruel@gmail.com>
+v1.0, {localdate}
+:status: bottom
+:inclusion:
+:experimental:
+// ------------------------------------------
+include::../definitions.txt[]
+:icons: font
+:imagesdir: images
+:prof:
+:forum: {telegram}
+
+== Context
+
+For this first edition of the course, we have collectively decided that
+projects will be different for each team and that the teams will be
+self-decided and self-organized groups.
+
+The list of groups with pointers to their respective project, team composition, etc.
+is here:
+
+http://bit.ly/jmb-map2017
+
+== Scrum tooling
+
+The use of a management tools is mandatory but the choice is up to each group
+({tuleap}, {gitlab}, {redmine}, {zenhub}, {youtalk}, {jira}, {trello}, ...
+
+The only requirements for this tool (or combination of tools) are:
+
+- you should be able to add me as a member of the team (scrum master helpdesk ;-)
+- it should allow you to manipulate the {scrum} artefacts (backlogs, burdown, ...)
+
+Here is an example of steps you could follow:
+
+. Select the tool that best fill your needs
+. Connect (icon:users[] all the group members)
+. icon:users[] Play with the environment, menus, etc.
+. icon:users[] Choose a Scrum Master icon:user-md[] (at least for the first Sprint)
+. icon:user-md[] Scrum Master add the other team members in the project,
+as well as {jmb} as a Product Owner icon:male[].
+. Don't hesitate to use the forum ({forum}) for general questions that could interest everybody.
++
+NOTE: This forum will be the official mean of communication
++
+. Detail the project properties
+. Start a wiki or a README (name of the team, members, etc.)
+. Let me know where I can have a look at it
+
+== Planning
+
+=== Programming Language / Framework
+
+
+== Reporting
+
+In order to assess your progress and application of the {Scrum} approach, here are tips and tools you can use:
+
+- Develop your own burndown chart, using https://docs.google.com/spreadsheets/d/17bppZL6IQoHXKHm0Cr5Q5yYrQivA9oTSB5fmo6ECsJs/edit#gid=6[this example]
