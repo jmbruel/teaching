@@ -1,6 +1,6 @@
 //---------------------------------
 // Cours MPA
-// (c) JMB - 2016
+// (c) JMB - 2018
 //---------------------------------
 [[MPA]]
 = Gestion de projet, Agilité, Tests
@@ -20,10 +20,8 @@ ifndef::jmbtopic[]
 :status:
 :siteurl: http://jmbhome.github.io/teaching/topics/agile.html
 :bitlysiteurl: http://bit.ly/jmb-agile
-//------------------------------------ Slides uniquement
+//------------------------------------ Slides 
 ifdef::slides[]
-//--------------------- dzslides slides
-ifdef::dzslides[]
 :dzslides-style: tomorrow
 //:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
 :dzslides-transition: fade
@@ -37,7 +35,6 @@ ifdef::dzslides[]
 :statement: .topic.statement
 :incremental: .incremental
 :source: .topic.source
-endif::dzslides[]
 //----------- deck.js --------------
 ifdef::deckjs-slides[]
 :viewport: width=1024, user-scalable=no
@@ -216,9 +213,7 @@ ifdef::slides[== {nbsp}]
 
 BUILD:: make, {ant}, {maven}, {ivy}, {gradle}, etc.
 =>:: cf. cours suivants...
-Gestion de projets::
-- {tuleap}, le remplaçant de {redmine}, en version gratuite pour les académiques.
-- icon:gitlab[] {gitlab}, le site pour héberger vos codes en utilisant {git}.
+Gestion de projets:: {gitlab}, le site pour héberger vos codes en utilisant {git}.
 
 // ------
 [{intro}]
@@ -386,9 +381,6 @@ image::w52.png[]
 ==== {nbsp}
 image::w5b2.png[]
 
-==== {nbsp}
-image::w5rb2.png[]
-
 endif::slides[]
 
 ifndef::slides[]
@@ -551,3 +543,8 @@ endif::slides[]
 ====
 
 image::socrative1.png[width=50%,link=http://www.socrative.com/]
+
+ifdef::slides[]
+[{intro}]
+== *The End* {nbsp}{nbsp}{nbsp}(for now)
+endif::slides[]

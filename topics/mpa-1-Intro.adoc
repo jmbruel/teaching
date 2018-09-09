@@ -1,6 +1,6 @@
 //---------------------------------
 // Cours MPA - version FR
-// (c) JMB - 2017
+// (c) JMB - 2018
 //---------------------------------
 = **M**éthodologie de la **P**roduction d'**A**pplication – MPA (M3301)
 J.-M. Bruel <jbruel@gmail.com>
@@ -13,14 +13,12 @@ v1.4 {localdate}
 :toc: left
 :numbered:
 :status:
-:base: http://jmbruel.github.io/teaching/topics
+//:base: http://jmbruel.github.io/teaching/topics
+:base: .
 :siteurl: {base}/mpa.html
 :bitlysiteurl: http://bit.ly/jmb-mpa
 :incremental: %step
 :discordMPA: https://discord.gg/aVFUzGp
-
-include::../definitions.txt[]
-
 //--------------------- slides
 ifdef::slides[]
 :dzslides-style: tomorrow
@@ -37,6 +35,18 @@ ifdef::slides[]
 :incremental: .incremental
 :source: .topic.source
 endif::slides[]
+ifndef::slides[]
+:topic: 
+:intro: 
+:statement: 
+:incremental: 
+:source: 
+endif::slides[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
 
 ifdef::slides[== {nbsp}]
 
@@ -112,9 +122,9 @@ image::M3301.png["M3301", width="80%", link="http://www.iut.univ-paris8.fr/files
 ifdef::slides[== Les cours]
 
 - Cours SCRUM, Cycle -1 et Cycle 0, Tests
+- Build de code, git avancé
 - Cours Gestion des Modèles au cours du développement et à la livraison
 - Cours Intégration continue, documentation
-- Cours Modèles UML complémentaire (Activité, État)
 - Cours Maintenance, refactoring, évolutions
 
 // ------
@@ -124,15 +134,27 @@ ifdef::slides[== Les cours]
 Au lieu de faire 2 modules en // (comme POO et COO l'an dernier), vous aurez ce semestre 2 fois plus d'heures,
 mais d'un seul module, l'un après l'autre (MPA puis CPOA).
 
+[cols="1,2,4"]
+|===
+| # | Date | Cours
+
+| 1 | 11/09 | link:{base}/mpa-1-Intro.html[Introduction], link:{base}/mpa-2-agile.html[Méthodes Agiles]
+| 2 | 12/09 | link:{base}/mpa-4-testingCI.html[Tests], link:{base}/mpa-3-manifesto.html[Manifeste Agile]
+| 3 | 21/09 | link:{base}/git.html[Git]
+| 4 | 26/09 | Behaviour-Driven Development, 
+| 5 | 01/10 | 
+|===
+
+
 // ------
 [{topic}]
 == Les différents cycles
 
-ifdef::slides[:leveloffset: -1]
+ifndef::slides[:leveloffset: +1]
 
 // ------
 [{topic}]
-=== Cycle 0
+== Cycle 0
 
 [{incremental}]
 - Saisir le Backlog initial de Produit
@@ -141,7 +163,7 @@ ifdef::slides[:leveloffset: -1]
 
 // ------
 [{topic}]
-=== Cycle 1 et suivants...
+== Cycle 1 et suivants...
 
 [{incremental}]
 - Produire l'IHM V1
@@ -149,11 +171,11 @@ ifdef::slides[:leveloffset: -1]
 - Produire la documentation utilisateur V1
 - Produire la documentation technique V1 (dont les scénarios de test d'IHM)
 
-ifdef::slides[:leveloffset: -1]
+ifndef::slides[:leveloffset: +1]
 
 // ------
 [{topic}]
-==== Backlog du Cycle 1
+== Backlog du Cycle 1
 
 - En tant que ..., je peux ...
 
@@ -165,42 +187,28 @@ Par exemple :
 
 // ------
 [{topic}]
-==== TD/TP
+== TD/TP
 
 - TDs (un ou deux) : travail sur feuille pour améliorer la compréhension de {scrum}
-- TPs : mise en oeuvre de {scrum}
+- TPs : mise en oeuvre de {scrum} et des techniques de développement modernes.
 
-ifdef::slides[:leveloffset: +2]
+ifndef::slides[:leveloffset: -2]
 
-/////
-[cols="1,2,4"]
 |===
-| # | Date | Topic
+| # | Date | TD/TP
 
-| 1 | Jan. 27th | link:{base}/inno-1-Intro.html[Introduction]
-| 2 | Jan. 27th | link:{base}/inno-2-Agile.html[Agile methods]
-| 3 | Jan. 27th | Project setup
-| 4 | Jan. 28th | link:{base}/inno-3-Manifesto.html[Agile Manifesto]
-| 5 | Jan. 28th | link:{base}/inno-4-Scrum.html[Scrum practice]
-| 6 | Jan. 28th | Scrum practice
-| 7 | Jan. 28th | Team building & Sprint 0
-
-| 8-15 | Mar. 3-4 | Feedbacks on self-practice; Demo and presentations
+| 1 | Mar. 3-4 | Feedbacks on self-practice; Demo and presentations
 | *16-25* | *Mar. 17-19* | *Continuous Integration; Build techniques; Reporting*
-| 16 | Mar. 17th | link:{base}/inno-feedbacks.html[Plan for the venue]
-| 16 | Mar. 17th | link:{base}/inno-11-Recap.html[Feedbacks from last venue/presentations]
-| 17 | Mar. 17th | link:{base}/inno-4-Scrum.html[Scrum practice]  (quick reminder)
-| 18 | Mar. 17th | link:{base}/inno-5-tests.html[Tests] & Coding Dojo
-| 19 | Mar. 18th | link:{base}/inno-6-git.html[Git] (quick reminder)
-| 20 | Mar. 18th | link:{base}/inno-7-ci.html[Continuous Integration]
+| 2 | Mar. 17th | link:{base}/inno-feedbacks.html[Plan for the venue]
+| 3 | Mar. 17th | link:{base}/inno-11-Recap.html[Feedbacks from last venue/presentations]
+| 4 | Mar. 17th | link:{base}/inno-4-Scrum.html[Scrum practice]  (quick reminder)
+| 5 | Mar. 17th | link:{base}/inno-5-tests.html[Tests] & Coding Dojo
+| 6 | Mar. 18th | link:{base}/inno-6-git.html[Git] (quick reminder)
+| 7 | Mar. 18th | link:{base}/inno-7-ci.html[Continuous Integration]
 | 21 | Mar. 18th | link:{base}/inno-8-testingCI.html[Tests & CI]
-| 22-23 | Mar. 18th | Work on project reporting
-| 24-25 | Mar. 19th | Work on project reporting, discuss evaluation
-| 26-32 | Apr. 14-15 | Quality assessment; Reporting; Exam; Course evaluation
 |===
 
 NOTE: The evaluation plan is explained link:{base}/inno-10-MAP-Evaluation.html[here].
-/////
 
 // ------
 [{topic}]
@@ -216,9 +224,18 @@ NOTE: The evaluation plan is explained link:{base}/inno-10-MAP-Evaluation.html[h
 [{topic}]
 == MOOC
 
+Je vous recommande vivement de suivre le cours en ligne (en anglais par contre) : 
+
 {agileMoocUrl}
 
-ifndef::slides[.Mes résultats]
-image::mooc-results.png[]
+ifdef::slides[== MOOC]
 
-- Toute _Proof of success_ (>60%) comptera dans l'évaluation
+ifndef::slides[.Mes résultats]
+image::mooc-results.png[width=50%]
+
+- Toute _Proof of success_ (>60%) comptera dans l'évaluation (bonus individuel sur la note de projet)
+
+ifdef::slides[]
+[{intro}]
+== *The End* {nbsp}{nbsp}{nbsp}(for now)
+endif::slides[]
