@@ -13,8 +13,8 @@ v1.4 {localdate}
 :toc: left
 :numbered:
 :status:
-//:base: http://jmbruel.github.io/teaching/topics
-:base: .
+:base: http://jmbruel.github.io/teaching/topics
+//:base: .
 :siteurl: {base}/mpa.html
 :bitlysiteurl: http://bit.ly/jmb-mpa
 :incremental: %step
@@ -139,10 +139,10 @@ mais d'un seul module, l'un après l'autre (MPA puis CPOA).
 | # | Date | Cours
 
 | 1 | 11/09 | link:{base}/mpa-1-Intro.html[Introduction], link:{base}/mpa-2-agile.html[Méthodes Agiles]
-| 2 | 12/09 | link:{base}/mpa-4-testingCI.html[Tests], link:{base}/mpa-3-manifesto.html[Manifeste Agile]
-| 3 | 21/09 | link:{base}/git.html[Git]
-| 4 | 26/09 | Behaviour-Driven Development, 
-| 5 | 01/10 | 
+| 2 | 12/09 | link:{base}/mpa-4-testingCI.html[Tests]
+| 3 | 21/09 | link:{base}/mpa-3-manifesto.html[Manifeste Agile]
+| 4 | 26/09 | link:{base}/git.html[Git]
+| 5 | 01/10 | Behaviour-Driven Development
 |===
 
 
@@ -193,22 +193,6 @@ Par exemple :
 - TPs : mise en oeuvre de {scrum} et des techniques de développement modernes.
 
 ifndef::slides[:leveloffset: -2]
-
-|===
-| # | Date | TD/TP
-
-| 1 | Mar. 3-4 | Feedbacks on self-practice; Demo and presentations
-| *16-25* | *Mar. 17-19* | *Continuous Integration; Build techniques; Reporting*
-| 2 | Mar. 17th | link:{base}/inno-feedbacks.html[Plan for the venue]
-| 3 | Mar. 17th | link:{base}/inno-11-Recap.html[Feedbacks from last venue/presentations]
-| 4 | Mar. 17th | link:{base}/inno-4-Scrum.html[Scrum practice]  (quick reminder)
-| 5 | Mar. 17th | link:{base}/inno-5-tests.html[Tests] & Coding Dojo
-| 6 | Mar. 18th | link:{base}/inno-6-git.html[Git] (quick reminder)
-| 7 | Mar. 18th | link:{base}/inno-7-ci.html[Continuous Integration]
-| 21 | Mar. 18th | link:{base}/inno-8-testingCI.html[Tests & CI]
-|===
-
-NOTE: The evaluation plan is explained link:{base}/inno-10-MAP-Evaluation.html[here].
 
 // ------
 [{topic}]
