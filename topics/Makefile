@@ -46,8 +46,16 @@ $(OUTPUT)/%.dzslides.html: %.$(EXT)
 		-T $(DZSLIDES) -E slim \
 		-a slides -a dzslides \
 		-r asciidoctor-diagram \
+		-a source-highlighter=$(HIGHLIGHT) \
+		-o $@ $<
+
+$(OUTPUT)/%.test.html: %.$(EXT)
+	@echo '==> Compiling asciidoc files to generate Dzslides'
+	$(ASCIIDOCTOR) -b dzslides \
+		-T $(DZSLIDES) -E slim \
+		-a slides -a dzslides \
+		-r asciidoctor-diagram \
 		-a styledir=. \
-		-a stylesheet=$(STYLE) \
 		-a source-highlighter=$(HIGHLIGHT) \
 		-o $@ $<
 
@@ -81,6 +89,8 @@ $(OUTPUT)/%.sujet.html: %.$(EXT)
 deploy:
 	cp $(MAIN).html $(SITE)/MobileModeling.html
 	cd $(SITE)
+
+cours: mpa*.html mpa*.dzslides.html git.html git.dzslides.html
 
 clean:
 	rm *.cache
