@@ -86,6 +86,8 @@ endif::slides[]
 Whatever development method you apply, tests are *the only way to ensure*
 that the delivered product *conforms to the client's requirements*.
 
+http://douche.name/blog/nomenclature-des-tests-logiciels/
+
 [{topic}]
 == Unit Tests
 

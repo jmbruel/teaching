@@ -17,3 +17,14 @@ Essentially, all models are wrong, but some are useful.
 //-----------------
 [quote, Edsger Dijkstra, ACM Turing Lecture - 1972]
 The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise.
+
+
+
+//-----------------
+// https://twitter.com/CodeWisdom
+// https://en.wikiquote.org/wiki/C._A._R._Hoare
+//-----------------
+[quote, C.A.R Hoare, Turing Award Lecture - 1980]
+There are two ways of constructing a software design.
+One way is to make it so simple that there are obviously no deficiencies.
+And the other way is to make it so complicated that there are no obvious deficiencies.
