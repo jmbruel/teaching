@@ -39,7 +39,7 @@ Visionner et discuter la video suivante (même pour le groupe non anglais!) :
 
 https://www.youtube.com/watch?v=XU0llRltyFM
 
-ou celle-ci si vous avez plus de temps (26') :
+ou celle-ci, si vous avez plus de temps, réalisée par un collègue et ami, bien qu'il soit Bordelais maintenant... (26', mais en Français) :
 
 https://www.youtube.com/watch?v=VWhLcgo9z74
 
@@ -179,6 +179,7 @@ ifdef::prof[rien du tout]
 S::
 ifdef::prof[Should]
 C::
+ifdef::prof[Could]
 o::
 ifdef::prof[rien du tout]
 W::

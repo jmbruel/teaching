@@ -10,7 +10,6 @@ DUT/INFO/M3301, v1.0, {localdate}
 include::../definitions.txt[]
 :icons: font
 :imagesdir: images
-:prof:
 ifdef::prof[]
 [IMPORTANT]
 .icon:graduation-cap[] Tearcher version
