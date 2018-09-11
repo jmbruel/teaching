@@ -1,6 +1,6 @@
 //---------------------------------
 // Cours sur Git
-// (c) JMB - 2014
+// (c) JMB - 2014-2018
 //---------------------------------
 [[git]]
 = Gestion de version avec *git*
@@ -1036,4 +1036,9 @@ Il s'agit donc pour {git} d'un simple déplacement de pointeur!
 SHA-1::
 https://fr.wikipedia.org/wiki/SHA-1
 
+endif::slides[]
+
+ifdef::slides[]
+[{intro}]
+== *The End* {nbsp}{nbsp}{nbsp}(for now)
 endif::slides[]

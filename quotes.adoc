@@ -1,4 +1,14 @@
 //-----------------
+[quote, Paul Graham]
+A programming language is for thinking about programs, not for expressing programs you've already thought of. It should be a pencil, not a pen.
+
+//-----------------
+// https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html
+//-----------------
+[quote, Edsger W. Dijkstra, ACM Turing Lecture - 1972]
+[...] the purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise.
+
+//-----------------
 // https://www.researchgate.net/publication/3207453
 //-----------------
 [quote, Bran Selic, Using models in real-time software design - 2003]
@@ -9,11 +19,22 @@ stages of development. When this happens, the design may have to be heavily and 
 // https://en.wikiquote.org/wiki/George_E._P._Box
 // https://www.instagram.com/p/BGL5CLZQPWF/
 //-----------------
-[quote,G. E. P. Box and N. R. Draper, 1987]
+[quote, G. E. P. Box and N. R. Draper, 1987]
 Essentially, all models are wrong, but some are useful.
 
 //-----------------
-//
+// https://cacm.acm.org/blogs/blog-cacm/224351-empirical-answers-to-important-software-engineering-questions-part-1-of-2/fulltext
+//-----------------
+[quote, William Bruce Cameron, 1963]
+Not everything that can be counted counts, and not everything that counts can be counted.
+
+//-----------------
+// https://books.google.fr/books?id=tdZod1zaIeQC&pg=PA76&lpg=PA76&dq=A+system+is+an+open+set+of+complementary,+interacting+parts,+with+properties,+capabilities+and+behaviours+emerging,+both+from+the+parts+and+from+their+interactions,+to+synthesize+a+unified+whole.&source=bl&ots=QOLZYgGd9z&sig=PJbga-YQPw0xJQIAU7CJD7G2gsQ&hl=en&sa=X&ved=0ahUKEwj38dzj0q_cAhXeGTQIHd7uDbgQ6AEIKTAA#v=onepage&q=A%20system%20is%20an%20open%20set%20of%20complementary%2C%20interacting%20parts%2C%20with%20properties%2C%20capabilities%20and%20behaviours%20emerging%2C%20both%20from%20the%20parts%20and%20from%20their%20interactions%2C%20to%20synthesize%20a%20unified%20whole.&f=false
+//-----------------
+[quote, Derek Hitchins, 2008    ]
+A system is an open set of complementary, interacting parts, with properties, capabilities and behaviours emerging, both from the parts and from their interactions, to synthesize a unified whole.
+
+//-----------------
 //-----------------
 [quote, Edsger Dijkstra, ACM Turing Lecture - 1972]
 The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise.

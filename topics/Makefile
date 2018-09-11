@@ -90,6 +90,8 @@ deploy:
 	cp $(MAIN).html $(SITE)/MobileModeling.html
 	cd $(SITE)
 
+cours: mpa*.html mpa*.dzslides.html git.html git.dzslides.html
+
 clean:
 	rm *.cache
 	rm images/*.cache

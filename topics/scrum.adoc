@@ -476,14 +476,6 @@ ifdef::slides[:leveloffset: +1]
 == Au menu du module M3301/MPA
 
 Réaliser le développement d'une application logicielle en utilisant la méthode SCRUM
+et qui se termine dans de bonnes conditions.
 
-et qui se termine dans de bonnes conditions
-
-ifdef::slides[:leveloffset: -1]
-
-[{topic}]
-=== Modalités
-
-Chaque groupe dispose de ses force vives et de 2 TD + 2 TP par semaine :
-
-- pour réaliser le sprint courant (fournir tous les livrables)
+Chaque groupe dispose de ses force vives et de 4 TD/TP par semaine pour réaliser le sprint courant (fournir tous les livrables).

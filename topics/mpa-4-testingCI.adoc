@@ -1,6 +1,6 @@
 //---------------------------------
 // Course on Unit Testing
-// (c) JMB - 2016-2017
+// (c) JMB - 2016-2018
 //---------------------------------
 = *Tests* en intégration continue
 J.-M. Bruel <jbruel@gmail.com>
@@ -98,7 +98,7 @@ Typologie des tests
 
 JUnit etc.
 
-Application concrète pour MPA2017
+Application concrète pour ce cours
 
 endif::slides[]
 
@@ -301,11 +301,9 @@ ifndef::slides[.(source : http://stackoverflow.com/questions/8751553/how-to-writ
 @Test
 public void testAdd1Plus1() {
   int y = 1;
-  assertEquals(0, myClass.add(null,y));
+  assertEquals(1, myClass.add(null,y));
 }
 -----
-ifdef::slides[=== Cas particuliers]
-- ça marche avec les paramètres négatifs, etc.
 
 [{topic}]
 === L'ordre des tests
@@ -364,27 +362,25 @@ ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifdef::slides[:leveloffset: 0]
 
-// ------------------------------------------ MPA2017
+// ------------------------------------------
 [{intro}]
-== Application concrète pour MPA2016
+== Application concrète pour ce cours
 
 ifdef::slides[:leveloffset: -1]
 
 [{topic}]
-=== De `To Be Done` à `On going`
+=== De _To Be Done_ à _On going_
 
-:thisref: Mettre à jour Tuleap
+:thisref: Mettre à jour votre gestionnaire de tâche
 ifndef::slides[.{thisref}]
 |===
 | image:tuleap1.png[width=90%] |
 image:tuleap2.png[width=90%]
 |===
-ifdef::slides[NOTE: [detail]#{thisref}#]
 
 :thisref: Confirmation par email
 ifndef::slides[.{thisref}]
 image::tuleap3.png[width=80%]
-ifdef::slides[NOTE: [detail]#{thisref}#]
 
 [{topic}]
 === Créer une branche spécifique (si nouvelle _feature_)
@@ -405,7 +401,7 @@ ifdef::slides[:leveloffset: -1]
 ==== Etape 0 : Bien comprendre ce qu'on doit faire
 
 
-Objectif de la tâche : créer une classe `Pile`.
+Exemmple : Objectif de la tâche = créer une classe `Pile`.
 
 [TIP]
 ifndef::slides[.Rappels sur les propriétés d'une `Pile` (opérations)]
@@ -452,16 +448,17 @@ Axiomes::
 
 [source,java]
 ----
-import junit.textui.TestRunner;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PileTest extends TestCase {
+import org.junit.jupiter.api.Test;
 
-        public void test_type_new_Pile() throws Exception {
+public class PileTest {
+
+		@Test
+		public void test_type_new_Pile() throws Exception {
                 Pile pile = new Pile() ;
 
-                assertEquals("new Pile() retourne une Pile", "Pile", pile.getClass().getName());
+                assertEquals("Pile", pile.getClass().getName(),"new Pile() retourne une Pile");
         }
 }
 ----
@@ -488,72 +485,17 @@ image::pile1.png[width=60%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 
-[{topic}]
-==== Etape 1' : améliorer avec un `main`
-
-Pour ceux qui veulent vraiment un `main` :
-
-[source,java]
------
-public class PileTest extends TestCase {
-        static int totalAssertions = 0;
-        static int bilanAssertions = 0;
-
-        public void test_type_new_Pile() throws Exception {
-                Pile pile = new Pile() ;
-
-                totalAssertions++ ;
-                assertEquals("new Pile() retourne une Pile", "Pile", pile.getClass().getName());
-                bilanAssertions++ ;
-        }
-
-        public static void main(String[] args) {
-                junit.textui.TestRunner.run(new TestSuite(PileTest.class));
-                if (bilanAssertions == totalAssertions) { System.out.print("Bravo !"); }
-                System.out.println(" "+bilanAssertions+"/"+totalAssertions+" assertions vérifiées");
-        } // fin main
-
-} // fin PileTest
-
------
-
-ifdef::slides[==== {nbsp}]
-
-Enexécutant le test comme un programme Java on obtient :
-
-[source,shell]
-----
-...
-Time: 0,005
-
-OK (3 tests)
-
-Bravo ! 3/3 assertions vérifiées
-----
-
-ifdef::slides[==== {nbsp}]
-
-[TIP]
-=====
-Si vous utilisez SciTE au lieu de {eclipse}, pour compiler le programme de Test n'oubliez pas de placer les fichiers
-`SciTE.properties` et `junit.jar` dans le répertoire de vos sources (avant d'ouvrir SciTE) ou
-bien exécutez ceci :
-
-----
-javac -cp .;junit.jar PileTest.java
-----
-=====
-
 
 [{topic}]
 ==== Etape 2 : écrire un test qui passe
 
 [source,java]
 -----
+@Test
 public void test_type_empiler() throws Exception {
   Pile pile = new Pile() ;
 
-  assertEquals("empiler(pile,'XXX') retourne une Pile", "Pile", pile.empiler("XXX").getClass().getName());
+  assertEquals("Pile", pile.empiler("XXX").getClass().getName(),"empiler(pile,'XXX') retourne une Pile");
 }
 -----
 
@@ -586,28 +528,29 @@ La méthode générée par défaut retourne `null` ce qui provoque une `NullPoin
 
 ifdef::slides[==== {nbsp}]
 
-:thisref: Ajout simple de la méthode manquante
-ifndef::slides[.{thisref}]
-image::pile5.png[width=90%]
-ifdef::slides[NOTE: [detail]#{thisref}#]
+[source,java]
+-----
+public class Pile {
 
-ifdef::slides[==== Passage du test]
+	public Pile empiler(String string) {
+		// TODO Auto-generated method stub
+		return new Pile();
+	}
 
-:thisref: Passage du test
-ifndef::slides[.{thisref}]
-image::pile6.png[width=80%]
-ifdef::slides[NOTE: [detail]#{thisref}#]
+}
+-----
 
 [{topic}]
 ==== Etape 2 : écrire un test qui échoue
 
 [source,java]
 -----
-public void test_axiome1() {
-  Pile pile = new Pile() ;
+@Test
+	public void test_axiome1() {
+		  Pile pile = new Pile() ;
 
-  assertTrue("Une nouvelle pile est vide", pile.estVide(pile));
-}
+		  assertTrue(pile.estVide(pile),"Une nouvelle pile est vide");
+		}
 -----
 
 ifdef::slides[==== Le test échoue (comme souhaité)]
@@ -615,10 +558,10 @@ ifdef::slides[==== Le test échoue (comme souhaité)]
 ifndef::slides[.Méthode ajoutée par défaut]
 [source,java]
 -----
-public boolean estVide(Pile pile) {
-  // TODO Auto-generated method stub
-  return false;
-}
+	public boolean estVide(Pile pile) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 -----
 
 ifdef::slides[==== Le test échoue (comme souhaité)]
@@ -633,25 +576,7 @@ ifdef::slides[==== Ignorer un test]
 
 [TIP]
 ====
-Junit n'exécute que les fonctions qui commencent pas `test`.
-Le code suivant n'est par exemple pas exécuté!
-
-[source,java]
------
-public void XXXtest_axiome1() {
-  ...
-}
------
-
-Plus récemment, on utilise l'annotation `@Test` devant les tests, comme dans l'exemple ci-dessous :
-
-[source,java]
------
-@Test
-public void constructeur_correct() {
-  ...
-}
------
+Junit n'exécute que les fonctions qui commencent pas `@Test`.
 ====
 
 [{topic}]
@@ -747,43 +672,7 @@ ifdef::slides[]
 :leveloffset: 0
 
 [{intro}]
-== Projet MPA : *Sprint 1*
-
-/////
-[{topic}]
-== Statistiques Sprint 2
-
-|=====
-| Groupe | # classes de test | # tests | Status
-| 1A1 | 1 | ~30 | image:buildNOK.png[width=30%]
-| 1A2 | 1 | 1 | image:buildNOK.png[width=30%]
-| 1B1 | 1 | ~10 | image:buildOK.png[width=30%]
-| 1B2 | ? | 2 | image:buildOK.png[width=30%]
-|=====
-[detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
-
-ifdef::slides[== {nbsp}]
-
-|=====
-| Groupe | # classes de test | # tests | Status
-| 2A1 | 0 | 0 | image:buildOK.png[width=30%]
-| 2A2 | 1 | ~10 | image:buildOK.png[width=30%]
-| 2B1 | 2 | ~10 | image:buildOK.png[width=30%]
-| 2B2 | 0 | 0 | image:buildOK.png[width=30%]
-|=====
-[detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
-
-ifdef::slides[== {nbsp}]
-
-|=====
-| Groupe | # classes de test | # tests | Status
-| 3A1 | 0 | 0 | image:buildNOK.png[width=30%]
-| 3A2 | 1 | 0 | image:buildNOK.png[width=30%]
-| 3B1 | 0 | 0 | image:buildOK.png[width=30%]
-| 3B2 | 0 | 0 | image:buildNOK.png[width=30%]
-|=====
-[detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
-/////
+== *Retours* projets N-1
 
 [{intro}]
 == Perles livraison Sprint 1
@@ -818,7 +707,41 @@ Buildfile: build.xml does not exist!
 
 image::why3.jpg[width=30%]
 
+[{topic}]
+== Statistiques Sprint 2
+
+|=====
+| Groupe | # classes de test | # tests | Status
+| 1A1 | 1 | ~30 | image:buildNOK.png[width=30%]
+| 1A2 | 1 | 1 | image:buildNOK.png[width=30%]
+| 1B1 | 1 | ~10 | image:buildOK.png[width=30%]
+| 1B2 | ? | 2 | image:buildOK.png[width=30%]
+|=====
+[detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
+
+ifdef::slides[== {nbsp}]
+
+|=====
+| Groupe | # classes de test | # tests | Status
+| 2A1 | 0 | 0 | image:buildOK.png[width=30%]
+| 2A2 | 1 | ~10 | image:buildOK.png[width=30%]
+| 2B1 | 2 | ~10 | image:buildOK.png[width=30%]
+| 2B2 | 0 | 0 | image:buildOK.png[width=30%]
+|=====
+[detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
+
+ifdef::slides[== {nbsp}]
+
+|=====
+| Groupe | # classes de test | # tests | Status
+| 3A1 | 0 | 0 | image:buildNOK.png[width=30%]
+| 3A2 | 1 | 0 | image:buildNOK.png[width=30%]
+| 3B1 | 0 | 0 | image:buildOK.png[width=30%]
+| 3B2 | 0 | 0 | image:buildNOK.png[width=30%]
+|=====
+[detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
+
 [{intro}]
-== *The End* {nbsp}{nbsp}{nbsp}(for me)
+== *The End* {nbsp}{nbsp}{nbsp}(for now)
 
 endif::slides[]

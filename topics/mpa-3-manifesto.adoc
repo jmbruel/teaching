@@ -263,7 +263,7 @@ WARNING: Mais où est passé le chef de projet?!
 ifdef::slides[]
 
 [{topic}]
-== icon:question-circle-o[] Exercise
+== icon:question-circle-o[] Exercice
 
 Quels sont les rôles classique d'un chef de projet?
 
@@ -562,6 +562,8 @@ ifndef::slides[]
 == Quizz
 endif::slides[]
 
+ifdef::slides[]
+
 .*QUESTION*
 [WARNING]
 ====
@@ -572,3 +574,7 @@ endif::slides[]
 ====
 
 image::socrative1.png[width=50%,link=http://www.socrative.com/]
+
+[{intro}]
+== *The End* {nbsp}{nbsp}{nbsp}(for now)
+endif::slides[]
