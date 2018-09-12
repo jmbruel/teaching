@@ -18,7 +18,7 @@ v1.4 {localdate}
 :siteurl: {base}/mpa.html
 :bitlysiteurl: http://bit.ly/jmb-mpa
 :incremental: %step
-:discordMPA: https://discord.gg/aVFUzGp
+:discordMPA: https://discord.gg/GeWyqs6
 //--------------------- slides
 ifdef::slides[]
 :dzslides-style: tomorrow

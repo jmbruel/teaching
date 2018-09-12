@@ -30,7 +30,7 @@ endif::prof[]
 :gitlab: icon:gitlab[] Gitlab
 :gitlabIUT: https://gitlab.iut-blagnac.fr/
 :gitlabIUT: {gitlabIUT}
-:discordMPA: https://discord.gg/aVFUzGp
+:discordMPA: https://discord.gg/GeWyqs6
 
 //-------------------- Warning si correction -----------
 ifdef::prof[]
