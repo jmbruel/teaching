@@ -202,7 +202,7 @@ endif::prof[]
 des lignes "Moscow".
 . Découper et distribuer les https://idetido.files.wordpress.com/2014/06/exercice_story_map-cartes_us_recto.pdf[User Stories] entre les membres de l'équipes
 . Répartir les User Stories *en mode silencieux*
-. Appelez l'enseignant quand tout le monde à poser en silence ses cartes
+. Appelez l'enseignant quand tout le monde a posé (en silence) ses cartes
 . Faire des constats sur la répartition.
 +
 ifdef::prof[]
@@ -274,7 +274,7 @@ endif::prof[]
 == icon:comment[] Contacts
 //-------------------------------------------------------------------------
 
-En cas de soucis, n'hésitez pas à poser vos questions sur le forum générale du
+En cas de soucis, n'hésitez pas à poser vos questions sur le forum général du
 projet ({tuleapMPA}) ou en dernier recours à {jmb}.
 
 //////
