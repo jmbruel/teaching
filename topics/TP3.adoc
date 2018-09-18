@@ -66,8 +66,8 @@ Cf. fichier Projet sous Moodle.
 
 Le projet se déroulera en deux _Releases_ :
 
-- V1 (deadline livraison 7 octobre soit à 4 semaines)
-- V2 (deadline livraison 28 octobre soit à 3 semaines de plus)
+- V1 (deadline livraison 5 octobre soit à 2 semaines)
+- V2 (deadline livraison 26 octobre soit à 3 semaines de plus)
 
 Chaque sprint donnera lieu à la livraison d'un nouveau code
 opérationnel et convenant au client, conformément au Sprint Backlog
@@ -115,6 +115,9 @@ personnelle :
 . Cherchez `EGit`
 . Installez le plug-in
 . Ajouter un serveur de tâches
++
+WARNING: Cette association des tâches {gitlab} dans {eclipse} ne fonctionne plus depuis
+la version `11` (cf. https://marketplace.eclipse.org/content/mylyn-gitlab-connector).
 +
 image:serveurMylyn0.png[width=50%]
 +

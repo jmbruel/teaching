@@ -65,12 +65,41 @@ ifndef::definitions[]
 include::../definitions.txt[]
 endif::definitions[]
 
-// ------------------------------------------ disclaimer
+// ------------------------------------------
 [{intro}]
-== Correspondances de concepts
+== *Les* clients de votre projet
 
+[[package_overview]]
+[.text-center]
+ifdef::slides[== Le *client* (qui va utiliser le logiciel)]
+ifndef::slides[.Le client (qui va utiliser le logiciel)]
+image::MPA2018-1.png[width=50%,align="center"]
+
+ifdef::slides[== Le *prof* (qui va contraindre le logiciel)]
+
+|===
+|
+ifndef::slides[.Le prof (qui va contraindre le logiciel)]
+image::MPA2018-2.png[width=30%,align="center"]
+|
+- Langage de programmation [detail]#(nope!)#
+- Reprendre un projet existant [detail]#(yeap!)#
+- Générer la javadoc [detail]#(ou équivalent)#
+- ...
+|===
+
+ifdef::slides[== Le *prof* (qui va noter votre projet)]
+ifndef::slides[.Le prof (qui va noter votre projet)]
+image::MPA2018.png[width=60%,align="center"]
+
+// ------------------------------------------
+[{intro}]
+== icon:map[] Correspondances de concepts
+
+ifdef::slides[== Correspondances entre Artefacts]
 ifndef::slides[.Correspondances entre Artefacts]
 image::gitlab-agile.png[width=70%, link="https://about.gitlab.com/2018/03/05/gitlab-for-agile-software-development/"]
+ifdef::slides[[detail]#https://about.gitlab.com/2018/03/05/gitlab-for-agile-software-development/#]
 
 == Rérérences
 
