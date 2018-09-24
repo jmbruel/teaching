@@ -1,0 +1,20 @@
+= Cours IE en M2 ICE
+
+== Organisation
+
+7 séances :
+
+- Présentation du "projet" intro à Stimulus
+- Constituer les groupes et préparer les rendus & Tuto Stimulus 1
+- Tuto Stimulus 2
+- (Rédiger les différents documents en lien avec la méthode Wiegers)
+- Rédiger quelques exigences Stimulus
+- Réaliser une Validation
+- Rapport / Rendu 
+
+== Etude de Cas
+
+LGS
+
+== Stimulus
+
