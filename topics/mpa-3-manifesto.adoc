@@ -18,8 +18,8 @@ ifndef::jmbtopic[]
 :toc: left
 :numbered:
 :status:
-:siteurl: http://jmbhome.github.io/teaching/topics/agile.html
-:bitlysiteurl: http://bit.ly/jmb-agile
+:siteurl: http://jmbhome.github.io/teaching/topics/mpa-3-manifesto.html
+:bitlysiteurl: http://bit.ly/jmb-manifesto
 //------------------------------------ Slides uniquement
 ifdef::slides[]
 //--------------------- dzslides slides
@@ -86,10 +86,12 @@ endif::slides[]
 Cette partie du cours est fortement inspirée par le {agileMoocUrl}[MOOC Agile]
 de {bm}.
 
+image::agileMeyer.jpg[width=30%]
+
 
 //----------------------------- Manifesto ------------------
 [{topic}]
-== Le manifeste Agile
+== Le manifeste Agile icon:users[]
 
 ifndef::slides[.Le manifeste Agile ({agileManifesto})]
 image::manifesto.png[link="{agileManifesto}",width=100%]
@@ -99,7 +101,7 @@ NOTE: il date de février 2001!
 
 //----------------------------- les 17 signataires ------------------
 [{topic}]
-== Les 17 auteurs
+== Les 17 auteurs  icon:users[]
 
 Les plus connus :
 
@@ -112,7 +114,7 @@ Les plus connus :
 
 //----------------------------- les 12 principes ------------------
 [{topic}]
-== Les 12 principes
+== Les 12 principes  icon:book[]
 
 image::12principles.jpg[link="{agileManifesto}",width=90%]
 
@@ -123,7 +125,7 @@ Vous trouverez une version actualisée des principes sur Wikipedia :
 - image:icons/fr.svg[width=30] https://fr.wikipedia.org/wiki/Manifeste_agile#Les_12_principes
 - https://en.wikipedia.org/wiki/Agile_software_development
 
-ifdef::slides[== {nbsp}]
+ifdef::slides[== UK]
 
 . Customer satisfaction by early and continuous delivery of valuable software
 . Welcome changing requirements, even in late development
@@ -138,11 +140,24 @@ ifdef::slides[== {nbsp}]
 . Best architectures, requirements, and designs emerge from self-organizing teams
 . Regularly, the team reflects on how to become more effective, and adjusts accordingly
 
+ifdef::slides[== FR]
 
+. Notre plus haute priorité est de satisfaire le client en livrant rapidement et régulièrement des fonctionnalités à grande valeur ajoutée.
+. Accueillez positivement les changements de besoins, même tard dans le projet.
+. Livrez fréquemment un logiciel opérationnel avec des cycles de quelques semaines à quelques mois et une préférence pour les plus courts.
+. Les utilisateurs ou leurs représentants et les développeurs doivent travailler ensemble quotidiennement tout au long du projet.
+. Réalisez les projets avec des personnes motivées. Fournissez-leur l’environnement et le soutien dont elles ont besoin et faites-leur confiance pour atteindre les objectifs fixés.
+. Privilégiez la co-location de toutes les personnes travaillant ensemble et le dialogue en face à face comme méthode de communication.
+. Un logiciel opérationnel est la principale mesure de progression d'un projet.
+. Les processus agiles encouragent un rythme de développement soutenable. Ensemble, les commanditaires, les développeurs et les utilisateurs devraient être capables de maintenir indéfiniment un rythme constant.
+. Une attention continue à l'excellence technique et à un bon design.
+. La simplicité – c’est-à-dire l’art de minimiser la quantité de travail inutile – est essentielle.
+. Les meilleures architectures, spécifications et conceptions émergent d'équipes auto-organisées.
+. À intervalles réguliers, l'équipe réfléchit aux moyens possibles pour devenir plus efficace. Puis elle s'adapte et modifie son mode de fonctionnement en conséquence.
 ifdef::slides[]
 
 [{topic}]
-== icon:question-circle-o[] Exercice
+== Exercice icon:question-circle[] 
 
 Repérez dans la liste des 12 principes :
 
@@ -155,7 +170,7 @@ Repérez dans la liste des 12 principes :
 - Où est-ce qu'on parle du test?
 
 [{topic}]
-== Correction
+== Correction icon:graduation-cap[] 
 
 image::answerManifesto.png[link="{agileManifesto}",width=100%]
 ifdef::slides[NOTE: [detail]#{agileMoocUrl}#]
@@ -164,7 +179,7 @@ endif::slides[]
 
 //----------------------------- les "values" ------------------
 [{topic}]
-== Les valeurs agiles
+== Les valeurs agiles icon:bookmark[] 
 
 Idées générales, qui précèdent aux principes.
 
@@ -218,7 +233,7 @@ ifdef::slides[:leveloffset: -1]
 ils sont souvent des solutions plus que des besoins)#
 
 [{topic}]
-=== Les principes organisationnels
+=== Les principes organisationnels icon:clipboard[]
 
 [{incremental}]
 - Le client au centre
@@ -227,7 +242,7 @@ ils sont souvent des solutions plus que des besoins)#
 - Maintenir un rythme durable
 
 [{topic}]
-=== Les principes organisationnels (suite)
+=== Les principes organisationnels icon:clipboard[] (suite)
 
 [{incremental}]
 - Produire du logiciel "minimaliste"
@@ -238,7 +253,7 @@ ils sont souvent des solutions plus que des besoins)#
 TIP: *YAGNI*: **Y**ou **A**in't **G**onna **N**eed **I**t
 
 [{topic}]
-=== Les principes techniques
+=== Les principes techniques icon:cogs[]
 
 [{incremental}]
 - Développer itérativement
@@ -252,7 +267,7 @@ ifdef::slides[:leveloffset: +1]
 
 //----------------------------- les "roles" ------------------
 [{topic}]
-== Les rôles
+== Les rôles  icon:user[]
 
 - Product Owner
 - SCRUM Master
@@ -263,12 +278,12 @@ WARNING: Mais où est passé le chef de projet?!
 ifdef::slides[]
 
 [{topic}]
-== icon:question-circle-o[] Exercice
+== Exercice icon:question-circle[]
 
 Quels sont les rôles classique d'un chef de projet?
 
 [{topic}]
-== Eléments de réponse...
+== Eléments de réponse... icon:graduation-cap[]
 
 (tirés de {agileMoocUrl}[Agile MOOC])
 
@@ -279,7 +294,7 @@ Quels sont les rôles classique d'un chef de projet?
 - Servir d'interface avec le client
 
 [{topic}]
-== Eléments de réponse... (suite)
+== Eléments de réponse... icon:graduation-cap[] (suite)
 
 - Valider les exigences
 - Décider si les objectifs ont été atteints
@@ -294,7 +309,7 @@ WARNING: Dans Scrum => pas de chef !
 ifndef::slides[:leveloffset: +1]
 
 [{topic}]
-== L'auto-organisation (dans l'équipe)
+== L'auto-organisation (dans l'équipe) icon:users[]
 
 - Spécialistes mais pas que
 - Transversalité : n'importe qui peut prendre n'importe quelle tâche
@@ -323,7 +338,7 @@ ifndef::slides[:leveloffset: 0]
 
 //----------------------------- les "practices" ------------------
 [{topic}]
-== Les pratiques
+== Les pratiques icon:map-signs[]
 
 - Plannings
 - Meetings & Scrums
@@ -333,14 +348,14 @@ ifndef::slides[:leveloffset: 0]
 ifndef::slides[:leveloffset: +1]
 
 [{topic}]
-== Plannings
+== Plannings icon:calendar[]
 
 - Planning poker
 - Scrum of Scrums
 - Storyboards
 
 [{topic}]
-== Meetings
+== Meetings icon:users[]
 
 * Daily meetings
 ** Matin généralement
@@ -352,7 +367,7 @@ ifndef::slides[:leveloffset: +1]
 
 ifdef::slides[== Meetings (suite)]
 
-* Retrospective meeetings
+* Retrospective meetings
 ** Qu'est-ce qui a marché?
 ** Qu'est-ce qui peut être amélioré?
 * Review meetings
