@@ -1,0 +1,35 @@
+= Who's Who in Software Engineering
+:toc:
+:icons: font
+:size: 200
+:imagesdir: images/whoswho
+
+//------------------------------------
+== Bertrand Meyer (1950 - )
+//------------------------------------
+:ref: https://en.wikipedia.org/wiki/Bertrand_Meyer
+
+[cols="1,2"]
+|====
+a|image:meyer.jpg[link={ref},width={size}]
+a|
+- Inventor of the Design by Contract
+- Inventer of Eiffel lnaguage
+- link:{ref}[WikiPedia]
+|====
+
+//------------------------------------
+== Ward Cunningham (1949 - )
+//------------------------------------
+:ref: https://en.wikipedia.org/wiki/Ward_Cunningham
+
+[cols="1,2"]
+|====
+a|image:cunningham.jpg[link={ref},width={size}]
+a|
+- One of the authors of the Agile Manifesto
+- Inventer of the WiKi
+- link:{ref}[WikiPedia]
+|====
+
+
