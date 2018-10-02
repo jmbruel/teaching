@@ -502,3 +502,29 @@ Un tuto en français sur l'IC sous {gitlab} (merci icon:twitter[] @npm_kader)::
   https://www.grafikart.fr/tutoriels/divers/gitlab-ci-docker-808
 
 endif::slides[]
+
+
+[{intro}]
+== *The End* {nbsp}{nbsp}{nbsp}(for now)
+
+ifndef::slides[]
+:numbered!:
+== Quizz
+endif::slides[]
+
+ifdef::slides[]
+
+[{topic}]
+== Quizz
+
+[WARNING]
+====
+
+- Connectez-vous sur : http://www.socrative.com/ (*student login*)
+- Ou téléchargez l'application pour étudiant image:socrative2.png[width=10%]
+- Choisissez la room *44918d67*
+====
+
+image::socrative1.png[width=50%,link=http://www.socrative.com/]
+
+endif::slides[]
