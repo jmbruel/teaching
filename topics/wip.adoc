@@ -75,34 +75,6 @@ https://gitlab.iut-blagnac.fr/jmbruel/test-agile.git
 
 image:eval.png[width=45%]
 
-[{topic}]
-== User Stories / Tasks
-
-[cols="2^"]
-|===
-|icon:thumbs-down[] Bad |icon:thumbs-up[] Good
-
-|image:badissues.png[width=95%]
-|image:goodissues.png[width=95%]
-|===
-
-[{topic}]
-== Build
-
-
-
-[cols="2^"]
-|===
-|icon:thumbs-down[] Bad |icon:thumbs-up[] Good
-
-| Then, you just need to open a cmd here and type "ant run".
-
-image:badbuild.png[width=100%]
-| Lancer la commande "ant build".
-
-image:goodbuild.png[width=100%]
-|===
-
 
 
 //----------------------------- Quizz ------------------

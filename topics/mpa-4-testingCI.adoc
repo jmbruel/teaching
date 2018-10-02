@@ -672,26 +672,52 @@ ifdef::slides[]
 :leveloffset: 0
 
 [{intro}]
-== *Retours* projets N-1
+== *Perles* livraison Sprint 1
 
-[{intro}]
-== Perles livraison Sprint 1
+[{topic}]
+== User Stories / Tasks
+
+[cols="2^"]
+|===
+|icon:thumbs-down[] Bad |icon:thumbs-up[] Good
+
+|image:badissues.png[width=95%]
+|image:goodissues.png[width=95%]
+|===
+
+[{topic}]
+== Build
+
+
+
+[cols="2^"]
+|===
+|icon:thumbs-down[] Bad |icon:thumbs-up[] Good
+
+| Then, you just need to open a cmd here and type "ant run".
+
+image:badbuild.png[width=100%]
+| Lancer la commande "ant build".
+
+image:goodbuild.png[width=100%]
+|===
+
 
 ifdef::slides[== Les références absolues!]
 
 [quote,Anonymous]
-Position yourself in the project repository (`C:\Users\Etudiant\Desktop\Nouveau dossier\MPA2016-Gxxx`)
+Position yourself in the project repository (`C:\Users\Etudiant\Desktop\Nouveau dossier\MPA2018-Gxxx`)
 
 ifdef::slides[== Les instructions qui ne marchent pas...]
 
 [quote, Extrait de la Doc. Utilisateur]
-Pour lancer l'application, lancer `ant Window`
+Pour lancer l'application, lancer `ant Interface`
 
 [source,shell]
 ----
-$ ant Window
+$ ant Interface
 BUILD FAILED
-Target "Window" does not exist in the project ...
+Target "Interface" does not exist in the project ...
 ----
 
 ifdef::slides[== Le `build.xml` qui manque...]
@@ -708,7 +734,12 @@ Buildfile: build.xml does not exist!
 image::why3.jpg[width=30%]
 
 [{topic}]
-== Statistiques Sprint 2
+== Statistiques Sprint 1
+
+include::result.txt[]
+
+[{topic}]
+== Statistiques Sprint 2 (Expected)
 
 |=====
 | Groupe | # classes de test | # tests | Status
@@ -730,18 +761,28 @@ ifdef::slides[== {nbsp}]
 |=====
 [detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
 
-ifdef::slides[== {nbsp}]
-
-|=====
-| Groupe | # classes de test | # tests | Status
-| 3A1 | 0 | 0 | image:buildNOK.png[width=30%]
-| 3A2 | 1 | 0 | image:buildNOK.png[width=30%]
-| 3B1 | 0 | 0 | image:buildOK.png[width=30%]
-| 3B2 | 0 | 0 | image:buildNOK.png[width=30%]
-|=====
-[detail]#État des builds et des tests (au 08/10/2016 à 22h40)#
 
 [{intro}]
 == *The End* {nbsp}{nbsp}{nbsp}(for now)
+
+ifndef::slides[]
+:numbered!:
+== Quizz
+endif::slides[]
+
+ifdef::slides[]
+
+[{topic}]
+== Quizz
+
+[WARNING]
+====
+
+- Connectez-vous sur : http://www.socrative.com/ (*student login*)
+- Ou téléchargez l'application pour étudiant image:socrative2.png[width=10%]
+- Choisissez la room *44918d67*
+====
+
+image::socrative1.png[width=50%,link=http://www.socrative.com/]
 
 endif::slides[]
