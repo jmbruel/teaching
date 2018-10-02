@@ -1,0 +1,141 @@
+//---------------------------------
+// Cours MPA
+// (c) JMB - 2016-2018
+//---------------------------------
+[[MPA]]
+= Points sur les *Projets*
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:git-version: 2.9.2
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: http://jmbhome.github.io/teaching/topics/mpa-3-manifesto.html
+:bitlysiteurl: http://bit.ly/jmb-manifesto
+//------------------------------------ Slides uniquement
+ifdef::slides[]
+//--------------------- dzslides slides
+ifdef::dzslides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+endif::dzslides[]
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+
+[{topic}]
+== Evaluations
+
+https://gitlab.iut-blagnac.fr/jmbruel/test-agile.git
+
+image:eval.png[width=45%]
+
+[{topic}]
+== User Stories / Tasks
+
+[cols="2^"]
+|===
+|icon:thumbs-down[] Bad |icon:thumbs-up[] Good
+
+|image:badissues.png[width=95%]
+|image:goodissues.png[width=95%]
+|===
+
+[{topic}]
+== Build
+
+
+
+[cols="2^"]
+|===
+|icon:thumbs-down[] Bad |icon:thumbs-up[] Good
+
+| Then, you just need to open a cmd here and type "ant run".
+
+image:badbuild.png[width=100%]
+| Lancer la commande "ant build".
+
+image:goodbuild.png[width=100%]
+|===
+
+
+
+//----------------------------- Quizz ------------------
+
+ifdef::slides[]
+
+[{topic}]
+== Ready for a quizz?
+
+image::icons/tuxteacher.png[]
+
+== {nbsp}
+
+endif::slides[]
+
+ifndef::slides[]
+:numbered!:
+== Quizz
+endif::slides[]
+
+ifdef::slides[]
+
+.*QUESTION*
+[WARNING]
+====
+
+- Connectez-vous sur : http://www.socrative.com/ (*student login*)
+- Ou téléchargez l'application pour étudiant image:socrative2.png[width=10%]
+- Choisissez la room *44918d67*
+====
+
+image::socrative1.png[width=50%,link=http://www.socrative.com/]
+
+[{intro}]
+== *The End* {nbsp}{nbsp}{nbsp}(for now)
+endif::slides[]
