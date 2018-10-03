@@ -13,8 +13,8 @@
 |====
 a|image:meyer.jpg[link={ref},width={size}]
 a|
-- Inventor of the Design by Contract
-- Inventer of Eiffel lnaguage
+- Design by Contract
+- Eiffel language
 - link:{ref}[WikiPedia]
 |====
 
@@ -27,9 +27,102 @@ a|
 |====
 a|image:cunningham.jpg[link={ref},width={size}]
 a|
-- One of the authors of the Agile Manifesto
-- Inventer of the WiKi
+- Agile Manifesto
+- WiKi
+- link:{ref}[WikiPedia]
+|====
+
+//------------------------------------
+== Kent Beck (1961 - )
+//------------------------------------
+:ref: https://en.wikipedia.org/wiki/Kent_Beck
+
+[cols="1,2"]
+|====
+a|image:beck.jpg[link={ref},width={size}]
+a|
+- Agile Manifesto
+- XP
+- JUnit
 - link:{ref}[WikiPedia]
 |====
 
 
+//------------------------------------
+== Erich Gamma (1961 - )
+//------------------------------------
+:ref: https://en.wikipedia.org/wiki/Erich_Gamma
+
+[cols="1,2"]
+|====
+a|image:gamma.jpg[link={ref},width={size}]
+a|
+- Design Patterns
+- link:{ref}[WikiPedia]
+|====
+
+
+//------------------------------------
+== Martin Fowler (1963 - )
+//------------------------------------
+:ref: https://en.wikipedia.org/wiki/Martin_Fowler
+
+[cols="1,2"]
+|====
+a|image:fowler.jpg[link={ref},width={size}]
+a|
+- UML, Design Patterns
+- link:{ref}[WikiPedia]
+|====
+
+//------------------------------------
+== Sir Tony Hoare (1934 - )
+//------------------------------------
+:ref: https://en.wikipedia.org/wiki/Tony_Hoare
+
+[cols="1,2"]
+|====
+a|image:hoare.jpg[link={ref},width={size}]
+a|
+- Hoare Logic, CSP, Quick Sort, null reference
+- link:{ref}[WikiPedia]
+|====
+
+//------------------------------------
+== Alan Turing (1912 - 1954)
+//------------------------------------
+:ref: https://en.wikipedia.org/wiki/Alan_Turing
+
+[cols="1,2"]
+|====
+a|image:turing.jpg[link={ref},width={size}]
+a|
+- Turing Machine, Enigma
+- link:{ref}[WikiPedia]
+|====
+
+//------------------------------------
+== John von Neumann (1903 - 1957)
+//------------------------------------
+:ref: https://en.wikipedia.org/wiki/John_von_Neumann
+
+[cols="1,2"]
+|====
+a|image:vonNeumann.gif[link={ref},width={size}]
+a|
+- Computer architecture
+- link:{ref}[WikiPedia]
+|====
+
+//------------------------------------
+== Kurt Gödel (1906 - 1978)
+//------------------------------------
+:ref: https://en.wikipedia.org/wiki/Kurt_G%C3%B6del
+
+[cols="1,2"]
+|====
+a|image:godel.jpg[link={ref},width={size}]
+a|
+- Gödel theorem
+- link:{ref}[WikiPedia]
+|====
