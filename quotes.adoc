@@ -49,3 +49,9 @@ The purpose of abstraction is not to be vague, but to create a new semantic leve
 There are two ways of constructing a software design.
 One way is to make it so simple that there are obviously no deficiencies.
 And the other way is to make it so complicated that there are no obvious deficiencies.
+
+//-----------------
+//https://twitter.com/housecor/status/400479246713229312?lang=en
+//-----------------
+[quote, Cory House, Twitter - 2013]
+Code is like humor. When you have to explain it, it’s bad.
