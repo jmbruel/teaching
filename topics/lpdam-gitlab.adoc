@@ -1,0 +1,275 @@
+//---------------------------------
+// Cours MPA
+// (c) JMB - 2018
+//---------------------------------
+[[MPA]]
+= Agilité et Gitlab
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+ifndef::jmbtopic[]
+:linkcss:
+:git-version: 2.17
+:icons: font
+:experimental:
+:toc-title: Table des matières
+:toc: left
+:numbered:
+:status:
+:siteurl: http://jmbhome.github.io/teaching/topics/agile.html
+:bitlysiteurl: http://bit.ly/jmb-agile
+//------------------------------------ Slides 
+ifdef::slides[]
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+:topic: .topic
+:intro: .topic.intro
+:statement: .topic.statement
+:incremental: .incremental
+:source: .topic.source
+//----------- deck.js --------------
+ifdef::deckjs-slides[]
+:viewport: width=1024, user-scalable=no
+//:backend: deckjs # Should be used in the asciidoctor command (asciidoctor -b deckjs)
+// swiss, neon, beamer, web-2.0
+:deckjs_theme: swiss
+//fade, horizontal-slide, vertical-slide
+//:deckjs_transition: fade
+:goto:
+:menu:
+//:navigation:
+:status:
+:sectids!:
+endif::deckjs-slides[]
+endif::slides[]
+//------------------------------------ HTML uniquement
+ifndef::slides[]
+:topic:
+:intro:
+:statement:
+:incremental: %step
+:source:
+endif::slides[]
+endif::jmbtopic[]
+
+// ------------------------------------------ definitions
+ifndef::definitions[]
+include::../definitions.txt[]
+endif::definitions[]
+
+// ------------------------------------------
+[{intro}]
+== icon:users[] *Les* clients de votre projet
+
+[[package_overview]]
+[.text-center]
+ifdef::slides[== Le *client* (qui va utiliser le logiciel)]
+ifndef::slides[.Le client (qui va utiliser le logiciel)]
+image::MPA2018-1.png[width=50%,align="center"]
+
+ifdef::slides[== Le *prof* (qui va contraindre le logiciel)]
+
+ifndef::slides[.Le prof (qui va contraindre le logiciel)]
+image::MPA2018-2.png[width=30%,align="center"]
+
+ifdef::slides[== Le *prof* (qui va noter votre projet)]
+ifndef::slides[.Le prof (qui va noter votre projet)]
+image::MPA2018.png[width=60%,align="center"]
+
+// ------------------------------------------
+[{intro}]
+== icon:book[] **C**ahier **D**es **C**harges **U**tilisateur
+
+ifdef::slides[:leveloffset: -1]
+
+[{topic}]
+=== Késako
+
+[{incremental}]
+- "Contrat" entre le client et vous
+- https://fr.wikipedia.org/wiki/QQOQCCP[QQOQCCP]
+- Qui est responsable de quoi (Client/MOA/MOE) ?
+- Contexte
+- Contraintes
+- Liste des fonctinnalités attendues
+- Cf. https://webetud.iut-blagnac.fr/mod/page/view.php?id=696[Moodle]
+
+[{topic}]
+=== icon:fa-yin-yang[] Extra-functional properties
+
+Extra-functional properties are sometimes more important than functional ones...
+
+image::nokia.jpg[width=90%]
+
+[{topic}]
+=== Design
+
+Quelques exemples de propriétés extra fonctionnelles...
+
+image::pylones1.jpg[]
+
+image::pylones2.jpg[]
+
+[{topic}]
+=== Autre exemple
+
+image::antivol.jpg[]
+[detail]#(C) Dinga#
+
+ifdef::slides[:leveloffset: +1]
+// ------------------------------------------
+[{intro}]
+== icon:mail-bulk[] Pour votre *Projet*
+
+ifdef::slides[:leveloffset: -1]
+
+[{topic}]
+=== icon:exclamation-circle[] Focus
+
+[{incremental}]
+- {gitlab}
+- build
+- icon:git[]
+
+[{topic}]
+=== icon:map-signs[] Correspondances de concepts Scrum/Gitlab
+
+ifndef::slides[.Correspondances entre Artefacts]
+image::gitlab-agile.png[width=70%, link="https://about.gitlab.com/2018/03/05/gitlab-for-agile-software-development/"]
+ifdef::slides[[detail]#https://about.gitlab.com/2018/03/05/gitlab-for-agile-software-development/#]
+
+[{topic}]
+=== icon:cogs[] Build
+
+Résultats du sondage Discord :
+
+image::sondage.png[width=80%]
+
+ifdef::slides[=== !]
+
+Etude 2014 :
+
+ifndef::slides[.Ant vs Maven vs Gradle (source https://www.voxxed.com/2014/10/ides-vs-build-tools-how-eclipse-intellij-idea-netbeans-users-work-with-maven-ant-sbt-gradle/[here])]
+image::usage.jpg[width=90%,link="https://www.voxxed.com/2014/10/ides-vs-build-tools-how-eclipse-intellij-idea-netbeans-users-work-with-maven-ant-sbt-gradle/"]
+
+ifdef::slides[=== !]
+
+:comparatif: https://technologyconversations.com/2014/06/18/build-tools/
+
+.Exemple de fichier Ant (cf. link:{comparatif}[source])
+[source,xml]
+-----
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="java-build-tools" default="jar">
+ 
+    <property name="src.dir" value="src"/>
+    ...
+    <path id="lib.path.id">
+        <fileset dir="${lib.dir}" />
+    </path>
+ 
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+ 
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="lib.path.id"/>
+    </target>
+ 
+    <target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}"/>
+    </target>
+ 
+</project>
+-----
+
+ifdef::slides[=== !]
+
+.Exemple de fichier Maven (cf. link:{comparatif}[source])
+[source,xml]
+----
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+    http://maven.apache.org/maven-v4_0_0.xsd">
+ 
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.technologyconversations</groupId>
+    <artifactId>java-build-tools</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+ 
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
+    </dependencies>
+ 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+            </plugin>
+        </plugins>
+    </build>
+ 
+</project>
+----
+
+ifdef::slides[=== !]
+
+.Exemple de fichier Gradle (cf. link:{comparatif}[source])
+[source]
+----
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+ 
+version = '1.0'
+ 
+repositories {
+    mavenCentral()
+}
+ 
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+}
+----
+
+[{topic}]
+=== icon:git[]
+
+cf. http://bit.ly/jmb-git
+
+[{topic}]
+=== icon:git[] Bonnes pratiques
+
+cf. annonce Discord
+
+https://github.com/xblanc33/QualiteDev
+
+image::bonnesPratiques.png[width=80%]
+
+
+
+ifdef::slides[:leveloffset: +1]
+
+ifdef::slides[]
+[{intro}]
+== *The End* {nbsp}{nbsp}{nbsp}(for now)
+endif::slides[]
