@@ -5,13 +5,13 @@
 [[git]]
 = Gestion de version avec *git*
 J.-M. Bruel <jbruel@gmail.com>
-v2.0 {localdate}
+v2.1 {localdate}
 :imagesdir: images
 //------------------------------------ variables de configuration
 // only used when master document
 ifndef::jmbtopic[]
 :linkcss:
-:git-version: 2.9.2
+:git-version: 2.17.0
 :icons: font
 :experimental:
 :toc-title: Table des matières
@@ -920,6 +920,28 @@ ifdef::slides[NOTE: [detail]#{compMergeURL}#]
 
 image::squash-on-merge.gif[width=95%,link={compMergeURL}]
 ifdef::slides[NOTE: [detail]#{compMergeURL}#]
+
+// ------
+[{topic}]
+=== `merge` vs. `rebase`
+
+Here is an illustration using http://git-school.github.io/visualizing-git/ :
+
+Initial situation:
+
+image::mergeVsRebase-base.gif[width=50%]
+
+ifdef::slides[=== {nbsp}]
+
+`git merge JMB`:
+
+image::mergeVsRebase-merge.gif[width=50%]
+
+ifdef::slides[=== {nbsp}]
+
+`git rebase JMB`:
+
+image::mergeVsRebase-rebase.gif[width=50%]
 
 
 ifdef::slides[:leveloffset: +1]
