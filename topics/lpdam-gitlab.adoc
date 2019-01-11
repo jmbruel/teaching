@@ -259,15 +259,39 @@ cf. http://bit.ly/jmb-git
 [{topic}]
 === icon:git[] Bonnes pratiques
 
-cf. annonce Discord
-
 https://github.com/xblanc33/QualiteDev
 
 image::bonnesPratiques.png[width=80%]
 
-
-
 ifdef::slides[:leveloffset: +1]
+
+// ------------------------------------------
+[{intro}]
+== icon:users[] *Exemple* : génération de la doc
+
+ifdef::slides[== Génération de la doc]
+
+[source,yml]
+----
+include::lpdam.gitlab-ci.yml[]
+----
+
+ifdef::slides[== GenDoc (suite)]
+
+image::webIDE.png[width=100%]
+
+ifdef::slides[== GenDoc (suite)]
+
+image::pipeline.png[width=100%]
+
+ifdef::slides[== GenDoc (suite)]
+
+image::manuel.png[width=100%]
+
+ifdef::slides[== GenDoc (suite)]
+
+image::browse.png[width=100%]
+
 
 ifdef::slides[]
 [{intro}]

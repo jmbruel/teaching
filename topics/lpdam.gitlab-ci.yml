@@ -1,0 +1,30 @@
+image: asciidoctor/docker-asciidoctor
+
+variables:
+  GIT_SSL_NO_VERIFY: "1"
+
+stages:
+  - 📦build
+  - 🦄test
+
+html:
+  stage: 📦build
+  script: 
+    - asciidoctor README.adoc -o index.html
+  artifacts:
+    paths:
+    - index.html
+
+pdf_preview:
+  stage: 🦄test
+  when: manual
+  environment:
+    name: preview/$CI_COMMIT_REF_NAME
+  except:
+    - /master/
+  artifacts:
+    paths:
+    - README.pdf
+    expire_in: 1 week
+  script:
+    - asciidoctor-pdf README.adoc
