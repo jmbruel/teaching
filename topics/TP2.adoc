@@ -3,7 +3,7 @@
 // include::lib/globals.asc[] // temporairement
 :tdnum: Sprint0
 include::../definitions.txt[]
-:weekNumber: 37
+:weekNumber: 36
 
 :doctitle:  {moduleTitle} - Sujet {tdnum} (semaine {weekNumber})
 ifdef::prof[]
@@ -11,7 +11,7 @@ ifdef::prof[]
 endif::prof[]
 
 = {doctitle}
-{authorDefault}, v1.0, {localdate}
+{authorDefault}, v1.1, {localdate}
 :lang: fr
 :incremental:
 :icons: font

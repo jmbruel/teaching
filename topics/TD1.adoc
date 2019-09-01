@@ -1,5 +1,5 @@
 = MPA : TD1
-DUT/INFO/M3301, v1.0, {localdate}
+DUT/INFO/M3301, v1.1, {localdate}
 :doctitle: MPA : TD1
 :lang: fr
 :slideshowlocation: Your computer
@@ -35,7 +35,7 @@ Eventuellement garder cette partie pour la fin du TD (ou pour chez eux si les 2 
 =====
 endif::prof[]
 
-Visionner et discuter la video suivante (même pour le groupe non anglais!) :
+Visionner et discuter la video suivante (9', même pour les groupe non anglais!) :
 
 https://www.youtube.com/watch?v=XU0llRltyFM
 

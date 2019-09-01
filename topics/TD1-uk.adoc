@@ -1,7 +1,7 @@
 = MAP: Practice
-DUT/INFO/M3301, v1.0, {localdate}
+DUT/INFO/M3301, v1.1, {localdate}
 :doctitle: MPA : TD1
-:lang: fr
+:lang: uk
 :slideshowlocation: Your computer
 :copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by AsciiDoc and W3C Slidy &#169;
 :incremental:

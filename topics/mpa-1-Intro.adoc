@@ -136,13 +136,13 @@ mais d'un seul module, l'un après l'autre (MPA puis CPOA).
 
 [cols="1,2,4"]
 |===
-| # | Date | Cours
+| # | Semaine | Cours
 
-| 1 | 11/09 | link:{base}/mpa-1-Intro.html[Introduction], link:{base}/mpa-2-agile.html[Méthodes Agiles]
-| 2 | 12/09 | link:{base}/mpa-4-testingCI.html[Tests]
-| 3 | 21/09 | link:{base}/mpa-3-manifesto.html[Manifeste Agile]
-| 4 | 26/09 | link:{base}/git.html[Git]
-| 5 | 01/10 | Behaviour-Driven Development
+| 1 | 36 | link:{base}/mpa-1-Intro.html[Introduction], link:{base}/mpa-2-agile.html[Méthodes Agiles]
+| 2 | 37 | link:{base}/mpa-4-testingCI.html[Tests]
+| 3 | 38 | link:{base}/mpa-3-manifesto.html[Manifeste Agile]
+| 4 | 40 | link:{base}/git.html[Git]
+| 5 | 41 | Behaviour-Driven Development
 |===
 
 

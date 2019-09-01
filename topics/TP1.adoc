@@ -3,7 +3,7 @@
 // include::lib/globals.asc[] // temporairement
 :tdnum: Sprint-1
 include::../definitions.txt[]
-:weekNumber: 37
+:weekNumber: 36
 
 :doctitle:  {moduleTitle} - Sujet {tdnum} (semaine {weekNumber})
 ifdef::prof[]
@@ -80,8 +80,8 @@ NOTE: Ce n'est pas parce que vous êtes dans une salle machine que vous devez fo
   moins (vous pouvez changer régulièrement si vous voulez, mais à chaque Sprint,
   pas pendant un Sprint) qui demande à l'enseignant icon:graduation-cap[] de
   l'ajouter comme gestionnaire du projet de votre groupe.
-. icon:user-md[] Le Scrum Master créé un dépôt respectant la nomenclature : `MPA2018-G[1|2|3][A|B][1|2|3]`.
-  Où le 1er numéro est le numéro du groupe de TD (entre 1 et 3),
+. icon:user-md[] Le Scrum Master créé un dépôt respectant la nomenclature : `MPA2019-G[1|2|3|4][A|B][1|2|3]`.
+  Où le 1er numéro est le numéro du groupe de TD (entre 1 et 4),
   suivi de la lettre A ou B pour le groupe de TP,
   suivi d'un numéro de groupe (3 groupes de 4 étudiants max par groupe TP)
 . icon:user-md[] Le Scrum Master ajoute tous les autres membres du groupe, ainsi que le ou les
