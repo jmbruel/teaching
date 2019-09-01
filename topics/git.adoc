@@ -1045,7 +1045,9 @@ Un excellent tutoriel en Français et dynamique :
   http://learngitbranching.js.org/
 Git pour les nuls::
   http://rogerdudler.github.io/git-guide/
-
+Best practices::
+  https://dev.to/bholmesdev/git-github-best-practices-for-teams-opinionated-28h7
+  
 // ------
 [{topic}]
 == Glossaire

@@ -7,7 +7,7 @@ DECK=swiss
 #STYLE=../POO/COO/stylesheets/golo-jmb.css
 STYLE=../../asciidoctor-stylesheet-factory/stylesheets/jmb.css
 #ASCIIDOCTOR=asciidoctor  -a icons=font -a linkcss! -a data-uri
-ASCIIDOCTOR=asciidoctor -a icons=font -a data-uri
+ASCIIDOCTOR=asciidoctor -a icons=font -a data-uri  -a linkcss!
 EXT=adoc
 OUTPUT=.
 SITE=../jmbruel.github.io/teaching
@@ -86,6 +86,18 @@ $(OUTPUT)/%.sujet.html: %.$(EXT)
 		-a source-highlighter=$(HIGHLIGHT) \
 		-o $@ $<
 
+$(OUTPUT)/%.pdf: %.$(EXT)
+	$(ASCIIDOCTOR) -a final \
+    	-b pdf \
+        -r asciidoctor-pdf \
+        -o $@ $<
+
+lpdam: lpdam*.html lpdam*.dzslides.html
+
+deploy-lpdam:
+	cp lpdam-*.dzslides.html ../../gl2018/cours
+	cp lpdam-*.html ../../gl2018/cours
+	
 deploy:
 	cp $(MAIN).html $(SITE)/MobileModeling.html
 	cd $(SITE)

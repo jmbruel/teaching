@@ -116,7 +116,7 @@ A majority of the production failures (77%) can be reproduced by a unit test.
 
 :thisref: Un tweet récent!
 ifndef::slides[.{thisref}]
-image::tweet-tests.png[width=30%]
+image::tweet-tests.png[width=30%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 NOTE: Pour lire l'article en question : https://blog.acolyer.org/2016/10/06/simple-testing-can-prevent-most-critical-failures/amp/
@@ -128,7 +128,7 @@ ifdef::slides[:leveloffset: -1]
 
 :thisref: http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/
 ifndef::slides[.Un produit qui fait ce qu'il est censé faire (crédit photo {thisref})]
-image::why1.png[width=50%]
+image::why1.png[width=50%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 [{topic}]
@@ -136,7 +136,7 @@ ifdef::slides[NOTE: [detail]#{thisref}#]
 
 :thisref: http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/
 ifndef::slides[.Passage à l'échelle (crédit photo {thisref})]
-image::why2.jpg[width=50%]
+image::why2.jpg[width=50%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 [{topic}]
@@ -147,7 +147,7 @@ Tout ce qui est susceptible de mal tourner tournera nécessairement mal.
 
 :thisref: http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/
 ifndef::slides[.Murphy's law (crédit photo {thisref})]
-image::why3.jpg[width=50%]
+image::why3.jpg[width=50%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 [{topic}]
@@ -155,7 +155,7 @@ ifdef::slides[NOTE: [detail]#{thisref}#]
 
 :thisref: http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/
 ifndef::slides[.Diversité (crédit photo {thisref})]
-image::why4.png[width=50%]
+image::why4.png[width=50%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 [{topic}]
@@ -163,7 +163,7 @@ ifdef::slides[NOTE: [detail]#{thisref}#]
 
 :thisref: http://www.te52.com/testtalk/2014/08/07/5-reasons-we-need-software-testing/
 ifndef::slides[.Faire de son mieux (crédit photo {thisref})]
-image::why5.jpg[width=50%]
+image::why5.jpg[width=50%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifdef::slides[:leveloffset: 0]
@@ -178,7 +178,7 @@ https://github.com/asciidoctor/asciidoctor/blob/master/CONTRIBUTING.adoc[Asciido
 
 :thisref: Autour d'une bière avec Dan Allen, à Denver, Colorado #ILoveMyJob
 ifndef::slides[.{thisref}]
-image::danAllen.png[width=80%]
+image::danAllen.png[width=80%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifdef::slides[== Submitting a Pull Request]
@@ -205,7 +205,7 @@ ifdef::slides[== Eclipse]
 
 :thisref: Après un footing avec Gaël Blondel, à Saint-Malo  #ILoveMyJob
 ifndef::slides[.{thisref}]
-image::gaelBlondelle.jpg[width=80%]
+image::gaelBlondelle.jpg[width=80%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifdef::slides[== {nbsp}]
@@ -347,7 +347,7 @@ Exemple du plugin {eclipse} `swingcoder` :
 
 :thisref: https://marketplace.eclipse.org/content/swingcorder
 ifndef::slides[.Simulation d'utilisation d'interface (source {thisref})]
-image::swingTest.png[width=90%]
+image::swingTest.png[width=90%,pdfwidth=70%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 [{topic}]
@@ -357,7 +357,7 @@ Il existe des outils pour aller plus loin :
 
 :thisref: http://www.eclemma.org/
 ifndef::slides[.Couverture des tests (source {thisref})]
-image::coverage.gif[width=90%]
+image::coverage.png[width=90%,pdfwidth=70%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifdef::slides[:leveloffset: 0]
@@ -374,13 +374,13 @@ ifdef::slides[:leveloffset: -1]
 :thisref: Mettre à jour votre gestionnaire de tâche
 ifndef::slides[.{thisref}]
 |===
-| image:tuleap1.png[width=90%] |
-image:tuleap2.png[width=90%]
+| image:tuleap1.png[width=90%,pdfwidth=40%] |
+image:tuleap2.png[width=90%,pdfwidth=40%]
 |===
 
 :thisref: Confirmation par email
 ifndef::slides[.{thisref}]
-image::tuleap3.png[width=80%]
+image::tuleap3.png[width=80%,pdfwidth=40%]
 
 [{topic}]
 === Créer une branche spécifique (si nouvelle _feature_)
@@ -467,21 +467,21 @@ ifdef::slides[==== Oups...]
 
 :thisref: Oups, JUnit n'est pas dans le path...
 ifndef::slides[.{thisref}]
-image::pile2.png[width=80%]
+image::pile2.png[width=80%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifdef::slides[==== {nbsp}]
 
 :thisref: Création rapide de la classe `Pile`
 ifndef::slides[.{thisref}]
-image::pile3.png[width=90%]
+image::pile3.png[width=90%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifdef::slides[==== {nbsp}]
 
 :thisref: Run as JUnit Tests
 ifndef::slides[.{thisref}]
-image::pile1.png[width=60%]
+image::pile1.png[width=60%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 
@@ -503,7 +503,7 @@ ifdef::slides[==== Erreur de syntaxe]
 
 :thisref: Erreur de syntaxe
 ifndef::slides[.{thisref}]
-image::pile4.png[width=60%]
+image::pile4.png[width=60%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifdef::slides[==== Ajout de la méthode]
@@ -568,7 +568,7 @@ ifdef::slides[==== Le test échoue (comme souhaité)]
 
 :thisref: Passage du test
 ifndef::slides[.{thisref}]
-image::pile7.png[width=100%]
+image::pile7.png[width=100%,pdfwidth=60%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 
@@ -594,7 +594,7 @@ ifdef::slides[==== Passage du test]
 
 :thisref: Passage du test
 ifndef::slides[.{thisref}]
-image::pile8.png[width=100%]
+image::pile8.png[width=100%,pdfwidth=60%]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 
 ifdef::slides[==== {nbsp}]
@@ -648,7 +648,7 @@ Deleted branch US-15378 (was f392a73).
 === De `On going` à `Review`
 
 ifndef::slides[.Penser à mettre à jour le tableau de bord]
-image::review.jpg[width=90%]
+image::review.jpg[width=90%,pdfwidth=40%]
 ifdef::slides[NOTE: [detail]#Penser à mettre à jour le tableau de bord#]
 
 
@@ -681,8 +681,8 @@ ifdef::slides[]
 |===
 |icon:thumbs-down[] Bad |icon:thumbs-up[] Good
 
-|image:badissues.png[width=95%]
-|image:goodissues.png[width=95%]
+|image:badissues.png[width=95%,pdfwidth=40%]
+|image:goodissues.png[width=95%,pdfwidth=40%]
 |===
 
 [{topic}]
@@ -696,10 +696,10 @@ ifdef::slides[]
 
 | Then, you just need to open a cmd here and type "ant run".
 
-image:badbuild.png[width=100%]
+image:badbuild.png[width=100%,pdfwidth=40%]
 | Lancer la commande "ant build".
 
-image:goodbuild.png[width=100%]
+image:goodbuild.png[width=100%,pdfwidth=40%]
 |===
 
 
@@ -731,7 +731,7 @@ $ ant
 Buildfile: build.xml does not exist!
 ----
 
-image::why3.jpg[width=30%]
+image::why3.jpg[width=30%,pdfwidth=40%]
 
 [{intro}]
 == *The End* {nbsp}{nbsp}{nbsp}(for now)

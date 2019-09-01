@@ -1,4 +1,14 @@
 //-----------------
+// https://twitter.com/scottwambler/status/1141865339015315457?ref_src=twsrc%5Etfw
+[quote, Scott W. Ambler, 2019]
+A good programmer looks both ways before crossing a one-way street.
+
+//-----------------
+// Wikipedia
+[quote, Me Capello]
+Un beau palindrome : Éric notre valet alla te laver ton ciré (on peut tout aussi bien remplacer Éric par Luc).
+
+//-----------------
 [quote, Paul Graham]
 A programming language is for thinking about programs, not for expressing programs you've already thought of. It should be a pencil, not a pen.
 

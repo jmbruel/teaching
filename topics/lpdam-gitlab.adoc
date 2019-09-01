@@ -3,7 +3,7 @@
 // (c) JMB - 2018
 //---------------------------------
 [[MPA]]
-= Agilité et Gitlab
+= Agilité et *Gitlab*
 J.-M. Bruel <jbruel@gmail.com>
 v1.0 {localdate}
 :imagesdir: images
@@ -73,16 +73,16 @@ endif::definitions[]
 [.text-center]
 ifdef::slides[== Le *client* (qui va utiliser le logiciel)]
 ifndef::slides[.Le client (qui va utiliser le logiciel)]
-image::MPA2018-1.png[width=50%,align="center"]
+image::MPA2018-1.png[width=50%,align="center",pdfwidth=30%]
 
 ifdef::slides[== Le *prof* (qui va contraindre le logiciel)]
 
 ifndef::slides[.Le prof (qui va contraindre le logiciel)]
-image::MPA2018-2.png[width=30%,align="center"]
+image::MPA2018-2.png[width=30%,align="center",pdfwidth=30%]
 
 ifdef::slides[== Le *prof* (qui va noter votre projet)]
 ifndef::slides[.Le prof (qui va noter votre projet)]
-image::MPA2018.png[width=60%,align="center"]
+image::MPA2018.png[width=60%,align="center",pdfwidth=40%]
 
 // ------------------------------------------
 [{intro}]
@@ -100,14 +100,14 @@ ifdef::slides[:leveloffset: -1]
 - Contexte
 - Contraintes
 - Liste des fonctinnalités attendues
-- Cf. https://webetud.iut-blagnac.fr/mod/page/view.php?id=696[Moodle]
+//- Cf. https://webetud.iut-blagnac.fr/mod/page/view.php?id=696[Moodle]
 
 [{topic}]
 === icon:fa-yin-yang[] Extra-functional properties
 
 Extra-functional properties are sometimes more important than functional ones...
 
-image::nokia.jpg[width=90%]
+image::nokia.jpg[width=90%,pdfwidth=40%]
 
 [{topic}]
 === Design
@@ -121,7 +121,7 @@ image::pylones2.jpg[]
 [{topic}]
 === Autre exemple
 
-image::antivol.jpg[]
+image::antivol.jpg[,pdfwidth=40%]
 [detail]#(C) Dinga#
 
 ifdef::slides[:leveloffset: +1]
@@ -143,22 +143,25 @@ ifdef::slides[:leveloffset: -1]
 === icon:map-signs[] Correspondances de concepts Scrum/Gitlab
 
 ifndef::slides[.Correspondances entre Artefacts]
-image::gitlab-agile.png[width=70%, link="https://about.gitlab.com/2018/03/05/gitlab-for-agile-software-development/"]
+image::gitlab-agile.png[width=70%, link="https://about.gitlab.com/2018/03/05/gitlab-for-agile-software-development/",pdfwidth=40%]
 ifdef::slides[[detail]#https://about.gitlab.com/2018/03/05/gitlab-for-agile-software-development/#]
 
 [{topic}]
 === icon:cogs[] Build
 
+Parlons un peu de build...
+/////
 Résultats du sondage Discord :
 
-image::sondage.png[width=80%]
+image::sondage.png[width=80%,pdfwidth=40%]
+/////
 
 ifdef::slides[=== !]
 
 Etude 2014 :
 
 ifndef::slides[.Ant vs Maven vs Gradle (source https://www.voxxed.com/2014/10/ides-vs-build-tools-how-eclipse-intellij-idea-netbeans-users-work-with-maven-ant-sbt-gradle/[here])]
-image::usage.jpg[width=90%,link="https://www.voxxed.com/2014/10/ides-vs-build-tools-how-eclipse-intellij-idea-netbeans-users-work-with-maven-ant-sbt-gradle/"]
+image::usage.jpg[width=90%,pdfwidth=40%,link="https://www.voxxed.com/2014/10/ides-vs-build-tools-how-eclipse-intellij-idea-netbeans-users-work-with-maven-ant-sbt-gradle/"]
 
 ifdef::slides[=== !]
 
@@ -261,7 +264,7 @@ cf. http://bit.ly/jmb-git
 
 https://github.com/xblanc33/QualiteDev
 
-image::bonnesPratiques.png[width=80%]
+image::bonnesPratiques.png[width=80%,pdfwidth=60%]
 
 ifdef::slides[:leveloffset: +1]
 
@@ -278,19 +281,19 @@ include::lpdam.gitlab-ci.yml[]
 
 ifdef::slides[== GenDoc (suite)]
 
-image::webIDE.png[width=100%]
+image::webIDE.png[width=100%,pdfwidth=60%]
 
 ifdef::slides[== GenDoc (suite)]
 
-image::pipeline.png[width=100%]
+image::pipeline.png[width=100%,pdfwidth=60%]
 
 ifdef::slides[== GenDoc (suite)]
 
-image::manuel.png[width=100%]
+image::manuel.png[width=100%,pdfwidth=60%]
 
 ifdef::slides[== GenDoc (suite)]
 
-image::browse.png[width=100%]
+image::browse.png[width=100%,pdfwidth=60%]
 
 
 ifdef::slides[]
