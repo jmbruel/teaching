@@ -219,6 +219,12 @@ image::mooc-results.png[width=50%]
 
 - Toute _Proof of success_ (>60%) comptera dans l'évaluation (bonus individuel sur la note de projet)
 
+ifdef::slides[== Vocabulaire pour les TD/TP de cette semaine]
+
+MOA:: **M**aîtrise d'**O**uvr**A**ge
+MOE:: **M**aîtrise d'**OE**uvre
+MoSCoW:: **M**ust **S**hould **C**ould **W**ill
+
 ifdef::slides[]
 [{intro}]
 == *The End* {nbsp}{nbsp}{nbsp}(for now)
