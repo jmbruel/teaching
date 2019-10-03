@@ -2,14 +2,14 @@
 // Cours MPA
 // (c) JMB - 2016
 //---------------------------------
-[[MPA]]
+[[MPA3manifesto]]
 = Les principes de l'*Agilité*
-J.-M. Bruel <jbruel@gmail.com>
-v1.0 {localdate}
-:imagesdir: images
 //------------------------------------ variables de configuration
 // only used when master document
 ifndef::jmbtopic[]
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
 :linkcss:
 :git-version: 2.9.2
 :icons: font
@@ -335,7 +335,7 @@ ifndef::slides[:leveloffset: +1]
 - Aide à résoudre les problèmes et blocages
 
 ifndef::slides[:leveloffset: 0]
-
+ifdef::jmbtopic[:leveloffset: 1]
 //----------------------------- les "practices" ------------------
 [{topic}]
 == Les pratiques icon:map-signs[]
@@ -412,6 +412,7 @@ Les 3 questions classiques :
 
 
 ifndef::slides[:leveloffset: 0]
+ifdef::jmbtopic[:leveloffset: 1]
 
 //----------------------------- les "artefacts" ------------------
 [{topic}]
@@ -549,6 +550,7 @@ ifdef::slides[NOTE: [detail]#{thisref}#]
 ifndef::slides[NOTE: Pour tester vous-mêmes : [detail]#https://docs.google.com/spreadsheets/d/17bppZL6IQoHXKHm0Cr5Q5yYrQivA9oTSB5fmo6ECsJs/edit#gid=6#]
 
 ifdef::slides[:leveloffset: +1]
+ifdef::jmbtopic[:leveloffset: 1]
 
 //----------------------------- process ------------------
 [{topic}]
@@ -570,11 +572,6 @@ image::icons/tuxteacher.png[]
 
 == {nbsp}
 
-endif::slides[]
-
-ifndef::slides[]
-:numbered!:
-== Quizz
 endif::slides[]
 
 ifdef::slides[]

@@ -2,6 +2,7 @@
 // Course on Unit Testing
 // (c) JMB - 2016-2018
 //---------------------------------
+[[MPA4testing]]
 = *Tests* en intégration continue
 J.-M. Bruel <jbruel@gmail.com>
 v1.0 {localdate}

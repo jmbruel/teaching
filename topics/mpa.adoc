@@ -70,10 +70,10 @@ endif::definitions[]
 
 ifdef::slides[== {nbsp}]
 
-À l'initiateur de ce cours, Jean-Michel Inglebert...
-
-ifndef::slides[.Blason des étudiants DUT Info 2016]
-image::blasonJMI.png[width=50%]
+ifndef::JMI[]
+include::jmi.asc[]
+:JMI:
+endif::JMI[]
 
 ifdef::slides[]
 // ------------------------------------------ disclaimer
@@ -180,6 +180,17 @@ ifdef::slides[:leveloffset: -1]
 Au lieu de faire 2 modules en // (comme POO et COO l'an dernier), vous aurez ce semestre 2 fois plus d'heures,
 mais d'un seul module, l'un après l'autre (MPA puis CPOA).
 
+[cols="1,2,4"]
+|===
+| # | Semaine | Cours
+
+| 1 | 36 | Introduction
+| 2 | 37 | <<Méthodes Agiles,MPA2agile>>
+| 3 | 38 | <<Manifeste Agile,MPA3manifesto>>
+| 4 | 40 | <<Test,MPA4testing>>
+| 5 | 41 | <<CI,ci>>
+|===
+
 
 // ------
 [{topic}]
@@ -206,56 +217,13 @@ mais d'un seul module, l'un après l'autre (MPA puis CPOA).
 
 ifdef::slides[:leveloffset: +1]
 
-// ------
-[{topic}]
-== Les différents cycles
+//include::mpa-1-Intro.adoc[leveloffset=+1]
+:jmbtopic:
 
-ifdef::slides[:leveloffset: -1]
+include::mpa-2-agile.adoc[leveloffset=+1]
 
-// ------
-[{topic}]
-=== Cycle 0
+include::mpa-3-manifesto.adoc[leveloffset=+1]
 
-[{incremental}]
-- Saisir le Backlog initial de Produit
-- Organiser l'arborescence des sources {git} (branches, tags)
-- Organiser les répertoires du projet (data,lib,test,doc)
-- Produire l'IHM V0
-- Produire la librairie V0
-- Produire la documentation utilisateur V0
-- Produire la documentation technique V0
-- Fin TPs : livraisons (IHM, Doc U., Doc T.)
+include::mpa-4-testingCI.adoc[leveloffset=+1]
 
-// ------
-[{topic}]
-=== Cycle 1 et suivants...
-
-[{incremental}]
-- Produire l'IHM V1
-- Produire la librairie V1
-- Produire la documentation utilisateur V1
-- Produire la documentation technique V1 (dont les scénarios de test d'IHM)
-
-ifdef::slides[:leveloffset: -1]
-
-// ------
-[{topic}]
-==== Backlog du Cycle 1
-
-- En tant que ..., je peux ...
-
-Par exemple :
-
-- En tant que *gestionnaire*, je peux *afficher la liste des étudiants*
-- En tant qu' *administrateur*, je peux *afficher la liste des intervenants*
-
-
-// ------
-[{topic}]
-==== TD/TP
-
-- TD1 : organisation, analyse
-- TD2 : conception sur feuille
-- TPs : codage et gestion de projet
-
-ifdef::slides[:leveloffset: +1]
+include::mpa-5-ci.adoc[leveloffset=+1]

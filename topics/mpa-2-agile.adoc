@@ -2,14 +2,14 @@
 // Cours MPA
 // (c) JMB - 2018
 //---------------------------------
-[[MPA]]
+[[MPA2agile]]
 = Gestion de projet, Agilité, Tests
-J.-M. Bruel <jbruel@gmail.com>
-v1.0 {localdate}
-:imagesdir: images
 //------------------------------------ variables de configuration
 // only used when master document
 ifndef::jmbtopic[]
+J.-M. Bruel <jbruel@gmail.com>
+v1.0 {localdate}
+:imagesdir: images
 :linkcss:
 :git-version: 2.9.2
 :icons: font
@@ -78,10 +78,9 @@ ifdef::slides[]
 
 endif::slides[]
 
-À l'initiateur de ce cours, Jean-Michel Inglebert...
-
-ifndef::slides[.Blason des étudiants DUT Info 2016]
-image::blasonJMI.png[width=50%]
+ifndef::JMI[]
+include::jmi.asc[]
+endif::JMI[]
 
 // ------------------------------------------ disclaimer
 [{intro}]
@@ -527,10 +526,9 @@ image::icons/tuxteacher.png[]
 
 endif::slides[]
 
-ifndef::slides[]
+ifdef::slides[]
 :numbered!:
 == Quizz
-endif::slides[]
 
 //----------------------------- Question ------------------
 .*QUESTION*
@@ -543,6 +541,8 @@ endif::slides[]
 ====
 
 image::socrative1.png[width=50%,link=http://www.socrative.com/]
+endif::slides[]
+
 
 ifdef::slides[]
 [{intro}]
