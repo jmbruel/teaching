@@ -721,13 +721,17 @@ Ce qu'il ne faut pas versionner :
 
 En {git} on peut _taguer_ des branches et c'est ce mécanisme qui
 permet de gérer simplement les _releases_.
+Dans l'exemple ci-dessous on tague le commit `ebb0a7` avec le tag `v1.0`.
 
 [source]
 ----------------------------------------------------------------------
-$ git tag -a v1.0 -m "Release 1.0 as required by client"
+$ git tag -a v1.0 ebb0a7 -m "Release 1.0 as required by client"
 $ git tag
 v1.0
+$ git push origin v1.0
 ----------------------------------------------------------------------
+
+WARNING: ne pas oublier de "pousser" le tag.
 
 ifdef::slides[=== {nbsp}]
 
@@ -805,7 +809,7 @@ NOTE: Aucun danger
 [source]
 ----------------------------------------------------------
 $ working on some file README.adoc ...
-$ git checkout -- REAME.adoc
+$ git checkout -- README.adoc
 ----------------------------------------------------------
 
 WARNING: Danger!

@@ -509,7 +509,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">J.-M. Bruel</span><br>
 <span id="email" class="email"><a href="mailto:jbruel@gmail.com">jbruel@gmail.com</a></span><br>
-<span id="revnumber">version 2.1 2019-01-12</span>
+<span id="revnumber">version 2.1 2019-10-03</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table des matières</div>
@@ -1383,14 +1383,28 @@ les branches (les commits feuilles) une par une et vérifier les conflits par it
 <h3 id="_les_releases">7.3. Les "releases"</h3>
 <div class="paragraph">
 <p>En <a href="http://git-scm.com/"><span class="icon"><i class="fa fa-git"></i></span></a> on peut <em>taguer</em> des branches et c&#8217;est ce mécanisme qui
-permet de gérer simplement les <em>releases</em>.</p>
+permet de gérer simplement les <em>releases</em>.
+Dans l&#8217;exemple ci-dessous on tague le commit <code>ebb0a7</code> avec le tag <code>v1.0</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code>$ git tag -a v1.0 -m "Release 1.0 as required by client"
+<pre class="pygments highlight"><code>$ git tag -a v1.0 ebb0a7 -m "Release 1.0 as required by client"
 $ git tag
-v1.0</code></pre>
+v1.0
+$ git push origin v1.0</code></pre>
 </div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+ne pas oublier de "pousser" le tag.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>On peut voir les détails d&#8217;un commit tagué :</p>
@@ -1486,7 +1500,7 @@ Aucun danger
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code>$ working on some file README.adoc ...
-$ git checkout -- REAME.adoc</code></pre>
+$ git checkout -- README.adoc</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -1858,6 +1872,10 @@ Un excellent tutoriel en Français et dynamique :
 <dd>
 <p><a href="http://rogerdudler.github.io/git-guide/" class="bare">http://rogerdudler.github.io/git-guide/</a></p>
 </dd>
+<dt class="hdlist1">Best practices</dt>
+<dd>
+<p><a href="https://dev.to/bholmesdev/git-github-best-practices-for-teams-opinionated-28h7" class="bare">https://dev.to/bholmesdev/git-github-best-practices-for-teams-opinionated-28h7</a></p>
+</dd>
 </dl>
 </div>
 </div>
@@ -1887,8 +1905,8 @@ Il s&#8217;agit donc pour <a href="http://git-scm.com/"><span class="icon"><i cl
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 2.1 2019-01-12<br>
-Last updated 2019-01-03 12:21:06 +0100
+Version 2.1 2019-10-03<br>
+Last updated 2019-10-03 10:21:33 +0200
 </div>
 </div>
 </body>
