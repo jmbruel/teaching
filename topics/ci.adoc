@@ -98,6 +98,9 @@ ifndef::slides[.Résultats visibles et tracés]
 image::builds_status.png[width=100%]
 ifdef::slides[NOTE: [detail]#Résultats visibles et tracés#]
 
+Une video d'introduction : 
+https://www.youtube.com/watch?v=L2zqTYgcpfg&feature=youtu.be
+
 // ------
 [{topic}]
 == Environnement

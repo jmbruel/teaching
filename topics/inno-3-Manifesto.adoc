@@ -5,7 +5,7 @@
 [[MPA]]
 = *Agile* principles
 J.-M. Bruel <jbruel@gmail.com>
-v1.0 {localdate}
+v20.1 {localdate}
 :imagesdir: images
 //------------------------------------ variables de configuration
 // only used when master document

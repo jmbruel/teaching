@@ -1,0 +1,290 @@
+// ------------------------------------------
+//  Created by Jean-Michel Bruel.
+//  Copyright (c) 2019 IRIT/U. Toulouse. All rights reserved.
+// ------------------------------------------
+:title: Examen M3301-MPA 2019
+// ------------------------------------------
+:doctype: article
+:description:
+:keywords:
+:Author: 20 novembre 2019 -- Jean-Michel Bruel
+:Author Initials: JMB
+:Email: jean-michel.bruel@univ-tlse2.fr
+:Revision: 1.0
+:localdate: {sys: date +%d/%m/%Y}
+:Date: {localdate}
+:startdate: 2012-10-19
+:correction!:
+:icons: font
+
+//include::definitions.txt[]
+
+//----------- dck.js --------------
+// swiss, neon beamer
+:deckjs_theme: web-2.0
+
+//fade, horizontal-slide, vertical-slide
+:deckjs_transition: horizontal-slide
+
+//:pygments:
+//:pygments_style: native
+:scrollable:
+//:linkcss:
+
+:slidesurl: http://jmbhome.heroku.com/talks
+:images: /Users/bruel/dev/images
+
+= {title}
+
+//---------------------------------
+ifndef::correction[]
+.NOM/Prénom
+----------------
+|
+|
+|
+|
+----------------
+endif::correction[]
+//---------------------------------
+
+.Barème prévisionnel sur 20
+[WARNING]
+=====
+1.1: 2 points; 1.2: 4 points; 2.1: 2 points; 2.2: 2 points; 3.1: 2 points; 3.2: 2 points; 4.1: 4 points; 4.2: 2 points
+=====
+
+:numbered:
+
+== Méthodes Agiles
+
+:numbered!:
+=== Q1
+
+Citez les méthodes agiles que vous connaissez.
+//---------------------------------
+ifndef::correction[]
+----------------
+|
+|
+|
+|
+|
+----------------
+endif::correction[]
+//---------------------------------
+
+ifdef::correction[]
+
+[TIP]
+=====
+Scrum, XP, KanBan, ...
+=====
+
+endif::correction[]
+
+=== Q2
+
+Que pensez-vous de l'affirmation suivante et pourquoi ? :
+"Les méthodes agiles garantissent de finir un projet dans les temps."
+
+//---------------------------------
+ifndef::correction[]
+----------------
+|
+|
+|
+|
+|
+|
+|
+|
+|
+----------------
+endif::correction[]
+//---------------------------------
+
+ifdef::correction[]
+[TIP]
+Non, elles permettent de s'appercevoir plus vite que l'on ne va pas être dans les temps.
+endif::correction[]
+
+:numbered:
+
+== Build et CI
+
+:numbered!:
+=== Q1
+
+Quelles sont les différences entre les techniques de _build_ et d'Intégration continue ?
+
+//---------------------------------
+ifndef::correction[]
+----------------
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+----------------
+endif::correction[]
+//---------------------------------
+
+:numbered!:
+=== Q2
+
+Quel est le problème dans ce fichier `.gitlab-ci.yml` ?
+
+.gitlab-ci.yml
+[source,yaml]
+....
+image: node:4.2.2   
+
+all_tests:
+  script:           
+   - npm install express --save
+   - node ./myapp.js
+....
+
+//---------------------------------
+ifndef::correction[]
+----------------
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+----------------
+endif::correction[]
+//---------------------------------
+
+:numbered:
+
+== Documentation
+
+:numbered!:
+
+=== Q1
+
+Quel est le principal avantage de générer la documentation à chaque build ?
+
+//---------------------------------
+ifndef::correction[]
+----------------
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+----------------
+endif::correction[]
+//---------------------------------
+
+=== Q2
+
+Citez les principales différences entre des outils comme Word/OpenOffice et Asciidoc/Markdown.
+
+//---------------------------------
+ifndef::correction[]
+----------------
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+----------------
+endif::correction[]
+//---------------------------------
+
+
+:numbered:
+
+== Tests
+
+:numbered!:
+=== Q1
+
+Citez différents types de test que vous connaissez et donnez les différences entre eux.
+
+//---------------------------------
+ifndef::correction[]
+----------------
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+----------------
+endif::correction[]
+//---------------------------------
+
+
+:numbered!:
+=== Q2
+
+Qu'est-ce que le TDD et quels sont ses avantages.
+
+//---------------------------------
+ifndef::correction[]
+----------------
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+----------------
+endif::correction[]
+
+//---------------------------------
+.Barème prévisionnel sur 20
+[WARNING]
+=====
+1.1: 2 points; 1.2: 4 points; 2.1: 2 points; 2.2: 2 points; 3.1: 2 points; 3.2: 2 points; 4.1: 4 points; 4.2: 2 points

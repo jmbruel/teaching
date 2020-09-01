@@ -5,7 +5,7 @@
 [[MPA]]
 = Project Management, Agility, Tests
 J.-M. Bruel <jbruel@gmail.com>
-v1.0 {localdate}
+v20.1 {localdate}
 :imagesdir: images
 //------------------------------------ variables de configuration
 // only used when master document
@@ -277,7 +277,7 @@ ifdef::slides[=== Waterfall and V Cycle]
 .Well known limitations
 ====
 [{incremental}]
-- *ansence* of *maintenance* and *evolution* phases
+- *absence* of *maintenance* and *evolution* phases
 - going back to design is very difficult
 - Hard to estimate _a priori_: what is the estimated complexity of the project ?
 - Does the delivered *application* conform to its *documentation* (*and vice versa*) ?
