@@ -4,7 +4,7 @@
 //---------------------------------
 = **M**éthodologie de la **P**roduction d'**A**pplication – MPA (M3301)
 J.-M. Bruel <jbruel@gmail.com>
-v1.4 {localdate}
+v1.20 {localdate}
 :imagesdir: images
 //------------------------------------ variables de configuration
 // only used when master document
@@ -48,6 +48,22 @@ ifndef::definitions[]
 include::../definitions.txt[]
 endif::definitions[]
 
+// ------------------------------------------ plan
+:numbered:
+[{intro}]
+== icon:book[] Au programme aujourd'hui
+
+[{topic}]
+== icon:map-signs[] Plan
+
+[{incremental}]
+- icon:warning[] [detail]#Organisation & règles !#
+- icon:warning[] [detail]#Stages & Groupe anglais#
+- Programme et organisation
+- Projets et méthodes agiles
+//- icon:warning[] [detail]#Cours raccourci exceptionnellement !#
+
+// ------------------------------------------ Go!
 ifdef::slides[== {nbsp}]
 
 À l'initiateur de ce cours, Jean-Michel Inglebert...
@@ -119,8 +135,13 @@ image::M3301.png["M3301", width="80%", link="http://www.iut.univ-paris8.fr/files
 [{intro}]
 == Contenu et Progression
 
+ifdef::slides[== Règles sanitaires]
+
+image::regles-sanitaires.jpg[width=70%]
+
 ifdef::slides[== Les cours]
 
+[{incremental}]
 - Cours SCRUM, Cycle -1 et Cycle 0, Tests
 - Build de code, git avancé
 - Cours Gestion des Modèles au cours du développement et à la livraison
@@ -131,8 +152,7 @@ ifdef::slides[== Les cours]
 [{topic}]
 == Organisation et emploi du temps
 
-Au lieu de faire 2 modules en // (comme POO et COO l'an dernier), vous aurez ce semestre 2 fois plus d'heures,
-mais d'un seul module, l'un après l'autre (MPA puis CPOA).
+Au lieu de faire 2 modules en // (comme POO et COO l'an dernier), vous aurez ce semestre 2 fois plus d'heures, mais d'un seul module, l'un après l'autre (MPA puis CPOA).
 
 [cols="1,2,4"]
 |===
@@ -219,11 +239,28 @@ image::mooc-results.png[width=50%]
 
 - Toute _Proof of success_ (>60%) comptera dans l'évaluation (bonus individuel sur la note de projet)
 
-ifdef::slides[== Vocabulaire pour les TD/TP de cette semaine]
+ifdef::slides[== Vocabulaire pour les TD/TP de la semaine prochaine]
 
 MOA:: **M**aîtrise d'**O**uvr**A**ge
 MOE:: **M**aîtrise d'**OE**uvre
 MoSCoW:: **M**ust **S**hould **C**ould **W**ill
+
+ifdef::slides[]
+:numbered!:
+== Quizz
+
+//----------------------------- Question ------------------
+.*QUESTION*
+[WARNING]
+====
+
+- Connectez-vous sur : http://www.socrative.com/ (*student login*)
+- Ou téléchargez l'application pour étudiant image:socrative2.png[width=10%]
+- Choisissez la room *JMB42*
+====
+
+image::socrative1.png[width=50%,link=http://www.socrative.com/]
+endif::slides[]
 
 ifdef::slides[]
 [{intro}]

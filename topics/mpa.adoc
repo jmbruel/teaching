@@ -5,13 +5,13 @@
 [[MPA]]
 = **M**éthodologie de la **p**roduction d'**a**pplications – MPA (M3301)
 J.-M. Bruel <jbruel@gmail.com>
-v1.0 {localdate}
+v1.20 {localdate}
 :imagesdir: images
 //------------------------------------ variables de configuration
 // only used when master document
 ifndef::jmbtopic[]
 :linkcss:
-:git-version: 2.9.2
+:git-version: 2.17.0
 :icons: font
 :experimental:
 :toc-title: Table des matières

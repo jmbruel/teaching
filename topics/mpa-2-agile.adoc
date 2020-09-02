@@ -8,10 +8,10 @@
 // only used when master document
 ifndef::jmbtopic[]
 J.-M. Bruel <jbruel@gmail.com>
-v1.0 {localdate}
+v1.20 {localdate}
 :imagesdir: images
 :linkcss:
-:git-version: 2.9.2
+:git-version: 2.17
 :icons: font
 :experimental:
 :toc-title: Table des matières
@@ -513,7 +513,7 @@ et des 'tests d'intégration'.
 
 ifdef::slides[:leveloffset: +1]
 
-include::scrum.adoc[]
+//include::scrum.adoc[]
 
 ifdef::slides[]
 
@@ -537,7 +537,7 @@ ifdef::slides[]
 
 - Connectez-vous sur : http://www.socrative.com/ (*student login*)
 - Ou téléchargez l'application pour étudiant image:socrative2.png[width=10%]
-- Choisissez la room *44918d67*
+- Choisissez la room *JMB42*
 ====
 
 image::socrative1.png[width=50%,link=http://www.socrative.com/]
