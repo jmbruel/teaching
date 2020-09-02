@@ -73,12 +73,14 @@ image::blasonJMI.png[width=50%]
 
 ifdef::slides[]
 // ------------------------------------------
+[{topic}]
 == Avant de démarrer...
 
 [{incremental}]
 - icon:laptop[] Laptops welcome!
 - Discussions welcome... mais avec moi!
 
+[{topic}]
 == Désolé...
 
 [{incremental}]
@@ -86,6 +88,7 @@ ifdef::slides[]
 - Pour les TPs à 26 (manque de vacataires) !
 - For my English! (for Groupe 1)
 
+[{topic}]
 == Cours en ligne... icon:mobile[] icon:tablet[] icon:laptop[]
 
 {bitlysiteurl}
@@ -95,7 +98,29 @@ ifdef::slides[]
 http://bit.ly/jmb-map (UK)
 
 endif::slides[]
+
+[{topic}]
+== Stages
+
+[{incremental}]
+- du 6/04 au 12/06
+- 06.07.65.19.70 
+- Sujet / Prof / JMB / Nathalie
+- Moodle (icon:warning[] cours S4) / Discord
+- Soyez acteurs
+
+[{topic}]
+== Groupe anglais
+
+[{incremental}]
+- Soyez acteurs
+- Nouveaux vacataires
+
 // ------------------------------------------
+[{intro}]
+== **M**éthodologie de la **P**roduction d'**A**pplications
+
+[{topic}]
 == icon:home[] Principes généraux
 
 [{incremental}]
@@ -138,6 +163,7 @@ image::M3301.png["M3301", width="80%", link="http://www.iut.univ-paris8.fr/files
 ifdef::slides[== Règles sanitaires]
 
 image::regles-sanitaires.jpg[width=70%]
+[detail]#https://twitter.com/luc_damas (01/09/2020)#
 
 ifdef::slides[== Les cours]
 
