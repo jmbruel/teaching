@@ -321,7 +321,7 @@ Développer une *application web* capable de *collecter*
 et *d'afficher* les urls collectées.
 ====
 
-ifdef::slides[:leveloffset: -3]
+//ifdef::slides[:leveloffset: -4]
 
 // ------
 [{topic}]
@@ -357,7 +357,7 @@ Solution retenue :
 
 - la page propose un formulaire de saisie de nouvelles urls
 
-ifdef::slides[:leveloffset: -2]
+//ifdef::slides[:leveloffset: -2]
 
 // ------
 [{topic}]
@@ -418,11 +418,11 @@ Un projet de développement logiciel se terminera de 'manière satisfaisante'
 si l'équipe fournit une application *fiable*, *robuste* et *maintenable* qui répond aux exigences du client.
 
 
-ifdef::slides[:leveloffset: -3]
+//ifdef::slides[:leveloffset: -3]
 
 // ------
 [{topic}]
-===== Les cas où ça ne marche pas
+==== Les cas où ça ne marche pas
 
 [WARNING]
 ====
@@ -434,7 +434,7 @@ ifdef::slides[:leveloffset: -3]
 
 // ------
 [{topic}]
-===== Les problèmes nouveaux
+==== Les problèmes nouveaux
 
 [WARNING]
 ====
@@ -446,7 +446,7 @@ ifdef::slides[:leveloffset: -3]
 - que devient la documentation ???
 ====
 
-ifdef::slides[:leveloffset: -2]
+ifdef::slides[:leveloffset: 0]
 
 // ------
 [{topic}]

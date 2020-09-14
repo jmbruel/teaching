@@ -92,6 +92,16 @@ $(OUTPUT)/%.pdf: %.$(EXT)
         -r asciidoctor-pdf \
         -o $@ $<
 
+$(OUTPUT)/%.teacher.pdf: %.$(EXT)
+	$(ASCIIDOCTOR) -a final \
+    	-b pdf \
+        -r asciidoctor-pdf \
+		-a prof \
+		-a numbered \
+		-a toc2 \
+		-a source-highlighter=$(HIGHLIGHT) \
+        -o $@ $<
+
 lpdam: lpdam*.html lpdam*.dzslides.html
 
 deploy-lpdam:

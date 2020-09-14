@@ -3,7 +3,7 @@
 // include::lib/globals.asc[] // temporairement
 :tdnum: Sprint0
 include::../definitions.txt[]
-:weekNumber: 36
+:weekNumber: 37
 
 :doctitle:  {moduleTitle} - Sujet {tdnum} (semaine {weekNumber})
 ifdef::prof[]
@@ -11,7 +11,7 @@ ifdef::prof[]
 endif::prof[]
 
 = {doctitle}
-{authorDefault}, v1.1, {localdate}
+{authorDefault}, v1.20, {localdate}
 :lang: fr
 :incremental:
 :icons: font
@@ -29,7 +29,7 @@ endif::prof[]
 :tuleapVersion: 6.0
 :gitlab: icon:gitlab[] Gitlab
 :gitlabIUT: https://gitlab.iut-blagnac.fr/
-:discordMPA: https://discord.gg/GeWyqs6
+:discordMPA: https://discord.gg/gzNNK9R (channel #mpa)
 
 
 //-------------------- Warning si correction -----------

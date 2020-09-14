@@ -3,7 +3,7 @@
 // include::lib/globals.asc[] // temporairement
 :tdnum: Sprint-1
 include::../definitions.txt[]
-:weekNumber: 36
+:weekNumber: 37
 
 :doctitle:  {moduleTitle} - Sujet {tdnum} (semaine {weekNumber})
 ifdef::prof[]
@@ -11,7 +11,7 @@ ifdef::prof[]
 endif::prof[]
 
 = {doctitle}
-{authorDefault}, v1.0, {localdate}
+{authorDefault}, v1.20, {localdate}
 :lang: fr
 :incremental:
 :icons: font
@@ -30,7 +30,7 @@ endif::prof[]
 :gitlab: icon:gitlab[] Gitlab
 :gitlabIUT: https://gitlab.iut-blagnac.fr/
 :gitlabIUT: {gitlabIUT}
-:discordMPA: https://discord.gg/GeWyqs6
+:discordMPA: https://discord.gg/gzNNK9R (channel #mpa)
 
 //-------------------- Warning si correction -----------
 ifdef::prof[]
@@ -80,10 +80,9 @@ NOTE: Ce n'est pas parce que vous êtes dans une salle machine que vous devez fo
   moins (vous pouvez changer régulièrement si vous voulez, mais à chaque Sprint,
   pas pendant un Sprint) qui demande à l'enseignant icon:graduation-cap[] de
   l'ajouter comme gestionnaire du projet de votre groupe.
-. icon:user-md[] Le Scrum Master créé un dépôt respectant la nomenclature : `MPA2019-G[1|2|3|4][A|B][1|2|3]`.
+. icon:user-md[] Le Scrum Master créé un dépôt respectant la nomenclature : `MPA2020-G[1|2|3|4][1|2|3|4|5|6|7|8]`.
   Où le 1er numéro est le numéro du groupe de TD (entre 1 et 4),
-  suivi de la lettre A ou B pour le groupe de TP,
-  suivi d'un numéro de groupe (3 groupes de 4 étudiants max par groupe TP)
+  suivi d'un numéro de groupe (6 groupes de 4 étudiants max par groupe TD)
 . icon:user-md[] Le Scrum Master ajoute tous les autres membres du groupe, ainsi que le ou les
 Product Owner icon:male[] (le prof de TD/TP), ainsi que {jmb} (utilisateur `jmb`,
   en tant que Product Owner).

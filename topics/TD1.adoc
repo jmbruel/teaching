@@ -1,5 +1,5 @@
 = MPA : TD1
-DUT/INFO/M3301, v1.1, {localdate}
+DUT/INFO/M3301, v1.20, {localdate}
 :doctitle: MPA : TD1
 :lang: fr
 :slideshowlocation: Your computer
@@ -18,39 +18,9 @@ réponses aux exercices.
 =====
 
 :numbered!:
-== icon:graduation-cap[] Penser à faire l'appel!
+== icon:graduation-cap[] Penser à faire l'appel, même s'il n'y a pas d'UA!
 :numbered:
 
-endif::prof[]
-
-//-------------------------------------------------------------------------
-== icon:film[] Video agile (15')
-//-------------------------------------------------------------------------
-
-ifdef::prof[]
-[IMPORTANT]
-.icon:graduation-cap[] Version corrigée
-=====
-Eventuellement garder cette partie pour la fin du TD (ou pour chez eux si les 2 autres parties débordent).
-=====
-endif::prof[]
-
-Visionner et discuter la video suivante (9', même pour les groupe non anglais!) :
-
-https://www.youtube.com/watch?v=XU0llRltyFM
-
-ou celle-ci, si vous avez plus de temps, réalisée par un collègue et ami, bien qu'il soit Bordelais maintenant... (26', mais en Français) :
-
-https://www.youtube.com/watch?v=VWhLcgo9z74
-
-ifdef::prof[]
-[IMPORTANT]
-.icon:graduation-cap[] Version corrigée
-=====
-- Vérifier que l'anglais a été compris
-- Vérifier que le cycle a été enregistré (déjà vu en cours)
-- Vérifier que les mots-clefs {Scrum} sont acquis
-=====
 endif::prof[]
 
 //-------------------------------------------------------------------------
@@ -183,7 +153,7 @@ ifdef::prof[Could]
 o::
 ifdef::prof[rien du tout]
 W::
-ifdef::prof[Won't (or Will)]
+ifdef::prof[Won't (ou Will)]
 
 {nbsp}
 
@@ -202,6 +172,9 @@ endif::prof[]
 des lignes "Moscow".
 . Découper et distribuer les https://idetido.files.wordpress.com/2014/06/exercice_story_map-cartes_us_recto.pdf[User Stories] entre les membres de l'équipes
 . Répartir les User Stories *en mode silencieux*
++
+WARNING: image:hands-wash-solid.svg[width=20] COVID-19 oblige, vous pouvez faire qu'un seul étudiant touche les feuilles...
++
 . Appelez l'enseignant quand tout le monde a posé (en silence) ses cartes
 . Faire des constats sur la répartition.
 +
@@ -221,7 +194,6 @@ NOTE: À partir de là on quitte {Scrum} à cause des contraintes de l'exercice 
 +
 . Négociez avec le client le MVP (_Minimum Viable Product_)
 +
-ifdef::prof[]
 [IMPORTANT]
 .icon:graduation-cap[] Version corrigée
 =====
@@ -230,7 +202,6 @@ ifndef::slides[.Exemple de MVP ({thisref})]
 image::mvp.png[width=100%,link="{thisref}"]
 ifdef::slides[NOTE: [detail]#{thisref}#]
 =====
-endif::prof[]
 +
 . Chaque membre réalise un dessin représentant le système attendu (intégrant le MVP)
 . Faire élire par le client la plus belle réalisation des groupes projet
@@ -268,6 +239,35 @@ garder le secret vis-à-vis des autres groupes.
 =====
 endif::prof[]
 
+//-------------------------------------------------------------------------
+== icon:film[] Video agile (15')
+//-------------------------------------------------------------------------
+
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Version corrigée
+=====
+Eventuellement garder cette partie pour la fin du TD (ou pour chez eux si les 2 autres parties débordent).
+=====
+endif::prof[]
+
+Visionner et discuter la video suivante (9', même pour les groupe non anglais!) :
+
+https://www.youtube.com/watch?v=XU0llRltyFM
+
+ou celle-ci, si vous avez plus de temps, réalisée par un collègue et ami, bien qu'il soit Bordelais maintenant... (26', mais en Français) :
+
+https://www.youtube.com/watch?v=VWhLcgo9z74
+
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Version corrigée
+=====
+- Vérifier que l'anglais a été compris
+- Vérifier que le cycle a été enregistré (déjà vu en cours)
+- Vérifier que les mots-clefs {Scrum} sont acquis
+=====
+endif::prof[]
 
 //-------------------------------------------------------------------------
 :numbered!:
