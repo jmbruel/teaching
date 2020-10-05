@@ -1,3 +1,52 @@
 = Teaching materials image:https://travis-ci.org/jmbruel/teaching.svg?branch=master["Build Status", link="https://travis-ci.org/jmbruel/teaching"]
+J.-M. Bruel <jbruel@gmail.com>
+v20.1 {localdate}
+:imagesdir: images
+//------------------------------------ variables de configuration
+// only used when master document
+:icons: font
+:experimental:
+:numbered!:
+:status:
+:base: http://jmbruel.github.io/teaching/
+// Specific to GitHub
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+:us-icon: image:united-states.png[]
+:fr-icon: image:france.png[]
+:iu: https://innopolis.university/en/[Innnopolis University]
+:iut: https://iut-blagnac.fr[IUT Blagnac]
+//------------------------------------ variables de configuration
+
+WARNING: Work in progress!!
 
 This project aims at grouping my teaching materials in one place.
+
+== Available material
+
+[cols="1,1,3,1,1,1"]
+|===
+| School | Lecture | Description | HTML | Slides | PDF 
+| {iu} | Modern Application Production {us-icon} | 30h course on Git/Gitlab/Tests/CI/... | link:{base}/topics/inno-1-Intro.html[Introduction] | link:{base}/topics/inno-1-Intro.dzslides.html[Slides] | 
+| {iut} | Méthodologie de Production d'Applications {fr-icon} | 30h course on Git/Gitlab/Tests/CI/... | link:{base}/topics/mpa-1-Intro.html[Introduction] | link:{base}/topics/mpa-1-Intro.dzslides.html[Introduction] | 
+|===
+
+== How to contribute ?
+
+- Fork the repo version of this site: {base}
+- Make a merge request
+- Voilà!
+
+List of contributors:
+
+- Louis Chanouha
+
+== Credits
+
+- Flags Icons made by https://www.freepik.com[Freepik] from https://www.flaticon.com/[www.flaticon.com] is licensed by http://creativecommons.org/licenses/by/3.0/[CC 3.0 BY]
+
