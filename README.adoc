@@ -9,6 +9,7 @@ v20.1 {localdate}
 :numbered!:
 :status:
 :base: http://jmbruel.github.io/teaching/
+:baseURL: http://github.com/jmbruel/teaching.git
 // Specific to GitHub
 ifdef::env-github[]
 :tip-caption: :bulb:
@@ -38,9 +39,11 @@ This project aims at grouping my teaching materials in one place.
 
 == How to contribute ?
 
-- Fork the repo version of this site: {base}
+- Fork the repo version of this site: {baseURL}
 - Make a merge request
 - Voilà!
+
+For more details see link:CONTRIBUTING.adoc[this explanation].
 
 List of contributors:
 
