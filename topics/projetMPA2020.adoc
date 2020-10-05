@@ -4,7 +4,7 @@
 // ------------------------------------------
 = DUT-Info/S3/M3301 (MPA) : Projet
 Jean-Michel Bruel <jbruel@gmail.com>
-v2020.1.0, {localdate}
+v2020.1.1, {localdate}
 :status: bottom
 :inclusion:
 :experimental:
@@ -31,9 +31,6 @@ Cette version comporte des indications pour les
 réponses aux exercices.
 =====
 endif::prof[]
-
-:thisref: http://ent.ensa-learning.com/
-image::gestage.jpg[width=30%,link="{thisref}"]
 
 == Contexte
 
