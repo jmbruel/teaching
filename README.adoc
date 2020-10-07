@@ -22,6 +22,7 @@ endif::[]
 :fr-icon: image:france.png[]
 :iu: https://innopolis.university/en/[Innnopolis University]
 :iut: https://iut-blagnac.fr[IUT Blagnac]
+:mobileModeling: https://jmbruel.github.io/MobileModeling
 //------------------------------------ variables de configuration
 
 WARNING: Work in progress!!
@@ -34,7 +35,8 @@ This project aims at grouping my teaching materials in one place.
 |===
 | School | Lecture | Description | HTML | Slides | PDF 
 | {iu} | Modern Application Production {us-icon} | 30h course on Git/Gitlab/Tests/CI/... | link:{base}/topics/inno-1-Intro.html[Introduction] | link:{base}/topics/inno-1-Intro.dzslides.html[Slides] | 
-| {iut} | Méthodologie de Production d'Applications {fr-icon} | 30h course on Git/Gitlab/Tests/CI/... | link:{base}/topics/mpa-1-Intro.html[Introduction] | link:{base}/topics/mpa-1-Intro.dzslides.html[Introduction] | 
+| {iut} | Méthodologie de Production d'Applications {fr-icon} | 30h course on Git/Gitlab/Tests/CI/... | link:{base}/topics/mpa-1-Intro.html[Introduction] | link:{base}/topics/mpa-1-Intro.dzslides.html[Slides] | 
+| {iut} | Mobile Modeling {fr-icon} | 24h course on Mobile Modeling | link:{mobileModeling}/MobileModeling/main.html[Mobile Modeling] | link:{mobileModeling}/main.slides.html[Slides] | link:{mobileModeling}/main.pdf[Slides]
 |===
 
 == How to contribute ?
