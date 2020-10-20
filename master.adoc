@@ -1,8 +1,16 @@
 = Teaching materials image:https://travis-ci.org/jmbruel/teaching.svg?branch=master["Build Status", link="https://travis-ci.org/jmbruel/teaching"]
 J.-M. Bruel <jbruel@gmail.com>
-V1.0, {localdate}
-//:doctype: book
-:toc-title: Table des matières
+V20.2, {localdate}
+//------------------------------------ variables de configuration
+// only used when master document
+:icons: font
+:experimental:
+:numbered!:
+:status:
+:base: http://jmbruel.github.io/teaching/
+:baseURL: http://github.com/jmbruel/teaching.git
+:imagesdir: images
+:toc-title: Table of Content
 :toc: left
 //:data-uri:
 :lang: fr

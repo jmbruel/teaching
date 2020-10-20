@@ -9,7 +9,9 @@ v20.1 {localdate}
 :numbered!:
 :status:
 :base: http://jmbruel.github.io/teaching/
+:website: http://jmbruel.github.io/teaching
 :baseURL: http://github.com/jmbruel/teaching.git
+:jmbtopic:
 // Specific to GitHub
 ifdef::env-github[]
 :tip-caption: :bulb:
@@ -18,18 +20,52 @@ ifdef::env-github[]
 :caution-caption: :fire:
 :warning-caption: :warning:
 endif::[]
+
+include::definitions.txt[]
+
 :us-icon: image:united-states.png[]
 :fr-icon: image:france.png[]
 :iu: https://innopolis.university/en/[Innnopolis University]
 :iut: https://iut-blagnac.fr[IUT Blagnac]
 :mobileModeling: https://jmbruel.github.io/MobileModeling
+:duplm: link:https://www.phosforea.com/ups-du/du-plm.php[DU PLM]
+:vpuml: link:http://www.visual-paradigm.com/product/vpuml[VP-UML]
+:nomagic: link:http://www.nomagic.com/[No Magic]
+:magicdraw: link:http://www.nomagic.com/products/magicdraw.html/[MagicDraw]
+:lucidchart: link:https://www.lucidchart.com/[LucidChart]
+:jetbrains: link:http://www.jetbrains.com/[JetBrains]
+:rubymine: link:href="http://www.jetbrains.com/ruby/[RubyMine]
+:intellij: link:href="http://www.jetbrains.com/idea/[IntelliJ]
+:pycharm: link:http://www.jetbrains.com/pycharm/[PyCharm]
+:apsio: link:http://www.iut-blagnac.fr/spip.php?mot1&id_article=2[Licence APSIO]
+:ice: link:http://mathsinfo.univ-tlse2.fr/accueil/formations/master-ice/[Master ICE]
+:ntie: Master NTIE
+:ittdublin: http://www.it-tallaght.ie/[ITT Dublin]
+:masterITT: http://www.it-tallaght.ie/index.cfm/page/course?id=128[Masters of Engineering in Electronic Engineering in Electronic System Design]
 //------------------------------------ variables de configuration
 
-WARNING: Work in progress!!
+:numbered!:
+== About this document / Avant-Propos
 
-This project aims at grouping my teaching materials in one place.
+image:icons/fr.svg[width=30] Ce site est en anglais pour permettre une plus large diffusion.
+Si vous êtes allergique à l'anglais et que vous êtes un de mes étudiants en informatique : changez d'orientation
+tout de suite...
+
+The following courses are in English except those with the French flag image:icons/fr.svg[width=20].
+
+WARNING: Site under construction!!
+
+=== Conventions
+
+Level of difficulty::
+I've graded from easy/beginner (icon:star-o[]) to advanced (icon:star[])
+
+Definitions/Theory vs Practical::
+Courses with icon:graduation-cap[] are more theoretical than those with icon:cogs[]
 
 == Available material
+
+This project aims at grouping my teaching materials in one place.
 
 [cols="1,1,3,1,1,1"]
 |===
@@ -39,7 +75,9 @@ This project aims at grouping my teaching materials in one place.
 | {iut} | Mobile Modeling {fr-icon} | 24h course on Mobile Modeling | link:{mobileModeling}/MobileModeling/main.html[Mobile Modeling] | link:{mobileModeling}/main.slides.html[Slides] | link:{mobileModeling}/main.pdf[Slides]
 |===
 
-== How to contribute ?
+== icon:cogs[] Contributions are welcome!
+
+NOTE: Students are more than welcome to contribute!
 
 - Fork the repo version of this site: {baseURL}
 - Make a merge request
