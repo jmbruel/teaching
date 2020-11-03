@@ -60,6 +60,7 @@
 :googlemaps: https://www.google.fr/maps[Google Maps]
 :gradle: http://www.gradle.org/[Gradle]
 :grafcet: http://fr.wikipedia.org/wiki/Grafcet[Grafcet]
+:graphviz: https://graphviz.org/[Graphviz]
 :gvle: link:http://www.vle-project.org/wiki/GVLE[GVLE]
 :idm2014: link:http://devlog.cnrs.fr/idm2014orga[IDM'2014]
 :inra: link:http://www.inra.fr/[INRA]

@@ -66,6 +66,7 @@ $(OUTPUT)/%.deckjs.html: %.$(EXT)
 		-a slides \
 		-a deckjs_theme=$(DECK) \
 		-a prof \
+		-a data-uri \
 		-o $@ $<
 
 $(OUTPUT)/%.teacher.html: %.$(EXT)
