@@ -1,0 +1,141 @@
+// ------------------------------------------
+//  Created by Jean-Michel Bruel on 2020-09.
+//  Copyright (c) 2020 IRIT/U. Toulouse. All rights reserved.
+// ------------------------------------------
+= Innopolis University MAP-F20 Project
+Jean-Michel Bruel <jbruel@gmail.com>
+v2020.1.1, {localdate}
+:status: bottom
+:inclusion:
+:experimental:
+// ------------------------------------------
+include::../definitions.txt[]
+:icons: font
+:imagesdir: images
+//:prof:
+:bitlysiteurl: http://bit.ly/jmb-mpa
+:quizgame: https://github.com/ufukozdogan/java-swing-quizgame
+
+:csv: https://fr.wikipedia.org/wiki/Comma-separated_values[CSV]
+:json: https://en.wikipedia.org/wiki/JSON[JSON]
+:must: MUST
+:should: SHOULD
+:could: COULD
+
+
+== Context
+
+This project consists of handling quizzes (questions / answers).
+We will start by simply displaying questions, entering the answers, displaying the result and counting the points.
+
+You can even start from a small existing java program (be careful to cite your sources and license issues):
+
+{quizgame}
+
+.Examples [taken from quizgame]
+image::quizgame.png[width=80%"]
+
+== Requirements
+
+Since you have 7 weeks to develop this game by applying the Scrum method, here is the planning:
+
+- a first version (V1.0) at the end of the 4th sprint
+- a second version (V2.0) at the end of the 7th sprint
+
+[NOTE]
+=====
+- No special instructions on the GUI (model and prototypes welcome)
+- No instructions on techno (java is not mandatory)
+=====
+
+== Initial Product Backlog (last update: 14/09/2020)
+
+[IMPORTANT]
+=====
+The word "define", in the following, have to be understood as "Create / Delete / Modify" a data (classic CRUD).
+=====
+
+===  Initial Client Features for V1
+
+The initial functionalities requested are as follows:
+
+. Define the quiz questions/answers
+.. Create / Delete / Modify a question
+.. Create / Delete / Modify associated responses
+.. List the questions
+
+. To play
+.. Manage the progress of a quiz
+.. Display the question and simply enter the answer
+.. Have several levels of display of scores (at the end, for each question)
+
+. Manage players
+.. Keep in mind the list of players and their scores in the different quizzes
+
+
+NOTE: For V1, the questions (and answers) will be simple sentences.
+
+:numbered!:
+==== Initial User Stories examples
+
+WARNING: These USs are only examples to start your Product Backlog, but the above customer requirements should be translated into US. Do not hesitate to speak with the client (me!) for clarification.
+
+- As a player, I want to be able to answer questions easily (single click for example) - business priority *{must}*.
+
+- As a player, I want to be able to get my final score - business priority *{must}*.
+
+- As a teacher, I want to be able to simply enter the questions / answers ({CSV} or {json} file for example) - business priority *{must}*.
+
+- As a player, I want to be able to know right away if I gave the correct answer - business priority *{should}*.
+
+- As a teacher, I want to have the list of players and their score - business priority *{could}*.
+
+:numbered:
+=== Customer functionalities (Product Backlog) V2
+
+All the features of version V1, plus:
+
+- Questions can have an associated image
+- Questions have additional attributes (categories, level of difficulty)
+- We can play with several (against each other)
+- We can choose in advance the number of questions to play
+- We will be able to have a "revision" mode, which only rests the questions on which we made a mistake
+
+:numbered:
+== Assessment and rating
+
+Here is the provisional scale:
+
+[align="center", width="90%", cols="6,^1", options="header"]
+|==========================================================
+| Heading | Footnote weight: [on the project note]
+| Respect for the Scrum method | 20%
+| "Professional" character of dev | 20%
+| Successive deliveries | 20%
+| Tests / Documentations / Readme / wiki | 20%
+| Code and application quality | 10%
+| Final Customer Satisfaction | 10%
+| _Bonus_ (fun side of the game) | _ + 10% _
+|==========================================================
+
+Each Sprint (week) will be evaluated by the TD teacher who had you at your last TP slot.
+The evaluation will relate to 6 criteria and will take the following form:
+
+.Example of weekly evaluation
+image::spider.png[width=60%]
+
+These 6 criteria are taken from a course on software quality from my Bordeaux colleague Xavier Blanc (https://github.com/xblanc33/QualiteDev):
+
+WARNING: Sorry for the French in the following explanations:
+issues:: the way the goals have been captured (more details link:https://github.com/xblanc33/QualiteDev/blob/master/issue[here])
+tasks:: the link:https://github.com/xblanc33/QualiteDev/blob/master/tache[here])
+tests:: verification activities (more details link:https://github.com/xblanc33/QualiteDev/blob/master/test[here])
+source code:: quality attributes (more details link:https://github.com/xblanc33/QualiteDev/blob/master/code[here])
+documentation:: technical and user documentations (more details link:https://github.com/xblanc33/QualiteDev/blob/master/doc[here])
+release:: build, automated testing, deploy (more details link:https://github.com/xblanc33/QualiteDev/blob/master/release[here])
+
+:numbered!:
+== Usefull links
+
+- The materials for the course: http://bit.ly/innopolis-map
+- The initial quizgame: {quizgame}
