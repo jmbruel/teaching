@@ -4,8 +4,8 @@
 //---------------------------------
 [[MPA]]
 = **M**éthodologie de la **p**roduction d'**a**pplications – MPA (M3301)
-J.-M. Bruel <jbruel@gmail.com>
-v1.20 {localdate}
+J.-M. Bruel - {localdate}
+v1.22 
 :imagesdir: images
 //------------------------------------ variables de configuration
 // only used when master document
@@ -125,6 +125,10 @@ Ce module, qui fait suite aux modules de :
 - d'IHM (M2105).
 
 Il est fortement corrélé au module de conception avancé (M3105).
+
+ifdef::slides[== {nbsp}]
+
+image::dut-modules.svg["Dependencies", width="100%"]
 
 ifdef::slides[== PPN]
 

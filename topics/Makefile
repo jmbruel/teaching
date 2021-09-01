@@ -1,6 +1,6 @@
 #-----------------------------------------------------
-DZSLIDES=../../asciidoctor-backends/slim/dzslides
-DECKJS=../..asciidoctor-deck.js/templates/haml/
+DZSLIDES=../../../lib/asciidoctor-backends/slim/dzslides
+DECKJS=asciidoctor-deck.js/templates/haml/
 DECK=swiss
 #DECK=neon
 #DECK=beamer

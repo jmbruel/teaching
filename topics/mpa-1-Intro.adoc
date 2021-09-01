@@ -3,8 +3,8 @@
 // (c) JMB - 2018
 //---------------------------------
 = **M**éthodologie de la **P**roduction d'**A**pplication – MPA (M3301)
-J.-M. Bruel <jbruel@gmail.com>
-v1.20 {localdate}
+J.-M. Bruel - {localdate}
+v1.21 
 :imagesdir: images
 //------------------------------------ variables de configuration
 // only used when master document
@@ -84,7 +84,7 @@ ifdef::slides[]
 == Désolé...
 
 [{incremental}]
-- Pour le nombre d'heures que vous allez m'avoir les 7 prochaines semaines!!
+- Pour le nombre d'heures que vous allez avoir les 7 prochaines semaines!!
 - Pour les TPs à 26 (manque de vacataires) !
 - For my English! (for Groupe 1)
 
@@ -103,8 +103,7 @@ endif::slides[]
 == Stages
 
 [{incremental}]
-- du 6/04 au 12/06
-- 06.07.65.19.70 
+- 06.07.65.19.70 => chef de département 
 - Sujet / Prof / JMB / Nathalie
 - Moodle (icon:warning[] cours S4) / Discord
 - Soyez acteurs
@@ -143,6 +142,10 @@ Ce module, qui fait suite aux modules de :
 - d'IHM (M2105).
 
 Il est fortement corrélé au module de conception avancé (M3105).
+
+ifdef::slides[== {nbsp}]
+
+image::dut-modules.svg["Dependencies", width="100%"]
 
 ifdef::slides[== PPN]
 
