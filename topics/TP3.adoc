@@ -127,7 +127,7 @@ image:gitlab/serveurMylyn.png[width=50%]
 +
 . Entrez comme serveur le nom de votre projet {Gitlab}
 . Entrez vos login/password
-. Constatez que les modifications dans l'un ou l'autre ({gitlab}/{eclipse}) ont
+. Constatez que les modifications dans l'un ou l'autre ({gitlab} / {eclipse}) ont
 bien des répercussions automatiquement dans l'autre.
 
 

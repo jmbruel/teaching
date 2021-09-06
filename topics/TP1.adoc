@@ -3,7 +3,7 @@
 // include::lib/globals.asc[] // temporairement
 :tdnum: Sprint-1
 include::../definitions.txt[]
-:weekNumber: 37
+:weekNumber: 36
 
 :doctitle:  {moduleTitle} - Sujet {tdnum} (semaine {weekNumber})
 ifdef::prof[]
@@ -53,7 +53,7 @@ endif::prof[]
 [align="left",cols="2,10",width="90%"]
 |======================
 | {pre}		|
-1.	Je connais les concepts principaux de {scrum}
+1.	Je connais les concepts principaux de {scrum} (vus en cours et au 1er TD)
 | {objtd}	| Mettre en place dépôt pour le code
 | {duree}	| *1 ou 2 séance(s)* de 1,5h (selon la chaleur)
 |======================
@@ -65,7 +65,7 @@ Validez la constitution de votre groupe auprès de votre enseignant de TD/TP.
 
 NOTE: Ce n'est pas parce que vous êtes dans une salle machine que vous devez foncer sur le codage!
 
-== icon:gitlab[] Gitlab
+== icon:gitlab[] Gitlab  (icon:github[] GitHub en plan B)
 
 . Connectez-vous sur {gitlabIUT} (icon:users[] tous les membres du groupe)
 +
@@ -75,17 +75,16 @@ NOTE: Ce n'est pas parce que vous êtes dans une salle machine que vous devez fo
 - Si le serveur est indisponible ou vos comptes pas encore créés, utilisez un dépôt git de votre choix, ou bien passez cette étape pour l'instant.
 =====
 +
-. icon:users[] Découvrez l'environnement, les menus et configurez votre profil
+. icon:users[] Découvrez l'environnement, les menus et configurez votre profil. Observez les différences avec GitHub que vous connaissez déjà.
 . icon:users[] Désignez un Scrum Master icon:user-md[] pour cette séance au
   moins (vous pouvez changer régulièrement si vous voulez, mais à chaque Sprint,
   pas pendant un Sprint) qui demande à l'enseignant icon:graduation-cap[] de
   l'ajouter comme gestionnaire du projet de votre groupe.
-. icon:user-md[] Le Scrum Master créé un dépôt respectant la nomenclature : `MPA2020-G[1|2|3|4][1|2|3|4|5|6|7|8]`.
+. icon:user-md[] Le Scrum Master créé un dépôt respectant la nomenclature : `MPA2021-G[1|2|3|4][1|2|3|4|5|6|7|8]`.
   Où le 1er numéro est le numéro du groupe de TD (entre 1 et 4),
   suivi d'un numéro de groupe (6 groupes de 4 étudiants max par groupe TD)
 . icon:user-md[] Le Scrum Master ajoute tous les autres membres du groupe, ainsi que le ou les
-Product Owner icon:male[] (le prof de TD/TP), ainsi que {jmb} (utilisateur `jmb`,
-  en tant que Product Owner).
+Product Owner icon:male[] (le prof de TD/TP), ainsi que {jmb} (utilisateur `jmb`, en tant que Product Owner).
 . Participez par un billet d'humeur de votre choix (humour autorisé mais restez
   correct) sur le forum dédié à ce module (après vous y être abonné comme en S2) :
   {discordMPA}.
@@ -147,7 +146,7 @@ supprimer ensuite)
 == Pour aller plus loin
 
 Commencez à réfléchir à comment vous allez construire votre application
-(Makefile, {ant}, etc.), si bien sûr les vacances n'ont pas complètement effacé ce que vous
+(Makefile, {ant}, {maven}, {gradle}, etc.), si bien sûr les vacances n'ont pas complètement effacé ce que vous
 avez fait en S2...
 
 //----------------------------------------------------- Correction ------------

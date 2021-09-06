@@ -67,10 +67,9 @@ NOTE: Don't rush on code, this is for later!
 =====
 +
 . icon:users[] Play with the environment, menus, etc.
-. icon:users[] Désign a Scrum Master icon:user-md[] (at least for this practical work)
-. icon:user-md[] Scrum Master create a repository with this naming protocol: `MPA2019-G1[A|B][1|2|3]`.
-  Where A or B is your TP group,
-  followed by a group number (don't choose yourself!)
+. icon:users[] Nominate a Scrum Master icon:user-md[] (at least for this practical work)
+. icon:user-md[] Scrum Master create a repository with this naming protocol: `MPA2021-G1[1|2|3|4|5|6]`.
+  Where you select your team number (don't choose yourself!)
 . icon:user-md[] Scrum Master add the other team members in the project,
 as well as {jmb} as a Product Owner icon:male[].
 +

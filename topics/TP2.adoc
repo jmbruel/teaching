@@ -87,8 +87,10 @@ Nous nous intéressons dans cette section à cette deuxième catégorie, car le
 client n'est pas sensé disposer d'{eclipse} ou du même environnement de développement
 que nous.
 
-WARNING: Les manipulations ci-dessous sont à faire dans un environnement
-où vous avez un projet Java existant!!
+IMPORTANT: Les manipulations ci-dessous sont à faire dans un environnement
+où vous avez un projet Java existant.
+
+WARNING: Les scripts ou fichiers donnés ne marchent pas tel que. Il faut les adapter à votre environnement, et donc repérer ce qu'il y a à modifier!!
 
 ifdef::slides[== Construire ses applications (suite)]
 Il existe plusieurs outils :
