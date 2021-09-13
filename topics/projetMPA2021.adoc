@@ -1,0 +1,158 @@
+// ------------------------------------------
+//  Created by Jean-Michel Bruel on 2020-09.
+//  Copyright (c) 2020 IRIT/U. Toulouse. All rights reserved.
+// ------------------------------------------
+= DUT-Info/S3/M3301 (MPA) : Projet
+Jean-Michel Bruel <jbruel@gmail.com>
+v2020.1.1, {localdate}
+:status: bottom
+:inclusion:
+:experimental:
+// ------------------------------------------
+include::../definitions.txt[]
+:icons: font
+:imagesdir: images
+//:prof:
+:bitlysiteurl: http://bit.ly/jmb-mpa
+:quizgame: https://github.com/ufukozdogan/java-swing-quizgame
+
+:csv: https://fr.wikipedia.org/wiki/Comma-separated_values[CSV]
+:json: https://en.wikipedia.org/wiki/JSON[JSON]
+:must: MUST
+:should: SHOULD
+:could: COULD
+
+//-------------------- Warning si correction -----------
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Version corrigée
+=====
+Cette version comporte des indications pour les
+réponses aux exercices.
+=====
+endif::prof[]
+
+== Contexte
+
+Ce projet consiste à manipuler des quiz (questions/réponses).
+On commencera par des simplement afficher des questions, saisir les réponses, afficher le résultat et compter les points.
+
+Vous pouvez même démarrer d'un petit programme java existant (attention de citer vos sources et aux problèmes de licence) :
+
+{quizgame}
+
+.Exemple [tiré de quizgame]
+image::quizgame.png[width=80%"]
+
+
+== Besoins
+
+
+Etant donné que vous avez 7 semaines pour développer ce jeu en appliquant la méthode Scrum vue en cours, le client vous propose :
+
+- une première version (V1.0) à la fin du 4ème sprint
+- une deuxième version (V2.0) à la fin du 7ème sprint
+
+
+[NOTE]
+=====
+- Aucune consigne particulière sur l'IHM (maquette et prototypes welcome tout de même)
+- Aucune consigne sur la techno (java recommandé pour faciliter les tests quand même)
+=====
+
+== Backlog de Produit initial (dernière mise à jour 14/09/2020)
+
+[IMPORTANT]
+=====
+Le mot "définir" s'entendra comme "Créer/Supprimer/Modifier" une donnée (CRUD classique).
+=====
+
+===  Fonctionnalités initiales du client pour la V1
+
+Les fonctionnalités initiales demandées sont les suivantes :
+
+. Définir les questions/réponses du quiz
+.. Créer/Supprimer/Modifier une question
+.. Créer/Supprimer/Modifier les réponses associées
+.. Lister les questions
+
+. Jouer
+.. Gérer le déroulement d'un quiz
+.. Afficher la question et saisir simplement la réponse
+.. Avoir plusieurs niveau d'affichage des scores (à la fin, à chaque question)
+
+. Gérer les joueurs
+.. Garder en mémoire la liste des joueurs et leur scores aux différents quiz
+
+
+NOTE: Pour la V1, les questions (et réponses) seront de simples phrases.
+
+:numbered!:
+==== Exemples de User Stories initiales
+
+NOTE: Comme {gitlab} n'est pas configuré pour avoir des types d'utilisateurs configurables,
+je n'ai pas différencié les rôles responsable des questions, joueur, etc.
+
+WARNING: Ces US ne sont que des exemples pour commencer votre "Product Backlog", mais il convient de traduire les besoins clients ci-dessus en US. N'hésitez pas à discutez avec le client (chargé de TD) pour obtenir des éclaircissements.
+
+- En tant que joueur, je veux pouvoir répondre facilement (simple click par exemple) aux questions - priorité métier *{must}*.
+
+- En tant que joueur, je veux pouvoir obtenir mon score final - priorité métier *{must}*.
+
+- En tant qu'enseignant, je veux pouvoir saisir simplement les questions/réponses (fichier {CSV} ou {json} par exemple) - priorité métier *{must}*.
+
+- En tant que joueur, je veux pouvoir savoir tout de suite si j'ai donné la bonne réponse - priorité métier *{should}*.
+
+- En tant qu'enseignant, je veux avoir la liste des joueurs et leur score - priorité métier *{could}*.
+
+
+:numbered:
+=== Fonctionnalités client (Backlog Produit) V2
+
+Toutes les fonctionnalités de la  version V1,
+auxquelles s'ajoutent ...
+
+- Les questions peuvent avoir une image associées
+- Les questions ont des attributs supplémentaires (catégories, niveau de difficulté)
+- On peut jouer à plusieurs (les uns contre les autres)
+- On pourra choisir à l'avance le nombre de questions à jouer
+- On pourra avoir un mode "révision", qui ne repose que les questions auxquelles on s'est trompé
+
+
+:numbered:
+== Evaluation et notation
+
+Voici le barème prévisionnel :
+
+[align="center",width="90%",cols="6,^1",options="header"]
+|=========================================================
+| Rubrique							 | Poids footnote:[sur la note de projet]
+| Respect de la méthode Scrum 	     | 20%
+| Caractère "Professionnel"	du dev   | 20%
+| Livraisons successives             | 20%
+| Tests/Documentations/Readme/wiki   | 20%
+| Qualité du code et de l'application | 10%
+| Satisfaction finale du client       | 10%
+| _Bonus_ (côté fun du jeu)          | _+10%_ 
+|=========================================================
+
+Chaque Sprint (semaine) sera évalué par l'enseignant de TD qui vous aura eu à votre dernier créneau de TP.
+L'évaluation portera sur 6 critères et prendra la forme suivante :
+
+.Exemple d'évaluation hebdomadaire
+image::spider.png[width=60%"]
+
+Ces 6 critères sont tirés d'un cours sur la qualité logicielle de mon collègue bordelais Xavier Blanc (https://github.com/xblanc33/QualiteDev) : 
+
+issues:: l'expression des besoins que le logiciel doit couvrir (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/issue[ici])
+tâches:: les travaux à effectuer pour réaliser les issues (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/tache[ici])
+tests:: la vérification du logiciel (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/test[ici])
+code source:: les instructions que la machine va exécuter (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/code[ici])
+documentation:: les explications du logiciel (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/doc[ici])
+release:: ce qui va être déployé, exécuté et donc utilisé (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/release[ici])
+
+:numbered!:
+== Références
+
+- Le lien sur le cours : https://bit.ly/jmb-mpa
+- Le jeu quizgame initial : {quizgame}
