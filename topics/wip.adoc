@@ -3,9 +3,9 @@
 // (c) JMB - 2016-2018
 //---------------------------------
 [[MPA]]
-= Points sur les *Projets*
-J.-M. Bruel <jbruel@gmail.com>
-v1.0 {localdate}
+= **M**éthodologie de la **P**roduction d'**A**pplication – MPA (M3301)
+J.-M. Bruel - {localdate}
+v1.21 
 :imagesdir: images
 //------------------------------------ variables de configuration
 // only used when master document
@@ -68,12 +68,21 @@ ifndef::definitions[]
 include::../definitions.txt[]
 endif::definitions[]
 
+// ------------------------------------------ plan
+:numbered:
+[{intro}]
+== icon:book[] Au programme aujourd'hui
+
 [{topic}]
-== Evaluations
+== icon:map-signs[] Plan
 
-https://gitlab.iut-blagnac.fr/jmbruel/test-agile.git
+[{incremental}]
+- Scrum
+- icon:warning[] Evaluation des sprints !
+- Git et branches
 
-image:eval.png[width=45%]
+// ------------------------------------------ Go!
+
 
 
 
