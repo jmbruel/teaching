@@ -42,7 +42,7 @@ $(OUTPUT)/%.html: %.$(EXT)
 
 $(OUTPUT)/%.dzslides.html: %.$(EXT)
 	@echo '==> Compiling asciidoc files to generate Dzslides'
-	$(ASCIIDOCTOR) -b dzslides \
+	$(ASCIIDOCTOR)  \
 		-T $(DZSLIDES) -E slim \
 		-a slides -a dzslides \
 		-r asciidoctor-diagram \
