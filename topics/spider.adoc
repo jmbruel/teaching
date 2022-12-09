@@ -1,0 +1,89 @@
+// ------------------------------------------
+//  Created by Jean-Michel Bruel on 2022-12.
+//  Copyright (c) 2022 IRIT/U. Toulouse. All rights reserved.
+// ------------------------------------------
+= Evaluation hebdomadaire des sprints
+Jean-Michel Bruel <jbruel@gmail.com>
+v2022.1.1, {localdate}
+:status: bottom
+:inclusion:
+:experimental:
+// ------------------------------------------
+//include::../definitions.txt[]
+:icons: font
+:imagesdir: images
+//:prof:
+:bitlysiteurl: http://bit.ly/jmb-mpa
+:quizgame: https://github.com/ufukozdogan/java-swing-quizgame
+
+:csv: https://fr.wikipedia.org/wiki/Comma-separated_values[CSV]
+:json: https://en.wikipedia.org/wiki/JSON[JSON]
+:must: MUST
+:should: SHOULD
+:could: COULD
+
+//-------------------- Warning si correction -----------
+ifdef::prof[]
+[IMPORTANT]
+.icon:graduation-cap[] Version corrigée
+=====
+Cette version comporte des indications pour les
+réponses aux exercices.
+=====
+endif::prof[]
+
+== Contexte
+
+Ce document décrit comment nous allons évaluer la compétence 5 (Conduire un projet) sur la partie hebdomadaire de vos rendus.
+
+[NOTE]
+=====
+Cette évaluation ne concernent que les semaines 3 à 8 (6 sprints numérotés de #3 à #8)
+=====
+
+== Evaluation et notation
+
+Chaque Sprint (semaine) sera évalué par les responsables de la compétence 5 (Esther Pendariès et JMB).
+L'évaluation portera sur 5 critères et prendra la forme suivante :
+
+[[spider]]
+.Exemple d'évaluation hebdomadaire
+image::spider.png[pdfwidth=300%"]
+
+NOTE: L'illustration comporte 6 critères car cette façon d'évaluer est tirée d'un cours qui en utilise 6.
+
+Ces 5 critères sont tirés d'un cours sur la qualité logicielle de notre 
+collègue bordelais Xavier Blanc (https://github.com/xblanc33/QualiteDev) : 
+
+issues:: 
+l'expression des besoins que le logiciel doit couvrir, donc la façon dont vos US sont écrites et traitées au fur et à mesure des sprints (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/issue[ici]). Nous regarderons plus attentivement :
++
+- Harmonisationfootnote:[Respect d'un même template, numérotation, etc.] et correctionfootnote:[Respect du format "En tant que ..."] de l'écriture des US
+
+tâches:: les travaux à effectuer pour réaliser les issues et comment elles sont clairement liées aux US et au code (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/tache[ici]). Nous regarderons plus attentivement :
++
+- Définitions des tâches (issues ou task list)
+- Lien entre tâches et US
+- Lien entre tâche et code (branche, commit, etc?)
+
+tests:: la vérification du logiciel (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/test[ici]). Nous regarderons plus attentivement :
++
+- Existence des tests unitaires
+- Description des tests d'intégration
+- Couverture des tests
+- Pertinence des tests
+
+documentation:: les explications du logiciel (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/doc[ici]). Nous regarderons plus attentivement :
++
+- Existence/pertinence de la documentation
+- Lien entre documentation et US
+
+release:: ce qui va être déployé, exécuté et donc utilisé (plus de détails link:https://github.com/xblanc33/QualiteDev/blob/master/release[ici]). Nous regarderons plus attentivement :
++
+- Respect des releases hebdomadaires
+- Utilisation de l'intégration continue
+
+== Retours concrets
+
+Chaque début de semaine, vous aurez des retours sur le sprint de la semaine précédente sour la forme d'une spider-web (cf. <<spider>>) qui vous sera donnée sous la forme d'une URL de figure qui sera automatiquement mise à jour à partir de nos évaluations et qui devra être intégrée dans votre `README` (on vous donnera les consignes avec le lien).
+
